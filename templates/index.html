@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title%}
+Book Reviews
+{% endblock %}
+{% block test %}
+
+{% for eachBook in books%}
+{{book.title}}
+{%endfor%}
+{% endblock %}
