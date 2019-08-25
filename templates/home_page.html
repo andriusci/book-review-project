@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block result%}
+{% for eachBook in books %}
+   {{eachBook.title}}<br> 
+{% endfor %}
+{{books.count()}}
+{%endblock%}
+
+{% block search %}
+<form action="{{ url_for('searchResult') }}" method="POST">
+  <input type="text" name="searchBox" value="{{value}}">
+  <br>
+  <input type="submit" value="Submit">
+</form>
+{%endblock%}
