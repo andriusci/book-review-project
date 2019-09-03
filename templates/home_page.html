@@ -2,15 +2,28 @@
 
 {% block result%}
 {% for eachBook in books %}
-   {{eachBook.title}}<br> 
+{{ eachBook.title }}
+{{ eachBook.Genre }}
+<br>
 {% endfor %}
-{{books.count()}}
+{% for eachValue in values%}
 {%endblock%}
 
 {% block search %}
-<form action="{{ url_for('searchResult') }}" method="POST">
-  <input type="text" name="searchBox" value="{{value}}">
-  <br>
+<form action="{{ url_for('searchResult') }}" method="GET">
+  <input type="text" name="search term" value="{{searchTerm}}">
+  <select name="genre">
+      {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
+      {% set selected = ""%}
+      {%for eachOption in select%}
+         {%if eachOption == genre%}
+         {%set selected = "selected"%}
+         {%endif%}
+        <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
+      {%endfor%}
+    </select>
   <input type="submit" value="Submit">
 </form>
+<br>
 {%endblock%}
+

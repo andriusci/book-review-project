@@ -10,15 +10,27 @@ app.config["MONGO_URI"] = "mongodb+srv://dbAdmin:temporaryDevPassword@cluster0-9
 
 mongo = PyMongo(app)
 
+
+
+
 @app.route("/")
-def home_page():
-   return render_template("home_page.html", books=mongo.db.books.find().limit(10))
+def initResult():
+   books=mongo.db.books.find().limit(10) 
+   return render_template("home_page.html", books = books)
 
 
-#testing function**************************************
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/searchResult", methods=['GET', 'POST'])
 def searchResult():
-   searchTerm = request.form.get('searchBox')
-   mongo.db.books.create_index([('title', 'text')])
-   books=mongo.db.books.find({"$text": {"$search": searchTerm } }) 
-   return render_template("home_page.html", books = books, value = searchTerm )
+   searchTerm = request.args.get('search term')
+   genre = request.args.get('genre')
+   if searchTerm == "" and genre == "All genres":
+      books=mongo.db.books.find().limit(7)
+   elif searchTerm == "" and genre != "All genres":
+      books=mongo.db.books.find({"Genre": genre}) 
+   elif searchTerm != "" and genre == "All genres":
+       mongo.db.books.create_index([('title', 'text')])
+       books=mongo.db.books.find({"$text": {"$search": searchTerm }}) 
+   else:
+      mongo.db.books.create_index([('title', 'text')])
+      books=mongo.db.books.find({"$text": {"$search": searchTerm }, "Genre" : genre}) 
+   return render_template("home_page.html", books = books, searchTerm = searchTerm, genre = genre )
