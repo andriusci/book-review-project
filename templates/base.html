@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}title {% endblock %}</title>
+    <title></title>
 </head>
 <body>
     <h1>Search books</h1>
   
-{%block result%}
+
+
+{% block search_form %}
 {%endblock%}
 
-{% block search %}
-{%endblock%}
 
+{%block search_result%}
+{%endblock%}
+<br>
+{% block pagination%}
+{% endblock %}
 </body>
 </html>
 
