@@ -4,15 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title></title>
 </head>
 <body>
-    <h1>Search books</h1>
+<header class="fixed_top" >
+    <div class="navbar">
+          <div><strong>Reads</strong>Reviewed
+          </div>
+          <div id="search_bar">
+        {% block search_form %}
+        {%endblock%}
+          </div>
+          <div>
+            <a href="#">Sign in <i class="fas fa-sign-in-alt"></i></a>&nbsp
+          </div>
+          <div>
+            <button>  <a href="#">Add a book <i class="fas fa-plus"></i></a> </button> 
+            </div>
+    </div>
+</header>
+ 
+
+  
   
 
+    {%block test%}
+    {%endblock%}
+    <br>
+    {%block search%}
+    {%endblock%}
 
-{% block search_form %}
-{%endblock%}
 
 
 {%block search_result%}
@@ -20,6 +46,7 @@
 <br>
 {% block pagination%}
 {% endblock %}
+
 </body>
 </html>
 
