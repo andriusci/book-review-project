@@ -22,25 +22,32 @@
 </head>
 
 <body>
-<header class="fixed_top" >
-    <div class="navbar">
-          <div><strong>Reads</strong>Reviewed
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top ">
+          <div>
+         
+            <a href= "/"> <strong>home</strong> 
+              </a>
           </div>
+    
           <div id="search_bar">
         {% block search_form %}
         {%endblock%}
           </div>
-          <div>
-            <a href="#">Sign in <i class="fas fa-sign-in-alt"></i></a>&nbsp
-          </div>
-          <a href="test.html">test</a>
+
+
+
+          <div>&nbsp;
+
+
           <div>
             <button>  <a href="#">Add a book <i class="fas fa-plus"></i></a> </button> 
             </div>
-    </div>
+          </nav>
 </header>
  
-
+{%block log_in%}
+{%endblock%}
   
 {%block test1%}
 {%endblock%}
@@ -58,7 +65,10 @@
 <br>
 {% block pagination%}
 {% endblock %}
+</br>
 
+{%block user%}
+{%endblock%}
 </body>
 </html>
 

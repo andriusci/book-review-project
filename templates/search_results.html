@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 
 
+
+
 {% block search_form %}
 {%set searchValue = search_term%}
 {%if search_term == "All_books"%}
 {% set searchValue = ""%}
 {%endif%}
+
 <form action="{{ url_for('initialise') }}" method="POST">
   <input type="text" name="search term" value="{{searchValue}}">
+  
   <select name="genre">
       {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
       {% set selected = ""%}
@@ -19,9 +23,9 @@
       {%endfor%}
     </select>
   <input type="submit" value="Submit">
-  
 </form>
 <br>
+
 {%endblock%}
 
 
@@ -59,7 +63,7 @@
 {{search_term}}
 
 {% block pagination%}
-<h1>page
+<h1>current page
 {{current_page}}</h1>
 <h2>total pages = {{total_pages}}</h2>
 
@@ -77,22 +81,26 @@
 {%set go_to_page = current_page - 1%}
 <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">previous</a>
 {%endif%}
+{%if total_pages != 0%}
 <form action="{{ url_for('pagination') }}" method="POST">
   <input type="hidden" name="search" value="{{search_term}}">
   <input type="hidden" name="genre" value="{{genre}}">
   <input type="text" name="go to" value="{{current_page}}">
-
-
   <input type="submit" value="Submit">
-  
 </form>
+{%else%}
+jhgfghj
+{%endif%}
 {%if current_page < total_pages%}
 {%set go_to_page = current_page + 1%}
 <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">next</a>
 {%endif%}
 
 
-{%if current_page > total_pages%}
+
+
+
+{%if current_page > total_pages and total_pages != 0%}
 Unfortunately page {{current_page}} does not exist. Your search returned {{total_pages}} page(s).
 {%endif%}
 {% endblock %}

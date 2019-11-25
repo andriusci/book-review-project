@@ -15,11 +15,12 @@ mongo = PyMongo(app)
 
 
 
+@app.route("/")
+def home():
+      return render_template("index.html")
 
 
-
-
-@app.route("/searchAll",  methods=['GET', 'POST'])
+@app.route("/search_All",  methods=['GET', 'POST'])
 def initialise():
    if request.method == "POST":
       search_term = request.form['search term']
@@ -30,7 +31,7 @@ def initialise():
       search_term = "All_books"
       genre = "All genres"
    first_page = 1
-   return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = first_page ))
+   return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = first_page))
 
 @app.route("/pagination", methods=['GET', 'POST'])
 def pagination():
@@ -39,10 +40,6 @@ def pagination():
       genre = request.form['genre']
       go_to_page = request.form['go to']
       return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = go_to_page ))
-
-
-
-
 
 
 
@@ -66,27 +63,7 @@ def searchResults(search_term, genre, page_number):
                                               search_term = search_term, 
                                               genre = genre,
                                               current_page = page_number,
-                                              total_pages = total_pages)
-
-
-
-
-
-
-
-
-@app.route("/", methods=['GET', 'POST'])
-def test():
-   if request.method == "POST":
-      search_term = request.form['search']
-      genre = request.form['genre']
-      go_to_page = request.form['go to']
-      return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = go_to_page ))
-   else:
-      return render_template("home_page.html")
-
-
-
+                                              total_pages = total_pages) 
 
 
 @app.route("/Book_title:<title>/book_id:<book_id>")
@@ -106,14 +83,15 @@ def create_book_page(title, book_id):
       mostRatingIndex = ratingList.index(max(ratingList))
       totalRatings = sum(ratingList)
       #Set the widths of the rating chart bars (in relation to the biggest bar)
-      if ratingList[mostRatingIndex] < 300:
+      if ratingList[mostRatingIndex] != 0:
+       if ratingList[mostRatingIndex] < 300:
          factor = 300/ratingList[mostRatingIndex]
          i = 0
          while i < len(ratingList):
           ratingList[i] = ratingList[i] * factor
           ratingList[i] = int(ratingList[i])
           i += 1
-      else:
+       else:
          factor = ratingList[mostRatingIndex] / 300 
          i = 0
          while i < len(ratingList):
