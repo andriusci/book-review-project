@@ -72,11 +72,11 @@ def create_book_page(title, book_id):
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
    if (book):
       #Determine how many ratings the book has per each star category.
-      fiveStars =  mongo.db.reviews.find({"rating": "5", "book_ID" : ObjectId(book_id)}).count()
-      fourStars = mongo.db.reviews.find({"rating": "4", "book_ID" : ObjectId(book_id)}).count()
-      threeStars =  mongo.db.reviews.find({"rating": "3", "book_ID" : ObjectId(book_id)}).count()
-      twoStars = mongo.db.reviews.find({"rating": "2", "book_ID" : ObjectId(book_id)}).count()
-      oneStar =  mongo.db.reviews.find({"rating": "1", "book_ID" : ObjectId(book_id)}).count()
+      fiveStars =  mongo.db.reviews.find({"rating": 5, "book_ID" : ObjectId(book_id)}).count()
+      fourStars = mongo.db.reviews.find({"rating": 4, "book_ID" : ObjectId(book_id)}).count()
+      threeStars =  mongo.db.reviews.find({"rating": 3, "book_ID" : ObjectId(book_id)}).count()
+      twoStars = mongo.db.reviews.find({"rating": 2, "book_ID" : ObjectId(book_id)}).count()
+      oneStar =  mongo.db.reviews.find({"rating": 1, "book_ID" : ObjectId(book_id)}).count()
       numOfRatings = [fiveStars,fourStars, threeStars, twoStars, oneStar]
       #Determine which star category has most of the ratings and 
       #set the widths of the rating chart bars (in relation to the biggest bar)
