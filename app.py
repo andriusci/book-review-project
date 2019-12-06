@@ -69,6 +69,7 @@ def searchResults(search_term, genre, page_number):
 @app.route("/Book_title:<title>/book_id:<book_id>")
 def create_book_page(title, book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
+   reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
    if (book):
       #Determine how many ratings the book has per each star category.
       fiveStars =  mongo.db.reviews.find({"rating": "5", "book_ID" : ObjectId(book_id)}).count()
@@ -99,7 +100,11 @@ def create_book_page(title, book_id):
           ratingList[i] = int(ratingList[i])
           i += 1
          ratingList[mostRatingIndex] = 300
-      return render_template("book_page.html", book = book, ratingList = ratingList, numOfRatings = numOfRatings, totalRatings= totalRatings)
+      return render_template("book_page.html", book = book, 
+                                               reviews= reviews,
+                                               ratingList = ratingList, 
+                                               numOfRatings = numOfRatings, 
+                                               totalRatings= totalRatings)
 
 
 @app.route("/test.html")
