@@ -39,16 +39,21 @@
 
           <div>&nbsp;
 
-
-          <div>
-            <button>  <a href="#">Add a book <i class="fas fa-plus"></i></a> </button> 
-            </div>
+            
+              <div>
+                  <button>  <a href="{{ url_for('addBook') }}">Add a book <i class="fas fa-plus"></i></a> </button> 
+                  </div>
+       
+          
           </nav>
 </header>
  
 {%block log_in%}
 {%endblock%}
   
+{%block add_book%}
+{%endblock%}
+
 {%block test1%}
 {%endblock%}
 

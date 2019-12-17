@@ -110,3 +110,38 @@ def create_book_page(title, book_id):
 @app.route("/test.html")
 def test1():
      return render_template("test.html")
+
+@app.route("/addBook", methods=['GET', 'POST'])
+def addBook():
+    if request.method == "POST":
+       title = request.form['title']
+       description = request.form['description']
+       genre = request.form['genre']
+       author = request.form['author']
+       img = request.form['img']
+       isbn10 = request.form['isbn10']
+       isbn13 = request.form['isbn13']
+       format1 = request.form['format']
+       language = request.form['language']
+       publisher = request.form['publisher']
+       amazon = request.form['amazon']
+       num_before = mongo.db.books.find().count()#number of books before an attempt to insert new book
+       mongo.db.books.insert( { "title": title, 
+                                "description": description, 
+                                "genre" : genre,
+                                "author": author,
+                                "imgage" : img,
+                                "isbn10": isbn10,
+                                "isbn13" : isbn13,
+                                "format" : format1,
+                                "lang": language,
+                                "publisher" : publisher,
+                                "amazon" : amazon} )
+       num_after = mongo.db.books.find().count()#number of books after insertion
+       if num_after > num_before:#check if new book was added
+          message= "success"
+       else:
+          meassage ="something went wrong"
+       return render_template("addBook.html", numberB = num_before, numberA = num_after, message = message)
+    else:
+       return render_template("addBook.html")

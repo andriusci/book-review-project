@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{%block add_book%}
+<div>
+    <button>  <a href="{{ url_for('addBook') }}">Add a book <i class="fas fa-plus"></i></a> </button> 
+    </div>
+{%endblock%}
 
 {% block test %}
 <img style="max-height: 100px" src="/static/images/main.svg">
@@ -9,7 +14,6 @@
 {% block search%}
 <form action="{{ url_for('initialise') }}" method="POST">
         <input type="text" name="search term" value="{{searchValue}}">
-        <input type="text" name="user" value="{{logged_user}}">
         <select name="genre">
             {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
             {% set selected = ""%}
