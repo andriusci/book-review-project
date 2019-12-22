@@ -107,9 +107,7 @@ def create_book_page(title, book_id):
                                                totalRatings= totalRatings)
 
 
-@app.route("/test.html")
-def test1():
-     return render_template("test.html")
+
 
 @app.route("/addBook", methods=['GET', 'POST'])
 def addBook():
@@ -145,3 +143,57 @@ def addBook():
        return render_template("addBook.html", numberB = num_before, numberA = num_after, message = message)
     else:
        return render_template("addBook.html")
+
+@app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
+def review(book_id):
+   if request.method == "POST":
+    return render_template("review.html", book_id = book_id)
+   else:
+    return render_template("review.html", book_id = book_id)
+
+@app.route("/rate:bookID:<book_id>", methods=['GET', 'POST'])
+def rate(book_id):
+   if request.method == "POST":
+    book_id = request.form['book_id']
+    rating = int(request.form['rating'])
+    review = ""
+    mongo.db.reviews.insert( { "review": review, "book_ID" : ObjectId(book_id), "rating" : rating})
+    return render_template("iFrames/rateFeedback.html", rating = rating)
+   else:
+    return render_template("iFrames/rate.html", book_id = book_id)
+
+@app.route("/ratingChart:bookID:<book_id>", methods=['GET', 'POST'])
+def ratinChart(book_id):
+   #Determine how many ratings the book has per each star category.
+      fiveStars =  mongo.db.reviews.find({"rating": 5, "book_ID" : ObjectId(book_id)}).count()
+      fourStars = mongo.db.reviews.find({"rating": 4, "book_ID" : ObjectId(book_id)}).count()
+      threeStars =  mongo.db.reviews.find({"rating": 3, "book_ID" : ObjectId(book_id)}).count()
+      twoStars = mongo.db.reviews.find({"rating": 2, "book_ID" : ObjectId(book_id)}).count()
+      oneStar =  mongo.db.reviews.find({"rating": 1, "book_ID" : ObjectId(book_id)}).count()
+      numOfRatings = [fiveStars,fourStars, threeStars, twoStars, oneStar]
+      #Determine which star category has most of the ratings and 
+      #set the widths of the rating chart bars (in relation to the biggest bar)
+      ratingList = [fiveStars,fourStars,threeStars,twoStars,oneStar]
+      mostRatingIndex = ratingList.index(max(ratingList))
+      totalRatings = sum(ratingList)
+      #Set the widths of the rating chart bars (in relation to the biggest bar)
+      if ratingList[mostRatingIndex] != 0:
+       if ratingList[mostRatingIndex] < 300:
+         factor = 300/ratingList[mostRatingIndex]
+         i = 0
+         while i < len(ratingList):
+          ratingList[i] = ratingList[i] * factor
+          ratingList[i] = int(ratingList[i])
+          i += 1
+       else:
+         factor = ratingList[mostRatingIndex] / 300 
+         i = 0
+         while i < len(ratingList):
+          ratingList[i] = ratingList[i] / factor
+          ratingList[i] = int(ratingList[i])
+          i += 1
+         ratingList[mostRatingIndex] = 300
+      return render_template("iFrames/ratingChart.html", 
+                                               ratingList = ratingList, 
+                                               numOfRatings = numOfRatings, 
+                                               totalRatings= totalRatings)

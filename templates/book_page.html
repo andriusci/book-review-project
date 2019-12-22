@@ -25,6 +25,8 @@
  
 {% block test %}
 
+    
+  
 <div class="container-fluid">
  <div class="row">
      <div class="col-lg-3">
@@ -70,67 +72,42 @@
 </div>
     
    
-     
+<div class="row">
+    
+    <div class="col-lg-4 col-md-12" style="border: dashed red">
+    
+        <iframe name="ratingChart" style="border:1px solid red;    
+        height:350px;
+        width:100%;" src="/ratingChart:bookID:{{book._id}}"></iframe>
+       
+    
+     </div>
 
-    <!--Rating value x coordinates-->
-    {%set fiveStar_x = ratingList[0] + 52%}
-    {%set fourStar_x = ratingList[1] + 52%}
-    {%set threeStar_x = ratingList[2] + 52%}
-    {%set twoStar_x = ratingList[3] + 52%}
-    {%set oneStar_x = ratingList[4] + 52%}
-    <div class="wrapper" style="display: flex">
-      <div style="width: 400px; border: solid red">
-           <h3>rate</h3>
-                   <div class="c100 p70 center">
-                      <span>0%</span>
-                    <div class="slice">
-                      <div class="bar"></div>
-                      <div class="fill"></div>
-                     </div>
-                  </div>
-  
-          </br>
-      
-      <!--svg chart reflecting star ratings -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="400px" >
-            <text x="5" y="15" fill="black">5 Star</text>
-            <rect x="50" y="5" width="{{ratingList[0]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-            <text x="{{fiveStar_x}}" y="16" fill="black">{{numOfRatings[0]}}</text>
-            <text x="5" y="35" fill="black">4 Star</text>
-            <rect x="50" y="25"width=" {{ratingList[1]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-            <text x="{{fourStar_x}}" y="36" fill="black">{{numOfRatings[1]}}</text>
-            <text x="5" y="55" fill="black">3 Star</text>
-            <rect x="50" y="45" width=" {{ratingList[2]}}" height="12" stroke="#307bbb" fill="#307bbb"/>
-            <text x="{{threeStar_x}}" y="56" fill="black">{{numOfRatings[2]}}</text>
-            <text x="5" y="75" fill="black">2 Star</text>
-            <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-            <text x="{{twoStar_x}}" y="76" fill="black">{{numOfRatings[3]}}</text>
-            <text x="5" y="95" fill="black">1 Star</text>
-            <rect x="50" y="85" width=" {{ratingList[4]}}" height="12" stroke="#307bbb" fill="#307bbb"/>  
-            <text x="{{oneStar_x}}" y="96" fill="black">{{numOfRatings[4]}}</text>
-          </svg>   
-      </div>
-      <div style="width: 400px; border: solid red">
+   <!--"recomend" section-
+  <div class="col-lg-4 col-md-12" style="width: 400px; border: dashed red">
         <h3>recomend</h3>
           <div class="c100 p70 center">
               <span>0%</span>
             <div class="slice">
               <div class="bar"></div>
               <div class="fill"></div>
-             </div>
+            </div>
           </div>
-      </div>
-      <div style="width: 400px; border: solid red">
-        <h3>review</h3>
-      <div class="c100 p70 center">
-          <span>0%</span>
-        <div class="slice">
-          <div class="bar"></div>
-          <div class="fill"></div>
-         </div>
-      </div>
-      </div>
-    </div>
+  </div>-->
+    
+   <!--rate & review section-->
+    <div class="col-lg-4 col-md-12" style="border: dashed red">
+        <iframe style="border:1px solid red;    
+        height:350px;
+        width:220px;" src="/rate:bookID:{{book._id}}"></iframe>
+       
+    
+     </div>
+      
+       
+</div>
+</div> 
+
     
 <!--Review section-->
 reviews:
@@ -138,7 +115,7 @@ reviews:
 
 {% for eachReview in reviews %}
 
-
+{%if eachReview.review != ""%}
 
   <div style="border: solid red">
 
@@ -161,6 +138,9 @@ reviews:
      {{ eachReview.title }}
      <br>
      {{eachReview.review}}
+     
+     
+     {%endif%}
    </div>   
 
 <br>

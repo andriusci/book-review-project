@@ -1,14 +1,9 @@
 {% extends "base.html" %}
 
+{%block review%}
 
-
-{% block test %}
-<img style="max-height: 100px" src="/static/images/main.svg">
-{%endblock%}
-
-
-{% block search%}
-<form action="{{ url_for('initialise') }}" method="POST">
+ID = {{book_id}}
+<form action="/review:bookID:{{book_id}}" method="POST">
         <input type="text" name="search term" value="{{searchValue}}">
         <select name="genre">
             {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
@@ -20,11 +15,7 @@
               <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
             {%endfor%}
           </select>
-      
-       
         <input type="submit" value="Submit">
         
       </form>
-      {{logged_user}}
-{% endblock%}
-
+{%endblock%}
