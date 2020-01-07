@@ -214,16 +214,14 @@ def ratinChart(book_id):
 
 @app.route("/my_account", methods=['GET', 'POST'])
 def account():
-      #cookies = request.cookies  
-     # logged_user = cookies.get("logged_user")
-      logged_user = "666"
+      cookies = request.cookies  
+      logged_user = cookies.get("logged_user")
       if logged_user != None:
-      #  response = make_response(render_template("account.html", logged_user = logged_user))
-         return render_template("account.html")
-    #  else:
-       # response = make_response(render_template("log_in.html" ))
-       # response.set_cookie("destination", "account.html") 
-    #  return response
+        response = make_response(render_template("account.html", logged_user = logged_user))
+      else:
+        response = make_response(render_template("log_in.html" ))
+        response.set_cookie("destination", "account.html") 
+      return response
 
                                          
 
