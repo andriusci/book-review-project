@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, make_response
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import os
@@ -17,7 +17,9 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-      return render_template("index.html")
+      cookies = request.cookies  
+      logged_user = cookies.get("logged_user")
+      return render_template("index.html", logged_user= logged_user)
 
 
 @app.route("/search_All",  methods=['GET', 'POST'])
@@ -139,17 +141,29 @@ def addBook():
        if num_after > num_before:#check if new book was added
           message= "success"
        else:
-          meassage ="something went wrong"
+          message ="something went wrong"
        return render_template("addBook.html", numberB = num_before, numberA = num_after, message = message)
     else:
        return render_template("addBook.html")
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
 def review(book_id):
-   if request.method == "POST":
-    return render_template("review.html", book_id = book_id)
-   else:
-    return render_template("review.html", book_id = book_id)
+  cookies = request.cookies  
+  logged_user = cookies.get("logged_user")
+  if logged_user != None:
+     if request.method == "POST":
+        #data insert...........and return feedback
+        response = make_response(render_template("addBook.html" ))
+     else:
+       #responce = review page
+        response = make_response(render_template("review.html", book_id = book_id ))
+  else:
+      response = make_response(render_template("log_in.html" ))
+      response.set_cookie("destination", "review.html") 
+      response.set_cookie("book_id", book_id) 
+
+  return response
+
 
 @app.route("/rate:bookID:<book_id>", methods=['GET', 'POST'])
 def rate(book_id):
@@ -197,3 +211,41 @@ def ratinChart(book_id):
                                                ratingList = ratingList, 
                                                numOfRatings = numOfRatings, 
                                                totalRatings= totalRatings)
+
+@app.route("/my_account", methods=['GET', 'POST'])
+def account():
+      cookies = request.cookies  
+      logged_user = cookies.get("logged_user")
+      if logged_user != None:
+        response = make_response(render_template("account.html", logged_user = logged_user))
+      else:
+        response = make_response(render_template("log_in.html" ))
+        response.set_cookie("destination", "account.html") 
+      return response
+
+                                         
+
+@app.route("/log_in", methods=['GET', 'POST'])
+def log_in():
+   if request.method == "POST":
+       user = request.form['user_name']
+      
+       #check if the name exist in the users database
+       exists = mongo.db.users.find({"name": user}).count()
+       if exists != 0:
+           cookies = request.cookies  
+           dest = cookies.get("destination")
+           if dest == "review.html":
+              book_id = cookies.get("book_id")
+           else:
+              book_id ="NA"
+           destination_page = dest
+           response = make_response(render_template(destination_page, logged_user = user, book_id = book_id ))
+           response.set_cookie("logged_user", user)  
+       else:
+           response = make_response(render_template("log_in.html", error = True ))
+       return response
+
+   else:
+
+      return render_template("log_in.html")

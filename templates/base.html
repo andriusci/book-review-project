@@ -35,23 +35,34 @@
         {%endblock%}
           </div>
 
-
-
-          <div>&nbsp;
-
-            
-              <div>
+<div>
+  
+</div>
+         {%if logged_user != None%}
+          <div>
+              <a href="{{ url_for('account') }}">my account</a>
+            &nbsp;
+          </div>
+          {%else%}
+          <a href="{{ url_for('account') }}">log in</a>
+            {%endif%}
+          
+          <div>
                   <button>  <a href="{{ url_for('addBook') }}">Add a book <i class="fas fa-plus"></i></a> </button> 
                   </div>
        
           
           </nav>
+  
+        
+      
 </header>
  <br>
  <br>
  <br>
 
-  
+{%block log_in%}
+{%endblock%}  
 {%block review%}
 {%endblock%}
 
@@ -66,7 +77,9 @@
     <br>
     {%block search%}
     {%endblock%}
+    {%block user_account%}
 
+    {%endblock%}
 
 
 {%block search_result%}
