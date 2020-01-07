@@ -142,9 +142,16 @@ def addBook():
           message= "success"
        else:
           message ="something went wrong"
-       return render_template("addBook.html", numberB = num_before, numberA = num_after, message = message)
+       response = render_template("addBook.html", numberB = num_before, numberA = num_after, message = message)
     else:
-       return render_template("addBook.html")
+        cookies = request.cookies  
+        user = cookies.get("logged_user")
+        if user != None:
+          response = make_response(render_template("addBook.html"))
+        else:
+          response = make_response(render_template("log_in.html" ))
+          response.set_cookie("destination", "addBook.html") 
+    return response
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
 def review(book_id):
@@ -215,8 +222,9 @@ def ratinChart(book_id):
 @app.route("/my_account", methods=['GET', 'POST'])
 def account():
       cookies = request.cookies  
-      logged_user = cookies.get("logged_user")
-      if logged_user != None:
+      user = cookies.get("logged_user")
+      if user != None:
+        logged_user = mongo.db.users.find({"name": user})
         response = make_response(render_template("account.html", logged_user = logged_user))
       else:
         response = make_response(render_template("log_in.html" ))
