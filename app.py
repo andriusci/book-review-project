@@ -220,10 +220,10 @@ def account():
       if logged_user != None:
       #  response = make_response(render_template("account.html", logged_user = logged_user))
          return render_template("account.html")
-      else:
-        response = make_response(render_template("log_in.html" ))
+    #  else:
+       # response = make_response(render_template("log_in.html" ))
        # response.set_cookie("destination", "account.html") 
-      return response
+    #  return response
 
                                          
 
