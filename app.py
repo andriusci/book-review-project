@@ -216,12 +216,13 @@ def ratinChart(book_id):
 def account():
       #cookies = request.cookies  
      # logged_user = cookies.get("logged_user")
-      logged_user = ""
+      logged_user = "666"
       if logged_user != None:
-        response = make_response(render_template("account.html", logged_user = logged_user))
+      #  response = make_response(render_template("account.html", logged_user = logged_user))
+         return render_template("account.html")
       else:
         response = make_response(render_template("log_in.html" ))
-        response.set_cookie("destination", "account.html") 
+       # response.set_cookie("destination", "account.html") 
       return response
 
                                          
