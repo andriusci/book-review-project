@@ -85,6 +85,7 @@ def create_book_page(title, book_id):
       ratingList = [fiveStars,fourStars,threeStars,twoStars,oneStar]
       mostRatingIndex = ratingList.index(max(ratingList))
       totalRatings = sum(ratingList)
+
       #Set the widths of the rating chart bars (in relation to the biggest bar)
       if ratingList[mostRatingIndex] != 0:
        if ratingList[mostRatingIndex] < 300:
@@ -102,11 +103,12 @@ def create_book_page(title, book_id):
           ratingList[i] = int(ratingList[i])
           i += 1
          ratingList[mostRatingIndex] = 300
+     
       return render_template("book_page.html", book = book, 
                                                reviews= reviews,
                                                ratingList = ratingList, 
                                                numOfRatings = numOfRatings, 
-                                               totalRatings= totalRatings)
+                                               totalRatings= totalRatings,)
 
 
 
@@ -160,6 +162,8 @@ def review(book_id):
   if logged_user != None:
      if request.method == "POST":
         #data insert...........and return feedback
+
+        review = mongo.db.reviews.insert
         response = make_response(render_template("addBook.html" ))
      else:
        #responce = review page
@@ -214,10 +218,18 @@ def ratinChart(book_id):
           ratingList[i] = int(ratingList[i])
           i += 1
          ratingList[mostRatingIndex] = 300
+      #calculate average rating (out of 5)
+      if totalRatings != 0:
+           average = (fiveStars * 5 + fourStars * 4 + threeStars * 3 + twoStars * 2 + oneStar * 1) / totalRatings  
+           average = round(average)
+      #calculate circle diameter
+      d = average * 20
       return render_template("iFrames/ratingChart.html", 
                                                ratingList = ratingList, 
                                                numOfRatings = numOfRatings, 
-                                               totalRatings= totalRatings)
+                                               totalRatings= totalRatings,
+                                               average= average,
+                                               d = d )
 
 @app.route("/my_account", methods=['GET', 'POST'])
 def account():
@@ -257,3 +269,36 @@ def log_in():
    else:
 
       return render_template("log_in.html")
+
+
+@app.route("/recommend:bookID:<book_id>", methods=['GET', 'POST'])
+def recomend(book_id):
+   cookies = request.cookies  
+   user = cookies.get("logged_user")
+   if request.method == "POST":
+      user = request.form['user']
+      if user == "None":
+         user = ""
+      recommend = request.form['recommend']
+      if recommend == "yes":
+         mongo.db.recommend.insert({"recommend": True, "user": user, "book_id" : book_id })
+      else:
+          mongo.db.recommend.insert({"recommend": False, "user": user , "book_id" : book_id})
+      total =  mongo.db.recommend.find().count()
+      yes = mongo.db.recommend.find({"recommend": True}).count()
+      if yes != 0:
+         recommend =  round(yes / (total/100)) 
+      else:
+         recommend = 0  
+      return render_template("iFrames/recommend.html", recommend = recommend, 
+                                                      total = total,
+                                                      feedback = True)
+      #Determine how many users would recomend the book.
+   total =  mongo.db.recommend.find().count()
+   yes = mongo.db.recommend.find({"recommend": True}).count()
+   if total and yes != 0:
+      recommend =  round(yes / (total/100))
+   else:
+      recommend = 0
+   return render_template("iFrames/recommend.html", recommend = recommend, total = total, book_id = book_id, logged_user = user) 
+                                              

@@ -16,13 +16,54 @@
       {%set twoStar_x = ratingList[3] + 52%}
       {%set oneStar_x = ratingList[4] + 52%}
       
-             <h3>rate</h3>
-                     <div class="c100 p20 center">
-                        <span>0%</span>
+      <style type="text/css" >
+              
+              
+              
+       svgw {
+            width: 2em;
+            height: 2em;
+            fill: #F8C417;
+            pointer-events: none;
+          
+        }
+       
+          
+        
+          
+         
+                        
+                     
+                        
+                     
+                        </style>
+             <svg height="44" width="44">
+                <symbol id="star" viewBox="0 0 98 92">
+                <title>star</title>
+                <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#F8C417"/>
+              </svg>
+              
+              
+                
+                 
+                 
+                 
+              
+             
+            
+                  <div class="c100 p{{d}} center" id="ratingChart">
+                     <span>
+                        <span id="r1">
+                            <svg height="44" width="44"><use xlink:href="#star"></use></svg>
+                        </span><br>
+                        <span id="r2">{{average}}</span><br>
+                        <span id="r3">out of 5</span><br>
+                      </span>
                       <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>
-                       </div>
+                     </div>
+
                     </div>
     
             </br>
@@ -37,7 +78,7 @@
               <text x="{{fourStar_x}}" y="36" fill="black">{{numOfRatings[1]}}</text>
               <text x="5" y="55" fill="black">3 Star</text>
               <rect x="50" y="45" width=" {{ratingList[2]}}" height="12" stroke="#307bbb" fill="#307bbb"/>
-              <text x="{{threeStar_x - 40}}" y="56" fill="black">{{numOfRatings[2]}}</text>
+              <text x="{{threeStar_x}}" y="56" fill="black">{{numOfRatings[2]}}</text>
               <text x="5" y="75" fill="black">2 Star</text>
               <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{twoStar_x}}" y="76" fill="black">{{numOfRatings[3]}}</text>

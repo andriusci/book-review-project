@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
+</head>
+<body>
+       
+       
+                  <div class="c100 p{{recommend}} center" id="ratingChart">
+                     <span>
+                        <span id="r1">
+                            <svg height="44" width="44"><use xlink:href="#star"></use></svg>
+                        </span><br>
+                        <span id="r2">{{recommend}}%</span><br>
+                        <span id="r3">recomend</span><br>
+                      </span>
+                
+                      <div class="slice">
+                     
+                        <div class="bar"></div>
+                            
+                        <div class="fill"></div>
+                     </div>
+
+                    </div>
+    
+            </br>
+            
+            Based on {{total}} recommendations.<br>
+            {%if feedback == true%}
+            Thank you for your feedback
+            {%else%}
+            <div>
+             
+                <strong>Would you recommend this book?</strong><br>
+              
+                <form action="/recomend:bookID:{{book_id}}" method="POST">
+                    <input type="hidden" name="recommend" value="yes">
+                    <input type="hidden" name="user" value="{{logged_user}}">
+            
+                    <input type="submit" value="Yes">
+                </form>  
+                <form action="/recomend:bookID:{{book_id}}" method="POST">
+                    <input type="hidden" name="recommend" value="no">
+                    <input type="hidden" name="user" value="{{logged_user}}">
+                    <input type="submit" value="No">
+                </form> 
+           
+            </div>
+           {%endif%}
+     
+</body>
+</html>
