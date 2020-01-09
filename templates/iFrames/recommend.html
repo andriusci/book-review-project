@@ -39,13 +39,13 @@
              
                 <strong>Would you recommend this book?</strong><br>
               
-                <form action="/recomend:bookID:{{book_id}}" method="POST">
+                <form action="/recommend:bookID:{{book_id}}" method="POST">
                     <input type="hidden" name="recommend" value="yes">
                     <input type="hidden" name="user" value="{{logged_user}}">
             
                     <input type="submit" value="Yes">
                 </form>  
-                <form action="/recomend:bookID:{{book_id}}" method="POST">
+                <form action="/recommend:bookID:{{book_id}}" method="POST">
                     <input type="hidden" name="recommend" value="no">
                     <input type="hidden" name="user" value="{{logged_user}}">
                     <input type="submit" value="No">
