@@ -73,42 +73,9 @@ def create_book_page(title, book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
    if (book):
-      #Determine how many ratings the book has per each star category.
-      fiveStars =  mongo.db.reviews.find({"rating": 5, "book_ID" : ObjectId(book_id)}).count()
-      fourStars = mongo.db.reviews.find({"rating": 4, "book_ID" : ObjectId(book_id)}).count()
-      threeStars =  mongo.db.reviews.find({"rating": 3, "book_ID" : ObjectId(book_id)}).count()
-      twoStars = mongo.db.reviews.find({"rating": 2, "book_ID" : ObjectId(book_id)}).count()
-      oneStar =  mongo.db.reviews.find({"rating": 1, "book_ID" : ObjectId(book_id)}).count()
-      numOfRatings = [fiveStars,fourStars, threeStars, twoStars, oneStar]
-      #Determine which star category has most of the ratings and 
-      #set the widths of the rating chart bars (in relation to the biggest bar)
-      ratingList = [fiveStars,fourStars,threeStars,twoStars,oneStar]
-      mostRatingIndex = ratingList.index(max(ratingList))
-      totalRatings = sum(ratingList)
-
-      #Set the widths of the rating chart bars (in relation to the biggest bar)
-      if ratingList[mostRatingIndex] != 0:
-       if ratingList[mostRatingIndex] < 300:
-         factor = 300/ratingList[mostRatingIndex]
-         i = 0
-         while i < len(ratingList):
-          ratingList[i] = ratingList[i] * factor
-          ratingList[i] = int(ratingList[i])
-          i += 1
-       else:
-         factor = ratingList[mostRatingIndex] / 300 
-         i = 0
-         while i < len(ratingList):
-          ratingList[i] = ratingList[i] / factor
-          ratingList[i] = int(ratingList[i])
-          i += 1
-         ratingList[mostRatingIndex] = 300
-     
       return render_template("book_page.html", book = book, 
-                                               reviews= reviews,
-                                               ratingList = ratingList, 
-                                               numOfRatings = numOfRatings, 
-                                               totalRatings= totalRatings,)
+                                               reviews= reviews)
+                                               
 
 
 
@@ -162,9 +129,18 @@ def review(book_id):
   if logged_user != None:
      if request.method == "POST":
         #data insert...........and return feedback
-
-        review = mongo.db.reviews.insert
-        response = make_response(render_template("addBook.html" ))
+        title = request.form['title']
+        review = request.form['review']
+        rating = int(request.form['rating'])
+        book_id = request.form['book_id']
+        logged_user = logged_user
+        mongo.db.reviews.insert({"title": title,
+                                 "review": review,
+                                 "rating" : rating, 
+                                 "user": logged_user, 
+                                 "book_ID" : ObjectId(book_id)})
+        submitted = True
+        response = make_response(render_template("review.html", book_id =book_id, status = submitted ))
      else:
        #responce = review page
         response = make_response(render_template("review.html", book_id = book_id ))
@@ -183,9 +159,10 @@ def rate(book_id):
     rating = int(request.form['rating'])
     review = ""
     mongo.db.reviews.insert( { "review": review, "book_ID" : ObjectId(book_id), "rating" : rating})
-    return render_template("iFrames/rateFeedback.html", rating = rating)
+    submitted = True
    else:
-    return render_template("iFrames/rate.html", book_id = book_id)
+    submitted = False
+   return render_template("iFrames/rate.html", book_id = book_id, submitted = submitted)
 
 @app.route("/ratingChart:bookID:<book_id>", methods=['GET', 'POST'])
 def ratinChart(book_id):
@@ -221,9 +198,12 @@ def ratinChart(book_id):
       #calculate average rating (out of 5)
       if totalRatings != 0:
            average = (fiveStars * 5 + fourStars * 4 + threeStars * 3 + twoStars * 2 + oneStar * 1) / totalRatings  
-           average = round(average)
-      #calculate circle diameter
-      d = average * 20
+           average = round(average,1)
+           #calculate circle diameter
+           d = round(average) * 20
+      else:
+         average = 0
+         d=0
       return render_template("iFrames/ratingChart.html", 
                                                ratingList = ratingList, 
                                                numOfRatings = numOfRatings, 
@@ -251,8 +231,8 @@ def log_in():
        user = request.form['user_name']
       
        #check if the name exist in the users database
-       exists = mongo.db.users.find({"name": user}).count()
-       if exists != 0:
+       exists = mongo.db.users.find_one({"name": user})
+       if exists:
            cookies = request.cookies  
            dest = cookies.get("destination")
            if dest == "review.html":
@@ -284,8 +264,8 @@ def recomend(book_id):
          mongo.db.recommend.insert({"recommend": True, "user": user, "book_id" : book_id })
       else:
           mongo.db.recommend.insert({"recommend": False, "user": user , "book_id" : book_id})
-      total =  mongo.db.recommend.find().count()
-      yes = mongo.db.recommend.find({"recommend": True}).count()
+      total =  mongo.db.recommend.find({"book_id": book_id}).count()
+      yes = mongo.db.recommend.find({"book_id": book_id, "recommend": True}).count()
       if yes != 0:
          recommend =  round(yes / (total/100)) 
       else:
@@ -294,11 +274,40 @@ def recomend(book_id):
                                                       total = total,
                                                       feedback = True)
       #Determine how many users would recomend the book.
-   total =  mongo.db.recommend.find().count()
-   yes = mongo.db.recommend.find({"recommend": True}).count()
+   total =  mongo.db.recommend.find({"book_id":book_id}).count()
+   yes = mongo.db.recommend.find({"recommend": True, "book_id":book_id}).count()
    if total and yes != 0:
       recommend =  round(yes / (total/100))
    else:
       recommend = 0
    return render_template("iFrames/recommend.html", recommend = recommend, total = total, book_id = book_id, logged_user = user) 
                                               
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+   if request.method == "POST":
+      cookies = request.cookies  
+      dest = cookies.get("destination")
+      user = request.form['user_name']
+      pass1 = request.form['password']
+      pass2 = request.form['password2']
+      email = request.form['email']
+      #check if user name already exist. If not proceed with registration.
+      exists = mongo.db.users.find_one({"name": user})
+      if exists:
+         return render_template("register.html", userError = True, email = email)
+      elif pass1 != pass2:
+         return render_template("register.html", userError = False, passError = True, email = email, user = user)
+      else:
+         mongo.db.users.insert({"name": user, "pasword": pass1, "email": email})
+         response =  make_response(render_template("register.html", success = True, dest = dest, user = user))
+         response.set_cookie("logged_user", user)
+         return response
+   else:
+      return render_template("register.html")
+
+
+@app.route("/delete")
+def delete():
+   mongo.db.recommend.remove()
+   mongo.db.reviews.remove()
+   return render_template("index.html")

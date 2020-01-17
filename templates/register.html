@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+
+{%block register%}
+{%if userError == True%}
+User named {{user}} already exsist in our database. Please choose other user name.<br>
+{%endif%}
+eee{{success}}
+{%if success != True%}
+<form action="/register" method="POST">
+<label for="user_name">User name</label>
+<input type="text" name="user_name" id="user_name" value="{{user}}"required><br>
+
+<label for="email">Email</label>
+<input type="email" name="email" id="email" value="{{email}}"required><br>
+{%if passError == True%}
+passwords do not match
+{%endif%}
+<label for="password">Password</label>
+<input type="password" name="password" id="password"required>
+<input type="password" name="password2" id="password2" required><br>
+<input type="submit" value="submit">
+
+</form>
+{%else%}
+Hello {{user}} Thank you for registration. 
+{%if dest == "addBook.html"%}
+you can now add a book 
+{%endif%}
+{%endif%}
+{%endblock%}

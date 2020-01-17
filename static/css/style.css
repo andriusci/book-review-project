@@ -4,3 +4,139 @@
 .navbar{ display: flex }
 
 /*rating stars*/
+svg {
+    fill: #E1E1E1;
+    pointer-events: none;
+  }
+  
+  .stars {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: flex-end;
+  }
+  
+  .star.is-selected svg,
+  .star.is-selected ~ .star svg {
+    fill: #f8c417;
+  }
+  
+  .star:hover svg,
+  .star:hover ~ .star svg {
+    fill: #f8c417;
+  }
+  
+  #rated {
+    margin-top: 1em;
+    padding-left:40px;
+    color: grey;
+    text-decoration: none;
+    animation: fadein 2s;
+  }
+  .rate{
+    width: 34px;
+  }
+  .rtl {
+    direction: ltr;
+  }
+  #stars{
+    padding-top:15;
+    padding-left: 9;
+  }
+
+
+
+  /* iFrames */
+  /*  rate chart iFrame */
+  iframe{
+    min-height: 400px;
+    min-width: 400px;
+  }
+  .iFrameWrap{
+    text-align: center
+  }
+
+  .frameWrapper{
+    text-align: center
+  }
+ 
+  /* charts & circles */
+  #singleStar{
+    padding-left: 10px;
+    padding-top: 16px;
+    height: 1em;
+    width: 1em;
+  }
+  #star{
+    font-size: 1em;
+  }
+  
+  #rateCircle{
+    font-size: 0.1em
+  }
+  #rate_button{
+    position: absolute;
+    top: 120;
+    left: 60;
+      background-color: #f5f5f5;
+      border: none;
+      color: rgb(85, 83, 83);
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    
+  
+  }
+  .yes, .no{
+    color: #307bbb;
+    background-color: white;
+    border: solid 2px #307bbb;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    min-width: 4em;
+    padding: 5px 9px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .yes:hover, .no:hover{
+    border: solid 3px  #307bbb;
+  }
+  .yes{float: right;}
+.no{float: left}
+  #thanks{
+    padding-top: 72px;
+    font-size: 0.16em;
+    padding-left: 19;
+  }
+#review{
+  font-size: 22;
+  color: #F7D002;
+  border: solid 2px #F7D002;
+  padding: 12 8;
+  text-decoration: none;
+}
+#review:hover{
+  border: solid 3px;
+}
+
+#like{
+  width: 1em;
+  position: absolute;
+  top: 0.5em;
+  left: 2em;
+}
+
+
+
+  .book_img{
+    width: 100%;
+  }
+
+
+  /* reviews book page */
+  #revStars{
+    font-size: 4em
+  }

@@ -8,14 +8,18 @@
 <br>
 <br>
 <br>
+<div><h3>Log in</h3></div>
 {%if error == True%}
-errors
+<span style ="color: red">User name or password do not match:</span>
 {%endif%}
+ 
 <form action="/log_in" method="POST">
     <input type="text" name="user_name">
     <input type="password" name="password">
     <input type="submit" value="log in">
 </form>
-<h3>{{logged_user}} log in</h3>
+<div><h5>Don't have an account?</h5>
+<a href="/register">Register</a>
+</div>
 
 {%endblock%}

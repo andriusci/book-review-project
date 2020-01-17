@@ -1071,3 +1071,40 @@
 .c100 > span{
   line-height: 1em
 }
+
+ #rateBar{
+  border: 0.08em solid #f8c417;
+}
+#fillBar{
+  border:none;
+}
+#r2{
+  color: #f8c417;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 0.55em;
+}
+
+#r3{
+  font-size: 0.5em;
+  position: absolute;
+  top: 6.6em;
+  left: 3.6em;
+  color: grey
+}
+#percent{
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  left: 0.3em;
+  color: #307bbb
+}
+#recommend{
+
+  color: grey;
+  font-size: 0.6em;
+  position: absolute;
+  top: 5.3em;
+  left: 2em;
+}

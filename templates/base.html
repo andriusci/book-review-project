@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -26,15 +26,37 @@
     <nav class="navbar navbar-default navbar-fixed-top ">
           <div>
          
-            <a href= "/"> <strong>home</strong> 
+            <a href= "/"> <strong>home</strong> &nbsp
               </a>
           </div>
     
-          <div id="search_bar">
-        {% block search_form %}
-        {%endblock%}
-          </div>
 
+          {%set root = request.url%}
+          {%if root != "http://127.0.0.1:5000/"%}
+          <div id="search_bar">
+              
+              {%set searchValue = search_term%}
+              {%if search_term == "All_books"%}
+              {% set searchValue = ""%}
+              {%endif%}
+              
+              <form action="{{ url_for('initialise') }}" method="POST">
+                <input type="text" name="search term" value="{{searchValue}}">
+                
+                <select name="genre">
+                    {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
+                    {% set selected = ""%}
+                    {%for eachOption in select%}
+                       {%if eachOption == genre%}
+                       {%set selected = "selected"%}
+                       {%endif%}
+                      <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
+                    {%endfor%}
+                  </select>
+                <input type="submit" value="Submit">
+              </form>
+          </div>
+          {%endif%}
 <div>
   
 </div>
@@ -54,13 +76,14 @@
           
           </nav>
   
-        
+     
       
 </header>
  <br>
  <br>
  <br>
-
+{%block register%}
+{%endblock%}
 {%block log_in%}
 {%endblock%}  
 {%block review%}

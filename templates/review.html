@@ -1,21 +1,74 @@
 {% extends "base.html" %}
 
 {%block review%}
-
-ID = {{book_id}}
-<form action="/review:bookID:{{book_id}}" method="POST">
-        <input type="text" name="search term" value="{{searchValue}}">
-        <select name="genre">
-            {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
-            {% set selected = ""%}
-            {%for eachOption in select%}
-               {%if eachOption == genre%}
-               {%set selected = "selected"%}
-               {%endif%}
-              <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
-            {%endfor%}
-          </select>
+<style>
+    svg {width: 1.8em}
+ </style>  
+<!-- if review was already submitted do not show the form -->
+{%if status != True%}
+<form action="/review:bookID:{{book_id}}" method="POST" id="review_form">
+        <input type="text" name="title" value=""><br>
+       <textarea rows="4" cols="50" name="review" form="review_form">
+           </textarea> 
+         
+            <span >
+                <svg style="display: none">
+                    <symbol id="star" viewBox="0 0 98 92">
+                    <title>star</title>
+                    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill-rule='evenodd'/>
+                  </svg>
+                  
+                  <div style="display: inline-block">
+                    <div id="stars" class="stars">
+                      <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                      <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                      <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                      <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                      <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                    </div>
+                  </div>
+                
+                
+             </span><br>
+        <input type="hidden" name="book_id" value="{{book_id}}">
+        <input type="hidden" name="rating" id="rating" value = 0>
         <input type="submit" value="Submit">
-        
+      
       </form>
+<!-- override gllobal svg style  -->
+                   
+                   
+                  
+                 
+                     
+                       
+        
+        
+    {%else%}
+    thank you for your review
+    {%endif%}    
+        
+           
+                
+        
+   
+        
+        
+        
+                          <script>
+                          
+        var starContainer = document.getElementById('stars')
+        var stars = Array.prototype.slice.call(starContainer.children)
+        var totalStars = stars.length
+        var rated = document.getElementById('rated')
+        
+       
+        starContainer.addEventListener('click', function(e) {
+          var index = stars.indexOf(e.target)
+          var count = totalStars - index;
+          stars.forEach(el => el.classList.remove('is-selected'))
+          e.target.classList.add('is-selected')
+          document.getElementById("rating").value = count;
+        })
+                          </script>
 {%endblock%}

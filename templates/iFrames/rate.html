@@ -1,88 +1,69 @@
 <html>
     <head>
             
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">     
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">    
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+
     </head>
     <body>
-          
-            <style type="text/css" >
-              
-              
-              
-svg {
-    width: 2em;
-    height: 2em;
-    fill: #E1E1E1;
-    pointer-events: none;
-  }
-  
-  .stars {
-    display: flex;
-    flex-flow: row-reverse;
-    justify-content: flex-end;
-  }
-  
-  .star.is-selected svg,
-  .star.is-selected ~ .star svg {
-    fill: #F8C417;
-  }
-  
-  .star:hover svg,
-  .star:hover ~ .star svg {
-    fill: #F8C417;
-  }
-  
-  #rated {
-    margin-top: 1em;
-    padding-left:40px;
-    color: grey;
-    text-decoration: none;
-    animation: fadein 2s;
-  }
-  
-  .rtl {
-    direction: ltr;
-  }
-
-                
-             
-                
-             
-                </style>
-           
-     
-
-<div style="border: solid red 1px;padding-top: 35px; padding-left: 20px;
-height: 60px;
-border-radius:50%;
--moz-border-radius:50%;
--webkit-border-radius:50%;" >
-    <svg  style="display: none">
-            <symbol id="star" viewBox="0 0 98 92">
-            <title>star</title>
-            <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill-rule='evenodd'/>
-          </svg>
-          
-          <div style="display: inline-block">
-            <div id="stars" class="stars">
-              <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-              <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-              <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-              <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-              <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-            </div>
-          </div>
-          <form action="/rate:bookID:{{book_id}}" method="POST"> 
-            <input type="hidden" id="rating" name="rating" value="">
-            <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
-            <input type="submit" id="rate_button" value="RATE IT!">
-          </form>
         
+     <style>
+       /* override global svg style */
+      svg {width:1.8em}
+      </style>
+            <div class="frameWrapper">
+       
+                <svg style="display: none">
+                    <symbol id="star" viewBox="0 0 98 92">
+                    <title>star</title>
+                    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill-rule='evenodd'/>
+                  </svg>
+             
+           
+           <div class="c100  center" id="ratingChart">
+             {%if submitted == false%}
+              <span id="rateCircle">
+
+                    <div style="display: inline-block">
+                      <div id="stars" class="stars">
+                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
+                      </div>
+                    </div>
+                    <form action="/rate:bookID:{{book_id}}" method="POST"> 
+                      <input type="hidden" id="rating" name="rating" value="">
+                      <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
+                      <input type="submit" id="rate_button" value="RATE IT!" onclick="parent.ratingChart.location.reload();">
+                    </form>
+                  
+               </span>
+            
+
+               {%else%}
+               <span id="thanks">Thanks for<br>your rating</span>
+               
+               {%endif%}
+               <div class="slice">
+                 <div class="bar" id="rateBar"></div>    
+                 <div class="fill" id="fillBar"></div>
+              </div>
+
+             </div>
+
+
+
+   
+        
+
+<h4>Have you read this book?</h4>
+
+<a href="/review:bookID:{{book_id}}" base target="_parent" id="review">Write a review</a>
 </div>
-<h2>Have you read this book?</h2>
-
-<a href="/review:bookID:{{book_id}}" base target="_parent">write a review</a>
-
                   <script>
   document.getElementById("rate_button").disabled = true;                  
 var starContainer = document.getElementById('stars')
@@ -98,7 +79,15 @@ starContainer.addEventListener('click', function(e) {
   document.getElementById("rating").value = count;
  
   document.getElementById("rate_button").disabled = false;
-  
+  document.getElementById("rate_button").style.cssText = "color:#f8c417; font-weight: 900; border-bottom: solid 2px";
+  document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
+  if (count > 2){
+    document.getElementById("fillBar").style.border = "0.08em solid #f8c417";
+  } else {
+    document.getElementById("fillBar").style.border = "none";
+  }
+ 
+
 })
                   </script>
     </body>

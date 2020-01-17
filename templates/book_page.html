@@ -1,26 +1,5 @@
 {% extends "base.html" %}
-{% block search_form %}
-{%set searchValue = search_term%}
-{%if search_term == "All_books"%}
-{% set searchValue = ""%}
-{%endif%}
-<form action="{{ url_for('initialise') }}" method="POST">
-  <input type="text" name="search term" value="{{searchValue}}">
-  <select name="genre">
-      {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
-      {% set selected = ""%}
-      {%for eachOption in select%}
-         {%if eachOption == genre%}
-         {%set selected = "selected"%}
-         {%endif%}
-        <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
-      {%endfor%}
-    </select>
-  <input type="submit" value="Submit">
-  
-</form>
-<br>
-{%endblock%}
+
 
  
 {% block test %}
@@ -29,17 +8,17 @@
   
 <div class="container-fluid">
  <div class="row">
-     <div class="col-lg-3">
-      <image src="{{ book.get('image')}}">
+     <div class="col-md-3">
+      <image class="book_img" src="{{ book.get('image')}}">
      </div>
-     <div class="col-lg-6">
+     <div class="col-md-6" >
            <h1> {{ book.get("title")}}</h1>
            By: {{ book.get("author")}}<br>
            <p>
             {{ book.get("description")}}
             </p>
         </div>
-      <div class="col-lg-3">
+      <div class="col-md-3">
         <br>
         <br>
         <br>
@@ -72,30 +51,24 @@
 </div>
     
    
-<div class="row">
+<div class="row iFrameWrap">
     
-    <div class="col-lg-4 col-md-12" style="border: dashed red">
+    <div class="col-lg-4 col-md-12 " >
     
-        <iframe name="ratingChart" style="border:1px solid red;    
-        height:350px;
-        width:100%;" src="/ratingChart:bookID:{{book._id}}"></iframe>
+        <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no" src="/ratingChart:bookID:{{book._id}}"></iframe>
        
     
      </div>
 
  <!--recomend section-->
 
-  <div class="col-lg-4 col-md-12" style="width: 400px; border: dashed red">
-      <iframe name="recomend" style="border:1px solid red;    
-      height:350px;
-      width:100%;" src="/recommend:bookID:{{book._id}}"></iframe>
+  <div class="col-lg-4 col-md-12" >
+      <iframe name="recomend" frameborder="no" scrolling="no"  src="/recommend:bookID:{{book._id}}"></iframe>
   </div>
     
    <!--rate & review section-->
-    <div class="col-lg-4 col-md-12" style="border: dashed red">
-        <iframe style="border:1px solid red;    
-        height:350px;
-        width:220px;" src="/rate:bookID:{{book._id}}"></iframe>
+    <div class="col-lg-4 col-md-12">
+        <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
        
     
      </div>
@@ -104,32 +77,40 @@
 </div>
 </div> 
 
-    
+<svg>
+    <symbol id="yellow" viewBox="0 0 98 92">
+    <title>star</title>
+    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#f8c417"/>
+    </svg>
+    <svg>
+        <symbol id="grey" viewBox="0 0 98 92">
+        <title>star</title>
+        <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="grey"/>
+        </svg>
 <!--Review section-->
 reviews:
   <br>
-
+ 
 {% for eachReview in reviews %}
 
-{%if eachReview.review != ""%}
+{%if eachReview.review != "" %}
 
   <div style="border: solid red">
-
+   
+     
+            
+         
       
       {%for x in range(1,6)%}
         {%if x == eachReview.rating or x < eachReview.rating%}
-         <svg height="25" width="25">
-             <polygon points="12.5,1.25 5,24.75 23.75,9.75 1.25,9.75 20,24.75" style="fill:lime;fill-rule:nonzero;"/>
-             Sorry, your browser does not support inline SVG.
-        </svg>
+        <svg style="width: 2em; height: 2em"><use xlink:href="#yellow" class="is-selected"></use></svg>
+         
+           
         {%else%}
-        <svg height="25" width="25">
-            <polygon points="12.5,1.25 5,24.75 23.75,9.75 1.25,9.75 20,24.75" style="fill:grey;fill-rule:nonzero;"/>
-            Sorry, your browser does not support inline SVG.
-       </svg>
+        <svg style="width: 2em; height: 2em"><use xlink:href="#grey" class="is-selected"></use></svg>
        {%endif%}
       {%endfor%}
-    {{eachReview.rating}}
+
     <br>
      {{ eachReview.title }}
      <br>
@@ -137,7 +118,7 @@ reviews:
      
      
      {%endif%}
-   </div>   
+ </div>   
 
 <br>
 
