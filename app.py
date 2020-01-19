@@ -294,7 +294,7 @@ def register():
       #check if user name already exist. If not proceed with registration.
       exists = mongo.db.users.find_one({"name": user})
       if exists:
-         return render_template("register.html", userError = True, email = email)
+         return render_template("register.html", userError = True,user = user, email = email)
       elif pass1 != pass2:
          return render_template("register.html", userError = False, passError = True, email = email, user = user)
       else:

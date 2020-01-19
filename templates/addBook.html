@@ -4,17 +4,17 @@
 
 {%block add_book%}
 <h2>add a book</h2>
-<form action="{{ url_for('addBook') }}" method="POST">
+<form action="{{ url_for('addBook') }}" method="POST" id="addBookForm">
     <label for="title">Book title</label>
-    <input type="text" name="title" id="title" value="">
+    <input type="text" name="title" id="title" value=""> <span id="titleError"></span>
        <br>
 
     <label for="description">Description</label>     
-    <textarea name="description" id="description" placeholder="" rows="4" ></textarea>
+    <textarea name="description" id="description" placeholder="" rows="4" ></textarea><span id="descriptionError"></span>
         <br>
 
     <label for="genre">Genre</label>     
-    <select name="genre" id="genre">
+    <select name="genre" id="genre" >
         {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
         {% set selected = ""%}
         {%for eachOption in select%}
@@ -23,7 +23,7 @@
            {%endif%}
           <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
         {%endfor%}
-      </select>
+      </select><span id="genreError"></span>
       <br>
       <label for="author">Author</label>
       <input type="text" name="author" id="author" value="">
@@ -49,10 +49,39 @@
       <label for="amazon">Amazon books URL</label>
       <input type="text" name="amazon" id="amazon" value="">
       <br>
-    <input type="submit" value="Submit">
+   
     
   </form>
 
+  <button id="submit" onclick="validate()">submit</button>
+<script>
+  function validate() {
+    var title =  document.getElementById('title').value;
+   
+   var description = document.getElementById('description').value;
+    var genre = document.getElementById('genre').value;
+   if (title == ""){
+    document.getElementById("titleError").innerHTML = "Please fill in this field";}
+   else{
+     document.getElementById("titleError").innerHTML =""
+   }
+   if (description == ""){
+    document.getElementById("descriptionError").innerHTML = "Please fill in this field";}
+   else{
+     document.getElementById("descriptionError").innerHTML = ""
+   }
+   if (genre == "All genres"){
+    document.getElementById("genreError").innerHTML = "Please fill in this field";}
+   else{
+     document.getElementById("genreError").innerHTML = ""
+   }
+   if(title != "" && description != "" && genre != "All genres"){document.getElementById("addBookForm").submit();}
+}
+</script>
+
  before {{numberB}} after{{numberA}}<br>
  {{message}}
+
+
+
 {%endblock%}

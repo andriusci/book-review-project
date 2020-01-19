@@ -4,7 +4,7 @@
 {%if userError == True%}
 User named {{user}} already exsist in our database. Please choose other user name.<br>
 {%endif%}
-eee{{success}}
+
 {%if success != True%}
 <form action="/register" method="POST">
 <label for="user_name">User name</label>
@@ -25,6 +25,10 @@ passwords do not match
 Hello {{user}} Thank you for registration. 
 {%if dest == "addBook.html"%}
 you can now add a book 
+{%elif dest == "account"%}
+
 {%endif%}
+
+
 {%endif%}
 {%endblock%}
