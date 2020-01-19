@@ -68,8 +68,8 @@ def searchResults(search_term, genre, page_number):
                                               total_pages = total_pages) 
 
 
-@app.route("/Book_title:<title>/book_id:<book_id>")
-def create_book_page(title, book_id):
+@app.route("/Book_page/book_id:<book_id>")
+def create_book_page(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
    if (book):
@@ -130,7 +130,7 @@ def review(book_id):
      if request.method == "POST":
         #data insert...........and return feedback
         title = request.form['title']
-        review = request.form['review']
+        review = request.form['comment']
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user

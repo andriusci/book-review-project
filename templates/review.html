@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 
 {%block review%}
+<!-- override gllobal svg style  -->
 <style>
-    svg {width: 1.8em}
+    svg {width: 1.8em; height: 2em}
  </style>  
 <!-- if review was already submitted do not show the form -->
 {%if status != True%}
-<form action="/review:bookID:{{book_id}}" method="POST" id="review_form">
-        <input type="text" name="title" value=""><br>
-       <textarea rows="4" cols="50" name="review" form="review_form">
-           </textarea> 
+<form action="/review:bookID:{{book_id}}" method="POST" id="review_form" name="review_form" >
+        <label for="title">Title</label><br>
+        <input type="text" name="title" id="title" value="" ><span id="titleError"></span><br>
+
+        <label for="comment">Your comment</label><br>
+      
+
+         <textarea rows="4" cols="50" name="comment" id="comment" ></textarea> <span id="reviewError"></span><br>
          
             <span >
                 <svg style="display: none">
@@ -17,7 +22,7 @@
                     <title>star</title>
                     <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill-rule='evenodd'/>
                   </svg>
-                  
+                  How many stars would you give?<br>
                   <div style="display: inline-block">
                     <div id="stars" class="stars">
                       <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
@@ -29,25 +34,20 @@
                   </div>
                 
                 
-             </span><br>
+             </span><span id="ratingError"></span><br>
         <input type="hidden" name="book_id" value="{{book_id}}">
         <input type="hidden" name="rating" id="rating" value = 0>
-        <input type="submit" value="Submit">
+        
       
       </form>
-<!-- override gllobal svg style  -->
-                   
-                   
+
                   
-                 
-                     
-                       
+  
+        
+                       <button id="submit" onclick="validate()">submit</button>
         
         
-    {%else%}
-    thank you for your review
-    {%endif%}    
-        
+
            
                 
         
@@ -70,5 +70,41 @@
           e.target.classList.add('is-selected')
           document.getElementById("rating").value = count;
         })
-                          </script>
+
+
+        function validate() {
+           var title =  document.getElementById('title').value;
+          
+          var review = document.getElementById('comment').value;
+           var rating = document.getElementById('rating').value;
+          if (title == ""){
+           document.getElementById("titleError").innerHTML = "Please fill in this field";}
+          else{
+            document.getElementById("titleError").innerHTML =""
+          }
+          if (review == ""){
+           document.getElementById("reviewError").innerHTML = "Please fill in this field";}
+          else{
+            document.getElementById("reviewError").innerHTML = ""
+          }
+          if (rating == "0"){
+           document.getElementById("ratingError").innerHTML = "Please fill in this field";}
+          else{
+            document.getElementById("ratingError").innerHTML = ""
+          }
+          if(title != "" && review != "" && rating != "0"){document.getElementById("review_form").submit();}
+}
+
+
+            </script>
+
+{%else%}
+   
+<h4>thank you for your review</h4>
+<p>You can go back 
+<a href="/Book_page/book_id:{{book_id}}">here</a>
+</p>
+{%endif%} 
 {%endblock%}
+
+

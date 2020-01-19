@@ -77,25 +77,16 @@
 </div>
 </div> 
 
-<svg>
-    <symbol id="yellow" viewBox="0 0 98 92">
-    <title>star</title>
-    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#f8c417"/>
-    </svg>
-    <svg>
-        <symbol id="grey" viewBox="0 0 98 92">
-        <title>star</title>
-        <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="grey"/>
-        </svg>
+
 <!--Review section-->
 reviews:
   <br>
  
 {% for eachReview in reviews %}
-
+{{eachReview.review}}
 {%if eachReview.review != "" %}
 
-  <div style="border: solid red">
+  <div style="border: solid #cccccc">
    
      
             
@@ -107,22 +98,31 @@ reviews:
          
            
         {%else%}
-        <svg style="width: 2em; height: 2em"><use xlink:href="#grey" class="is-selected"></use></svg>
+        <svg style="width: 2em; height: 2em"><use xlink:href="#cccccc" class="is-selected"></use></svg>
        {%endif%}
       {%endfor%}
 
-    <br>
+    
      {{ eachReview.title }}
-     <br>
+     
      {{eachReview.review}}
      
      
      {%endif%}
  </div>   
 
-<br>
+
 
 
 {% endfor %}
-
+<svg>
+    <symbol id="yellow" viewBox="0 0 98 92">
+    <title>star</title>
+    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#f8c417"/>
+    </svg>
+    <svg>
+        <symbol id="grey" viewBox="0 0 98 92">
+        <title>star</title>
+        <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="grey"/>
+        </svg>
 {%endblock%}
