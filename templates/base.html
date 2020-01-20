@@ -20,61 +20,91 @@
     <script src="{{ url_for('static', filename='js/rating.js') }}"></script>
     <title></title>
 </head>
+<style>
+body{
+ 
+  width: 90%;
+  margin: auto;
+}
+.right{text-align : right}
+.center{text-align: center}
+#appear-md{float: right}
+.navigation{
+  position:fixed;
+  top: 0;
+  width: 90%;
+  background-color: aqua;
+  z-index: 1;
 
+}
+</style>
 <body>
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top ">
-          <div>
-         
-            <a href= "/"> <strong>home</strong> &nbsp
-              </a>
-          </div>
+<div class="navigation row" >
+  <div class="col-md-2">
+
+  <a href="/"> <strong>Reads</strong>Rated</a>
+  <span id="appear-md" >
+    <a hreef="">Contact </a>
+    <a href="{{ url_for('account') }}">Account</a>
+    <a href="{{ url_for('addBook') }}">Add Book</a>
+    </span>
+  
+  </div>
+ 
+
+  <div class="col-md-6 center">
+      {%set root = request.url%}
+      {%if root != "http://127.0.0.1:5000/"%}
+      <div id="search_bar">
+          
+          {%set searchValue = search_term%}
+          {%if search_term == "All_books"%}
+          {% set searchValue = ""%}
+          {%endif%}
+          
+          <form action="{{ url_for('initialise') }}" method="POST">
+            <input type="text" name="search term" value="{{searchValue}}">
+            
+            <select name="genre">
+                {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
+                {% set selected = ""%}
+                {%for eachOption in select%}
+                   {%if eachOption == genre%}
+                   {%set selected = "selected"%}
+                   {%endif%}
+                  <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
+                {%endfor%}
+              </select>
+            <input type="submit" value="Submit">
+          </form>
+      </div>
+      {%endif%}
+  </div>
+
+
+  <div class="col-md-4 right" >
+    <span id="disappear-md">   <a hreef="">Contact </a>
+      <a href="{{ url_for('account') }}">Account</a>
+      <a href="{{ url_for('addBook') }}">Add Book</a>
+      </span>
+  </div>
+</div>
     
 
-          {%set root = request.url%}
-          {%if root != "http://127.0.0.1:5000/"%}
-          <div id="search_bar">
-              
-              {%set searchValue = search_term%}
-              {%if search_term == "All_books"%}
-              {% set searchValue = ""%}
-              {%endif%}
-              
-              <form action="{{ url_for('initialise') }}" method="POST">
-                <input type="text" name="search term" value="{{searchValue}}">
-                
-                <select name="genre">
-                    {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
-                    {% set selected = ""%}
-                    {%for eachOption in select%}
-                       {%if eachOption == genre%}
-                       {%set selected = "selected"%}
-                       {%endif%}
-                      <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
-                    {%endfor%}
-                  </select>
-                <input type="submit" value="Submit">
-              </form>
-          </div>
-          {%endif%}
-<div>
-  
-</div>
-         {%if logged_user != None%}
-          <div>
-              <a href="{{ url_for('account') }}">my account</a>
-            &nbsp;
-          </div>
-          {%else%}
-          <a href="{{ url_for('account') }}">log in</a>
-            {%endif%}
-          
-          <div>
-                  <button>  <a href="{{ url_for('addBook') }}">Add a book <i class="fas fa-plus"></i></a> </button> 
-                  </div>
+
+
+    
+         
+         
+    <br>
+    <br> <br> <br> <br> <br> <br> <br>
        
+     
+
+    
           
-          </nav>
+   
   
      
       

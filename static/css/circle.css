@@ -1094,10 +1094,17 @@
   color: grey
 }
 #percent{
-  font-size: 2em;
+  font-size: 1.8em;
   position: absolute;
   top: 1em;
   left: 0.3em;
+  color: #307bbb
+}
+#percent100{
+  font-size: 1.5em;
+  position: absolute;
+  top: 1.3em;
+  left: 0.4em;
   color: #307bbb
 }
 #recommend{

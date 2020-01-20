@@ -216,7 +216,7 @@ def account():
       cookies = request.cookies  
       user = cookies.get("logged_user")
       if user != None:
-        logged_user = mongo.db.users.find({"name": user})
+        logged_user = mongo.db.users.find_one({"name": user})
         response = make_response(render_template("account.html", logged_user = logged_user))
       else:
         response = make_response(render_template("log_in.html" ))
@@ -240,7 +240,7 @@ def log_in():
            else:
               book_id ="NA"
            destination_page = dest
-           response = make_response(render_template(destination_page, logged_user = user, book_id = book_id ))
+           response = make_response(render_template(destination_page, logged_user = exists, book_id = book_id ))
            response.set_cookie("logged_user", user)  
        else:
            response = make_response(render_template("log_in.html", error = True ))
@@ -306,7 +306,7 @@ def register():
       return render_template("register.html")
 
 
-@app.route("/delete")
+@app.route("/del")
 def delete():
    mongo.db.recommend.remove()
    mongo.db.reviews.remove()
