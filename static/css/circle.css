@@ -1072,14 +1072,10 @@
   line-height: 1em
 }
 
- #rateBar{
-  border: 0.08em solid #f8c417;
-}
-#fillBar{
-  border:none;
-}
+ 
+
 #r2{
-  color: #f8c417;
+  color: #307bbb;
   font-size: 2em;
   position: absolute;
   top: 1em;

@@ -2,7 +2,7 @@
 
 
  
-{% block test %}
+{% block book_page %}
 
     
   
@@ -94,11 +94,11 @@ reviews:
       
       {%for x in range(1,6)%}
         {%if x == eachReview.rating or x < eachReview.rating%}
-        <svg style="width: 2em; height: 2em"><use xlink:href="#yellow" class="is-selected"></use></svg>
+        <svg style="width: 2em; height: 2em"><use xlink:href="#blue" class="is-selected"></use></svg>
          
            
         {%else%}
-        <svg style="width: 2em; height: 2em"><use xlink:href="#cccccc" class="is-selected"></use></svg>
+        <svg style="width: 2em; height: 2em"><use xlink:href="#grey" class="is-selected"></use></svg>
        {%endif%}
       {%endfor%}
 
@@ -116,9 +116,9 @@ reviews:
 
 {% endfor %}
 <svg>
-    <symbol id="yellow" viewBox="0 0 98 92">
+    <symbol id="blue" viewBox="0 0 98 92">
     <title>star</title>
-    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#f8c417"/>
+    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#307bbb"/>
     </svg>
     <svg>
         <symbol id="grey" viewBox="0 0 98 92">

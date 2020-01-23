@@ -17,12 +17,12 @@ svg {
   
   .star.is-selected svg,
   .star.is-selected ~ .star svg {
-    fill: #f8c417;
+    fill: #307bbb
   }
   
   .star:hover svg,
   .star:hover ~ .star svg {
-    fill: #f8c417;
+    fill: #307bbb;
   }
   
   #rated {
@@ -113,8 +113,8 @@ svg {
   }
 #review{
   font-size: 22;
-  color: #F7D002;
-  border: solid 2px #F7D002;
+  color: #307bbb;
+  border: solid 2px #307bbb;
   padding: 12 8;
   text-decoration: none;
 }

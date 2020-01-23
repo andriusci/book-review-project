@@ -49,11 +49,11 @@ def pagination():
 def searchResults(search_term, genre, page_number):
      n = page_number * 10 - 10
   #Create mongoDB query
-     if search_term == "All_books" and genre == "All genres":
+     if search_term == "All_books" and genre == "Choose genre":
         books=mongo.db.books.find().skip(n).limit(10)
-     elif search_term == "All_books" and genre != "All genres":
+     elif search_term == "All_books" and genre != "Chosoe genres":
         books=mongo.db.books.find({"genre": genre}).skip(n).limit(10)
-     elif search_term != "All_books" and genre == "All genres":
+     elif search_term != "All_books" and genre == "Choose genre":
         mongo.db.books.create_index([('title', 'text')])
         books=mongo.db.books.find({"$text": {"$search": search_term }}).skip(n).limit(10)
      else:
@@ -247,7 +247,7 @@ def log_in():
        return response
 
    else:
-
+   
       return render_template("log_in.html")
 
 

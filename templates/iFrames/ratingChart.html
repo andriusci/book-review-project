@@ -41,24 +41,24 @@
 
 {%if average !=0%}
 <!-- set star color -->
-{%set color="#f8c417"%}
+{%set color="#307bbb"%}
        <h4> based on <strong>{{totalRatings}} </strong>ratings </h4>
         <!--svg line chart reflecting star ratings -->
             <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px">
               <text x="5" y="15" fill="black">5 Star</text>
-              <rect x="50" y="5" width="{{ratingList[0]}}" height="12" stroke="#f8c417" fill="#f8c417"/> 
+              <rect x="50" y="5" width="{{ratingList[0]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{fiveStar_x}}" y="16" fill="black">{{numOfRatings[0]}}</text>
               <text x="5" y="35" fill="black">4 Star</text>
-              <rect x="50" y="25"width=" {{ratingList[1]}}" height="12" stroke="#f8c417" fill="#f8c417"/> 
+              <rect x="50" y="25"width=" {{ratingList[1]}}" height="12" stroke="#307bbb" fill="#307bbb"/>  
               <text x="{{fourStar_x}}" y="36" fill="black">{{numOfRatings[1]}}</text>
               <text x="5" y="55" fill="black">3 Star</text>
-              <rect x="50" y="45" width=" {{ratingList[2]}}" height="12" stroke="#f8c417" fill="#f8c417"/>
+              <rect x="50" y="45" width=" {{ratingList[2]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{threeStar_x}}" y="56" fill="black">{{numOfRatings[2]}}</text>
               <text x="5" y="75" fill="black">2 Star</text>
-              <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#f8c417" fill="#f8c417"/> 
+              <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{twoStar_x}}" y="76" fill="black">{{numOfRatings[3]}}</text>
               <text x="5" y="95" fill="black">1 Star</text>
-              <rect x="50" y="85" width=" {{ratingList[4]}}" height="12" stroke="#f8c417" fill="#f8c417"/>  
+              <rect x="50" y="85" width=" {{ratingList[4]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{oneStar_x}}" y="96" fill="black">{{numOfRatings[4]}}</text>
             </svg> 
             
@@ -78,13 +78,6 @@
         <!--------------------------------------------------->
 
 
-        <script>
-         var count = document.getElementById("count").value
-         if (count > 59){
-    document.getElementById("fillBar").style.border = "0.08em solid #f8c417";
-  } else {
-    document.getElementById("fillBar").style.border = "none";
-  }
-        </script>
+       
 </body>
 </html>

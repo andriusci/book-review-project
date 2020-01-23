@@ -2,29 +2,161 @@
 
 
 
-{% block test %}
-<img style="max-height: 100px" src="/static/images/main.svg">
+{% block index %}
+<style>
+
+  /* repeating in account and login and add book and review */
+.main_container{ 
+
+  background-color:  #E5EFF9;
+  margin-top:44px;
+  text-align: center;
+ 
+  
+}
+
+svg{
+  width: 30%;
+  min-width: 220px;
+}
+
+.search_box{
+  
+    border: solid white;
+    border-radius: 9px;
+    width: 70%;
+    background-color: white;
+    margin: auto;
+    box-shadow: 0px 22px 72px #C1D5EB;
+    min-height:5em;
+}
+.search_wrap{
+  background-color: #e6eff9;
+  height:3em;
+
+}
+#search_input{
+  vertical-align: super;
+    border: none;
+    box-sizing: border-box;
+  width: 70%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+ 
+}
+
+@-webkit-keyframes autofill {
+    0%,100% {
+        color: #666;
+        background-color: white;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+#search_input:focus{
+  border: none;
+  background-color: white;
+  border-radius: 9px 0px 0px 0px
+}
+#select_genre{
+ width:70%;
+  vertical-align: super;
+    border: none;
+    box-sizing: border-box;
+  background-color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+ 
+}
+#select_genre:focus{
+  border: none;
+  background-color: white;
+
+}
+#col_genre, #col_search{
+  padding-top:20px
+}
+#submit_button{
+ 
+  background-color: #307bbb;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding: 17px 20px;
+    float: right;
+}
+#submit_button:hover{
+  font-size: 1.7em
+}
+#submit_button:focus{
+  font-size: 1.6em
+}
+
+.fas{
+  font-size: 2em;
+  color: grey
+}
+
+</style>
+
+
+<div class="main_container">
+   
+    <svg height="50%" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book-open" class="svg-inline--fa fa-book-open fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="white" d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z" fill="white"></path></svg>
+
+      <h1 id="main"><strong>Find the best reads rated & reviewed</strong></h1>
+   
+
+
 {%endblock%}
 
 
 {% block search%}
-<form action="{{ url_for('initialise') }}" method="POST">
-        <input type="text" name="search term" value="{{searchValue}}">
-        <select name="genre">
-            {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
-            {% set selected = ""%}
-            {%for eachOption in select%}
-               {%if eachOption == genre%}
-               {%set selected = "selected"%}
-               {%endif%}
-              <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
-            {%endfor%}
-          </select>
-      
-       
-        <input type="submit" value="Submit">
+
+    </div>
+    <div class="search_wrap">
+    <div class="search_box row">
+  
+        <form action="{{ url_for('initialise') }}" method="POST" class="search_form">
+           
+            <div id="col_search" class="col-md-7">
         
-      </form>
-      {{logged_user}}
+              <label for="serch_input"> <i class="fas fa-search"></i></label>
+              <input type="text" name="search term" id="search_input" value="{{searchValue}}"placeholder="Type  your Book Title or Keywords">
+            
+            </div>
+             <div id="col_genre" class="col-md-3">
+           
+            
+              <label for="select_genre"><i class="fas fa-theater-masks"></i></label>
+              <select name="genre" id="select_genre">
+                    {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
+                    {% set selected = ""%}
+                    {%for eachOption in select%}
+                       {%if eachOption == genre%}
+                       {%set selected = "selected"%}
+                       {%endif%}
+                      <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
+                    {%endfor%}
+                  </select>
+              </div>
+             
+              <div class="col-md-2 ">
+        
+               <input type="submit" value="Find it now" id="submit_button"> 
+        
+               
+              </form>
+         
+              </div>
+              </div>
 {% endblock%}
 

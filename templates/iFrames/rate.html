@@ -79,14 +79,9 @@ starContainer.addEventListener('click', function(e) {
   document.getElementById("rating").value = count;
  
   document.getElementById("rate_button").disabled = false;
-  document.getElementById("rate_button").style.cssText = "color:#f8c417; font-weight: 900; border-bottom: solid 2px";
+  document.getElementById("rate_button").style.cssText = "color:#307bbb; font-weight: 900; border-bottom: solid 2px";
   document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
-  if (count > 2){
-    document.getElementById("fillBar").style.border = "0.08em solid #f8c417";
-  } else {
-    document.getElementById("fillBar").style.border = "none";
-  }
- 
+
 
 })
                   </script>

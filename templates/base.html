@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
-  
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -23,8 +24,9 @@
 <style>
 body{
  
-  width: 90%;
+  font-family: 'IBM Plex Sans', sans-serif;
   margin: auto;
+
 }
 .right{text-align : right}
 .center{text-align: center}
@@ -32,21 +34,45 @@ body{
 .navigation{
   position:fixed;
   top: 0;
-  width: 90%;
-  background-color: aqua;
+  width: 100%;
+  margin:auto;
+  background-color: white;
   z-index: 1;
+  border: solid white 20px
+}
+.home{
+  font-size: large;
+  text-decoration: none;
+  color: black;
+  margin-top: 3em;
+}
+.home:hover{
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
+}
 
+.button_addBook{
+  border:solid #307bbb;
+  padding: 10px;
+  margin-left:10px;
+}
+.top_links{
+  color: grey;
+  padding-left: 2em
 }
 </style>
 <body>
 <header>
 <div class="navigation row" >
-  <div class="col-md-2">
+  <div class="col-md-2 ">
 
-  <a href="/"> <strong>Reads</strong>Rated</a>
+  <a href="/" class="home" style="text-decoration: none"> <strong>Best</strong>Reads</a>
   <span id="appear-md" >
-    <a hreef="">Contact </a>
+    <a href="">Contact </a>
+
     <a href="{{ url_for('account') }}">Account</a>
+
     <a href="{{ url_for('addBook') }}">Add Book</a>
     </span>
   
@@ -67,7 +93,7 @@ body{
             <input type="text" name="search term" value="{{searchValue}}">
             
             <select name="genre">
-                {% set select = ["All genres", "Comics", "Drama", "Science", "Fiction"]%}
+                {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
                 {% set selected = ""%}
                 {%for eachOption in select%}
                    {%if eachOption == genre%}
@@ -84,22 +110,19 @@ body{
 
 
   <div class="col-md-4 right" >
-    <span id="disappear-md">   <a hreef="">Contact </a>
-      <a href="{{ url_for('account') }}">Account</a>
-      <a href="{{ url_for('addBook') }}">Add Book</a>
+    <span id="disappear-md">   
+      <span class="top_links">
+      <a class="top_links" href="">Contact </a>
+      <a class="top_links" href="{{ url_for('account') }}">Account</a>
+     </span>
+      <a class="button_addBook" href="{{ url_for('addBook') }}">Add Book</a>
       </span>
   </div>
 </div>
     
-
-
-
-    
          
          
-    <br>
-    <br> <br> <br> <br> <br> <br> <br>
-       
+
      
 
     
@@ -109,9 +132,7 @@ body{
      
       
 </header>
- <br>
- <br>
- <br>
+
 {%block register%}
 {%endblock%}
 {%block log_in%}
@@ -125,7 +146,12 @@ body{
 {%block test1%}
 {%endblock%}
 
-    {%block test%}
+
+{%block book_page%}
+{%endblock%}
+
+
+    {%block index%}
     {%endblock%}
     <br>
     {%block search%}
