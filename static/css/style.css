@@ -328,5 +328,6 @@ border: none;
   @media only screen and (min-width: 1023px) {
     .search_form_nav{
       max-width: 600px;
+      margin-top: -54px
     }
   }
