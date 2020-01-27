@@ -21,78 +21,43 @@
     <script src="{{ url_for('static', filename='js/rating.js') }}"></script>
     <title></title>
 </head>
-<style>
-body{
- 
-  font-family: 'IBM Plex Sans', sans-serif;
-  margin: auto;
 
-}
-.right{text-align : right}
-.center{text-align: center}
-#appear-md{float: right}
-.navigation{
-  position:fixed;
-  top: 0;
-  width: 100%;
-  margin:auto;
-  background-color: white;
-  z-index: 1;
-  border: solid white 20px
-}
-.home{
-  font-size: large;
-  text-decoration: none;
-  color: black;
-  margin-top: 3em;
-}
-.home:hover{
-  text-decoration: none;
-  font-weight: bolder;
-  color: black;
-}
-
-.button_addBook{
-  border:solid #307bbb;
-  padding: 10px;
-  margin-left:10px;
-}
-.top_links{
-  color: grey;
-  padding-left: 2em
-}
-</style>
 <body>
 <header>
-<div class="navigation row" >
-  <div class="col-md-2 ">
 
-  <a href="/" class="home" style="text-decoration: none"> <strong>Best</strong>Reads</a>
-  <span id="appear-md" >
-    <a href="">Contact </a>
+ <div class="navTop">
 
-    <a href="{{ url_for('account') }}">Account</a>
+<div class="home_wrap">
 
-    <a href="{{ url_for('addBook') }}">Add Book</a>
-    </span>
-  
-  </div>
+  <a href="/" class="home"><i class="fas fa-book-open"></i> </a>
  
+  </div>
 
-  <div class="col-md-6 center">
-      {%set root = request.url%}
-      {%if root != "http://127.0.0.1:5000/"%}
-      <div id="search_bar">
-          
-          {%set searchValue = search_term%}
-          {%if search_term == "All_books"%}
-          {% set searchValue = ""%}
-          {%endif%}
-          
-          <form action="{{ url_for('initialise') }}" method="POST">
-            <input type="text" name="search term" value="{{searchValue}}">
-            
-            <select name="genre">
+  <div class="navTopRight">
+  
+    
+
+      <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
+  
+      <a id="addBook" href="{{ url_for('addBook') }}">Add Book</a>
+  
+   
+     </div> 
+    </div>
+  {%set root = request.url%}
+  {%if root != "http://127.0.0.1:5000/"%}
+  
+      
+      {%set searchValue = search_term%}
+      {%if search_term == "All_books"%}
+      {% set searchValue = ""%}
+      {%endif%}
+
+  <div class="search_form_wrap_nav" id="search_form_wrap_nav">
+
+    <form action="{{ url_for('initialise') }}" method="POST" class="search_form_nav" id="search_form_nav">
+       
+          <select name="genre" id="select_genre">
                 {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
                 {% set selected = ""%}
                 {%for eachOption in select%}
@@ -102,35 +67,25 @@ body{
                   <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
                 {%endfor%}
               </select>
-            <input type="submit" value="Submit">
-          </form>
-      </div>
-      {%endif%}
-  </div>
-
-
-  <div class="col-md-4 right" >
-    <span id="disappear-md">   
-      <span class="top_links">
-      <a class="top_links" href="">Contact </a>
-      <a class="top_links" href="{{ url_for('account') }}">Account</a>
-     </span>
-      <a class="button_addBook" href="{{ url_for('addBook') }}">Add Book</a>
-      </span>
-  </div>
-</div>
-    
-         
-         
-
-     
-
-    
-          
-   
+       
+              <input type="text" name="search term" id="nav_search_input" value="{{searchValue}}"placeholder="type book title ...">
   
-     
-      
+           <button id="submit_button"><i class="fas fa-search"></i></button>
+           
+    
+           
+    </form>
+ 
+  </div>
+  
+  {%endif%}
+ 
+
+
+
+</div>
+
+
 </header>
 
 {%block register%}
@@ -153,9 +108,7 @@ body{
 
     {%block index%}
     {%endblock%}
-    <br>
-    {%block search%}
-    {%endblock%}
+   
     {%block user_account%}
 
     {%endblock%}
@@ -170,6 +123,8 @@ body{
 
 {%block user%}
 {%endblock%}
+
+
 </body>
 </html>
 
