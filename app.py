@@ -88,39 +88,50 @@ def addBook():
        genre = request.form['genre']
        author = request.form['author']
        img = request.form['img']
+       if img == "":
+          img = "/static/images/noImg.png"
        isbn10 = request.form['isbn10']
        isbn13 = request.form['isbn13']
        format1 = request.form['format']
        language = request.form['language']
        publisher = request.form['publisher']
        amazon = request.form['amazon']
+       user_name = request.form['user_name']
        num_before = mongo.db.books.find().count()#number of books before an attempt to insert new book
        mongo.db.books.insert( { "title": title, 
                                 "description": description, 
                                 "genre" : genre,
                                 "author": author,
-                                "imgage" : img,
+                                "image" : img,
                                 "isbn10": isbn10,
                                 "isbn13" : isbn13,
                                 "format" : format1,
                                 "lang": language,
                                 "publisher" : publisher,
-                                "amazon" : amazon} )
+                                "amazon" : amazon,
+                                "added_by": user_name})
        num_after = mongo.db.books.find().count()#number of books after insertion
        if num_after > num_before:#check if new book was added
-          message= "success"
+          submitted = True
        else:
-          message ="something went wrong"
-       response = render_template("addBook.html", numberB = num_before, numberA = num_after, message = message)
+          submitted = False
+       response = render_template("addBook.html", numberB = num_before, numberA = num_after, submitted = submitted)
     else:
         cookies = request.cookies  
         user = cookies.get("logged_user")
         if user != None:
-          response = make_response(render_template("addBook.html"))
+          response = make_response(render_template("addBook.html", user = user))
         else:
-          response = make_response(render_template("log_in.html" ))
+          response = make_response(render_template("log_in.html", message= "add a book"))
           response.set_cookie("destination", "addBook.html") 
     return response
+
+
+@app.route("/edit<book_id>", methods=['GET', 'POST'])
+def edit(book_id):
+   book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+
+   return render_template("iFrames/edit.html", book = book)
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
 def review(book_id):
@@ -217,9 +228,15 @@ def account():
       user = cookies.get("logged_user")
       if user != None:
         logged_user = mongo.db.users.find_one({"name": user})
-        response = make_response(render_template("account.html", logged_user = logged_user))
+        if request.method == "POST":
+           book_id = request.form['book_id']
+           mongo.db.books.remove({"_id":ObjectId(book_id)})
+        books = mongo.db.books.find({"added_by": logged_user['name'] })
+        reviews = mongo.db.reviews.find({"user": logged_user['name'] })
+        response = make_response(render_template("account.html", logged_user = logged_user, books = books, reviews = reviews))
       else:
-        response = make_response(render_template("log_in.html" ))
+        message = "accsess your account"
+        response = make_response(render_template("log_in.html", message = message ))
         response.set_cookie("destination", "account.html") 
       return response
 
@@ -228,11 +245,11 @@ def account():
 @app.route("/log_in", methods=['GET', 'POST'])
 def log_in():
    if request.method == "POST":
-       user = request.form['user_name']
+       user_name = request.form['user_name']
       
-       #check if the name exist in the users database
-       exists = mongo.db.users.find_one({"name": user})
-       if exists:
+       #check if the name exist in the user database
+       user = mongo.db.users.find_one({"name": user_name})
+       if user:
            cookies = request.cookies  
            dest = cookies.get("destination")
            if dest == "review.html":
@@ -240,8 +257,9 @@ def log_in():
            else:
               book_id ="NA"
            destination_page = dest
-           response = make_response(render_template(destination_page, logged_user = exists, book_id = book_id ))
-           response.set_cookie("logged_user", user)  
+          
+           response = make_response(render_template(destination_page, logged_user = user, book_id = book_id ))
+           response.set_cookie("logged_user", user_name)  
        else:
            response = make_response(render_template("log_in.html", error = True ))
        return response

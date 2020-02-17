@@ -1,8 +1,51 @@
+
+.account_wrapper{background-color: #e6eff9;}
+
+#title{
+  height: 1.4em;
+  width: 50%;
+  overflow: hidden;
+  text-align: left;
+}
+#title, #delete, #edit{
+  display: inline-block;
+ 
+}
+#delete, #edit{
+  float:right
+}
+.add_book_form > input{width: 100%}
+#description{
+  width: 100%
+}
+
+.error{
+  color: red
+}
+
+
+#account_main{
+  height: unset
+}
+#accordion{
+  margin-top:4em
+}
+#delete_form{
+  display: inline-block
+}
 body{
  
   font-family: 'IBM Plex Sans', sans-serif;
   margin: auto;
 
+}
+.thin_line{
+  margin: 0
+}
+.svg_main{
+ height:50%;
+  color:white;
+  margin-top:9em
 }
 .right{text-align : right}
 .center{text-align: center}
@@ -20,7 +63,7 @@ body{
 
 
 .search_form_index{
-  
+  max-width: 56em;
   border-radius: 9px;
   width: 60%;
   float: none;
@@ -61,12 +104,13 @@ body{
 
 
 
-.slogan{
+.headline{
   text-align: center;
   background-color: #e6eff9;
-  padding-bottom: 1em;
+  padding: 0 1em 1em 1em;
+  
 }
-.slogan h1{
+.headline h1, .headline h3{
   margin:0;
 
   padding-bottom: 1.6em;
@@ -101,7 +145,8 @@ font-size:2.5em;
 .home_wrap{
   width: 10%;
   float: left;
-  margin-left:2em
+  margin-left:2em;
+  padding-top:4px;
 }
 
 #addBook{
@@ -111,8 +156,100 @@ font-size:2.5em;
     padding: 0.8em;
     margin-left: 1em;
   }
+  #add_book_form input, #description{
+    width:100%;
+    border: solid 1px #ccc;
+    border-radius: 9px;
+  }
+/* log in page */
+.form_wrap{
+  width: 100%;
+  text-align:center;
   
+  }
+
+#add_book_form{
+  width: 98%
+}
+.general_form{
+  border-radius: 9px;
+  width: 60%;
+  float: none;
+  margin: auto;
+  margin-top: -1em;
+  background-color: white;
+  box-shadow: 1px 12px 22px 2px #e6eff9;
+}
+
+.general_form input, #add_btn{
+  width: 83%;
+  border:none;
+  height: 3em;
+ 
+}
+.label_icon{
   
+  padding-left:1em
+}
+.form_btn{
+  width:100%;
+  border-radius:9px;
+  background-color: #307bbb;
+  color: white;
+  margin-bottom: 0.3em;
+}
+#log_error{
+  color: red;
+    position: relative;
+    top: -35px;
+}
+#log_main{
+  margin-top: 1em
+}
+
+
+/* result page */
+.result_wrap{
+  margin-top: 9em
+}
+.result_container{
+
+margin: 1em 1em 1em 1em;
+box-shadow: 0px 0px 8px 1px #d5e8f9
+}
+.result_img_wrap{
+  width:30%;
+  display:inline-block;
+  vertical-align: top;
+}
+.result_img{
+  width:100%;
+  margin: 0.3em
+}
+.title{
+  width: 60%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .description{
+    height: 8em;
+    overflow: scroll;
+  
+}
+.result_txt_wrap{
+  display: inline-block;
+  width: 63%;
+  margin: 0.5em;
+}
+.affiliate{
+  padding: 0.5em;
+
+}
+ .fa-external-link-alt{
+  color: #777;
+  float: right
+}
+
 /*rating stars*/
 svg {
     fill: #E1E1E1;
@@ -159,7 +296,7 @@ svg {
   /*  rate chart iFrame */
   iframe{
     min-height: 400px;
-    min-width: 400px;
+    
   }
   .iFrameWrap{
     text-align: center
@@ -187,9 +324,9 @@ svg {
     position: absolute;
     top: 120;
     left: 60;
-      background-color: #f5f5f5;
-      border: none;
-      color: rgb(85, 83, 83);
+    
+     color:white;
+      border:none;
       text-align: center;
       text-decoration: none;
       display: inline-block;
@@ -279,7 +416,7 @@ border: none;
     padding: 12px 0px;
 }
 
-#select_genre{
+#select_genre, #add_genre{
   font-weight: bold;
   border: none;
   background-color: transparent;
@@ -287,6 +424,11 @@ border: none;
   padding: 12px 0px;
   margin-left: 6px;
   color: #337ab7;
+}
+#add_genre{
+  border:solid 1px #ccc;
+  border-radius: 9px;
+  margin: 0px
 }
 #submit_button{
   width: 55px;
@@ -296,7 +438,11 @@ border: none;
   float: right;
   padding: 12px;
   border-radius: 0px 9px 9px 0px;
- 
+}
+#add_btn{
+  width:80%;
+  border-radius: 9px;
+
 }
 
 ::-webkit-input-placeholder {
@@ -317,6 +463,19 @@ border: none;
     .search_form_nav{
       width: 68%;
     }
+    .navTopRight{
+      margin-right: 1em
+    }
+    .log_in_form input{
+      width: 35%
+    }
+    .thin_line{
+      display:none
+    }
+    .form_btn{
+      width:14%;
+      float: right;
+    }
   }
 @media only screen and (max-width: 655px) {
  #search_form_index{
@@ -330,4 +489,8 @@ border: none;
       max-width: 600px;
       margin-top: -54px
     }
+    .log_in_form{
+      max-width: 600px;
+    }
+  
   }

@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 
 
-
-
-
-
-
-
-
 {% block search_result%}
-
+<div class="result_wrap">
 {% for eachBook in books %}
 
+<div class="result_container">
+    <div class="result_img_wrap">
+      <a href="/Book_page/book_id:{{eachBook._id}}">  <img class="result_img" src = " {{ eachBook.image}} "></a>
+    </div> 
 
+    <div class="result_txt_wrap">
+      <div class="title">
+ <strong> {{ eachBook.title }} </strong>
+     </div>
+     <hr class="thin_line">
+     <div class="description">
+        {{ eachBook.description }}
+    </div>
     
-        <img src = " {{ eachBook.image}} ">
+  </div>
+  {%if eachBook.Affiliate != ""%}
+ <hr class="thin_line">
+  <div class="affiliate">
+    Available at <a href="{{eachBook.Affiliate}}">Amazon.com</a> <i class="fas fa-external-link-alt"></i>
+      
+  </div>
+  {%endif%}
+</div>
 
-  
-    <a href="/Book_page/book_id:{{eachBook._id}}">{{ eachBook.title }}</a>
-     <br>
-     {{ eachBook.description }}
-
-
-<br>
 
 
 {% endfor %}
-<br>
+</div>
 
 
 
@@ -46,31 +52,24 @@
 
 
 
-<h1>search term = {{search_term}}</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 {%if current_page > 1 and current_page <= total_pages%}
 {%set go_to_page = current_page - 1%}
-<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">previous</a>
+<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong><<</strong></a>
 {%endif%}
 {%if total_pages != 0%}
 <form action="{{ url_for('pagination') }}" method="POST">
   <input type="hidden" name="search" value="{{search_term}}">
   <input type="hidden" name="genre" value="{{genre}}">
   <input type="text" name="go to" value="{{current_page}}">
-  <input type="submit" value="Submit">
+  <input type="submit" value="GO">
 </form>
 {%else%}
 jhgfghj
 {%endif%}
 {%if current_page < total_pages%}
 {%set go_to_page = current_page + 1%}
-<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">next</a>
+<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>>></strong></a>
 {%endif%}
 
 

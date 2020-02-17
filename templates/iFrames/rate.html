@@ -60,7 +60,7 @@
    
         
 
-<h4>Have you read this book?</h4>
+<h4>Have you read this book?</h4><br><br><br>
 
 <a href="/review:bookID:{{book_id}}" base target="_parent" id="review">Write a review</a>
 </div>
@@ -79,7 +79,7 @@ starContainer.addEventListener('click', function(e) {
   document.getElementById("rating").value = count;
  
   document.getElementById("rate_button").disabled = false;
-  document.getElementById("rate_button").style.cssText = "color:#307bbb; font-weight: 900; border-bottom: solid 2px";
+  document.getElementById("rate_button").style.cssText = "color:#fff; font-weight: 900; border: solid 2px; background-color: #307bbb";
   document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
 
 

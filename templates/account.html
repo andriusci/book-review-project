@@ -2,13 +2,169 @@
 
 
 {%block user_account%}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<!-- Bootstrap accordion  -->
+<div class="container_main" id="account_main">
+        <div class="container">
+                
+                
+                <div class="panel-group" id="accordion">
+                  <div class="panel panel-default">
+                       <!-- inline style used to override bootstrap styles -->
+                       <div class="panel-heading"style="color:#337ab7">
+                      <h4 class="panel-title">
+                        <a class="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Books</a>
+                      </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                            {%for eachBook in books%}
+                            <div class="account_wrapper">
 
-<h3>{{logged_user['name']}} account {{exist}}</h3>
+                         <div id="title">
+                               {{ eachBook.title}}
+                         </div> 
+
+                         <div id="delete">
+                               <form action="{{ url_for('account') }}" method="POST" id="delete_form">
+                                 <input type="hidden" name="book_id" value="{{eachBook._id}}">
+                                 <button><i class="far fa-trash-alt"></i> Delete</button>
+                               </form>
+                         </div>
+
+                        <div id="edit">
+                               <button type="button"  data-toggle="modal" data-target="#{{eachBook._id}}"><i class="far fa-edit"></i>Edit</button>
+                        </div>
+
+ 
+                      </div>
+
+                               <div class="modal fade" id="{{eachBook._id}}" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <div class="contactFormHeader">
+                                        <h4>Contact Us</h4>
+                                      </div>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        <iframe name="edit" frameborder="no"   src="/edit{{eachBook._id}}"></iframe>
+
+
+
+                                     
+                                    </div>
+                                    <div class="modal-footer">
+                                             <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                             </div>
+                  
+                            
+                           
+                               <br>
+                            {%endfor%}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                       <!-- inline style used to override bootstrap styles -->
+                       <div class="panel-heading"style="color:#337ab7">
+                      <h4 class="panel-title">
+                        <a class="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Reviews</a>
+                      </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        {%for eachReview in reviews%}
+                        {{eachReview.title}}
+                        <br>
+                        {%endfor%}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                      <!-- inline style used to override bootstrap styles -->
+                    <div class="panel-heading"style="color:#337ab7">
+                      <h4 class="panel-title">
+                        <a class="accordion_header" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Prs0nal Info</a>
+                      </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+                  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function validate() {
+    var title =  document.getElementById('title').value;
+   
+   var description = document.getElementById('description').value;
+    var genre = document.getElementById('add_genre').value;
+   if (title == ""){
+    document.getElementById("titleError").innerHTML = "Please fill in this field";}
+   else{
+     document.getElementById("titleError").innerHTML =""
+   }
+   if (description == ""){
+    document.getElementById("descriptionError").innerHTML = "Please fill in this field";}
+   else{
+     document.getElementById("descriptionError").innerHTML = ""
+   }
+   if (genre == "Choose genre"){
+    document.getElementById("genreError").innerHTML = "Please choose genre";}
+   else{
+     document.getElementById("genreError").innerHTML = ""
+   }
+   if(title != "" && description != "" && genre != "Choose genre"){document.getElementById("add_book_form").submit();}
+}
+</script>
+
+
 
 {%endblock%}

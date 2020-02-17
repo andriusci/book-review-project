@@ -3,60 +3,40 @@
 
 {%block log_in%}
 <style>
-/* repeating in account and login and add book and review */
-.main_container{ 
 
-  background-color:  #E5EFF9;
-  height: 60vh;
-  text-align: center;
-  margin-top: 6vh;
-  
-}
+
 svg{
     margin-top:7em
 
 }
-.log_in_wrap{
-width: 20%;
-margin: auto;
-background-color: white;
-box-shadow: 0px 22px 72px #C1D5EB;
-border-radius: 9px;
-}
-.log_in_form input{
-    width: 80%;
-    margin-top:1em;
-    margin-bottom:1em;
-    border:none;
-    height: 3em
-}
-.label_icon{
-    width: 20%
-}
+
+
 
 </style>
 
-<div class="main_container">
+<div class="container_main" id="log_main">
 
-<svg height="50%"  xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" viewBox="0 0 448 512"><path fill="white" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>
-<br>
-<h3>Please log in in order to add a book</h3><br>
-<div class="log_in_wrap">
+<svg  xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg_main svg-inline--fa fa-user fa-w-14" role="img" viewBox="0 0 448 512"><path fill="white" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>
+</div>
+<div class="headline">
+<h3>Please log in in order to {{message}}</h3>
+</div>
+<div class="form_wrap">
 {%if error == True%}
-<span style ="color: red">User name or password do not match:</span>
+<span id="log_error">User with this name does not exist:</span>
 {%endif%}
  
-<form action="/log_in" method="POST" class="log_in_form">
-    <label for="user_name"><i class="fas fa-user"></i></label>
-    <input type="text" name="user_name" placeholder="  User name"><br>
-    <hr style="margin: 0">
-    <label for="password"><i class="fas fa-key"></i></label>
-    <input type="password" name="password" placeholder="  Password"><br>
-    <input type="submit" value="log in">
+<form action="/log_in" method="POST" class="general_form">
+    <label class="label_icon" for="user_name"><i class="fas fa-user"></i></label>
+    <input type="text" name="user_name" placeholder="  User name" required>
+    <hr class="thin_line">
+    <label class="label_icon" for="password"><i class="fas fa-key"></i></label>
+    <input type="password" name="password" placeholder="  Password" required>
+    <input type="submit" value="log in" class="form_btn" id="log_button">
 </form>
 <div><h5>Don't have an account?</h5>
 <a href="/register">Register</a>
 </div>
 </div>
-</div>
+
 {%endblock%}

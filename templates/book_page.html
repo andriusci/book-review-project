@@ -6,27 +6,27 @@
 
     
   
-<div class="container-fluid">
- <div class="row">
-     <div class="col-md-3">
+<div>
+
+     <div >
       <image class="book_img" src="{{ book.get('image')}}">
      </div>
-     <div class="col-md-6" >
+     <div >
            <h1> {{ book.get("title")}}</h1>
            By: {{ book.get("author")}}<br>
            <p>
             {{ book.get("description")}}
             </p>
         </div>
-      <div class="col-md-3">
+      <div >
         <br>
         <br>
         <br>
         xxxx
       </div>
 
-  </div>
-</div>
+
+
 
 <div class="container">
       
@@ -51,9 +51,9 @@
 </div>
     
    
-<div class="row iFrameWrap">
+<div class="iFrameWrap">
     
-    <div class="col-lg-4 col-md-12 " >
+    <div >
     
         <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no" src="/ratingChart:bookID:{{book._id}}"></iframe>
        
@@ -62,12 +62,12 @@
 
  <!--recomend section-->
 
-  <div class="col-lg-4 col-md-12" >
+  <div >
       <iframe name="recomend" frameborder="no" scrolling="no"  src="/recommend:bookID:{{book._id}}"></iframe>
   </div>
     
    <!--rate & review section-->
-    <div class="col-lg-4 col-md-12">
+    <div >
         <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
        
     
@@ -86,7 +86,7 @@ reviews:
 {{eachReview.review}}
 {%if eachReview.review != "" %}
 
-  <div style="border: solid #cccccc">
+
    
      
             
@@ -109,8 +109,7 @@ reviews:
      
      
      {%endif%}
- </div>   
-
+  
 
 
 
@@ -125,4 +124,6 @@ reviews:
         <title>star</title>
         <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="grey"/>
         </svg>
+
+
 {%endblock%}
