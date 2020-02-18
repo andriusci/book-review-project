@@ -253,13 +253,14 @@ def log_in():
        if user:
            cookies = request.cookies  
            dest = cookies.get("destination")
+           books = mongo.db.books.find({"added_by": user_name })
            if dest == "review.html":
               book_id = cookies.get("book_id")
            else:
               book_id ="NA"
            destination_page = dest
           
-           response = make_response(render_template(destination_page, logged_user = user, book_id = book_id ))
+           response = make_response(render_template(destination_page, logged_user = user, book_id = book_id, books = books ))
            response.set_cookie("logged_user", user_name)  
        else:
            response = make_response(render_template("log_in.html", error = True ))
@@ -327,7 +328,8 @@ def register():
 
 @app.route("/del")
 def delete():
-   mongo.db.recommend.remove()
-   mongo.db.reviews.remove()
-   mongo.db.books.remove()
+ #  mongo.db.recommend.remove()
+ #  mongo.db.reviews.remove()
+  # mongo.db.books.remove()
+   mongo.db.users.remove()
    return render_template("index.html")

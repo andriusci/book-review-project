@@ -23,15 +23,16 @@
      <hr class="thin_line">
 
      <div class="description" id={{eachBook._id}}>
-        {{ eachBook.description }}
+      </div>
         <script>
          var str = '{{ eachBook.description }}';
          if(str.length > 80) 
-
          str = str.substring(0,80) + "  ... <a href="+"/Book_page/book_id:{{eachBook._id}}"+">read more</a>";
+         else
+         str = '{{eachBook.description}}'
          document.getElementById("{{eachBook._id}}").innerHTML = str;
         </script>
-    </div>
+   
     
   </div>
   {%if eachBook.amazon != ""%}
