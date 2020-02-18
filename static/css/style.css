@@ -1,13 +1,38 @@
 
-.account_wrapper{background-color: #e6eff9;}
+/* paginition */
+.paginition{
+  text-align: center;
+}
+.paginition form{
+  display: inline
+}
+#go_btn{
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  padding: 0.2em;
 
-#title{
+}
+#goTo{
+  width: 2em;
+
+}
+
+
+
+
+
+.account_wrapper{background-color: #e6eff9;}
+#editFrame{
+  min-height: 500px
+}
+#title_account{
   height: 1.4em;
   width: 50%;
   overflow: hidden;
   text-align: left;
 }
-#title, #delete, #edit{
+#title_account, #delete, #edit{
   display: inline-block;
  
 }
@@ -173,6 +198,7 @@ font-size:2.5em;
 }
 .general_form{
   border-radius: 9px;
+  max-width: 56em;
   width: 60%;
   float: none;
   margin: auto;
@@ -379,7 +405,7 @@ svg {
 
 
   .book_img{
-    width: 100%;
+    width: 70%;
   }
 
 
@@ -441,7 +467,9 @@ border: none;
 }
 #add_btn{
   width:80%;
+  max-width: 30em;
   border-radius: 9px;
+  float:none
 
 }
 

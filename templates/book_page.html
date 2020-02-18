@@ -6,14 +6,16 @@
 
     
   
-<div>
+<div style="margin-top: 7em">
 
      <div >
       <image class="book_img" src="{{ book.get('image')}}">
      </div>
      <div >
            <h1> {{ book.get("title")}}</h1>
+           {%if book.get("author") != ""%}
            By: {{ book.get("author")}}<br>
+           {%endif%}
            <p>
             {{ book.get("description")}}
             </p>
@@ -22,7 +24,7 @@
         <br>
         <br>
         <br>
-        xxxx
+        Amazon
       </div>
 
 

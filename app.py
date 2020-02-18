@@ -60,12 +60,14 @@ def searchResults(search_term, genre, page_number):
         mongo.db.books.create_index([('title', 'text')])
         books=mongo.db.books.find({"$text": {"$search": search_term }, "genre" : genre}).skip(n).limit(10) 
   #Return a page with search results
+     total_results = books.count()
      total_pages = math.ceil(books.count()/10.1)
      return render_template("search_results.html", books = books, 
                                               search_term = search_term, 
                                               genre = genre,
                                               current_page = page_number,
-                                              total_pages = total_pages) 
+                                              total_pages = total_pages,
+                                              total_results = total_results) 
 
 
 @app.route("/Book_page/book_id:<book_id>")
@@ -130,7 +132,6 @@ def addBook():
 @app.route("/edit<book_id>", methods=['GET', 'POST'])
 def edit(book_id):
    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-
    return render_template("iFrames/edit.html", book = book)
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
@@ -328,4 +329,5 @@ def register():
 def delete():
    mongo.db.recommend.remove()
    mongo.db.reviews.remove()
+   mongo.db.books.remove()
    return render_template("index.html")

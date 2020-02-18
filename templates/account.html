@@ -12,15 +12,15 @@
                        <!-- inline style used to override bootstrap styles -->
                        <div class="panel-heading"style="color:#337ab7">
                       <h4 class="panel-title">
-                        <a class="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Books</a>
+                        <a class="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse1">My books</a>
                       </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="collapse1" class="panel-collapse collapse ">
                       <div class="panel-body">
                             {%for eachBook in books%}
                             <div class="account_wrapper">
 
-                         <div id="title">
+                         <div id="title_account">
                                {{ eachBook.title}}
                          </div> 
 
@@ -45,13 +45,13 @@
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <div class="contactFormHeader">
-                                        <h4>Contact Us</h4>
+                                        <h4>Edit</h4>
                                       </div>
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     
                                     <div class="modal-body">
-                                        <iframe name="edit" frameborder="no"   src="/edit{{eachBook._id}}"></iframe>
+                                        <iframe id="editFrame" name="edit" frameborder="no"   src="/edit{{eachBook._id}}"></iframe>
 
 
 

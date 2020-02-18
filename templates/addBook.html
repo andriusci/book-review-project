@@ -22,7 +22,7 @@
 
 <form action="{{ url_for('addBook') }}" method="POST" class="general_form" id="add_book_form">
     <label for="title">Book title <span class="error">*</span>&nbsp</label><span class="error" id="titleError"></span><br>
-    <input type="text" name="title" id="title" value="" placeholder="Title"> <span class="error" id="titleError"></span>
+    <input type="text" name="title" id="title" value="" placeholder="Book title"> <span class="error" id="titleError"></span>
        <br>
 
     <label for="description">Description <span class="error">*</span></label> <span class="error" id="descriptionError"></span> <br>    
@@ -68,8 +68,8 @@
       <input type="hidden" name="user_name" value="{{user}}">
  
   </form>
-  <div class="form_wrap">
-  <button class="form_btn" id="add_btn" onclick="validate()" >Add a book</button>
+      <div class="form_wrap">
+     <button class="form_btn" id="add_btn" onclick="validate()" >Add a book</button>
   </div>
 
 
@@ -99,10 +99,5 @@
    if(title != "" && description != "" && genre != "Choose genre"){document.getElementById("add_book_form").submit();}
 }
 </script>
-
- before {{numberB}} after{{numberA}}<br>
- {{message}}
-
-
 
 {%endblock%}

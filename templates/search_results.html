@@ -3,6 +3,12 @@
 
 {% block search_result%}
 <div class="result_wrap">
+  
+{%if total_results == 0%}
+
+<h3>There are no books yet</h3>
+
+{%endif%}
 {% for eachBook in books %}
 
 <div class="result_container">
@@ -15,12 +21,20 @@
  <strong> {{ eachBook.title }} </strong>
      </div>
      <hr class="thin_line">
-     <div class="description">
+
+     <div class="description" id={{eachBook._id}}>
         {{ eachBook.description }}
+        <script>
+         var str = '{{ eachBook.description }}';
+         if(str.length > 80) 
+
+         str = str.substring(0,80) + "  ... <a href="+"/Book_page/book_id:{{eachBook._id}}"+">read more</a>";
+         document.getElementById("{{eachBook._id}}").innerHTML = str;
+        </script>
     </div>
     
   </div>
-  {%if eachBook.Affiliate != ""%}
+  {%if eachBook.amazon != ""%}
  <hr class="thin_line">
   <div class="affiliate">
     Available at <a href="{{eachBook.Affiliate}}">Amazon.com</a> <i class="fas fa-external-link-alt"></i>
@@ -28,7 +42,6 @@
   </div>
   {%endif%}
 </div>
-
 
 
 {% endfor %}
@@ -46,37 +59,35 @@
 {{search_term}}
 
 {% block pagination%}
-<h1>current page
-{{current_page}}</h1>
-<h2>total pages = {{total_pages}}</h2>
-
-
-
-
+<div class="paginition">
 {%if current_page > 1 and current_page <= total_pages%}
 {%set go_to_page = current_page - 1%}
-<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong><<</strong></a>
+<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong><< previous</strong></a>
 {%endif%}
+
+
 {%if total_pages != 0%}
 <form action="{{ url_for('pagination') }}" method="POST">
   <input type="hidden" name="search" value="{{search_term}}">
   <input type="hidden" name="genre" value="{{genre}}">
-  <input type="text" name="go to" value="{{current_page}}">
-  <input type="submit" value="GO">
+  <input type="text" name="go to" value="{{current_page}}"id="goTo">
+  <input type="submit" value="GO" id="go_btn">
 </form>
-{%else%}
-jhgfghj
 {%endif%}
+
+
 {%if current_page < total_pages%}
 {%set go_to_page = current_page + 1%}
-<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>>></strong></a>
+<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>next >> </strong></a>
 {%endif%}
 
 
+</div>
 
-
-
+<p>
 {%if current_page > total_pages and total_pages != 0%}
 Unfortunately page {{current_page}} does not exist. Your search returned {{total_pages}} page(s).
 {%endif%}
+
+</p>
 {% endblock %}
