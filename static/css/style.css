@@ -238,6 +238,9 @@ font-size:2.5em;
 .result_wrap{
   margin-top: 9em
 }
+.result_wrap h3{
+  text-align: center
+}
 .result_container{
 
 margin: 1em 1em 1em 1em;
@@ -274,6 +277,15 @@ box-shadow: 0px 0px 8px 1px #d5e8f9
  .fa-external-link-alt{
   color: #777;
   float: right
+}
+.details{
+  padding: 1em
+}
+.panel-heading h4{
+  color: #337ab7
+}
+.panel-group{
+  margin: 2em 0 0 0;
 }
 
 /*rating stars*/
@@ -402,12 +414,16 @@ svg {
   left: 2em;
 }
 
-
-
+.book_img_wrap{
+display: inline-block;
+text-align: center;
+}
   .book_img{
     width: 70%;
   }
-
+#text{
+  padding: 1em;
+}
 
   /* reviews book page */
   #revStars{
@@ -519,12 +535,18 @@ border: none;
     .affiliate{
       text-align: right;
     }
+    #text{
+      width: 55%;
+      display: inline-block;
+    }
   }
+
 
 @media only screen and (max-width: 655px) {
  #search_form_index{
    width: 98%;
  }
+
 
   }
   

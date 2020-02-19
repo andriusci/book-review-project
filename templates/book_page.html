@@ -8,10 +8,14 @@
   
 <div style="margin-top: 7em">
 
-     <div >
+
+<div class="">
+
+     <div class="book_img_wrap">
       <image class="book_img" src="{{ book.get('image')}}">
      </div>
-     <div >
+
+     <div id="text">
            <h1> {{ book.get("title")}}</h1>
            {%if book.get("author") != ""%}
            By: {{ book.get("author")}}<br>
@@ -19,14 +23,9 @@
            <p>
             {{ book.get("description")}}
             </p>
-        </div>
-      <div >
-        <br>
-        <br>
-        <br>
-        Amazon
-      </div>
-
+    </div>
+    
+</div>
 
 
 
@@ -41,10 +40,38 @@
             </div>
             <div id="details" class="panel-collapse collapse">
               <div class="panel-body">
-              
-              
-                <strong>format:</strong> {{book.format}}
-               <strong>language:</strong> {{book.language}}
+                    
+    
+               {%if book.get("lang") != ""%}
+              <span class="details"> 
+                <strong>language:</strong> {{book.lang}}
+              </span> 
+               {%endif%}
+          
+               {%if book.get("format") != ""%}
+               <span class="details"> 
+               <strong> Format:</strong> {{book.format}}
+               </span>
+              {%endif%}
+         
+              {%if book.get("genre") != ""%}
+              <span class="details"> 
+              <strong> Genre:</strong> {{book.genre}}
+              </span>
+             {%endif%}
+
+             {%if book.get("isbn13") != ""%}
+             <span class="details"> 
+             <strong> ISBN13:</strong> {{book.isbn13}}
+             </span>
+            {%endif%}
+
+            {%if book.get("isbn10") != ""%}
+            <strong> ISBN10:</strong> {{book.isbn10}}
+           {%endif%}
+
+
+        
              </div>
               
             </div>
