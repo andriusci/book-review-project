@@ -22,15 +22,20 @@
      </div>
      <hr class="thin_line">
 
-     <div class="description" id={{eachBook._id}}>
+     <div class="descriptionMobile" id={{eachBook._id}}>
+
       </div>
+     <div class="descriptionLarge">
+       {{eachBook.description}}
+     </div>
+
         <script>
-         var str = '{{ eachBook.description }}';
-         if(str.length > 80) 
-         str = str.substring(0,80) + "  ... <a href="+"/Book_page/book_id:{{eachBook._id}}"+">read more</a>";
+         var description = '{{ eachBook.description }}';
+         if(description.length > 80) 
+         description = description.substring(0,80) + "  ... <a href="+"/Book_page/book_id:{{eachBook._id}}"+">read more</a>";
          else
-         str = '{{eachBook.description}}'
-         document.getElementById("{{eachBook._id}}").innerHTML = str;
+         description = '{{eachBook.description}}'
+         document.getElementById("{{eachBook._id}}").innerHTML = description;
         </script>
    
     

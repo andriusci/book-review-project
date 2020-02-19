@@ -486,7 +486,9 @@ border: none;
   font-style: italic; 
 }
 
-
+.descriptionLarge{
+  display: none
+}
   @media only screen and (min-width: 700px) {
     .search_form_nav{
       width: 68%;
@@ -504,7 +506,21 @@ border: none;
       width:14%;
       float: right;
     }
+    .descriptionMobile{
+      display: none
+    }
+    .descriptionLarge{
+      display: block
+    }
+    .result_container{
+      width: 80%;
+      margin: auto
+    }
+    .affiliate{
+      text-align: right;
+    }
   }
+
 @media only screen and (max-width: 655px) {
  #search_form_index{
    width: 98%;
@@ -520,5 +536,7 @@ border: none;
     .log_in_form{
       max-width: 600px;
     }
-  
+    .result_img_wrap{
+      width:20%
+    }
   }
