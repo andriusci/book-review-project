@@ -74,9 +74,11 @@ def searchResults(search_term, genre, page_number):
 def create_book_page(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
+   length = len(book.get('description'))
    if (book):
       return render_template("book_page.html", book = book, 
-                                               reviews= reviews)
+                                               reviews= reviews,
+                                               length = length)
                                                
 
 

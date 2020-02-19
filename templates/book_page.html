@@ -14,18 +14,32 @@
      <div class="book_img_wrap">
       <image class="book_img" src="{{ book.get('image')}}">
      </div>
-
-     <div id="text">
+     <div id="text_wrap">
+        <div id="text">
+       
            <h1> {{ book.get("title")}}</h1>
            {%if book.get("author") != ""%}
            By: {{ book.get("author")}}<br>
            {%endif%}
+           
            <p>
             {{ book.get("description")}}
+            <script>
+              var description = "{{book.get('description')}}";
+             
+            </script>
+ 
             </p>
+        </div>
+       {%if length > 450%}
+        <div id="more_less">
+          <button id="show_more" onclick="show_more()"> ... show more</button>
+          <button id="show_less" onclick="show_less()"> ... show less</button>
+        </div>
+       {%endif%}
     </div>
-    
-</div>
+  
+  
 
 
 
@@ -153,6 +167,19 @@ reviews:
         <title>star</title>
         <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="grey"/>
         </svg>
+<script>
+  function show_more() {
+    document.getElementById('text').style.maxHeight = "50em"
+    document.getElementById('text').style.height = "auto"
+    document.getElementById('show_more').style.display = "none"
+    document.getElementById('show_less').style.display = "inline"
+  }
+  function show_less(){
+    document.getElementById('text').style.maxHeight = "17em"
+    document.getElementById('show_more').style.display = "inline"
+    document.getElementById('show_less').style.display = "none"
+  }
 
+</script>
 
 {%endblock%}

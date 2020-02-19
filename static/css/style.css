@@ -414,9 +414,34 @@ svg {
   left: 2em;
 }
 
+
+#text{
+  overflow:hidden;
+  transition:max-height 1.3s ease-out; 
+  height: 17em;
+  max-height:900px; 
+}
+#text h1{
+  font-size: 1.7em
+}
+#show_more ,#show_less{
+  float: right;
+  margin-right: 2em;
+  border:none;
+  background-color: transparent;
+  color: #337ab7
+}
+#show_less{
+  display: none
+}
+#more_less{
+  width: 90%
+}
+
 .book_img_wrap{
 display: inline-block;
 text-align: center;
+vertical-align: top;
 }
   .book_img{
     width: 70%;
@@ -424,6 +449,11 @@ text-align: center;
 #text{
   padding: 1em;
 }
+#text_wrap{
+  display: inline-block;
+  max-width: 96%;
+}
+
 
   /* reviews book page */
   #revStars{
@@ -535,10 +565,13 @@ border: none;
     .affiliate{
       text-align: right;
     }
-    #text{
-      width: 55%;
-      display: inline-block;
-    }
+   #text{
+     width:90%
+   }
+   #text_wrap{
+     width: 90%
+   }
+   
   }
 
 
