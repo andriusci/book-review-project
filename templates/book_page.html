@@ -6,20 +6,20 @@
 
     
   
-<div style="margin-top: 7em">
 
 
-<div class="">
+
 
      <div class="book_img_wrap">
       <image class="book_img" src="{{ book.get('image')}}">
      </div>
+     
      <div id="text_wrap">
         <div id="text">
        
            <h1> {{ book.get("title")}}</h1>
            {%if book.get("author") != ""%}
-           By: {{ book.get("author")}}<br>
+          <strong> By: {{ book.get("author")}}<br> </strong>
            {%endif%}
            
            <p>
@@ -37,7 +37,7 @@
           <button id="show_less" onclick="show_less()"> ... show less</button>
         </div>
        {%endif%}
-    </div>
+     </div>
   
   
 
@@ -96,67 +96,48 @@
    
 <div class="iFrameWrap">
     
-    <div >
-    
+    <div class="iFrame">
         <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no" src="/ratingChart:bookID:{{book._id}}"></iframe>
-       
-    
      </div>
 
  <!--recomend section-->
 
-  <div >
+  <div class="iFrame">
       <iframe name="recomend" frameborder="no" scrolling="no"  src="/recommend:bookID:{{book._id}}"></iframe>
   </div>
     
    <!--rate & review section-->
-    <div >
+    <div class="iFrame">
         <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
-       
-    
      </div>
       
        
 </div>
-</div> 
+ 
 
 
 <!--Review section-->
-reviews:
-  <br>
+<h5>Reviews:</h5>
+  <hr >
  
 {% for eachReview in reviews %}
-{{eachReview.review}}
 {%if eachReview.review != "" %}
-
-
-   
-     
-            
-         
-      
+<div>
       {%for x in range(1,6)%}
         {%if x == eachReview.rating or x < eachReview.rating%}
         <svg style="width: 2em; height: 2em"><use xlink:href="#blue" class="is-selected"></use></svg>
-         
-           
         {%else%}
         <svg style="width: 2em; height: 2em"><use xlink:href="#grey" class="is-selected"></use></svg>
        {%endif%}
       {%endfor%}
-
-    
      {{ eachReview.title }}
-     
      {{eachReview.review}}
-     
-     
      {%endif%}
-  
-
-
-
+</div>
 {% endfor %}
+ 
+
+
 <svg>
     <symbol id="blue" viewBox="0 0 98 92">
     <title>star</title>

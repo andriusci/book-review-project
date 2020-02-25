@@ -131,10 +131,42 @@ def addBook():
     return response
 
 
-@app.route("/edit<book_id>", methods=['GET', 'POST'])
-def edit(book_id):
+@app.route("/edit_book<book_id>", methods=['GET', 'POST'])
+def editBook(book_id):
    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-   return render_template("iFrames/edit.html", book = book)
+   if request.method == "POST":
+      title = request.form['title']
+      desc = request.form['description']
+      genre = request.form['genre']
+      author = request.form['author']
+      img = request.form['img']
+      isbn10 = request.form['isbn10']
+      isbn13 = request.form['isbn13']
+      format1 = request.form['format']
+      lang = request.form['language']
+      publ = request.form['publisher'] 
+      amazon = request.form['amazon']
+      mongo.db.books.update({"_id": ObjectId(book_id)}, {"$set": {"title": title, 
+                                                                  "description" : desc,
+                                                                  "genre": genre,
+                                                                  "author": author,
+                                                                  "image": img,
+                                                                  "isbn10": isbn10,
+                                                                  "isbn13": isbn13,
+                                                                  "format": format1,
+                                                                  "lang": lang,
+                                                                  "publisher": publ,
+                                                                  "amazon": amazon}})
+      return render_template("iFrames/edit_book.html", book = book)
+   else:
+       return render_template("iFrames/edit_book.html", book = book)
+
+
+
+@app.route("/edit_review<review_id>", methods=['GET', 'POST'])
+def editReview(review_id):
+   review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+   return render_template("iFrames/edit_review.html", review = review) 
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
 def review(book_id):

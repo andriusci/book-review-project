@@ -39,8 +39,10 @@
 #delete, #edit{
   float:right
 }
-.add_book_form > input{width: 100%}
-#description{
+.add_book_form >  input{width: 100%}
+
+.review_form > input{width:100%}
+#description, #comment{
   width: 100%
 }
 
@@ -71,6 +73,12 @@ body{
  height:50%;
   color:white;
   margin-top:9em
+}
+#review_svg{
+  margin-top: 5em
+}
+#review_form{
+  width:95%
 }
 .right{text-align : right}
 .center{text-align: center}
@@ -173,7 +181,11 @@ font-size:2.5em;
   margin-left:2em;
   padding-top:4px;
 }
-
+#plus{
+  font-size: 22em;
+  color: white;
+  font-weight: bold;
+}
 #addBook{
 
     border: solid 1px;
@@ -327,19 +339,22 @@ svg {
     padding-top:15;
     padding-left: 9;
   }
-
+  .star_svg{width: 2em;
+    height: 2em}
 
 
   /* iFrames */
   /*  rate chart iFrame */
   iframe{
     min-height: 400px;
-    
+    min-width: 400px;
   }
   .iFrameWrap{
     text-align: center
   }
-
+.iFrame{
+  display: inline-block
+}
   .frameWrapper{
     text-align: center
   }
@@ -442,9 +457,10 @@ svg {
 display: inline-block;
 text-align: center;
 vertical-align: top;
+margin-top: 4em;
 }
   .book_img{
-    width: 70%;
+    width: 95%;
   }
 #text{
   padding: 1em;
@@ -568,9 +584,7 @@ border: none;
    #text{
      width:90%
    }
-   #text_wrap{
-     width: 90%
-   }
+  
    
   }
 
@@ -594,4 +608,15 @@ border: none;
     .result_img_wrap{
       width:20%
     }
+    #text_wrap{
+      max-width: 70%
+    }
+  }
+  @media only screen and (min-width: 1423px) {
+  #more_less{
+    display: none
+  }
+  #text{
+    height:auto
+  }
   }
