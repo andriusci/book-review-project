@@ -1,4 +1,17 @@
-
+html {
+  scroll-behavior: smooth;
+}
+/* /* reviews  */
+.review_wrap{
+  border: solid 1px grey;
+  width: 90%;
+  margin:auto;
+  margin-bottom: 1em;
+  padding: 1em
+}
+.ratingError{
+  color:red
+}
 /* paginition */
 .paginition{
   text-align: center;
@@ -193,7 +206,7 @@ font-size:2.5em;
     padding: 0.8em;
     margin-left: 1em;
   }
-  #add_book_form input, #description{
+  #add_book_form input,.general_form input, #description{
     width:100%;
     border: solid 1px #ccc;
     border-radius: 9px;
@@ -219,9 +232,9 @@ font-size:2.5em;
   box-shadow: 1px 12px 22px 2px #e6eff9;
 }
 
-.general_form input, #add_btn{
+.general_form input, #add_btn, #submit{
   width: 83%;
-  border:none;
+  
   height: 3em;
  
 }
@@ -527,10 +540,8 @@ border: none;
   padding: 12px;
   border-radius: 0px 9px 9px 0px;
 }
-#add_btn{
-  width:80%;
-  max-width: 30em;
-  border-radius: 9px;
+#add_btn #submit{
+
   float:none
 
 }
@@ -566,7 +577,7 @@ border: none;
     }
     .form_btn{
       width:14%;
-      float: right;
+      
     }
     .descriptionMobile{
       display: none
@@ -612,10 +623,8 @@ border: none;
       max-width: 70%
     }
   }
-  @media only screen and (min-width: 1423px) {
-  #more_less{
-    display: none
-  }
+  @media only screen and (max-width: 1423px) {
+ 
   #text{
     height:auto
   }

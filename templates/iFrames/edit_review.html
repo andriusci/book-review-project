@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+
     <title>Document</title>
+
 </head>
+
 <body>
-    {{review.title}}
+     <div>
+         Last edited on {{review.dateTime}}
+     </div><br>
+    <form action="/edit_review{{review._id}}" method="POST" id="edit_review_form">
+        <label for="title">Review title <span class="error">*</span>&nbsp</label><span class="error"
+            id="titleError"></span><br>
+        <input type="text" name="title" id="title" value="{{review['title']}}"> <span class="error"
+            id="titleError"></span>
+        <br>
+
+        <label for="description">Comment <span class="error">*</span></label> <span class="error"
+            id="commentError"></span> <br>
+        <textarea name="comment" id="comment" rows="4">{{review['review']}}</textarea>
+        <br>
+        
+       
+    </form>
+    <div class="form_wrap">
+        <button class="form_btn" id="add_btn" onclick="validate()">submit</button>
+    </div>
+
+    <script>
+
+        function validate() {
+
+            document.getElementById("edit_review_form").submit();
+ 
+        }
+    </script>
+
+    </form>
+
+
+
+    
+ 
 </body>
+
 </html>

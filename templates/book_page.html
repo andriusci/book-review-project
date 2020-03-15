@@ -1,153 +1,165 @@
 {% extends "base.html" %}
 
 
- 
+
 {% block book_page %}
 
-    
-  
 
 
 
 
-     <div class="book_img_wrap">
-      <image class="book_img" src="{{ book.get('image')}}">
-     </div>
-     
-     <div id="text_wrap">
-        <div id="text">
-       
-           <h1> {{ book.get("title")}}</h1>
-           {%if book.get("author") != ""%}
-          <strong> By: {{ book.get("author")}}<br> </strong>
-           {%endif%}
-           
-           <p>
-            {{ book.get("description")}}
-            <script>
-              var description = "{{book.get('description')}}";
-             
-            </script>
- 
-            </p>
-        </div>
-       {%if length > 450%}
-        <div id="more_less">
-          <button id="show_more" onclick="show_more()"> ... show more</button>
-          <button id="show_less" onclick="show_less()"> ... show less</button>
-        </div>
-       {%endif%}
-     </div>
-  
-  
+
+
+<div class="book_img_wrap">
+  <image class="book_img" src="{{ book.get('image')}}">
+</div>
+
+<div id="text_wrap">
+  <div id="text">
+
+    <h1> {{ book.get("title")}}</h1>
+    {%if book.get("author") != ""%}
+    <strong> By: {{ book.get("author")}}<br> </strong>
+    {%endif%}
+
+    <p>
+      {{ book.get("description")}}
+      <script>
+        var description = "{{book.get('description')}}";
+
+      </script>
+
+    </p>
+  </div>
+
+</div>
+
+
 
 
 
 <div class="container">
-      
-        <div class="panel-group">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" href="#details">Book details</a>
-              </h4>
-            </div>
-            <div id="details" class="panel-collapse collapse">
-              <div class="panel-body">
-                    
-    
-               {%if book.get("lang") != ""%}
-              <span class="details"> 
-                <strong>language:</strong> {{book.lang}}
-              </span> 
-               {%endif%}
-          
-               {%if book.get("format") != ""%}
-               <span class="details"> 
-               <strong> Format:</strong> {{book.format}}
-               </span>
-              {%endif%}
-         
-              {%if book.get("genre") != ""%}
-              <span class="details"> 
-              <strong> Genre:</strong> {{book.genre}}
-              </span>
-             {%endif%}
 
-             {%if book.get("isbn13") != ""%}
-             <span class="details"> 
-             <strong> ISBN13:</strong> {{book.isbn13}}
-             </span>
-            {%endif%}
-
-            {%if book.get("isbn10") != ""%}
-            <strong> ISBN10:</strong> {{book.isbn10}}
-           {%endif%}
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#details">Book details</a>
+        </h4>
+      </div>
+      <div id="details" class="panel-collapse collapse">
+        <div class="panel-body">
 
 
-        
-             </div>
-              
-            </div>
-          </div>
+          {%if book.get("lang") != ""%}
+          <span class="details">
+            <strong>language:</strong> {{book.lang}}
+          </span>
+          {%endif%}
+
+          {%if book.get("format") != ""%}
+          <span class="details">
+            <strong> Format:</strong> {{book.format}}
+          </span>
+          {%endif%}
+
+          {%if book.get("genre") != ""%}
+          <span class="details">
+            <strong> Genre:</strong> {{book.genre}}
+          </span>
+          {%endif%}
+
+          {%if book.get("isbn13") != ""%}
+          <span class="details">
+            <strong> ISBN13:</strong> {{book.isbn13}}
+          </span>
+          {%endif%}
+
+          {%if book.get("isbn10") != ""%}
+          <strong> ISBN10:</strong> {{book.isbn10}}
+          {%endif%}
+
+
+
         </div>
-</div>
-    
-   
-<div class="iFrameWrap">
-    
-    <div class="iFrame">
-        <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no" src="/ratingChart:bookID:{{book._id}}"></iframe>
-     </div>
 
- <!--recomend section-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="iFrameWrap">
 
   <div class="iFrame">
-      <iframe name="recomend" frameborder="no" scrolling="no"  src="/recommend:bookID:{{book._id}}"></iframe>
+    <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no"
+      src="/ratingChart:bookID:{{book._id}}"></iframe>
   </div>
-    
-   <!--rate & review section-->
-    <div class="iFrame">
-        <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
-     </div>
-      
-       
+
+  <!--recomend section-->
+
+  <div class="iFrame">
+    <iframe name="recomend" frameborder="no" scrolling="no" src="/recommend:bookID:{{book._id}}"></iframe>
+  </div>
+
+  <!--rate & review section-->
+  <div class="iFrame">
+    <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
+  </div>
+
+
 </div>
- 
+
 
 
 <!--Review section-->
 <h5>Reviews:</h5>
-  <hr >
- 
+<hr>
+
 {% for eachReview in reviews %}
 {%if eachReview.review != "" %}
-<div>
-      {%for x in range(1,6)%}
-        {%if x == eachReview.rating or x < eachReview.rating%}
-        <svg style="width: 2em; height: 2em"><use xlink:href="#blue" class="is-selected"></use></svg>
-        {%else%}
-        <svg style="width: 2em; height: 2em"><use xlink:href="#grey" class="is-selected"></use></svg>
-       {%endif%}
-      {%endfor%}
-     {{ eachReview.title }}
-     {{eachReview.review}}
-     {%endif%}
+<div class="review_wrap">
+  <div>reviewed by <strong>{{eachReview.user}}</strong></div>
+  <div>
+    {%for x in range(1,6)%}
+    {%if x == eachReview.rating or x < eachReview.rating%}
+    <svg style="width: 2em; height: 2em">
+      <use xlink:href="#blue" class="is-selected"></use>
+    </svg>
+    {%else%}
+    <svg style="width: 2em; height: 2em">
+      <use xlink:href="#grey" class="is-selected"></use>
+    </svg>
+    {%endif%}
+    {%endfor%}
+  </div>
+  <div>
+    <strong>{{eachReview.title}}</strong>
+  </div>
+  <div>
+    {{eachReview.review}}
+  </div>
 </div>
+{%endif%}
+
 {% endfor %}
- 
+
 
 
 <svg>
-    <symbol id="blue" viewBox="0 0 98 92">
+  <symbol id="blue" viewBox="0 0 98 92">
     <title>star</title>
-    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="#307bbb"/>
-    </svg>
-    <svg>
-        <symbol id="grey" viewBox="0 0 98 92">
-        <title>star</title>
-        <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="grey"/>
-        </svg>
+    <path
+      d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
+      fill="#307bbb" />
+</svg>
+<svg>
+  <symbol id="grey" viewBox="0 0 98 92">
+    <title>star</title>
+    <path
+      d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
+      fill="grey" />
+</svg>
 <script>
   function show_more() {
     document.getElementById('text').style.maxHeight = "50em"
@@ -155,7 +167,7 @@
     document.getElementById('show_more').style.display = "none"
     document.getElementById('show_less').style.display = "inline"
   }
-  function show_less(){
+  function show_less() {
     document.getElementById('text').style.maxHeight = "17em"
     document.getElementById('show_more').style.display = "inline"
     document.getElementById('show_less').style.display = "none"

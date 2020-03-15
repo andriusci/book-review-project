@@ -3,54 +3,54 @@
 
 {% block search_result%}
 <div class="result_wrap">
-  
-{%if total_results == 0%}
 
-<h3>Unfortunately your search delivered no results :(</h3>
+  {%if total_results == 0%}
 
-{%endif%}
-{% for eachBook in books %}
+  <h3>Unfortunately your search delivered no results :(</h3>
 
-<div class="result_container">
+  {%endif%}
+  {% for eachBook in books %}
+
+  <div class="result_container">
     <div class="result_img_wrap">
-      <a href="/Book_page/book_id:{{eachBook._id}}">  <img class="result_img" src = " {{ eachBook.image}} "></a>
-    </div> 
+      <a href="/Book_page/book_id:{{eachBook._id}}"> <img class="result_img" src=" {{ eachBook.image}} "></a>
+    </div>
 
     <div class="result_txt_wrap">
       <div class="title">
- <strong> {{ eachBook.title }} </strong>
-     </div>
-     <hr class="thin_line">
+        <strong> {{ eachBook.title }} </strong>
+      </div>
+      <hr class="thin_line">
 
-     <div class="descriptionMobile" id={{eachBook._id}}>
+      <div class="descriptionMobile" id={{eachBook._id}}>
 
       </div>
-     <div class="descriptionLarge">
-       {{eachBook.description}}
-     </div>
+      <div class="descriptionLarge">
+        {{eachBook.description}}
+      </div>
 
-        <script>
-         var description = '{{ eachBook.description }}';
-         if(description.length > 80) 
-         description = description.substring(0,80) + "  ... <a href="+"/Book_page/book_id:{{eachBook._id}}"+">read more</a>";
-         else
-         description = '{{eachBook.description}}'
-         document.getElementById("{{eachBook._id}}").innerHTML = description;
-        </script>
-   
-    
+      <script>
+        var description = "{{eachBook.description }}";
+        if (description.length > 80)
+          description = description.substring(0, 80) + "  ... <a href=" + "/Book_page/book_id:{{eachBook._id}}" + ">read more</a>";
+        else
+          description = "{{eachBook.description}}"
+        document.getElementById("{{eachBook._id}}").innerHTML = description;
+      </script>
+
+
+    </div>
+    {%if eachBook.amazon != ""%}
+    <hr class="thin_line">
+    <div class="affiliate">
+      Available at <a href="{{eachBook.amazon}}" target="_blank">Amazon.com</a> <i class="fas fa-external-link-alt"></i>
+
+    </div>
+    {%endif%}
   </div>
-  {%if eachBook.amazon != ""%}
- <hr class="thin_line">
-  <div class="affiliate">
-    Available at <a href="{{eachBook.Affiliate}}">Amazon.com</a> <i class="fas fa-external-link-alt"></i>
-      
-  </div>
-  {%endif%}
-</div>
 
 
-{% endfor %}
+  {% endfor %}
 </div>
 
 
@@ -59,41 +59,39 @@
 {%endblock%}
 
 
-{%if search_term != " " %}
-{{search_term}}
-{%endif%}
-{{search_term}}
+
+
 
 {% block pagination%}
+
+
+{%if total_pages > 1%}
 <div class="paginition">
-{%if current_page > 1 and current_page <= total_pages%}
-{%set go_to_page = current_page - 1%}
-<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong><< previous</strong></a>
-{%endif%}
+  {%if current_page > 1 and current_page <= total_pages%}
+  {%set go_to_page = current_page - 1%}
+  <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>
+      << previous</strong> </a> {%endif%} {%if total_pages != 0%} <form action="{{ url_for('pagination') }}"
+        method="POST">
+        <input type="hidden" name="search" value="{{search_term}}">
+        <input type="hidden" name="genre" value="{{genre}}">
+        <input type="text" name="go to" value="{{current_page}}" id="goTo">
+        <input type="submit" value="GO" id="go_btn">
+        </form>
+        {%endif%}
 
 
-{%if total_pages != 0%}
-<form action="{{ url_for('pagination') }}" method="POST">
-  <input type="hidden" name="search" value="{{search_term}}">
-  <input type="hidden" name="genre" value="{{genre}}">
-  <input type="text" name="go to" value="{{current_page}}"id="goTo">
-  <input type="submit" value="GO" id="go_btn">
-</form>
-{%endif%}
-
-
-{%if current_page < total_pages%}
-{%set go_to_page = current_page + 1%}
-<a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>next >> </strong></a>
-{%endif%}
-
+        {%if current_page < total_pages%}
+        {%set go_to_page = current_page + 1%}
+        <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>next >> </strong></a>
+        {%endif%}
+        {%endif%}
 
 </div>
 
 <p>
-{%if current_page > total_pages and total_pages != 0%}
-Unfortunately page {{current_page}} does not exist. Your search returned {{total_pages}} page(s).
-{%endif%}
+  {%if current_page > total_pages and total_pages != 0%}
+  Unfortunately page {{current_page}} does not exist. Your search returned {{total_pages}} page(s).
+  {%endif%}
 
 </p>
 {% endblock %}

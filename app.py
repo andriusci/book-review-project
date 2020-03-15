@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, url_for, make_response
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
 import os
 import math
 import builtins
@@ -165,8 +166,16 @@ def editBook(book_id):
 
 @app.route("/edit_review<review_id>", methods=['GET', 'POST'])
 def editReview(review_id):
-   review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-   return render_template("iFrames/edit_review.html", review = review) 
+     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+     if request.method == "POST":
+        title = request.form['title']
+        comment = request.form['comment']
+        mongo.db.reviews.update(
+                 {"_id": ObjectId(review_id)},
+                 {"$set": {"title": title, "review": comment, "dateTime": datetime.now().strftime("%Y:%M:%H:%M") }})
+        review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+     return render_template("iFrames/edit_review.html", review = review) 
+   
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
 def review(book_id):
@@ -180,11 +189,13 @@ def review(book_id):
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user
+        dateTime = datetime.now().strftime("%Y:%M:%H:%M")
         mongo.db.reviews.insert({"title": title,
                                  "review": review,
                                  "rating" : rating, 
                                  "user": logged_user, 
-                                 "book_ID" : ObjectId(book_id)})
+                                 "book_ID" : ObjectId(book_id),
+                                 "dateTime": dateTime})
         submitted = True
         response = make_response(render_template("review.html", book_id =book_id, status = submitted ))
      else:
@@ -264,8 +275,13 @@ def account():
       if user != None:
         logged_user = mongo.db.users.find_one({"name": user})
         if request.method == "POST":
-           book_id = request.form['book_id']
-           mongo.db.books.remove({"_id":ObjectId(book_id)})
+           form_id = request.form['id']
+           if form_id == "delete_book":
+             book_id = request.form['book_id']
+             mongo.db.books.remove({"_id":ObjectId(book_id)})
+           elif form_id == "delete_review":
+             review_id = request.form['review_id']
+             mongo.db.reviews.remove({"_id":ObjectId(review_id)})
         books = mongo.db.books.find({"added_by": logged_user['name'] })
         reviews = mongo.db.reviews.find({"user": logged_user['name'] })
         response = make_response(render_template("account.html", logged_user = logged_user, books = books, reviews = reviews))
@@ -362,8 +378,8 @@ def register():
 
 @app.route("/del")
 def delete():
- #  mongo.db.recommend.remove()
- #  mongo.db.reviews.remove()
+   mongo.db.recommend.remove()
+   mongo.db.reviews.remove()
   # mongo.db.books.remove()
-   mongo.db.users.remove()
+   #mongo.db.users.remove()
    return render_template("index.html")
