@@ -189,7 +189,8 @@ def review(book_id):
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user
-        dateTime = datetime.now().strftime("%Y:%M:%H:%M")
+        date = time.now()
+        time = datetime.now().strftime("%Y:%M:%H:%M")
         mongo.db.reviews.insert({"title": title,
                                  "review": review,
                                  "rating" : rating, 

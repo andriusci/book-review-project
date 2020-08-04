@@ -27,25 +27,19 @@
 
  <div class="navTop">
 
+  <!--logo (home button)-->
 <div class="home_wrap">
-
-  <a href="/" class="home"><i class="fas fa-book-open"></i> </a>
- 
-  </div>
+  <a href="/" class="home"><i class="fas fa-book-open"></i> </a> 
+</div>
 
   <div class="navTopRight">
-  
-    
-
       <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
-  
       <a id="addBook" href="{{ url_for('addBook') }}">Add Book</a>
-  
-   
      </div> 
-    </div>
-  {%set root = request.url%}
-  {%if root != "http://127.0.0.1:5000/"%}
+   
+  {%set root = request.path%}
+ 
+  {%if root != "/"%}
   
       
       {%set searchValue = search_term%}

@@ -9,9 +9,7 @@ html {
   margin-bottom: 1em;
   padding: 1em
 }
-.ratingError{
-  color:red
-}
+
 /* paginition */
 .paginition{
   text-align: center;
