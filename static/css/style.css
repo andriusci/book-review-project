@@ -1,10 +1,14 @@
+/*  box-shadow: 1px 12px 22px 2px #e6eff9;*/
+
 html {
   scroll-behavior: smooth;
 }
 main{
-  margin-top: 4em;
+  margin-top: 6em;
 }
-/* /* reviews  */
+
+
+/* reviews  */
 .review_wrap{
   border: solid 1px rgb(207, 203, 203);
   width: 90%;
@@ -186,10 +190,9 @@ z-index: 1;
 }
 /* logo */
 .home{
-
-
 font-size:2.5em;
 }
+
 .home_wrap{
   width: 10%;
   float: left;
@@ -221,7 +224,7 @@ font-size:2.5em;
   }
 
 #add_book_form{
-  width: 98%
+  width: 98%;
 }
 .general_form{
   border-radius: 9px;
@@ -231,7 +234,6 @@ font-size:2.5em;
   margin: auto;
   margin-top: -1em;
   background-color: white;
-  box-shadow: 1px 12px 22px 2px #e6eff9;
 }
 
 .general_form input, #add_btn, #submit{
@@ -521,7 +523,6 @@ border: none;
   font-weight: bold;
   border: none;
   background-color: transparent;
-  width: 115px;
   padding: 12px 0px;
   margin-left: 6px;
   color: #337ab7;
@@ -529,7 +530,11 @@ border: none;
 #add_genre{
   border:solid 1px #ccc;
   border-radius: 9px;
-  margin: 0px
+  margin: 0px;
+  width:100%;
+}
+#select_genre{
+  width: 115px;
 }
 #submit_button{
   width: 55px;
@@ -540,11 +545,19 @@ border: none;
   padding: 12px;
   border-radius: 0px 9px 9px 0px;
 }
-#add_btn #submit{
+#submit{
 
   float:none
 
 }
+#add_btn{
+  margin: auto;
+  margin-top: 1em;
+  width: 100%;
+  display: block;
+  height: 4em;
+}
+
 
 ::-webkit-input-placeholder {
   font-style: italic;
@@ -561,6 +574,12 @@ border: none;
 
 .descriptionLarge{
   display: none
+}
+.centered{
+  text-align: center;
+}
+.centered > h3{
+  margin: 1em 1em 0em 1em;
 }
   @media only screen and (min-width: 700px) {
     .search_form_nav{
@@ -596,9 +615,15 @@ border: none;
      width:90%
    }
   
-   
+   .centered{
+     text-align: center;
+   }
   }
-
+  @media only screen and (min-width: 555px) {
+    #add_btn{
+      max-width: 12em;
+    }
+  }
 
 @media only screen and (max-width: 655px) {
  #search_form_index{
