@@ -18,6 +18,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
+      #returns the home page with simulated logged user.
       cookies = request.cookies  
       logged_user = cookies.get("logged_user")
       return render_template("index.html", logged_user= logged_user)
@@ -38,6 +39,7 @@ def initialise():
 
 @app.route("/pagination", methods=['GET', 'POST'])
 def pagination():
+   #enables pagination
    if request.method == "POST":
       search_term = request.form['search']
       genre = request.form['genre']
@@ -49,7 +51,7 @@ def pagination():
 @app.route("/Search:<search_term>/Genre:<genre>/Page:<int:page_number>", methods=['GET', 'POST'])
 def searchResults(search_term, genre, page_number):
      n = page_number * 10 - 10
-  #Create mongoDB query
+  #Create mongoDB query for the search criterea:
      if search_term == "All_books" and genre == "Choose genre":
         books=mongo.db.books.find().skip(n).limit(10)
      elif search_term == "All_books" and genre != "Chosoe genres":
@@ -60,7 +62,7 @@ def searchResults(search_term, genre, page_number):
      else:
         mongo.db.books.create_index([('title', 'text')])
         books=mongo.db.books.find({"$text": {"$search": search_term }, "genre" : genre}).skip(n).limit(10) 
-  #Return a page with search results
+  #Return a page with the search results:
      total_results = books.count()
      total_pages = math.ceil(books.count()/10.1)
      return render_template("search_results.html", books = books, 
@@ -72,6 +74,7 @@ def searchResults(search_term, genre, page_number):
 
 
 @app.route("/Book_page/book_id:<book_id>")
+#Finds a single book and returns the book page with the relevant information.
 def create_book_page(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
@@ -82,11 +85,9 @@ def create_book_page(book_id):
                                                length = length)
                                                
 
-
-
-
 @app.route("/addBook", methods=['GET', 'POST'])
 def addBook():
+   #takes the user input and adds a new book to the database
     if request.method == "POST":
        title = request.form['title']
        description = request.form['description']
@@ -122,6 +123,7 @@ def addBook():
           submitted = False
        response = render_template("addBook.html", numberB = num_before, numberA = num_after, submitted = submitted)
     else:
+       #simulates login functionality:
         cookies = request.cookies  
         user = cookies.get("logged_user")
         if user != None:
@@ -134,6 +136,7 @@ def addBook():
 
 @app.route("/edit_book<book_id>", methods=['GET', 'POST'])
 def editBook(book_id):
+   #enables book editing
    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
    if request.method == "POST":
       title = request.form['title']
@@ -166,6 +169,7 @@ def editBook(book_id):
 
 @app.route("/edit_review<review_id>", methods=['GET', 'POST'])
 def editReview(review_id):
+   #Enables review editing
      review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
      if request.method == "POST":
         title = request.form['title']
@@ -179,6 +183,7 @@ def editReview(review_id):
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
 def review(book_id):
+   #Takes user input, stores it in the database and returns a review page
   cookies = request.cookies  
   logged_user = cookies.get("logged_user")
   if logged_user != None:
@@ -189,8 +194,7 @@ def review(book_id):
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user
-        date = time.now()
-        time = datetime.now().strftime("%Y:%M:%H:%M")
+        dateTime = datetime.now().strftime("%Y:%M:%H:%M")
         mongo.db.reviews.insert({"title": title,
                                  "review": review,
                                  "rating" : rating, 
@@ -200,7 +204,6 @@ def review(book_id):
         submitted = True
         response = make_response(render_template("review.html", book_id =book_id, status = submitted ))
      else:
-       #responce = review page
         response = make_response(render_template("review.html", book_id = book_id ))
   else:
       response = make_response(render_template("log_in.html" ))
@@ -212,6 +215,7 @@ def review(book_id):
 
 @app.route("/rate:bookID:<book_id>", methods=['GET', 'POST'])
 def rate(book_id):
+   #enables the book rating functionality
    if request.method == "POST":
     book_id = request.form['book_id']
     rating = int(request.form['rating'])
@@ -292,10 +296,10 @@ def account():
         response.set_cookie("destination", "account.html") 
       return response
 
-                                         
-
+                                       
 @app.route("/log_in", methods=['GET', 'POST'])
 def log_in():
+   #Log in simulation
    if request.method == "POST":
        user_name = request.form['user_name']
       
@@ -310,20 +314,18 @@ def log_in():
            else:
               book_id ="NA"
            destination_page = dest
-          
            response = make_response(render_template(destination_page, logged_user = user, book_id = book_id, books = books ))
            response.set_cookie("logged_user", user_name)  
        else:
            response = make_response(render_template("log_in.html", error = True ))
        return response
-
    else:
-   
       return render_template("log_in.html")
 
 
 @app.route("/recommend:bookID:<book_id>", methods=['GET', 'POST'])
 def recomend(book_id):
+   #enables book recommendations.
    cookies = request.cookies  
    user = cookies.get("logged_user")
    if request.method == "POST":
@@ -355,6 +357,7 @@ def recomend(book_id):
                                               
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+   #register a new user.
    if request.method == "POST":
       cookies = request.cookies  
       dest = cookies.get("destination")
@@ -375,7 +378,6 @@ def register():
          return response
    else:
       return render_template("register.html")
-
 
 @app.route("/del")
 def delete():

@@ -13,79 +13,67 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <script src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/crossfilter.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/dc.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/queue.min.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/rating.js') }}"></script>
     <title></title>
 </head>
 
 <body>
+
 <header>
 
  <div class="navTop">
 
-  <!--logo (home button)-->
-<div class="home_wrap">
+ <!--logo (home button)-->
+   <div class="home_wrap">
   <a href="/" class="home"><i class="fas fa-book-open"></i> </a> 
-</div>
+   </div>
 
-  <div class="navTopRight">
+<!--navigation items (on the right)-->
+   <div class="navTopRight">
       <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
       <a id="addBook" href="{{ url_for('addBook') }}">Add Book</a>
-     </div> 
+   </div> 
    
+  {# if the current page is not the index page,
+     show the search books form with appropriate search values #}
+
   {%set root = request.path%}
- 
   {%if root != "/"%}
-  
-      
+
       {%set searchValue = search_term%}
+
       {%if search_term == "All_books"%}
       {% set searchValue = ""%}
       {%endif%}
 
+   <!--navbar book search form-->
   <div class="search_form_wrap_nav" id="search_form_wrap_nav">
-
     <form action="{{ url_for('initialise') }}" method="POST" class="search_form_nav" id="search_form_nav">
-       
           <select name="genre" id="select_genre">
                 {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
                 {% set selected = ""%}
                 {%for eachOption in select%}
                    {%if eachOption == genre%}
-                   {%set selected = "selected"%}
+                     {%set selected = "selected"%}
                    {%endif%}
                   <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
                 {%endfor%}
               </select>
-       
               <input type="text" name="search term" id="nav_search_input" value="{{searchValue}}"placeholder="type book title ...">
-  
            <button id="submit_button"><i class="fas fa-search"></i></button>
-           
-    
-           
     </form>
- 
   </div>
   
   {%endif%}
- 
-
-
-
 </div>
 
-
 </header>
-
+<main>
 {%block register%}
 {%endblock%}
+
 {%block log_in%}
 {%endblock%}  
+
 {%block review%}
 {%endblock%}
 
@@ -95,28 +83,28 @@
 {%block test1%}
 {%endblock%}
 
-
 {%block book_page%}
 {%endblock%}
 
-
-    {%block index%}
-    {%endblock%}
+{%block index%}
+{%endblock%}
    
-    {%block user_account%}
-
-    {%endblock%}
-
+{%block user_account%}
+{%endblock%}
 
 {%block search_result%}
 {%endblock%}
+
 <br>
+
 {% block pagination%}
 {% endblock %}
+
 </br>
 
 {%block user%}
 {%endblock%}
+</main>
 
 
 </body>

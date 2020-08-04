@@ -1,9 +1,12 @@
 html {
   scroll-behavior: smooth;
 }
+main{
+  margin-top: 4em;
+}
 /* /* reviews  */
 .review_wrap{
-  border: solid 1px grey;
+  border: solid 1px rgb(207, 203, 203);
   width: 90%;
   margin:auto;
   margin-bottom: 1em;
@@ -166,6 +169,7 @@ height: 4em;
 position: fixed;
 top: 0;
 background-color:white;
+z-index: 1;
 
 }
 .navTopRight{
@@ -361,7 +365,8 @@ svg {
     min-width: 400px;
   }
   .iFrameWrap{
-    text-align: center
+    text-align: center;
+    margin-left: 4em;
   }
 .iFrame{
   display: inline-block
@@ -464,7 +469,7 @@ svg {
   width: 90%
 }
 
-.book_img_wrap{
+.book_img_wrap, #text_wrap{
 display: inline-block;
 text-align: center;
 vertical-align: top;
@@ -476,10 +481,7 @@ margin-top: 4em;
 #text{
   padding: 1em;
 }
-#text_wrap{
-  display: inline-block;
-  max-width: 96%;
-}
+
 
 
   /* reviews book page */
@@ -617,10 +619,14 @@ border: none;
     .result_img_wrap{
       width:20%
     }
-    #text_wrap{
-      max-width: 70%
+   
+  }
+  @media only screen and (max-width: 1023px) {
+    main{
+      margin-top: 7em
     }
   }
+
   @media only screen and (max-width: 1423px) {
  
   #text{

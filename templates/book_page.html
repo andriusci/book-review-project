@@ -1,56 +1,45 @@
 {% extends "base.html" %}
 
-
-
 {% block book_page %}
 
+<!--Book title section (book's cover image, title, author and description)-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" >
+          <!--Book cover image-->
+          <image class="result_img" src="{{ book.get('image')}}" alt="Book cover image">
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          <!--Book title -->
+          <h1> {{ book.get("title")}}</h1>
 
-
-
-
-
-
-<div class="book_img_wrap">
-  <image class="book_img" src="{{ book.get('image')}}">
-</div>
-
-<div id="text_wrap">
-  <div id="text">
-
-    <h1> {{ book.get("title")}}</h1>
-    {%if book.get("author") != ""%}
-    <strong> By: {{ book.get("author")}}<br> </strong>
-    {%endif%}
-
-    <p>
-      {{ book.get("description")}}
-      <script>
-        var description = "{{book.get('description')}}";
-
-      </script>
-
-    </p>
+          {#If the book author is provided show the author's name#}
+          {%if book.get("author") != ""%}
+          <!--Book author-->
+          <strong> By: {{ book.get("author")}}<br> </strong>
+          {%endif%}
+          <!--Book description-->
+          <p>
+            {{ book.get("description")}}
+          </p>
+      </div>
+    </div>
   </div>
+</section>
 
-</div>
-
-
-
-
-
+<!--Collapsible Bootstrap panel, contains book details-->
+<section>
 <div class="container">
-
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
+        <h3 class="panel-title">
           <a data-toggle="collapse" href="#details">Book details</a>
-        </h4>
+        </h3>
       </div>
       <div id="details" class="panel-collapse collapse">
         <div class="panel-body">
-
-
           {%if book.get("lang") != ""%}
           <span class="details">
             <strong>language:</strong> {{book.lang}}
@@ -78,42 +67,42 @@
           {%if book.get("isbn10") != ""%}
           <strong> ISBN10:</strong> {{book.isbn10}}
           {%endif%}
-
-
-
         </div>
-
       </div>
     </div>
   </div>
 </div>
+</section>
 
 
-<div class="iFrameWrap">
+<!--Rate, review and recommend section-->
+<aside>
+  <div class="iFrameWrap">
 
+  <!--rating chart iFrame-->
   <div class="iFrame">
     <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no"
       src="/ratingChart:bookID:{{book._id}}"></iframe>
   </div>
 
-  <!--recomend section-->
-
+  <!--recomend iFrame-->
   <div class="iFrame">
     <iframe name="recomend" frameborder="no" scrolling="no" src="/recommend:bookID:{{book._id}}"></iframe>
   </div>
 
-  <!--rate & review section-->
+  <!--rate & review iFrame-->
   <div class="iFrame">
     <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
   </div>
 
-
-</div>
-
+  </div>
+</aside>
 
 
 <!--Review section-->
-<h5>Reviews:</h5>
+<section>
+<div class="container">
+<h3>Reviews:</h3>
 <hr>
 
 {% for eachReview in reviews %}
@@ -141,11 +130,13 @@
   </div>
 </div>
 {%endif%}
-
 {% endfor %}
+</div>
+</section>
 
 
 
+<!--SVG shape Zell Lew from https://codepen.io/zellwk/pen/YwjZQv-->
 <svg>
   <symbol id="blue" viewBox="0 0 98 92">
     <title>star</title>
@@ -160,19 +151,5 @@
       d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
       fill="grey" />
 </svg>
-<script>
-  function show_more() {
-    document.getElementById('text').style.maxHeight = "50em"
-    document.getElementById('text').style.height = "auto"
-    document.getElementById('show_more').style.display = "none"
-    document.getElementById('show_less').style.display = "inline"
-  }
-  function show_less() {
-    document.getElementById('text').style.maxHeight = "17em"
-    document.getElementById('show_more').style.display = "inline"
-    document.getElementById('show_less').style.display = "none"
-  }
-
-</script>
 
 {%endblock%}
