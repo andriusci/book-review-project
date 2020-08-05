@@ -2,21 +2,59 @@
 
 
 {%block user_account%}
+
+<style>
+  
+    /*modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #337ab7;
+      color: white;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    </style>
 <!-- Bootstrap accordion  -->
 
-  <div class="container">
-    <div class="panel-group" id="accordion">
-      <!--"My books" drop-down accordion menu item. Contains the books submitted by the user"-->
-      <div class="panel panel-default">
-        <!-- inline style used to override bootstrap styles -->
-        <div class="panel-heading" style="color:#337ab7">
-          <h4 class="panel-title">
-            <a class="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i
-                class="fas fa-book-reader"></i> My books</a>
-          </h4>
+  <div class="container container-margin">
+<!--modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
+      <div class="tab">
+          <button class="tablinks" onclick="openTab(event, 'books')" id="defaultOpen">My books</button>
+          <button class="tablinks" onclick="openTab(event, 'reviews')">My reviews</button>
         </div>
-        <div id="collapse1" class="panel-collapse collapse ">
-          <div class="panel-body">
+        
+        <div id="books" class="tabcontent">
+          
             {%for eachBook in books%}
             <div class="account_wrapper">
               <div id="title_account">
@@ -28,13 +66,13 @@
                 <form action="{{ url_for('account') }}" method="POST" id="delete_book_form">
                   <input type="hidden" name="book_id" value="{{eachBook._id}}">
                   <input type="hidden" name="id" value="delete_book">
-                  <button><i class="far fa-trash-alt"></i> Delete</button>
+                  <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
                 </form>
               </div>
 
               <div id="edit">
                 <!-- a button, if clicked brings the pop-up that allows to edit the information of the book titled - "{{eachBook.title}}" -->
-                <button type="button" data-toggle="modal" data-target="#{{eachBook._id}}"><i
+                <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachBook._id}}"><i
                     class="far fa-edit"></i>Edit</button>
               </div>
 
@@ -65,22 +103,10 @@
             </div>
             <br>
             {%endfor%}
-          </div>
         </div>
-      </div>
-
-      <!--"My reviews" drop-down accordion menu item. Contains the user's revews"-->
-      <div class="panel panel-default">
-        <!-- inline style used to override bootstrap styles -->
-        <div class="panel-heading" style="color:#337ab7">
-          <h4 class="panel-title">
-            <a class="accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><i
-                class="fas fa-comment-dots"></i></i> My reviews</a>
-          </h4>
-        </div>
-        <div id="collapse2" class="panel-collapse collapse">
-          <div class="panel-body">
-            {%for eachReview in reviews%}
+        
+        <div id="reviews" class="tabcontent">
+          {%for eachReview in reviews%}
             <div class="account_wrapper">
               <div id="title_account">
                 {{ eachReview.title}}
@@ -140,11 +166,30 @@
 
             <br>
             {%endfor%}
-          </div>
         </div>
-      </div>
+        
+        
+        
+        <script>
+        function openTab(evt, tabName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
 
-    </div>
+
   </div>
 
 
@@ -179,7 +224,7 @@
     }
     if (title != "" && description != "" && genre != "Choose genre") { document.getElementById("add_book_form").submit(); }
   }
-
+/*******************************************************************/
   
 </script>
 

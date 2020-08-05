@@ -3,8 +3,10 @@
 html {
   scroll-behavior: smooth;
 }
-main{
-  margin-top: 6em;
+
+.container-margin{
+  margin-top: 10em;
+
 }
 
 
@@ -18,7 +20,7 @@ main{
   padding: 1em
 }
 
-/* paginition */
+/* ****** paginition ****** */
 .paginition{
   text-align: center;
 }
@@ -34,7 +36,6 @@ main{
 }
 #goTo{
   width: 2em;
-
 }
 
 
@@ -128,16 +129,16 @@ body{
 
 /* index page */
 .container_main{
-  margin-top: 4em;
   text-align: center;
   height: 50vh;
   width:100%;
   background-color: #E5EFF9;
+  margin-top: 4em;
 }
 #main_svg{
   width: 60%;
   max-height: 70%;
-  margin-top: 5em;
+  margin-top: 1em;
 }
 
 
@@ -514,11 +515,10 @@ border: none;
   font-style: italic; 
 }
 
-.descriptionLarge{
-  display: none
-}
+
 .centered{
   text-align: center;
+ 
 }
 .centered > h3{
   margin: 1em 1em 0em 1em;
@@ -556,15 +556,14 @@ border: none;
      width:90%
    }
   
-   .centered{
-     text-align: center;
-   }
+
   }
 
 
   @media only screen and (min-width: 555px) {
     #add-btn, #log-btn, #reg-btn{
       max-width: 12em;
+      min-height: 3em;
     }
    
   }
@@ -595,13 +594,11 @@ border: none;
     .result_img_wrap{
       width:20%
     }
-   
-  }
-  @media only screen and (max-width: 1023px) {
-    main{
-      margin-top: 7em
+    #add-book-form{
+    max-width: 70%;
     }
   }
+  
 
   @media only screen and (max-width: 1423px) {
  
@@ -640,6 +637,13 @@ border: none;
   #add-book-form{
     
   }
+
+  #description{
+    width: 100%;
+    border-radius: 9px;
+    border: solid 1px rgb(204, 204, 204);
+  }
+
   .form-btn{
     width:70%;
     border-radius:9px;
@@ -648,4 +652,16 @@ border: none;
     margin-bottom: 0.3em;
     margin-top: 0.3em;
     margin: auto;
+  }
+
+  .delete-btn, .edit-btn{
+    background-color: #307bbb;
+    color: white;
+    border: solid 1px #307bbb;
+    margin-left: 1em;
+    
+  }
+
+  .delete-btn:hover, .edit-btn:hover{
+    background-color: #2A477B;
   }

@@ -5,7 +5,7 @@
 
   <div class="container-fluid">
 
-    <div class="container centered">
+    <div class="container container-margin">
        <h3>
       {# check if form was submitted sucessfully and give feedback accordingly #}
       {%if submitted == True%}
@@ -19,7 +19,7 @@
     </div><hr><br>
 
   <!--the form, if successfully submitted adds a new book to the database-->
-  <form action="{{ url_for('addBook') }}" method="POST" class="general-form" id="add_book_form">
+  <form action="{{ url_for('addBook') }}" method="POST" class="general-form" id="add-book-form">
     <input type="hidden" name="user_name" value="{{user}}">
 
     <div class="row">
@@ -97,7 +97,7 @@
 
   </form>
 
-<div class="container">
+<div class="container centered">
   <!--the button, if clicked, uses js validate() function to validate and submit the form-->
   <button class="form-btn" id="add-btn" onclick="validate()">Add a book</button>
 </div>

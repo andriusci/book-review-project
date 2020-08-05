@@ -3,7 +3,10 @@
 
 {% block search_result%}
 
-<div class="container centered">
+<div class="container container-margin">
+
+
+ 
 
      {%if total_results == 0%}
         <h3>Unfortunately your search delivered no results :(</h3>
@@ -57,7 +60,7 @@
 
 {%if total_pages > 1%}
 <!--paginition-->
-<footer>
+
 <div class="paginition">
   {%if current_page > 1 and current_page <= total_pages%}
         {%set go_to_page = current_page - 1%}
@@ -90,7 +93,7 @@
   </p>
   {%endif%}
 
-</footer>
+
 {%endif%}
 
 {% endblock %}
