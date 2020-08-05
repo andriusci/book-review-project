@@ -1,4 +1,4 @@
-/*  box-shadow: 1px 12px 22px 2px #e6eff9;*/
+
 
 html {
   scroll-behavior: smooth;
@@ -6,6 +6,7 @@ html {
 main{
   margin-top: 6em;
 }
+
 
 
 /* reviews  */
@@ -57,12 +58,6 @@ main{
 #delete, #edit{
   float:right
 }
-.add_book_form >  input{width: 100%}
-
-.review_form > input{width:100%}
-#description, #comment{
-  width: 100%
-}
 
 .error{
   color: red
@@ -90,7 +85,7 @@ body{
 .svg_main{
  height:50%;
   color:white;
-  margin-top:9em
+  margin-top:3em
 }
 #review_svg{
   margin-top: 5em
@@ -127,18 +122,10 @@ body{
 
 
 
-.button_addBook{
-  border:solid #307bbb 1px;
-  border-radius:9px;
-  padding: 10px;
-  margin-left:10px;
-}
-.button_addBook:hover{
-  text-decoration: none;
-  font-weight: bold;
-  color: #307bbb
-  
-}
+
+
+
+
 /* index page */
 .container_main{
   margin-top: 4em;
@@ -163,10 +150,11 @@ body{
 }
 .headline h1, .headline h3{
   margin:0;
-
   padding-bottom: 1.6em;
 }
-/*navigation  bar*/
+
+
+/**************navigation  bar***************************/
 .navTop{
 width:100%;
 height: 4em;
@@ -199,81 +187,44 @@ font-size:2.5em;
   margin-left:2em;
   padding-top:4px;
 }
-#plus{
-  font-size: 22em;
-  color: white;
-  font-weight: bold;
-}
-#addBook{
 
+#addBook{
     border: solid 1px;
     border-radius: 9px;
     padding: 0.8em;
     margin-left: 1em;
   }
-  #add_book_form input,.general_form input, #description{
-    width:100%;
-    border: solid 1px #ccc;
-    border-radius: 9px;
-  }
+
 /* log in page */
-.form_wrap{
-  width: 100%;
-  text-align:center;
-  
-  }
 
-#add_book_form{
-  width: 98%;
-}
-.general_form{
-  border-radius: 9px;
-  max-width: 56em;
-  width: 60%;
-  float: none;
-  margin: auto;
-  margin-top: -1em;
-  background-color: white;
-}
 
-.general_form input, #add_btn, #submit{
-  width: 83%;
-  
-  height: 3em;
- 
-}
+
+
 .label_icon{
+  padding-left:1em;
   
-  padding-left:1em
 }
-.form_btn{
-  width:100%;
-  border-radius:9px;
-  background-color: #307bbb;
-  color: white;
-  margin-bottom: 0.3em;
-}
+
+
 #log_error{
   color: red;
     position: relative;
     top: -35px;
 }
-#log_main{
-  margin-top: 1em
-}
+
+
+
+
 
 
 /* result page */
-.result_wrap{
-  margin-top: 9em
-}
-.result_wrap h3{
-  text-align: center
-}
+
+
 .result_container{
 
 margin: 1em 1em 1em 1em;
-box-shadow: 0px 0px 8px 1px #d5e8f9
+box-shadow: 0px 0px 8px 1px #d5e8f9;
+text-align: left;
 }
 .result_img_wrap{
   width:30%;
@@ -284,23 +235,15 @@ box-shadow: 0px 0px 8px 1px #d5e8f9
   width:100%;
   margin: 0.3em
 }
-.title{
-  width: 60%;
-    display: inline-block;
-    vertical-align: top;
-  }
-  .description{
-    height: 8em;
-    overflow: scroll;
-  
-}
+
+
 .result_txt_wrap{
   display: inline-block;
   width: 63%;
   margin: 0.5em;
 }
 .affiliate{
-  padding: 0.5em;
+float:right
 
 }
  .fa-external-link-alt{
@@ -422,8 +365,12 @@ svg {
   .yes:hover, .no:hover{
     border: solid 3px  #307bbb;
   }
-  .yes{float: right;}
-.no{float: left}
+  .yes{
+    float: right;
+  }
+  .no{
+    float: left
+  }
   #thanks{
     padding-top: 72px;
     font-size: 0.16em;
@@ -453,6 +400,7 @@ svg {
   transition:max-height 1.3s ease-out; 
   height: 17em;
   max-height:900px; 
+  padding: 1em;
 }
 #text h1{
   font-size: 1.7em
@@ -477,12 +425,10 @@ text-align: center;
 vertical-align: top;
 margin-top: 4em;
 }
-  .book_img{
+.book_img{
     width: 95%;
   }
-#text{
-  padding: 1em;
-}
+
 
 
 
@@ -527,12 +473,8 @@ border: none;
   margin-left: 6px;
   color: #337ab7;
 }
-#add_genre{
-  border:solid 1px #ccc;
-  border-radius: 9px;
-  margin: 0px;
-  width:100%;
-}
+
+
 #select_genre{
   width: 115px;
 }
@@ -555,7 +497,7 @@ border: none;
   margin-top: 1em;
   width: 100%;
   display: block;
-  height: 4em;
+  height: 3em;
 }
 
 
@@ -581,6 +523,11 @@ border: none;
 .centered > h3{
   margin: 1em 1em 0em 1em;
 }
+
+
+
+
+
   @media only screen and (min-width: 700px) {
     .search_form_nav{
       width: 68%;
@@ -588,29 +535,23 @@ border: none;
     .navTopRight{
       margin-right: 1em
     }
-    .log_in_form input{
-      width: 35%
-    }
+   
     .thin_line{
       display:none
     }
-    .form_btn{
-      width:14%;
-      
-    }
-    .descriptionMobile{
-      display: none
-    }
-    .descriptionLarge{
-      display: block
-    }
+  
+   
+   
     .result_container{
-      width: 80%;
+      
       margin: auto
     }
     .affiliate{
-      text-align: right;
+      float: right;
     }
+   .title{
+     margin-top: 1em;
+   }
    #text{
      width:90%
    }
@@ -619,17 +560,27 @@ border: none;
      text-align: center;
    }
   }
+
+
   @media only screen and (min-width: 555px) {
-    #add_btn{
+    #add-btn, #log-btn, #reg-btn{
       max-width: 12em;
     }
+   
   }
 
 @media only screen and (max-width: 655px) {
  #search_form_index{
    width: 98%;
  }
+ .description p{
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height:8em;
+
+}
 
   }
   
@@ -657,4 +608,44 @@ border: none;
   #text{
     height:auto
   }
+  }
+
+
+
+
+
+
+
+/*forms*/
+
+
+.general-form{
+  margin:auto;
+}
+
+.general-form input{
+    height: 3em;
+    width: 100%;
+    border-radius: 9px;
+    border:solid 1px rgb(204, 204, 204);
+    display:block;
+    margin-bottom: 1em;
+  }
+
+  #log-form, #register-form{
+    max-width:22em;
+    margin-top:3em
+  }
+
+  #add-book-form{
+    
+  }
+  .form-btn{
+    width:70%;
+    border-radius:9px;
+    background-color: #307bbb;
+    color: white;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+    margin: auto;
   }

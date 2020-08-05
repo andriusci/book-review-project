@@ -4,6 +4,7 @@
 {%block add_book%}
 
   <div class="container-fluid">
+
     <div class="container centered">
        <h3>
       {# check if form was submitted sucessfully and give feedback accordingly #}
@@ -18,7 +19,7 @@
     </div><hr><br>
 
   <!--the form, if successfully submitted adds a new book to the database-->
-  <form action="{{ url_for('addBook') }}" method="POST" class="general_form" id="add_book_form">
+  <form action="{{ url_for('addBook') }}" method="POST" class="general-form" id="add_book_form">
     <input type="hidden" name="user_name" value="{{user}}">
 
     <div class="row">
@@ -30,7 +31,7 @@
       </div>
       <div class="col-sm-12 col-md-5">
            <label for="genre">Genre<span class="error">*</span></label> <span class="error" id="genreError"></span> <br>
-           <select name="genre" id="add_genre">
+           <select name="genre">
             {#Programatically populate form select field, needed for the search book form, here is not necesary - only reused code! #}
             {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
             {% set selected = ""%}
@@ -82,7 +83,7 @@
       </div>
     </div><br>
   
-  
+
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <label for="img">Image URL</label><br>
@@ -98,9 +99,8 @@
 
 <div class="container">
   <!--the button, if clicked, uses js validate() function to validate and submit the form-->
-  <button class="form_btn" id="add_btn" onclick="validate()">Add a book</button>
+  <button class="form-btn" id="add-btn" onclick="validate()">Add a book</button>
 </div>
-
 
 </div>
   

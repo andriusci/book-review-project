@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-        <form action="/edit_book{{book._id}}" method="POST" id="edit_book_form">
+        <form action="/edit_book{{book._id}}" method="POST" class="general-form" id="edit_book_form">
                 <label for="title">Book title <span class="error">*</span>&nbsp</label><span class="error" id="titleError"></span><br>
                 <input type="text" name="title" id="title" value="{{book['title']}}"> <span class="error" id="titleError"></span>
                    <br>

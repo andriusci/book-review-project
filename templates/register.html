@@ -1,40 +1,41 @@
 {% extends "base.html"%}
 
 {%block register%}
-<div class="container_main" id="log_main">
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-plus" class="svg_main svg-inline--fa fa-user-plus fa-w-20" role="img" viewBox="0 0 640 512"><path fill="currentColor" d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>
-       </div>
-       <div class="headline">
-            <h3>Please regster</h3>
-            </div>
-        <div class="form_wrap">
+<div class="container centered">
+    <h3>User Registration</h3>
+</div>          
+       
 {%if userError == True%}
-User named {{user}} already exsist in our database. Please choose other user name.<br>
+<span id="log_error">
+     User named {{user}} already exsist in our database. Please choose other user name.
+</span><br>
 {%endif%}
 
 {%if success != True%}
-<form action="/register" method="POST" class="general_form">
-    <label class="label_icon" for="user_name"><i class="fas fa-user"></i></label>
-<input type="text" name="user_name" id="user_name" value="{{user}}"required placeholder="User name">
+<form action="/register" method="POST" class="general-form" id="register-form">
+    <label class="label_icon" for="user_name"><i class="fas fa-user"></i> <strong>Username</strong></label>
+    <input type="text" name="user_name" id="user_name" value="{{user}}"required placeholder="User name">
 <hr class="thin_line">
-<label class="label_icon" for="email"><i class="fas fa-envelope"></i></label>
+<label class="label_icon" for="email"><i class="fas fa-envelope"></i><strong> Email</strong></label>
 <input type="email" name="email" id="email" value="{{email}}"required placeholder="Email">
 <hr class="thin_line">
 {%if passError == True%}
 passwords do not match
 {%endif%}
 
-<label class="label_icon" for="password"><i class="fas fa-key"></i></label>
+<label class="label_icon" for="password"><i class="fas fa-key"></i></label><strong> Password</strong></label>
 <input type="password" name="password" id="password"required placeholder="Paswword">
 <hr class="thin_line">
-<label class="label_icon" for="password2"><i class="fas fa-key"></i></label>
+<label class="label_icon" for="password2"><i class="fas fa-key"></i><strong> Repeat Password</strong></label>
 <input type="password" name="password2" id="password2" required placeholder="Repeat password"><br>
-<input type="submit" value="Register" class="form_btn" id="reg_button">
+<input type="submit" value="Register" class="form-btn" id="reg-btn">
 </form>
+
+
 {%else%}
-Hello {{user}} Thank you for registration. 
+    Hello {{user}} Thank you for registration. 
 {%if dest == "addBook.html"%}
-you can now add a book 
+    you can now add a book 
 {%elif dest == "account"%}
 
 {%endif%}
