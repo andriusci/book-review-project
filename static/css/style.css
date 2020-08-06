@@ -43,7 +43,8 @@ html {
 
 
 #editFrame{
-  min-height: 500px
+  min-height: 500px;
+  width: 100%;
 }
 
 
@@ -296,7 +297,7 @@ svg {
   /*  rate chart iFrame */
   iframe{
     min-height: 400px;
-    min-width: 400px;
+
   }
   .iFrameWrap{
     text-align: center;
@@ -548,7 +549,7 @@ border: none;
 
 
   @media only screen and (min-width: 555px) {
-    #add-btn, #log-btn, #reg-btn{
+    #add-btn, #log-btn, #reg-btn .form-btn{
       max-width: 12em;
       min-height: 3em;
     }
