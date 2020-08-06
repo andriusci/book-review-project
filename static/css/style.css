@@ -41,22 +41,15 @@ html {
 
 
 
-.account_wrapper{background-color: #e6eff9;}
+
 #editFrame{
   min-height: 500px
 }
-#title_account{
-  height: 1.4em;
-  width: 50%;
-  overflow: hidden;
-  text-align: left;
-}
-#title_account, #delete, #edit{
-  display: inline-block;
- 
-}
-#delete, #edit{
-  float:right
+
+
+tr:nth-child(even) {
+  background-color: #f0f0f0;
+
 }
 
 .error{
@@ -93,7 +86,7 @@ body{
 #review_form{
   width:95%
 }
-.right{text-align : right}
+.text-right{text-align : right}
 .center{text-align: center}
 
 
@@ -656,13 +649,74 @@ border: none;
   }
 
   .delete-btn, .edit-btn{
-    background-color: #307bbb;
+    background-color: transparent;
     color: white;
-    border: solid 1px #307bbb;
-    margin-left: 1em;
+    border: none;
+    color: #307bbb;
+    font-weight: bold
     
   }
 
   .delete-btn:hover, .edit-btn:hover{
-    background-color: #2A477B;
+    text-decoration: underline;
+  }
+
+
+
+
+  /*****************************************tabs*************************/
+  /*code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
+
+ /* Style the tab */
+ .tab {
+  overflow: hidden;
+  background-color: white;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #307bbb;
+  color: white
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #307bbb;
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+  /* **************** */
+
+  /*tabs*/
+  .tab{
+    border-bottom: 1px solid #ccc;
+  }
+  .tablinks{
+    border-radius: 9px 9px 0 0;
+  }
+  .tablinks:hover{
+    background-color: #307bbb;
+    color: white;
+  }
+  .account-table{
+    width:100%
   }

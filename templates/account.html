@@ -3,80 +3,57 @@
 
 {%block user_account%}
 
-<style>
-  
-    /*modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
-    /* Style the tab */
-    .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: white;
-    }
-    
-    /* Style the buttons inside the tab */
-    .tab button {
-      background-color: white;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-    }
-    
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-      background-color: #ddd;
-    }
-    
-    /* Create an active/current tablink class */
-    .tab button.active {
-      background-color: #337ab7;
-      color: white;
-    }
-    
-    /* Style the tab content */
-    .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-    </style>
-<!-- Bootstrap accordion  -->
+
+
 
   <div class="container container-margin">
 <!--modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
       <div class="tab">
           <button class="tablinks" onclick="openTab(event, 'books')" id="defaultOpen">My books</button>
           <button class="tablinks" onclick="openTab(event, 'reviews')">My reviews</button>
-        </div>
+      </div>
         
         <div id="books" class="tabcontent">
-          
-            {%for eachBook in books%}
-            <div class="account_wrapper">
-              <div id="title_account">
-                {{ eachBook.title}}
-              </div>
+          <table class="account-table">
+            <tr>
+              <th>
+                
+                  Book title
               
-              <div id="delete">
+              </th>
+              <th colspan="2" class="center">
+                 Action
+              </th>
+            </tr>
+            {%for eachBook in books%}
+          <tr>
+              
+                
+             <td>
+                {{ eachBook.title}}
+             </td>
+
+             <td class="text-right"> 
+              
                   <!--form, if submitted, deletes the book titled - "{{eachBook.title}}"-->
                 <form action="{{ url_for('account') }}" method="POST" id="delete_book_form">
                   <input type="hidden" name="book_id" value="{{eachBook._id}}">
                   <input type="hidden" name="id" value="delete_book">
                   <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
                 </form>
-              </div>
-
-              <div id="edit">
+             </td>
+             <td>
+          
+              
                 <!-- a button, if clicked brings the pop-up that allows to edit the information of the book titled - "{{eachBook.title}}" -->
                 <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachBook._id}}"><i
                     class="far fa-edit"></i>Edit</button>
-              </div>
-
-            </div>
+           
+              </td>
+          </tr>
+          
+          
+           
             <!--Bootstrap modal. Contains an iFrame with the book editing form-->
             <div class="modal fade" id="{{eachBook._id}}" role="dialog">
               <div class="modal-dialog">
@@ -101,33 +78,46 @@
 
               </div>
             </div>
-            <br>
+           
             {%endfor%}
+            </table>
         </div>
         
         <div id="reviews" class="tabcontent">
+            <table class="account-table">
+                <tr>
+                  <th>
+                    
+                      Review title
+                    
+                  </th>
+                  <th colspan="2" class="center">
+                    Action
+                  </th>
+                </tr>
           {%for eachReview in reviews%}
-            <div class="account_wrapper">
-              <div id="title_account">
+           
+              <tr>
+                <td>
                 {{ eachReview.title}}
-              </div>
+                </td>
 
-              <div id="delete">
+                <td class="text-right">
                 <!--form, if submitted, deletes the review titled - "{{eachReview.title}}"-->
                 <form action="{{ url_for('account') }}" method="POST" id="delete_review_form">
                   <input type="hidden" name="review_id" value="{{eachReview._id}}">
                   <input type="hidden" name="id" value="delete_review">
-                  <button><i class="far fa-trash-alt"></i> Delete</button>
+                  <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
                 </form>
-              </div>
+                </td>
 
-              <div id="edit">
+               <td>
                 <!-- a button, if clicked brings the pop-up that allows to edit the review titled - "{{eachReview.title}}" -->
-                <button type="button" data-toggle="modal" data-target="#{{eachReview._id}}"><i
+                <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachReview._id}}"><i
                     class="far fa-edit"></i>Edit</button>
-              </div>
-            </div>
-
+               </td>
+            
+            </tr>
             <!--Bootstrap modal. Cotains an iFrame with the review editing form-->
             <div class="modal fade" id="{{eachReview._id}}" role="dialog">
               <div class="modal-dialog">
@@ -164,8 +154,9 @@
 
 
 
-            <br>
+            
             {%endfor%}
+            </table>
         </div>
         
         
