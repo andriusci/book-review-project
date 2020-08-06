@@ -10,7 +10,6 @@ html {
 }
 
 
-
 /* reviews  */
 .review_wrap{
   border: solid 1px rgb(207, 203, 203);
@@ -224,7 +223,6 @@ font-size:2.5em;
 .result_container{
 
 margin: 1em 1em 1em 1em;
-box-shadow: 0px 0px 8px 1px #d5e8f9;
 text-align: left;
 }
 .result_img_wrap{
@@ -243,10 +241,7 @@ text-align: left;
   width: 63%;
   margin: 0.5em;
 }
-.affiliate{
-float:right
 
-}
  .fa-external-link-alt{
   color: #777;
   float: right
@@ -539,16 +534,15 @@ border: none;
     .thin_line{
       display:none
     }
+
+   
+   
   
-   
-   
-    .result_container{
-      
-      margin: auto
-    }
-    .affiliate{
-      float: right;
-    }
+ .description p{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
    .title{
      margin-top: 1em;
    }
@@ -572,17 +566,23 @@ border: none;
  #search_form_index{
    width: 98%;
  }
- .description p{
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height:8em;
 
 }
 
+  @media only screen and (max-width:480px){
+    .description {
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     }
   }
-  
+  @media only screen and (min-width: 990px) {
+    .result_container{
+      max-width: 60%;
+      margin: auto
+    }
+  }
   @media only screen and (min-width: 1023px) {
     .search_form_nav{
       max-width: 600px;
@@ -597,6 +597,7 @@ border: none;
     #add-book-form{
     max-width: 70%;
     }
+    
   }
   
 

@@ -64,7 +64,7 @@ def searchResults(search_term, genre, page_number):
         books=mongo.db.books.find({"$text": {"$search": search_term }, "genre" : genre}).skip(n).limit(10) 
   #Return a page with the search results:
      total_results = books.count()
-     total_pages = math.ceil(books.count()/10.1)
+     total_pages = math.ceil(books.count()/10.1)       
      return render_template("search_results.html", books = books, 
                                               search_term = search_term, 
                                               genre = genre,
