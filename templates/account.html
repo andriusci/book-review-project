@@ -3,36 +3,28 @@
 
 {%block user_account%}
 
-
-
-
-  <div class="container container-margin">
-<!--modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
+ <div class="container container-margin">
+<!--Tabs functioality modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
       <div class="tab">
           <button class="tablinks" onclick="openTab(event, 'books')" id="defaultOpen">My books</button>
           <button class="tablinks" onclick="openTab(event, 'reviews')">My reviews</button>
       </div>
         
-        <div id="books" class="tabcontent">
+      <div id="books" class="tabcontent">
           <table class="account-table">
             <tr>
               <th>
-                
                   Book title
-              
               </th>
               <th colspan="2" class="center">
                  Action
               </th>
             </tr>
             {%for eachBook in books%}
-          <tr>
-              
-                
+            <tr>
              <td>
                 {{ eachBook.title}}
              </td>
-
              <td class="text-right"> 
               
                   <!--form, if submitted, deletes the book titled - "{{eachBook.title}}"-->
@@ -50,14 +42,10 @@
                     class="far fa-edit"></i>Edit</button>
            
               </td>
-          </tr>
-          
-          
-           
+            </tr>
             <!--Bootstrap modal. Contains an iFrame with the book editing form-->
             <div class="modal fade" id="{{eachBook._id}}" role="dialog">
               <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
@@ -78,48 +66,44 @@
 
               </div>
             </div>
-           
             {%endfor%}
-            </table>
-        </div>
+          </table>
+      </div>
         
-        <div id="reviews" class="tabcontent">
+      <div id="reviews" class="tabcontent">
             <table class="account-table">
                 <tr>
                   <th>
-                    
                       Review title
-                    
                   </th>
                   <th colspan="2" class="center">
-                    Action
+                      Action
                   </th>
                 </tr>
-          {%for eachReview in reviews%}
+               {%for eachReview in reviews%}
            
-              <tr>
-                <td>
-                {{ eachReview.title}}
-                </td>
+                <tr>
+                  <td>
+                   {{ eachReview.title}}
+                  </td>
 
-                <td class="text-right">
-                <!--form, if submitted, deletes the review titled - "{{eachReview.title}}"-->
-                <form action="{{ url_for('account') }}" method="POST" id="delete_review_form">
-                  <input type="hidden" name="review_id" value="{{eachReview._id}}">
-                  <input type="hidden" name="id" value="delete_review">
-                  <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
-                </form>
-                </td>
-
-               <td>
-                <!-- a button, if clicked brings the pop-up that allows to edit the review titled - "{{eachReview.title}}" -->
-                <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachReview._id}}"><i
+                  <td class="text-right">
+                    <!--form, if submitted, deletes the review titled - "{{eachReview.title}}"-->
+                    <form action="{{ url_for('account') }}" method="POST" id="delete_review_form">
+                      <input type="hidden" name="review_id" value="{{eachReview._id}}">
+                      <input type="hidden" name="id" value="delete_review">
+                      <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
+                    </form>
+                  </td>
+                  <td>
+                   <!-- a button, if clicked brings the pop-up that allows to edit the review titled - "{{eachReview.title}}" -->
+                    <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachReview._id}}"><i
                     class="far fa-edit"></i>Edit</button>
-               </td>
+                  </td>
             
-            </tr>
-            <!--Bootstrap modal. Cotains an iFrame with the review editing form-->
-            <div class="modal fade" id="{{eachReview._id}}" role="dialog">
+               </tr>
+                 <!--Bootstrap modal. Contains an iFrame with the review editing form-->
+                 <div class="modal fade" id="{{eachReview._id}}" role="dialog">
               <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -134,7 +118,7 @@
 
                   <div class="modal-body">
                   
-                    <iframe class="feedback" name="edit" frameborder="no" src="/edit_review{{eachReview._id}}"></iframe>
+                    <iframe class="editFrame" name="edit" frameborder="no" src="/edit_review{{eachReview._id}}"></iframe>
 
 
 
@@ -150,46 +134,15 @@
                 </div>
 
               </div>
-            </div>
-
-
-
-            
+                 </div>
             {%endfor%}
             </table>
-        </div>
-        
-        
-        
-        <script>
-        function openTab(evt, tabName) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(tabName).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-        
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-        </script>
-
-
+      </div>
   </div>
-
-
-
-
   <script>
 
 
-
+/*
   function validate() {
     var title = document.getElementById('title').value;
 
