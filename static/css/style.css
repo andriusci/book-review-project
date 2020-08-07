@@ -11,8 +11,9 @@ html {
 
 
 /* reviews  */
-.review_wrap{
+.review-wrap{
   border: solid 1px rgb(207, 203, 203);
+  border-radius: 9px;
   width: 90%;
   margin:auto;
   margin-bottom: 1em;

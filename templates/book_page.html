@@ -24,6 +24,13 @@
           <p>
             {{ book.get("description")}}
           </p>
+
+          {%if book.get("amazon") != ""%}
+          {%set url = book.get("amazon")%}
+          <div class="affiliate">
+            Buy at <a href="{{url}}" target="_blank">Amazon  <i class="fab fa-amazon"></i></a> 
+          </div>
+           {%endif%}
       </div>
     </div>
   </div>
@@ -107,8 +114,8 @@
 
 {% for eachReview in reviews %}
 {%if eachReview.review != "" %}
-<div class="review_wrap">
-  <div>reviewed by <strong>{{eachReview.user}}</strong></div>
+<div class="review-wrap">
+  <div>reviewed by <strong>{{eachReview.user}}</strong> on {{eachReview.dateTime}}</div>
   <div>
     {%for x in range(1,6)%}
     {%if x == eachReview.rating or x < eachReview.rating%}
