@@ -122,7 +122,7 @@ body{
 
 
 /* index page */
-.container_main{
+.container-main{
   text-align: center;
   height: 50vh;
   width:100%;
@@ -300,17 +300,17 @@ svg {
     min-height: 400px;
 
   }
-  .iFrame-wrap{
-    text-align: center;
-    margin-left:1em;
-  }
+  
 .iFrame{
   display: inline-block;
 
+
 }
-  .frameWrapper{
-    text-align: center
-  }
+#iFrame-wrap{
+  max-width: 80%;
+  margin:auto;
+}
+
  
   /* charts & circles */
   #singleStar{

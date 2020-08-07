@@ -85,24 +85,30 @@
 
 <!--Rate, review and recommend section-->
 <aside>
-<div class="iFrame-wrap">
 
+<div class="row" id="iFrame-wrap">
   <!--rating chart iFrame-->
+  <div class="col-sm-12 col-md-6 col-lg-4 center">
   <div class="iFrame">
     <iframe name="ratingChart" id="ratingIframe" scrolling="no" frameborder="no"
       src="/ratingChart:bookID:{{book._id}}"></iframe>
   </div>
+</div>
 
   <!--recomend iFrame-->
+  <div class="col-sm-12 col-md-6 col-lg-4 center">
   <div class="iFrame">
     <iframe name="recomend" frameborder="no" scrolling="no" src="/recommend:bookID:{{book._id}}"></iframe>
   </div>
+</div>
 
   <!--rate & review iFrame-->
+  <div class="col-sm-12 col-md-12 col-lg-4 center">
   <div class="iFrame">
     <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
   </div>
   </div>
+ </div>
 </aside>
 
 
@@ -159,4 +165,32 @@
       fill="grey" />
 </svg>
 
+
+
+
+
+
+{%set modal_id = book.get("_id")%}
+<div class="modal fade book-modal" id="{{modal_id}}" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         
+            <h4>Edit </h4>
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <iframe class="edit-frame" name="edit"  frameborder="no" src="/review.html"></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 {%endblock%}
