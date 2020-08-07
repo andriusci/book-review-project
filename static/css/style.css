@@ -721,3 +721,10 @@ border: none;
   .account-table{
     width:100%
   }
+  #icon-success{
+    font-size: 16em;
+    color: #307bbb;
+  }
+  .modal-header{
+    text-align: center;
+  }

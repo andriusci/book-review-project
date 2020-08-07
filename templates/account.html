@@ -5,9 +5,9 @@
 
  <div class="container container-margin">
 <!--Tabs functioality modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
-      <div class="tab">
+      <div class="tab" >
           <button class="tablinks" onclick="openTab(event, 'books')" id="defaultOpen">My books</button>
-          <button class="tablinks" onclick="openTab(event, 'reviews')">My reviews</button>
+          <button class="tablinks" onclick="openTab(event, 'reviews')" id="test">My reviews</button>
       </div>
         
       <div id="books" class="tabcontent">
@@ -104,7 +104,7 @@
                </tr>
                  <!--Bootstrap modal. Contains an iFrame with the review editing form-->
                  <div class="modal fade" id="{{eachReview._id}}" role="dialog">
-              <div class="modal-dialog">
+                    <div class="modal-dialog">
 
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -133,43 +133,37 @@
                   </div>
                 </div>
 
-              </div>
+                    </div>
                  </div>
             {%endfor%}
             </table>
       </div>
   </div>
   <script>
-
-
-/*
-  function validate() {
-    var title = document.getElementById('title').value;
-
-    var description = document.getElementById('description').value;
-    var genre = document.getElementById('add_genre').value;
-    if (title == "") {
-      document.getElementById("titleError").innerHTML = "Please fill in this field";
+    /*https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h*/
+$(document).ready(function(){
+  $(".modal").on('hide.bs.modal', function(){
+    location.reload();
+  });
+});
+/*only works if placed at the bottom of the same document */
+/*Tab function for account page, code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
+function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
-    else {
-      document.getElementById("titleError").innerHTML = ""
-    }
-    if (description == "") {
-      document.getElementById("descriptionError").innerHTML = "Please fill in this field";
-    }
-    else {
-      document.getElementById("descriptionError").innerHTML = ""
-    }
-    if (genre == "Choose genre") {
-      document.getElementById("genreError").innerHTML = "Please choose genre";
-    }
-    else {
-      document.getElementById("genreError").innerHTML = ""
-    }
-    if (title != "" && description != "" && genre != "Choose genre") { document.getElementById("add_book_form").submit(); }
-  }
-/*******************************************************************/
-  
+    
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 </script>
 
 

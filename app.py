@@ -161,7 +161,8 @@ def editBook(book_id):
                                                                   "lang": lang,
                                                                   "publisher": publ,
                                                                   "amazon": amazon}})
-      return render_template("iFrames/edit_book.html", book = book)
+      edit = True                                                           
+      return render_template("iFrames/edit_book.html", book = book, edit = edit)
    else:
        return render_template("iFrames/edit_book.html", book = book)
 
