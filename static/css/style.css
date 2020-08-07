@@ -299,12 +299,13 @@ svg {
     min-height: 400px;
 
   }
-  .iFrameWrap{
+  .iFrame-wrap{
     text-align: center;
-    margin-left: 4em;
+    margin-left:1em;
   }
 .iFrame{
-  display: inline-block
+  display: inline-block;
+
 }
   .frameWrapper{
     text-align: center
@@ -455,7 +456,7 @@ border: none;
     padding: 12px 0px;
 }
 
-#select_genre, #add_genre{
+#select-genre, #add-genre{
   font-weight: bold;
   border: none;
   background-color: transparent;
@@ -465,8 +466,12 @@ border: none;
 }
 
 
-#select_genre{
+#select-genre{
   width: 115px;
+}
+#add-genre{
+  border: solid 1px #337ab7;
+  border-radius: 9px;
 }
 #submit_button{
   width: 55px;
@@ -549,7 +554,7 @@ border: none;
 
 
   @media only screen and (min-width: 555px) {
-    #add-btn, #log-btn, #reg-btn .form-btn{
+    #add-btn, #log-btn, #reg-btn .form-btn, #edit-btn{
       max-width: 12em;
       min-height: 3em;
     }
@@ -726,5 +731,8 @@ border: none;
     color: #307bbb;
   }
   .modal-header{
+    text-align: center;
+  }
+  .container > h3{
     text-align: center;
   }

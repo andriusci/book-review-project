@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
 </head>
 <body>
-      <!--Rating chart coordinates value x -->
+      <!--Rating chart coordinate x value  -->
       {%set fiveStar_x = ratingList[0] + 52%}
       {%set fourStar_x = ratingList[1] + 52%}
       {%set threeStar_x = ratingList[2] + 52%}
@@ -43,6 +43,7 @@
 <!-- set star color -->
 {%set color="#307bbb"%}
        <h4> based on <strong>{{totalRatings}} </strong>ratings </h4>
+
         <!--svg line chart reflecting star ratings -->
             <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px">
               <text x="5" y="15" fill="black">5 Star</text>
@@ -58,7 +59,7 @@
               <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{twoStar_x}}" y="76" fill="black">{{numOfRatings[3]}}</text>
               <text x="5" y="95" fill="black">1 Star</text>
-              <rect x="50" y="85" width=" {{ratingList[4]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
+              <rect x="50" y="85" width="{{ratingList[4]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
               <text x="{{oneStar_x}}" y="96" fill="black">{{numOfRatings[4]}}</text>
             </svg> 
             

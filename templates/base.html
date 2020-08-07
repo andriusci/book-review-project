@@ -49,7 +49,7 @@
    <!--navbar book search form-->
   <div class="search_form_wrap_nav" id="search_form_wrap_nav">
     <form action="{{ url_for('initialise') }}" method="POST" class="search_form_nav" id="search_form_nav">
-          <select name="genre" id="select_genre">
+          <select name="genre" id="select-genre">
                 {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
                 {% set selected = ""%}
                 {%for eachOption in select%}

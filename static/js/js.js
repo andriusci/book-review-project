@@ -8,7 +8,7 @@
       var title = document.getElementById('title').value;
 
       var description = document.getElementById('description').value;
-      var genre = document.getElementById('add_genre').value;
+      var genre = document.getElementById('add-genre').value;
       if (title == "") {
         document.getElementById("titleError").innerHTML = "Please fill in this field";
       }

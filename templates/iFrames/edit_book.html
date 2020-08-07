@@ -32,7 +32,7 @@
           </div>
           <div class="col-sm-12 col-md-5">
                <label for="genre">Genre<span class="error">*</span></label> <span class="error" id="genreError"></span> <br>
-               <select name="genre" id="add_genre">
+               <select name="genre" id="add-genre">
                 {#Programatically populate form select fields and select an option accordingly #}
                 {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
                 {% set selected = ""%}
@@ -100,7 +100,7 @@
     
     <div class="container centered">
       <!--the button, if clicked, uses js validate() function to validate and submit the form-->
-      <button class="form-btn" id="add-btn" onclick="validate()">Add a book</button>
+      <button class="form-btn" id="edit-btn" onclick="validate()">Add a book</button>
     </div>
     
 

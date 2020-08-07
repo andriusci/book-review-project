@@ -242,20 +242,24 @@ def ratinChart(book_id):
       ratingList = [fiveStars,fourStars,threeStars,twoStars,oneStar]
       mostRatingIndex = ratingList.index(max(ratingList))
       totalRatings = sum(ratingList)
-      #Set the widths of the rating chart bars (in relation to the biggest bar)
+      #Set the width of each rating chart bar (in relation to the biggest bar)
       if ratingList[mostRatingIndex] != 0:
        if ratingList[mostRatingIndex] < 300:
          factor = 300/ratingList[mostRatingIndex]
          i = 0
          while i < len(ratingList):
           ratingList[i] = ratingList[i] * factor
+          if ratingList[i] != 0:
+             ratingList[i]= ratingList[i] - 70 #in order to fit 320px iFrame for mobile
           ratingList[i] = int(ratingList[i])
           i += 1
        else:
          factor = ratingList[mostRatingIndex] / 300 
          i = 0
          while i < len(ratingList):
-          ratingList[i] = ratingList[i] / factor
+          ratingList[i] = ratingList[i] / factor 
+          if ratingList[i] != 0:
+             ratingList[i] = ratingList[i] - 70 #in order to fit 320px iFrame for mobile
           ratingList[i] = int(ratingList[i])
           i += 1
          ratingList[mostRatingIndex] = 300

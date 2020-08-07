@@ -31,7 +31,7 @@
       </div>
       <div class="col-sm-12 col-md-5">
            <label for="genre">Genre<span class="error">*</span></label> <span class="error" id="genreError"></span> <br>
-           <select name="genre">
+           <select name="genre" id="add-genre">
             {#Programatically populate form select field, needed for the search book form, here is not necesary - only reused code! #}
             {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
             {% set selected = ""%}
