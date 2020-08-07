@@ -42,7 +42,7 @@ html {
 
 
 
-#editFrame{
+.edit-frame{
   min-height: 500px;
   width: 100%;
 }
@@ -633,7 +633,7 @@ border: none;
     
   }
 
-  #description{
+  #description, #comment{
     width: 100%;
     border-radius: 9px;
     border: solid 1px rgb(204, 204, 204);

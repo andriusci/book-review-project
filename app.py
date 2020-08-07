@@ -161,9 +161,10 @@ def editBook(book_id):
                                                                   "lang": lang,
                                                                   "publisher": publ,
                                                                   "amazon": amazon}})
-      edit = True                                                           
+      edit = True #passed to the template in order to provide feedback on successfull book edit.                                                          
       return render_template("iFrames/edit_book.html", book = book, edit = edit)
    else:
+       edit = False 
        return render_template("iFrames/edit_book.html", book = book)
 
 

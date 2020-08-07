@@ -44,18 +44,18 @@
               </td>
             </tr>
             <!--Bootstrap modal. Contains an iFrame with the book editing form-->
-            <div class="modal fade" id="{{eachBook._id}}" role="dialog">
+            <div class="modal fade book-modal" id="{{eachBook._id}}" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <div class="contactFormHeader">
+                    <div class="modal-header">
                       <h4>Edit "{{eachBook.title}}"</h4>
                     </div>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                    <iframe id="editFrame" name="edit" frameborder="no" src="/edit_book{{eachBook._id}}"></iframe>
+                    <iframe class="edit-frame" name="edit" frameborder="no" src="/edit_book{{eachBook._id}}"></iframe>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
@@ -103,7 +103,7 @@
             
                </tr>
                  <!--Bootstrap modal. Contains an iFrame with the review editing form-->
-                 <div class="modal fade" id="{{eachReview._id}}" role="dialog">
+                 <div class="modal fade review-modal" id="{{eachReview._id}}" role="dialog">
                     <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -118,10 +118,7 @@
 
                   <div class="modal-body">
                   
-                    <iframe class="editFrame" name="edit" frameborder="no" src="/edit_review{{eachReview._id}}"></iframe>
-
-
-
+                    <iframe class="edit-frame" name="edit" frameborder="no" src="/edit_review{{eachReview._id}}"></iframe>
 
                   </div>
                   <div class="modal-footer">
@@ -139,13 +136,26 @@
             </table>
       </div>
   </div>
+
+
+
   <script>
-    /*https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h*/
+
+
+
+/*modified code from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h*/
+/*reloads the page on modal close, so that the changes immediately seen on screen */
+
+
 $(document).ready(function(){
+ 
   $(".modal").on('hide.bs.modal', function(){
+    
     location.reload();
-  });
+  })
 });
+
+
 /*only works if placed at the bottom of the same document */
 /*Tab function for account page, code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
 function openTab(evt, tabName) {
@@ -161,8 +171,8 @@ function openTab(evt, tabName) {
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
     }
-    
 // Get the element with id="defaultOpen" and click on it
+
 document.getElementById("defaultOpen").click();
 </script>
 
