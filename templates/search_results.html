@@ -19,7 +19,7 @@
     <div class="row">
 
       <div class=" col-xs-5 col-sm-3 col-md-3 ">
-         <a href="/Book_page/book_id:{{eachBook._id}}"> <img class="result_img" src=" {{ eachBook.image}} "alt="Book cover image"></a>
+         <a href="/Book_page/book_id:{{eachBook._id}}"> <img class="result-img" src=" {{ eachBook.image}} "alt="Book cover image"></a>
       </div>
 
       <div class=" col-xs-7 col-sm-9 col-md-9 ">
@@ -91,7 +91,7 @@
   {%if current_page > 1 and current_page <= total_pages%}
         {%set go_to_page = current_page - 1%}
         <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>
-        << previous</strong> </a> {%endif%} {%if total_pages != 0%} <form action="{{ url_for('pagination') }}"
+            <i class="fas fa-backward"></i> previous</strong> </a> {%endif%} {%if total_pages != 0%} <form action="{{ url_for('pagination') }}"
         method="POST">
         <input type="hidden" name="search" value="{{search_term}}">
         <input type="hidden" name="genre" value="{{genre}}">
@@ -103,7 +103,7 @@
 
   {%if current_page < total_pages%}
         {%set go_to_page = current_page + 1%}
-        <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>next >> </strong></a>
+        <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>next <i class="fas fa-forward"></i> </strong></a>
   {%endif%}
 </div>
 
