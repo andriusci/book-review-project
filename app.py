@@ -250,7 +250,9 @@ def ratinChart(book_id):
          while i < len(ratingList):
           ratingList[i] = ratingList[i] * factor
           if ratingList[i] != 0:
-             ratingList[i]= ratingList[i] - 70 #in order to fit 320px iFrame for mobile
+             ratingList[i]= ratingList[i] - 70 #in order to fit 320px iFrame for mobile.
+             if ratingList[i] < 0:
+                ratingList[i] = 1 # disable chart bar negative values.
           ratingList[i] = int(ratingList[i])
           i += 1
        else:
@@ -259,7 +261,9 @@ def ratinChart(book_id):
          while i < len(ratingList):
           ratingList[i] = ratingList[i] / factor 
           if ratingList[i] != 0:
-             ratingList[i] = ratingList[i] - 70 #in order to fit 320px iFrame for mobile
+             ratingList[i] = ratingList[i] - 70 #in order to fit 320px iFrame for mobile.
+             if ratingList[i] < 0:
+                ratingList[i] = 1 #disable the chart bar negative values.
           ratingList[i] = int(ratingList[i])
           i += 1
          ratingList[mostRatingIndex] = 300

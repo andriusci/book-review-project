@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
     
     <title>Document</title>
 </head>
@@ -99,7 +99,7 @@
       </form>
     
     <div class="container centered">
-      <!--the button, if clicked, uses js validate() function to validate and submit the form-->
+      <!--the button, if clicked, calls js validate() function to validate and submit the form-->
       <button class="form-btn" id="edit-btn" onclick="validate()">Add a book</button>
     </div>
     
@@ -108,7 +108,7 @@
       
               <script src="{{ url_for('static', filename='js/js.js')}}"></script>
   {%else%}
-  <div class="center">
+  <div class="centered">
     <i class="fas fa-check" id="icon-success"></i>
     <h3> The {{book['title']}} was successfully edited </h3>
   </div>
