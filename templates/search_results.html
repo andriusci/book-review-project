@@ -1,45 +1,52 @@
 {% extends "base.html" %}
 
+{%block title%} 
+Search results 
+{%endblock%}
 
 {% block search_result%}
-
 <div class="container container-margin">
+  {%if total_results == 0%}
+  <h3>Unfortunately your search delivered no results :(</h3>
+  {%endif%}
 
-
- 
-
-     {%if total_results == 0%}
-        <h3>Unfortunately your search delivered no results :(</h3>
-     {%endif%}
-     
-      
-     {% for eachBook in books %}
-<!--Container shows book cover image, title, description and if available, link to amazon page -->
-  <div class="result_container">
+  {% for eachBook in books %}
+  <!--Container displays each book cover image, title, description and if available, link to amazon page -->
+  <div class="result-container">
     <div class="row">
-
       <div class=" col-xs-5 col-sm-3 col-md-3 ">
-         <a href="/Book_page/book_id:{{eachBook._id}}"> <img class="result-img" src=" {{ eachBook.image}} "alt="Book cover image"></a>
+        <a href="/Book_page/book_id:{{eachBook._id}}">
+           <img class="result-img" src=" {{ eachBook.image}}" alt="Book cover image">
+        </a>
       </div>
-
       <div class=" col-xs-7 col-sm-9 col-md-9 ">
-         <div class="title">
-           <h4>  <strong> <a href="/Book_page/book_id:{{eachBook._id}}">{{ eachBook.title }} </a></strong></h4>
-         </div>
+        <div class="title">
+          <h4> 
+            <strong> 
+              <a href="/Book_page/book_id:{{eachBook._id}}">
+                {{ eachBook.title }} 
+              </a>
+            </strong>
+          </h4>
+        </div>
          <hr class="thin_line">
          {% if eachBook.author != ""%}
-         <div class="author">
-            By:<strong>{{eachBook.author}}</strong>
-         </div>
-         {% endif %}
-         <div class="description" id="{{eachBook._id}}">
-           <p>
-           {% if eachBook.description|length > 300%}
-              {% set description = eachBook.description[:300]  %}
+        <div class="author">
+          By:<strong>
+            {{eachBook.author}}
+          </strong>
+        </div>
+        {% endif %}
+        <div class="description">
+          <p>
+            {#get a substring of description if it exeeds 300 characters#}
+            {#in order for the description to fit the container#}
+            {% if eachBook.description|length > 300 %}
+              {% set description = eachBook.description[:300] %}
               {{description}}...<a href="/Book_page/book_id:{{eachBook._id}}"> read more</a>
-           {% else %}
+            {% else %}
               {{eachBook.desription}}
-           {% endif %}
+            {% endif %}
           </p>
 
 
@@ -47,70 +54,65 @@
 
 
 
-         
-         </div><br>
 
-         {%if eachBook.amazon != ""%}
-    
-        <div class="affiliate">
-          Buy at <a href="{{eachBook.amazon}}" target="_blank">Amazon  <i class="fab fa-amazon"></i></a> 
         </div>
-         {%endif%}
-
+        <br>
+        {%if eachBook.amazon != ""%}
+        <div class="affiliate">
+          Buy at <a href="{{eachBook.amazon}}" target="_blank">Amazon <i class="fab fa-amazon"></i></a>
+        </div>
+        {%endif%}
       </div>
-
     </div>
     <hr>
   </div>
-
-     {% endfor %}
-
+  {% endfor %}
 </div>
-
 {%endblock%}
 
 
-
-
-
 {% block pagination%}
-
 {%if total_pages > 1%}
 <!--paginition-->
-
 <div class="paginition">
   {%if current_page > 1 and current_page <= total_pages%}
-        {%set go_to_page = current_page - 1%}
-        <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>
-            <i class="fas fa-backward"></i> previous</strong> </a> {%endif%} {%if total_pages != 0%} <form action="{{ url_for('pagination') }}"
-        method="POST">
-        <input type="hidden" name="search" value="{{search_term}}">
-        <input type="hidden" name="genre" value="{{genre}}">
-        <input type="text" name="go to" value="{{current_page}}" id="goTo">
-        <input type="submit" value="GO" id="go_btn">
-        </form>
+  {%set go_to_page = current_page - 1%}
+   <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">
+     <strong>
+       <i class="fas fa-backward"></i> previous
+     </strong> 
+   </a>
+   {%endif%} 
+   {%if total_pages != 0%} 
+    <form action="{{ url_for('pagination') }}" method="POST">
+       <input type="hidden" name="search" value="{{search_term}}">
+       <input type="hidden" name="genre" value="{{genre}}">
+       <input type="text" name="go to" value="{{current_page}}" id="go-to">
+       <input type="submit" value="GO" id="go-btn">
+  </form>
   {%endif%}
 
 
   {%if current_page < total_pages%}
-        {%set go_to_page = current_page + 1%}
-        <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}"><strong>next <i class="fas fa-forward"></i> </strong></a>
+  {%set go_to_page = current_page + 1%}
+  <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">
+    <strong>
+      next <i class="fas fa-forward"></i>
+    </strong>
+  </a>
   {%endif%}
 </div>
-
-  {#incase the user enters a page number that does not exist:#}
-  {#returns an error with exlanation and a paginition number box#}
-  {%if current_page > total_pages and total_pages != 0%}
-  <div class="centered">
+   {# incase a user enters a page number that is higher than there are pages:#}
+   {#returns an error with explanation and a paginition number box#}
+   {%if current_page > total_pages and total_pages != 0%}
+ <div class="centered">
   <h4>
-     Unfortunately page {{current_page}} does not exist. Your search returned {{total_pages}} page(s).
+    Unfortunately page {{current_page}} does not exist. Your search returned {{total_pages}} page(s).
   </h4>
   <p>
-    Please enter the page number between 1 and {{total_pages}}
+    Please enter the number between 1 and {{total_pages}}
   </p>
-  {%endif%}
-
-
+   {%endif%}
+ </div>
 {%endif%}
-
 {% endblock %}
