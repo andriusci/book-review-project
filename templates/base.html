@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
@@ -12,44 +13,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
-
     <title>{%block title%}{%endblock%}</title>
 </head>
 
-<body>
-
-<header>
-
- <div class="navTop">
-
+<body> 
+ <header>
+  <nav class="nav-top">
  <!--logo (home button)-->
    <div class="home-wrap">
-  <a href="/" class="home"><i class="fas fa-book-open"></i> </a> 
+     <a href="/" class="home">
+      <i class="fas fa-book-open"></i> 
+    </a> 
    </div>
 
 <!--navigation items (on the right)-->
    <div class="top-nav-right">
       <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
       <a href="{{ url_for('addBook') }}"> <button class="add-book-btn">Add a book</button></a>
-     
    </div> 
    
-  {# if the current page is not the index page,
-     dispay the "search form" with appropriate search values #}
-
-  {%set root = request.path%}
-  {%if root != "/"%}
-
+  {# check if current page is the home page#}
+  {# if not display the book search form in the nav bar: #}
+    {%if request.path != "/"%}
       {%set searchValue = search_term%}
-
-      {%if search_term == "All_books"%}
+    {%if search_term == "All_books"%}
       {% set searchValue = ""%}
-      {%endif%}
-
+    {%endif%}
    <!--navbar book search form-->
-  <div class="search_form_wrap_nav" id="search_form_wrap_nav">
-    <form action="{{ url_for('initialise') }}" method="POST" class="search_form_nav" id="search_form_nav">
+  <div class="search-form-wrap-nav" id="search-form-wrap-nav">
+    <form action="{{ url_for('initialise') }}" method="POST" class="search-form-nav" id="search-form-nav">
           <select name="genre" id="select-genre">
+            {# create select options with one option selected depending on previously submited search #}
                 {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
                 {% set selected = ""%}
                 {%for eachOption in select%}
@@ -59,14 +53,12 @@
                   <option value="{{eachOption}}" {{selected}}>{{eachOption}}</option>
                 {%endfor%}
               </select>
-              <input type="text" name="search-term" id="nav_search_input" value="{{searchValue}}"placeholder="type book title ...">
+              <input type="text" name="search-term" id="nav-search-input" value="{{searchValue}}"placeholder="type book title ...">
            <button id="submit-btn"><i class="fas fa-search"></i></button>
     </form>
   </div>
-  
   {%endif%}
-</div>
-
+ </nav>
 </header>
 <main>
 {%block register%}
@@ -79,9 +71,6 @@
 {%endblock%}
 
 {%block add_book%}
-{%endblock%}
-
-{%block test1%}
 {%endblock%}
 
 {%block book_page%}
@@ -101,10 +90,6 @@
 {% block pagination%}
 {% endblock %}
 
-</br>
-
-{%block user%}
-{%endblock%}
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

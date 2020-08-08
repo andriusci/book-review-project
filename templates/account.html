@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
+{%block title%}{{user}}'s account {%endblock%}
 
 {%block user_account%}
 
- <div class="container container-margin">
-<!--Tabs functioality modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
+<section class="container container-margin">
+<!--Tabs functioality: modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
       <div class="tab" >
           <button class="tablinks" onclick="openTab(event, 'books')" id="defaultOpen">My books</button>
           <button class="tablinks" onclick="openTab(event, 'reviews')" id="test">My reviews</button>
@@ -135,47 +136,35 @@
             {%endfor%}
             </table>
       </div>
-  </div>
+</section>
 
+<script>
+/*only works if placed at the bottom of the same document *//* for that reason the rest of the scripts are placed here as well*/
+/*Tab function for account page, code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 
-
-  <script>
-
-
+  // Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 
 /*modified code from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h*/
 /*reloads the page on modal close, so that the changes immediately seen on screen */
-
-
 $(document).ready(function(){
- 
   $(".modal").on('hide.bs.modal', function(){
-    
     location.reload();
   })
 });
-
-
-/*only works if placed at the bottom of the same document */
-/*Tab function for account page, code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
-function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-// Get the element with id="defaultOpen" and click on it
-
-document.getElementById("defaultOpen").click();
 </script>
-
-
 
 {%endblock%}
