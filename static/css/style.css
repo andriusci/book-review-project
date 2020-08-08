@@ -43,7 +43,7 @@ html {
 
 
 
-.edit-frame{
+.general-iframe{
   min-height: 500px;
   width: 100%;
 }
@@ -85,9 +85,7 @@ body{
 #review_svg{
   margin-top: 5em
 }
-#review_form{
-  width:95%
-}
+
 .text-right{text-align : right}
 .center{text-align: center}
 
@@ -297,8 +295,8 @@ svg {
   /* iFrames */
   /*  rate chart iFrame */
   iframe{
-    min-height: 400px;
-
+    min-height: 25em;
+   
   }
   
 .iFrame{
@@ -326,18 +324,20 @@ svg {
   #rateCircle{
     font-size: 0.1em
   }
-  #rate_button{
+  #rate-btn{
     position: absolute;
     top: 120;
     left: 60;
     
      color:white;
       border:none;
+      border-radius:9px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
       cursor: pointer;
+      
     
   
   }
@@ -368,16 +368,7 @@ svg {
     font-size: 0.16em;
     padding-left: 19;
   }
-#review{
-  font-size: 22;
-  color: #307bbb;
-  border: solid 2px #307bbb;
-  padding: 12 8;
-  text-decoration: none;
-}
-#review:hover{
-  border: solid 3px;
-}
+
 
 #like{
   width: 1em;
@@ -555,7 +546,7 @@ border: none;
 
 
   @media only screen and (min-width: 555px) {
-    #add-btn, #log-btn, #reg-btn .form-btn, #edit-btn{
+    #add-btn, #log-btn, #reg-btn .form-btn, #edit-btn, #review-btn{
       max-width: 12em;
       min-height: 3em;
     }
@@ -655,7 +646,7 @@ border: none;
     margin: auto;
   }
 
-  .delete-btn, .edit-btn{
+  .delete-btn, .edit-btn, {
     background-color: transparent;
     color: white;
     border: none;
@@ -736,4 +727,16 @@ border: none;
   }
   .container > h3{
     text-align: center;
+  }
+
+  .review{
+    position:relative;
+    top:-10.1em
+  }
+  .review-btn{
+    background-color: transparent;
+    border: solid #307bbb;
+    color: #307bbb;
+    padding: 1em 2em;
+    border-radius: 9px;
   }

@@ -196,7 +196,7 @@ def review(book_id):
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user
-        dateTime = datetime.now().strftime("%D-%M-%Y %H:%M")
+        dateTime = datetime.now().strftime("%D-%M-%Y")
         mongo.db.reviews.insert({"title": title,
                                  "review": review,
                                  "rating" : rating, 
@@ -204,9 +204,9 @@ def review(book_id):
                                  "book_ID" : ObjectId(book_id),
                                  "dateTime": dateTime})
         submitted = True
-        response = make_response(render_template("review.html", book_id =book_id, status = submitted ))
+        response = make_response(render_template("iFrames/review.html", book_id =book_id, status = submitted ))
      else:
-        response = make_response(render_template("review.html", book_id = book_id ))
+        response = make_response(render_template("iFrames/review.html", book_id = book_id ))
   else:
       response = make_response(render_template("log_in.html" ))
       response.set_cookie("destination", "review.html") 

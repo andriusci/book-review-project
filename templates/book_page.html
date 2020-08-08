@@ -103,9 +103,16 @@
 </div>
 
   <!--rate & review iFrame-->
-  <div class="col-sm-12 col-md-12 col-lg-4 center">
+  <div class="col-sm-12 col-md-12 col-lg-4 center" >
+
   <div class="iFrame">
     <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
+  </div>
+  <div class="review">
+      <h3>Have you read this book?</h3><br>
+      <!-- Trigger the modal with a button -->
+  <button type="button" class="review-btn" data-toggle="modal" data-target="#review-modal">Review</button>
+  </div>
   </div>
   </div>
  </div>
@@ -147,6 +154,31 @@
 </div>
 </section>
 
+<!-- Modal -->
+<div class="modal fade" id="review-modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Write a review about "{{book.get("title")}}"</h4>
+        </div>
+        <div class="modal-body">
+        {%set id = book.get("_id")%}
+        <iframe class="general-iframe" frameborder="no" src="/review:bookID:{{book._id}}"></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+
 
 
 <!--SVG shape - Zell Lew from https://codepen.io/zellwk/pen/YwjZQv-->
@@ -170,27 +202,6 @@
 
 
 
-{%set modal_id = book.get("_id")%}
-<div class="modal fade book-modal" id="{{modal_id}}" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-         
-            <h4>Edit </h4>
-          
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <iframe class="edit-frame" name="edit"  frameborder="no" src="/review.html"></iframe>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
-            Close
-          </button>
-        </div>
-      </div>
 
-    </div>
-  </div>
+
 {%endblock%}

@@ -13,7 +13,9 @@
        /* override global svg style */
       svg {width:1.8em}
       </style>
-            <div class="frameWrapper">
+
+
+            <div class="center">
        
                 <svg style="display: none">
                     <symbol id="star" viewBox="0 0 98 92">
@@ -38,7 +40,7 @@
                     <form action="/rate:bookID:{{book_id}}" method="POST"> 
                       <input type="hidden" id="rating" name="rating" value="">
                       <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
-                      <input type="submit" id="rate_button" value="RATE IT!" onclick="parent.ratingChart.location.reload();">
+                      <input type="submit" id="rate-btn" value="RATE IT!" onclick="parent.ratingChart.location.reload();">
                     </form>
                   
                </span>
@@ -60,12 +62,17 @@
    
         
 
-<h4>Have you read this book?</h4><br>
-<button class="edit-btn" type="button" base target="_parent" data-toggle="modal" data-target=""></i>Write a review</button>
-<a href="/review:bookID:{{book_id}}" base target="_parent" id="review">Write a review</a>
-</div>
+
+
+
+
+
+
+
+
+
                   <script>
-  document.getElementById("rate_button").disabled = true;                  
+  document.getElementById("rate-btn").disabled = true;                  
 var starContainer = document.getElementById('stars')
 var stars = Array.prototype.slice.call(starContainer.children)
 var totalStars = stars.length
@@ -78,8 +85,8 @@ starContainer.addEventListener('click', function(e) {
   e.target.classList.add('is-selected')
   document.getElementById("rating").value = count;
  
-  document.getElementById("rate_button").disabled = false;
-  document.getElementById("rate_button").style.cssText = "color:#fff; font-weight: 900; border: solid 2px; background-color: #307bbb";
+  document.getElementById("rate-btn").disabled = false;
+  document.getElementById("rate-btn").style.cssText = "color:#fff; font-weight: 900; border: solid 2px; background-color: #307bbb";
   document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
 
 
