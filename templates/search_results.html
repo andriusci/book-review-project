@@ -5,6 +5,7 @@ Search results
 {%endblock%}
 
 {% block search_result%}
+<section>
 <div class="container container-margin">
   {%if total_results == 0%}
   <h3>Unfortunately your search delivered no results :(</h3>
@@ -68,11 +69,13 @@ Search results
   </div>
   {% endfor %}
 </div>
+</section>
 {%endblock%}
 
 
 {% block pagination%}
 {%if total_pages > 1%}
+<aside>
 <!--paginition-->
 <div class="paginition">
   {%if current_page > 1 and current_page <= total_pages%}
@@ -114,5 +117,6 @@ Search results
   </p>
    {%endif%}
  </div>
-{%endif%}
+{%endif%
+</aside>}
 {% endblock %}

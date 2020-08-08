@@ -1,46 +1,38 @@
 {% extends "base.html"%}
 
+{%block title%}
+ User registration
+{%endblock%}
+
 {%block register%}
-<div class="container centered">
-    <h3>User Registration</h3>
-</div>          
-       
-{%if userError == True%}
-<span id="log_error">
-     User named {{user}} already exsist in our database. Please choose other user name.
-</span><br>
-{%endif%}
-
+<section class="container container-margin centered">
 {%if success != True%}
+<h3>User Registration</h3>        
 <form action="/register" method="POST" class="general-form" id="register-form">
-    <label class="label_icon" for="user_name"><i class="fas fa-user"></i> <strong>Username</strong></label>
-    <input type="text" name="user_name" id="user_name" value="{{user}}"required placeholder="User name">
-<hr class="thin_line">
-<label class="label_icon" for="email"><i class="fas fa-envelope"></i><strong> Email</strong></label>
-<input type="email" name="email" id="email" value="{{email}}"required placeholder="Email">
-<hr class="thin_line">
-{%if passError == True%}
-passwords do not match
+    {%if userError == True%}
+    <span id="log_error">
+     User named {{user}} already exsist in our database. Please choose other user name.
+    </span><br>
 {%endif%}
-
-<label class="label_icon" for="password"><i class="fas fa-key"></i></label><strong> Password</strong></label>
-<input type="password" name="password" id="password"required placeholder="Paswword">
-<hr class="thin_line">
-<label class="label_icon" for="password2"><i class="fas fa-key"></i><strong> Repeat Password</strong></label>
-<input type="password" name="password2" id="password2" required placeholder="Repeat password"><br>
-<input type="submit" value="Register" class="form-btn" id="reg-btn">
+    <label class="label-icon" for="user-name"><i class="fas fa-user"></i> <strong>Username</strong></label>
+    <input type="text" name="user-name" id="user-name" value="{{user}}"required placeholder="User name">
+       <hr class="thin_line">
+    <label class="label-icon" for="email"><i class="fas fa-envelope"></i><strong> Email</strong></label>
+    <input type="email" name="email" id="email" value="{{email}}"required placeholder="Email">
+       <hr class="thin_line">
+    <label class="label-icon" for="password"><i class="fas fa-key"></i></label><strong> Password</strong></label>
+    {%if passError == True%}
+      <span class="error">Passwords do not match</span>
+     {%endif%}
+    <input type="password" name="password" id="password"required placeholder="Paswword">
+       <hr class="thin_line">
+    <label class="label-icon" for="password2"><i class="fas fa-key"></i><strong> Repeat Password</strong></label>
+    <input type="password" name="password2" id="password2" required placeholder="Repeat password"><br>
+    <input type="submit" value="Register" class="form-btn" id="reg-btn">
 </form>
-
-
 {%else%}
-    Hello {{user}} Thank you for registration. 
-{%if dest == "addBook.html"%}
-    you can now add a book 
-{%elif dest == "account"%}
-
+<h4>Hello and welcome {{user}}!</h4>
+<p>You can now add your books or write the reviews.</p>
 {%endif%}
-
-
-{%endif%}
-
+</section> 
 {%endblock%}

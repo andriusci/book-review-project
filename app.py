@@ -102,7 +102,7 @@ def addBook():
        language = request.form['language']
        publisher = request.form['publisher']
        amazon = request.form['amazon']
-       user_name = request.form['user_name']
+       user_name = request.form['user-name']
        num_before = mongo.db.books.find().count()#number of books before an attempt to insert new book
        mongo.db.books.insert( { "title": title, 
                                 "description": description, 
@@ -303,7 +303,7 @@ def account():
 def log_in():
    #Log in simulation
    if request.method == "POST":
-       user_name = request.form['user_name']
+       user_name = request.form['user-name']
       
        #check if the name exist in the user database
        user = mongo.db.users.find_one({"name": user_name})
@@ -363,7 +363,7 @@ def register():
    if request.method == "POST":
       cookies = request.cookies  
       dest = cookies.get("destination")
-      user = request.form['user_name']
+      user = request.form['user-name']
       pass1 = request.form['password']
       pass2 = request.form['password2']
       email = request.form['email']
