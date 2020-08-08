@@ -2,10 +2,8 @@
 
 {% block book_page %}
 
-<!--Book title section (book's cover image, title, author and description)-->
-<section>
-  
-  <div class="container-margin container">
+<!--Book section (book's cover image, title, author, description and link to amazon )-->
+<section class="container-margin container">
     <div class="row">
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" >
           <!--Book cover image-->
@@ -27,16 +25,15 @@
 
           {%if book.get("amazon") != ""%}
           {%set url = book.get("amazon")%}
-          <div class="affiliate">
+          <p class="affiliate">
             Buy at <a href="{{url}}" target="_blank">Amazon  <i class="fab fa-amazon"></i></a> 
-          </div>
+          </p>
            {%endif%}
       </div>
     </div>
-  </div>
 </section>
+
 <!--Collapsible Bootstrap panel, contains book details-->
-<section>
 <div class="container">
   <div class="panel-group">
     <div class="panel panel-default">
@@ -79,8 +76,6 @@
     </div>
   </div>
 </div>
-</section>
-
 
 <!--Rate, review and recommend section-->
 <aside>
@@ -119,10 +114,8 @@
  </div>
 </aside>
 
-
 <!--Review section-->
-<section>
-<div class="container">
+<section class="container">
 <h3>Reviews:</h3>
 <hr>
 
@@ -152,13 +145,11 @@
 </div>
 {%endif%}
 {% endfor %}
-</div>
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="review-modal" role="dialog">
+<!-- Bootstrap modal brings up the review form-->
+<modal class="modal fade" id="review-modal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -175,14 +166,9 @@
       </div>
       
     </div>
-  </div>
+</modal>
   
-
-
-
-
-
-<!--SVG shape - Zell Lew from https://codepen.io/zellwk/pen/YwjZQv-->
+<!--SVG star shape by - Zell Lew from https://codepen.io/zellwk/pen/YwjZQv-->
 <svg>
   <symbol id="blue" viewBox="0 0 98 92">
     <title>star</title>
@@ -197,12 +183,4 @@
       d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
       fill="grey" />
 </svg>
-
-
-
-
-
-
-
-
 {%endblock%}
