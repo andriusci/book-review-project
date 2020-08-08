@@ -43,12 +43,12 @@
 
 
           <script>
-            var description = "{{eachBook.description }}";
-            if (description.length > 300)
+            var description = "{{eachBook.description}}";
+            if (description.length > 300){
               description = description.substring(0, 300) + " <a href=" + "/Book_page/book_id:{{eachBook._id}}" + ">... more</a>";
+              document.getElementById("{{eachBook._id}}").innerHTML = description;}
             else
-              description = "{{eachBook.description}}"
-            document.getElementById("{{eachBook._id}}").innerHTML = description;
+              document.getElementById("{{eachBook._id}}").innerHTML = description;
           </script>
          </div><br>
 
@@ -71,14 +71,7 @@
 
 {%endblock%}
 
-<script>
-  var description = "{{eachBook.description }}";
-  if (description.length > 80)
-    description = description.substring(0, 80) + "  ... <a href=" + "/Book_page/book_id:{{eachBook._id}}" + ">read more</a>";
-  else
-    description = "{{eachBook.description}}"
-  document.getElementById("{{eachBook._id}}").innerHTML = description;
-</script>
+
 
 
 

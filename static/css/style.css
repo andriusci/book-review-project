@@ -508,11 +508,7 @@ background-color: #2A6AA2;
    
    
   
- .description p{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
- }
+ 
    .title{
      margin-top: 1em;
    }
@@ -725,6 +721,7 @@ background-color: #2A6AA2;
   
   }
   .rate-btn{
+    
     background-color: whitesmoke;
     border: solid 2px;
     border-radius: 6px;
