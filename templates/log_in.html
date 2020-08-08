@@ -1,27 +1,25 @@
 {% extends "base.html" %}
-
-
+{%block title%}User log-in{%endblock%}
 {%block log_in%}
-
-<div class="container centered">
+<section class="container-margin centered">
 <h3>Please log-in in order to {{message}}</h3>
-</div>
-
-{%if error == True%}
-<span id="log_error">User with this name does not exist:</span>
-{%endif%}
- 
 <form action="/log_in" method="POST" class="general-form" id="log-form">
+    {%if error == True%}
+      <span id="log_error">User with this name does not exist:</span>
+    {%endif%}
     <label class="label-icon" for="user-name"><i class="fas fa-user"></i> <strong>Username</strong></label>
     <input type="text" name="user-name"  required >
     <label class="label-icon" for="password"><i class="fas fa-key"></i> Password</label>
     <input type="password" name="password"  required >
     <input type="submit" value="log in" class="form-btn" id="log-btn">
 </form>
-
-    <div class="container centered">
-    <h5>Don't have an account? <a href="/register"><strong>Register</strong></a> </h5>
-    </div>
-</div>
-
+<h5>
+    Don't have an account? 
+    <a href="/register">
+        <strong>
+            Register
+        </strong>
+    </a>
+</h5>
+</section>
 {%endblock%}

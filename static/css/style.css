@@ -101,7 +101,7 @@ body{
 }
 
 
-.search_form_index{
+.search-form-index{
   max-width: 56em;
   border-radius: 9px;
   width: 60%;
@@ -403,10 +403,7 @@ margin-top: 4em;
   top:40vh;
   width:100%
 }
-.search_form_wrap{
- 
-  width: 100%;
-}
+
 
 .search_form_wrap_nav{
   width: 100%;
@@ -418,7 +415,7 @@ margin-top: 4em;
 }
   
 
-#index_search_input, #nav_search_input{
+#index-search-input, #nav_search_input{
 border: none;
     width: calc(100% - 180px);
     padding: 12px 0px;
@@ -529,7 +526,7 @@ background-color: #2A6AA2;
   }
 
 @media only screen and (max-width: 655px) {
- #search_form_index{
+ #search-form-index{
    width: 98%;
  }
 

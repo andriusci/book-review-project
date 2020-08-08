@@ -27,7 +27,7 @@ def home():
 @app.route("/search_All",  methods=['GET', 'POST'])
 def initialise():
    if request.method == "POST":
-      search_term = request.form['search term']
+      search_term = request.form['search-term']
       genre = request.form['genre']
       if search_term == None or search_term == "":
          search_term = "All_books"
