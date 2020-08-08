@@ -174,7 +174,7 @@ z-index: 1;
 font-size:2.5em;
 }
 
-.home_wrap{
+.home-wrap{
   width: 10%;
   float: left;
   margin-left:2em;
@@ -441,7 +441,7 @@ border: none;
   border: solid 1px #337ab7;
   border-radius: 9px;
 }
-#submit_button{
+#submit-btn{
   width: 55px;
   background-color: #337ab7;
   border: none;
@@ -449,6 +449,9 @@ border: none;
   float: right;
   padding: 12px;
   border-radius: 0px 9px 9px 0px;
+}
+#submit-btn:hover{
+background-color: #2A6AA2;
 }
 #submit{
 
