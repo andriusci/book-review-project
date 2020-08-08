@@ -34,7 +34,12 @@
          {% endif %}
          <div class="description" id="{{eachBook._id}}">
            <p>
-              {{eachBook.description}}
+           {% if eachBook.description|length > 300%}
+              {% set description = eachBook.description[:300]  %}
+              {{description}}...<a href="/Book_page/book_id:{{eachBook._id}}"> read more</a>
+           {% else %}
+              {{eachBook.desription}}
+           {% endif %}
           </p>
 
 
@@ -42,14 +47,7 @@
 
 
 
-          <script>
-            var description = "{{eachBook.description}}";
-            if (description.length > 300){
-              description = description.substring(0, 300) + " <a href=" + "/Book_page/book_id:{{eachBook._id}}" + ">... more</a>";
-              document.getElementById("{{eachBook._id}}").innerHTML = description;}
-            else
-              document.getElementById("{{eachBook._id}}").innerHTML = description;
-          </script>
+         
          </div><br>
 
          {%if eachBook.amazon != ""%}

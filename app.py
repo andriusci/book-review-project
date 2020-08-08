@@ -268,7 +268,7 @@ def ratinChart(book_id):
       else:
          average = 0
          d=0
-      return render_template("iFrames/ratingChart.html", 
+      return render_template("iFrames/rating_chart.html", 
                                                ratingList = ratingList, 
                                                numOfRatings = numOfRatings, 
                                                totalRatings= totalRatings,
