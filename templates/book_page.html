@@ -88,7 +88,7 @@
 
 <div class="row" id="iFrame-wrap">
   <!--rating chart iFrame-->
-  <div class="col-sm-12 col-md-6 col-lg-4 center">
+  <div class="col-sm-12 col-md-6 col-lg-4 centered">
   <div class="iFrame">
     <iframe name="ratingChart" id="rating-iframe" scrolling="no" frameborder="no"
       src="/ratingChart:bookID:{{book._id}}"></iframe>
@@ -96,14 +96,14 @@
 </div>
 
   <!--recomend iFrame-->
-  <div class="col-sm-12 col-md-6 col-lg-4 center">
+  <div class="col-sm-12 col-md-6 col-lg-4 centered">
   <div class="iFrame">
     <iframe name="recomend" frameborder="no" scrolling="no" src="/recommend:bookID:{{book._id}}"></iframe>
   </div>
 </div>
 
   <!--rate & review iFrame-->
-  <div class="col-sm-12 col-md-12 col-lg-4 center" >
+  <div class="col-sm-12 col-md-12 col-lg-4 centered" >
 
   <div class="iFrame">
     <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
@@ -111,7 +111,9 @@
   <div class="review">
       <h3>Have you read this book?</h3><br>
       <!-- Trigger the modal with a button -->
+     
   <button type="button" class="review-btn" data-toggle="modal" data-target="#review-modal">Review</button>
+ 
   </div>
   </div>
   </div>
