@@ -157,12 +157,12 @@ background-color:white;
 z-index: 1;
 
 }
-.navTopRight{
+.top-nav-right{
   width: 20%;
   min-width: 170px;
   float:right;
-  padding-top: 1.2em;
   text-align: right;
+  margin-top: 0.2em;
   margin-right: 0.2em;
 }
 
@@ -181,12 +181,7 @@ font-size:2.5em;
   padding-top:4px;
 }
 
-#addBook{
-    border: solid 1px;
-    border-radius: 9px;
-    padding: 0.8em;
-    margin-left: 1em;
-  }
+
 
 /* log in page */
 
@@ -324,43 +319,24 @@ svg {
   #rateCircle{
     font-size: 0.1em
   }
-  #rate-btn{
-    position: absolute;
-    top: 120;
-    left: 60;
-    
-     color:white;
-      border:none;
-      border-radius:9px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      cursor: pointer;
-      
-    
-  
-  }
-  .yes, .no{
+ 
+  .yes-btn, .no-btn{
     color: #307bbb;
     background-color: white;
     border: solid 2px #307bbb;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    min-width: 4em;
-    padding: 5px 9px;
-    margin: 4px 2px;
+    padding: 0.5em 1em;
+    border-radius: 6px;
     cursor: pointer;
   }
-  .yes:hover, .no:hover{
-    border: solid 3px  #307bbb;
+  .yes-btn:hover, .no-btn:hover, .review-btn:hover, .add-book-btn:hover, #rate-btn:hover{
+   background-color: #307bbb;
+   color: white;
+  
   }
-  .yes{
+  .yes-btn{
     float: right;
   }
-  .no{
+  .no-btn{
     float: left
   }
   #thanks{
@@ -518,7 +494,7 @@ border: none;
     .search_form_nav{
       width: 68%;
     }
-    .navTopRight{
+    .top-nav-right{
       margin-right: 1em
     }
    
@@ -646,7 +622,7 @@ border: none;
     margin: auto;
   }
 
-  .delete-btn, .edit-btn, {
+  .delete-btn, .edit-btn {
     background-color: transparent;
     color: white;
     border: none;
@@ -733,10 +709,26 @@ border: none;
     position:relative;
     top:-10.1em
   }
-  .review-btn{
+  .review-btn, .add-book-btn{
     background-color: transparent;
-    border: solid #307bbb;
+    border: solid 2px#307bbb;
     color: #307bbb;
     padding: 1em 2em;
     border-radius: 9px;
+  }
+  .add-book-btn{
+   padding: 0.8em;
+  
+  }
+  #rate-btn{
+    background-color: whitesmoke;
+    border: solid 2px;
+    border-radius: 6px;
+    padding: 0.3em;
+    position: relative;
+    top: -1.9em;
+    left: 2.5em;
+  }
+  .rate-btn{
+    color: #307bbb
   }

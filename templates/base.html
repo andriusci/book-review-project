@@ -29,9 +29,10 @@
    </div>
 
 <!--navigation items (on the right)-->
-   <div class="navTopRight">
+   <div class="top-nav-right">
       <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
-      <a id="addBook" href="{{ url_for('addBook') }}">Add Book</a>
+      <a href="{{ url_for('addBook') }}"> <button class="add-book-btn">Add a book</button></a>
+     
    </div> 
    
   {# if the current page is not the index page,

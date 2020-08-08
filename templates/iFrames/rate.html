@@ -40,7 +40,7 @@
                     <form action="/rate:bookID:{{book_id}}" method="POST"> 
                       <input type="hidden" id="rating" name="rating" value="">
                       <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
-                      <input type="submit" id="rate-btn" value="RATE IT!" onclick="parent.ratingChart.location.reload();">
+                      <input type="submit" id="rate-btn" value="Rate it!" onclick="parent_reload()">
                     </form>
                   
                </span>
@@ -72,6 +72,13 @@
 
 
                   <script>
+
+function parent_reload(){
+  /* reloads the rating chart iframe in the book page, so that the reluts shown immediately */
+  parent.ratingChart.location.reload();
+}
+
+/*modified code from https://codepen.io/zellwk/pen/YwjZQv*/
   document.getElementById("rate-btn").disabled = true;                  
 var starContainer = document.getElementById('stars')
 var stars = Array.prototype.slice.call(starContainer.children)
@@ -86,7 +93,7 @@ starContainer.addEventListener('click', function(e) {
   document.getElementById("rating").value = count;
  
   document.getElementById("rate-btn").disabled = false;
-  document.getElementById("rate-btn").style.cssText = "color:#fff; font-weight: 900; border: solid 2px; background-color: #307bbb";
+  document.getElementById("rate-btn").classList.add("rate-btn");
   document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
 
 
