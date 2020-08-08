@@ -40,7 +40,7 @@
                     <form action="/rate:bookID:{{book_id}}" method="POST"> 
                       <input type="hidden" id="rating" name="rating" value="">
                       <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
-                      <input type="submit" id="rate-btn" value="Rate it!" onclick="parent_reload()">
+                      <input type="submit" id="rate-btn" class="rate-btn" value="Rate it!" onclick="parent_reload()">
                     </form>
                   
                </span>
@@ -91,12 +91,11 @@ starContainer.addEventListener('click', function(e) {
   stars.forEach(el => el.classList.remove('is-selected'))
   e.target.classList.add('is-selected')
   document.getElementById("rating").value = count;
- 
-  document.getElementById("rate-btn").disabled = false;
-  document.getElementById("rate-btn").classList.add("rate-btn");
   document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
-
-
+  if (document.getElementById("rate-btn") != 'Null'){
+  rate_btn = document.getElementById("rate-btn")
+  rate_btn.disabled = false;
+  rate_btn.classList.add("rate-btn-after","rate-btn-after:hover")};
 })
                   </script>
     </body>

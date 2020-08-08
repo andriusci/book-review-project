@@ -328,7 +328,7 @@ svg {
     border-radius: 6px;
     cursor: pointer;
   }
-  .yes-btn:hover, .no-btn:hover, .review-btn:hover, .add-book-btn:hover, #rate-btn:hover{
+  .yes-btn:hover, .no-btn:hover, .review-btn:hover, .add-book-btn:hover, .rate-btn-after:hover{
    background-color: #307bbb;
    color: white;
   
@@ -720,7 +720,7 @@ border: none;
    padding: 0.8em;
   
   }
-  #rate-btn{
+  .rate-btn{
     background-color: whitesmoke;
     border: solid 2px;
     border-radius: 6px;
@@ -729,6 +729,8 @@ border: none;
     top: -1.9em;
     left: 2.5em;
   }
-  .rate-btn{
-    color: #307bbb
+  .rate-btn-after{
+    border: solid 2px #307bbb;
+    color: #307ddd;
   }
+  
