@@ -326,7 +326,7 @@ def log_in():
 
 
 @app.route("/recommend:bookID:<book_id>", methods=['GET', 'POST'])
-def recomend(book_id):
+def recommend(book_id):
    #enables book recommendations.
    cookies = request.cookies  
    user = cookies.get("logged_user")

@@ -1,6 +1,6 @@
 function parent_reload(){
     /* reloads the rating chart iframe in the book page, so that the reluts shown immediately */
-    parent.ratingChart.location.reload();
+    parent.rating-chart.location.reload();
   }
   
   /*modified code from https://codepen.io/zellwk/pen/YwjZQv*/
@@ -20,7 +20,7 @@ function parent_reload(){
     stars.forEach(el => el.classList.remove('is-selected'))
     e.target.classList.add('is-selected')
     document.getElementById("rating").value = count;
-    document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
+    document.getElementById("rating-chart").className = "c100"+" "+"p"+count*20+" "+"center";
     if (document.getElementById("rate-btn") != 'Null'){
     rate_btn.disabled = false;
     rate_btn.classList.add("rate-btn-after","rate-btn-after:hover")};

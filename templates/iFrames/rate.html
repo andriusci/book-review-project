@@ -24,7 +24,7 @@
                   </svg>
              
            
-           <div class="c100  center" id="ratingChart">
+           <div class="c100  center" id="rating-chart">
              {%if submitted == false%}
               <span id="rateCircle">
 
@@ -91,7 +91,7 @@
     stars.forEach(el => el.classList.remove('is-selected'))
     e.target.classList.add('is-selected')
     document.getElementById("rating").value = count;
-    document.getElementById("ratingChart").className = "c100"+" "+"p"+count*20+" "+"center";
+    document.getElementById("rating-chart").className = "c100"+" "+"p"+count*20+" "+"center";
     if (rate_btn != 'Null'){
     rate_btn.disabled = false;
     rate_btn.classList.add("rate-btn-after","rate-btn-after:hover")};
