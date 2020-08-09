@@ -13,25 +13,20 @@
 </head>
 
 <body>
-    {# set the rating chart each bar x coordinate values #}
-    {%set fiveStar_x = ratingList[0] + 52%}
-    {%set fourStar_x = ratingList[1] + 52%}
-    {%set threeStar_x = ratingList[2] + 52%}
-    {%set twoStar_x = ratingList[3] + 52%}
-    {%set oneStar_x = ratingList[4] + 52%}
 
-    <div class="centered">
-        <form>
-            <input type="hidden" value="{{d}}" id="count">
-        </form>
-        <div class="c100 p{{d}} center" id="rating-chart">
+    <section class="centered">
+        
+    {#  the {{size}} variable is passed by the ratingChart() function from the app.py
+        it represends the average rating of the book.
+        in the template, it is used to asignt a class that determines the rating circle size #}
 
+        <!--Percentage circles from http://circle.firchow.net/-->
+        <div class="c100 p{{size}} center" id="rating-chart">
             <span>
                 <span id="r1">
                     <svg id="single-star">
                         <use xlink:href="#star"></use>
                     </svg>
-
                 </span><br>
                 {%if average !=0%}
                 <span id="r2">{{average}}</span><br>
@@ -45,11 +40,23 @@
         </div>
         <br>
 
+        {# check if a book has any reviews, 
+           if not set the color of the svg star inside the circle to grey,
+           otherwise set the star color to blue and show the rating chart bar#}
+
         {%if average !=0%}
         <!-- set star color -->
         {%set color="#307bbb"%}
         <h4> Based on <strong>{{totalRatings}} </strong>ratings </h4>
 
+
+     {# set the rating chart each bar x coordinates, in order to draw a chart 
+        based on the number of reviews passed to the template by the ratingChart() function #}
+        {%set fiveStar_x = ratingList[0] + 52%}
+        {%set fourStar_x = ratingList[1] + 52%}
+        {%set threeStar_x = ratingList[2] + 52%}
+        {%set twoStar_x = ratingList[3] + 52%}
+        {%set oneStar_x = ratingList[4] + 52%}
         <!--svg line chart reflecting star ratings -->
         <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px">
             <text x="5" y="15" fill="black">5 Star</text>
@@ -70,11 +77,11 @@
         </svg>
 
         {%else%}
-        <h3>This book has not been rated yet!</h3>
+        <h4>This book has not been rated yet!</h4>
         <!-- set star color -->
         {%set color = "#cccccc"%}
         {%endif%}
-    </div>
+    </section>
 
     <!-- svg star https://codepen.io/zellwk/pen/YwjZQv -->
     <svg id="single-star">

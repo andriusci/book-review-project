@@ -3,7 +3,10 @@
 html {
   scroll-behavior: smooth;
 }
-
+body{
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin: auto;
+}
 .container-margin{
   margin-top: 10em;
 }
@@ -20,6 +23,18 @@ html {
   text-align: center;
 }
 
+.error{
+  color: red
+}
+
+.thin-line{
+  margin: 0
+}
+.svg_main{
+ height:50%;
+  color:white;
+  margin-top:3em
+}
 
 /* set width of a specific svg in the rate iframe*/
 a > svg {width:1.8em}
@@ -35,11 +50,6 @@ a > svg {width:1.8em}
 }
 
  
-
-
-
-
-
 /* ****** paginition ****** */
 .paginition{
   text-align: center;
@@ -60,70 +70,13 @@ a > svg {width:1.8em}
 /* ***** paginition end **** */
 
 
-
-
-
-.general-iframe{
-
-  width: 100%;
-}
-
-
 tr:nth-child(even) {
   background-color: #f0f0f0;
 
 }
 
-.error{
-  color: red
-}
-
-
-#account_main{
-  height: unset
-}
-#accordion{
-  margin-top:4em
-}
-
-body{
-  font-family: 'IBM Plex Sans', sans-serif;
-  margin: auto;
-}
-.thin-line{
-  margin: 0
-}
-.svg_main{
- height:50%;
-  color:white;
-  margin-top:3em
-}
 
 .text-right{text-align : right}
-
-
-
-
-.search-form-nav{
-  
-    border-radius: 9px;
-    float: none;
-    margin: auto;
-    border: solid 1px #ccc;
-    background-color: white;
-}
-
-
-.search-form-index{
-  max-width: 56em;
-  border-radius: 9px;
-  width: 60%;
-  float: none;
-  margin: auto;
-  margin-top: -1em;
-  background-color: white;
-  box-shadow: 1px 12px 22px 2px #e6eff9;
-}
 
 
 
@@ -359,11 +312,32 @@ svg {
 
 
   /* reviews book page */
-  #revStars{
+#revStars{
     font-size: 4em
   }
 
 /* search form */
+.search-form-nav{
+  border-radius: 9px;
+  float: none;
+  margin: auto;
+  border: solid 1px #ccc;
+  background-color: white;
+}
+
+
+.search-form-index{
+max-width: 56em;
+border-radius: 9px;
+width: 60%;
+float: none;
+margin: auto;
+margin-top: -1em;
+background-color: white;
+box-shadow: 1px 12px 22px 2px #e6eff9;
+}
+
+
 #index{
   text-align: center;
   position:absolute;
@@ -700,7 +674,7 @@ background-color: #2A6AA2;
 
   .review{
     position:relative;
-    top:-10.1em
+    top: -10.4em;
   }
 
   .star-svg{

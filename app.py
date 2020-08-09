@@ -263,17 +263,17 @@ def ratinChart(book_id):
       if totalRatings != 0:
            average = (fiveStars * 5 + fourStars * 4 + threeStars * 3 + twoStars * 2 + oneStar * 1) / totalRatings  
            average = round(average,1)
-           #calculate circle diameter
-           d = round(average) * 20
+           #calculate circle size
+           size = round(average) * 20
       else:
          average = 0
-         d=0
+         size=0
       return render_template("iFrames/rating_chart.html", 
                                                ratingList = ratingList, 
                                                numOfRatings = numOfRatings, 
                                                totalRatings= totalRatings,
                                                average= average,
-                                               d = d )
+                                               size = size )
 
 @app.route("/my_account", methods=['GET', 'POST'])
 def account():
