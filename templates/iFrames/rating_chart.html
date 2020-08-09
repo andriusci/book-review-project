@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,77 +9,82 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
-<body>
-      <!--Rating chart coordinate x value  -->
-      {%set fiveStar_x = ratingList[0] + 52%}
-      {%set fourStar_x = ratingList[1] + 52%}
-      {%set threeStar_x = ratingList[2] + 52%}
-      {%set twoStar_x = ratingList[3] + 52%}
-      {%set oneStar_x = ratingList[4] + 52%}
-<div class="centered">
-    <form><input type="hidden" value="{{d}}" id="count">
-     </form>
- <div class="c100 p{{d}} center" id="rating-chart">
-   
-       <span>
-          <span id="r1">
-            <svg id="singleStar"><use xlink:href="#star"></use></svg>
-            
-         </span><br>
-         {%if average !=0%}
-         <span id="r2">{{average}}</span><br>
-         <span id="r3">out of 5</span><br>
-         {%endif%}
-      </span>
-      <div class="slice">
-         <div class="bar" id="rateBar"></div>
-         <div class="fill"id="fillBar"></div>
-     </div>
-</div>
-    <br>
 
-{%if average !=0%}
-<!-- set star color -->
-{%set color="#307bbb"%}
-       <h4> Based on <strong>{{totalRatings}} </strong>ratings </h4>
+<body>
+    {# set the rating chart each bar x coordinate values #}
+    {%set fiveStar_x = ratingList[0] + 52%}
+    {%set fourStar_x = ratingList[1] + 52%}
+    {%set threeStar_x = ratingList[2] + 52%}
+    {%set twoStar_x = ratingList[3] + 52%}
+    {%set oneStar_x = ratingList[4] + 52%}
+
+    <div class="centered">
+        <form>
+            <input type="hidden" value="{{d}}" id="count">
+        </form>
+        <div class="c100 p{{d}} center" id="rating-chart">
+
+            <span>
+                <span id="r1">
+                    <svg id="single-star">
+                        <use xlink:href="#star"></use>
+                    </svg>
+
+                </span><br>
+                {%if average !=0%}
+                <span id="r2">{{average}}</span><br>
+                <span id="r3">out of 5</span><br>
+                {%endif%}
+            </span>
+            <div class="slice">
+                <div class="bar" id="rateBar"></div>
+                <div class="fill" id="fillBar"></div>
+            </div>
+        </div>
+        <br>
+
+        {%if average !=0%}
+        <!-- set star color -->
+        {%set color="#307bbb"%}
+        <h4> Based on <strong>{{totalRatings}} </strong>ratings </h4>
 
         <!--svg line chart reflecting star ratings -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px">
-              <text x="5" y="15" fill="black">5 Star</text>
-              <rect x="50" y="5" width="{{ratingList[0]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-              <text x="{{fiveStar_x}}" y="16" fill="black">{{numOfRatings[0]}}</text>
-              <text x="5" y="35" fill="black">4 Star</text>
-              <rect x="50" y="25"width="{{ratingList[1]}}" height="12" stroke="#307bbb" fill="#307bbb"/>  
-              <text x="{{fourStar_x}}" y="36" fill="black">{{numOfRatings[1]}}</text>
-              <text x="5" y="55" fill="black">3 Star</text>
-              <rect x="50" y="45" width=" {{ratingList[2]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-              <text x="{{threeStar_x}}" y="56" fill="black">{{numOfRatings[2]}}</text>
-              <text x="5" y="75" fill="black">2 Star</text>
-              <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-              <text x="{{twoStar_x}}" y="76" fill="black">{{numOfRatings[3]}}</text>
-              <text x="5" y="95" fill="black">1 Star</text>
-              <rect x="50" y="85" width="{{ratingList[4]}}" height="12" stroke="#307bbb" fill="#307bbb"/> 
-              <text x="{{oneStar_x}}" y="96" fill="black">{{numOfRatings[4]}}</text>
-            </svg> 
-            
-{%else%}  
-            <h3>This book has not been rated yet!</h3>
-            <!-- set star color -->
-            {%set color = "#cccccc"%}
-{%endif%}
-</div>
-             <!-- svg star https://codepen.io/zellwk/pen/YwjZQv -->
-
-    <svg id="singleStar">
-        <symbol id="star" viewBox="0 0 98 92">
-        <title>star</title>
-        <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill="{{color}}"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px">
+            <text x="5" y="15" fill="black">5 Star</text>
+            <rect x="50" y="5" width="{{ratingList[0]}}" height="12" stroke="#307bbb" fill="#307bbb" />
+            <text x="{{fiveStar_x}}" y="16" fill="black">{{numOfRatings[0]}}</text>
+            <text x="5" y="35" fill="black">4 Star</text>
+            <rect x="50" y="25" width="{{ratingList[1]}}" height="12" stroke="#307bbb" fill="#307bbb" />
+            <text x="{{fourStar_x}}" y="36" fill="black">{{numOfRatings[1]}}</text>
+            <text x="5" y="55" fill="black">3 Star</text>
+            <rect x="50" y="45" width=" {{ratingList[2]}}" height="12" stroke="#307bbb" fill="#307bbb" />
+            <text x="{{threeStar_x}}" y="56" fill="black">{{numOfRatings[2]}}</text>
+            <text x="5" y="75" fill="black">2 Star</text>
+            <rect x="50" y="65" width=" {{ratingList[3]}}" height="12" stroke="#307bbb" fill="#307bbb" />
+            <text x="{{twoStar_x}}" y="76" fill="black">{{numOfRatings[3]}}</text>
+            <text x="5" y="95" fill="black">1 Star</text>
+            <rect x="50" y="85" width="{{ratingList[4]}}" height="12" stroke="#307bbb" fill="#307bbb" />
+            <text x="{{oneStar_x}}" y="96" fill="black">{{numOfRatings[4]}}</text>
         </svg>
-        <!--------------------------------------------------->
 
+        {%else%}
+        <h3>This book has not been rated yet!</h3>
+        <!-- set star color -->
+        {%set color = "#cccccc"%}
+        {%endif%}
+    </div>
 
-       
+    <!-- svg star https://codepen.io/zellwk/pen/YwjZQv -->
+    <svg id="single-star">
+        <symbol id="star" viewBox="0 0 98 92">
+            <title>star</title>
+            <path
+                d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
+                fill="{{color}}" />
+    </svg>
+    <!--------------------------------------------------->
 </body>
+
 </html>

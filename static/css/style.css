@@ -1,14 +1,28 @@
 
-
+/* General*/
 html {
   scroll-behavior: smooth;
 }
 
 .container-margin{
   margin-top: 10em;
-
 }
 
+.centered{
+  text-align: center;
+ 
+}
+.centered > h3{
+  margin: 1em 1em 0em 1em;
+}
+
+.container > h3{
+  text-align: center;
+}
+
+
+/* set width of a specific svg in the rate iframe*/
+a > svg {width:1.8em}
 
 /* reviews  */
 .review-wrap{
@@ -19,6 +33,12 @@ html {
   margin-bottom: 1em;
   padding: 1em
 }
+
+ 
+
+
+
+
 
 /* ****** paginition ****** */
 .paginition{
@@ -37,14 +57,14 @@ html {
 #go-to{
   width: 2em;
 }
-
+/* ***** paginition end **** */
 
 
 
 
 
 .general-iframe{
-  min-height: 500px;
+
   width: 100%;
 }
 
@@ -65,25 +85,18 @@ tr:nth-child(even) {
 #accordion{
   margin-top:4em
 }
-#delete_form{
-  display: inline-block
-}
+
 body{
- 
   font-family: 'IBM Plex Sans', sans-serif;
   margin: auto;
-
 }
-.thin_line{
+.thin-line{
   margin: 0
 }
 .svg_main{
  height:50%;
   color:white;
   margin-top:3em
-}
-#review_svg{
-  margin-top: 5em
 }
 
 .text-right{text-align : right}
@@ -119,7 +132,7 @@ body{
 
 
 
-/* index page */
+/* ********** index page ****************** */
 .container-main{
   text-align: center;
   height: 50vh;
@@ -127,14 +140,11 @@ body{
   background-color: #E5EFF9;
   margin-top: 4em;
 }
-#main_svg{
+#main-svg{
   width: 60%;
   max-height: 70%;
   margin-top: 1em;
 }
-
-
-
 .headline{
   text-align: center;
   background-color: #e6eff9;
@@ -147,7 +157,7 @@ body{
 }
 
 
-/**************navigation  bar***************************/
+/************** Navigation  bar ***************************/
 .nav-top{
 width:100%;
 height: 4em;
@@ -169,6 +179,7 @@ z-index: 1;
 .right{
   float: right;
 }
+
 /* logo */
 .home{
 font-size:2.5em;
@@ -183,19 +194,15 @@ font-size:2.5em;
 
 
 
-/* log in page */
-
-
-
+/* **************** log in & register pages ********************** */
 
 .label-icon{
   padding-left:1em;
   
 }
 
-
 #log_error{
-  color: red;
+    color: red;
     position: relative;
     top: -35px;
 }
@@ -203,37 +210,21 @@ font-size:2.5em;
 
 
 
-
-
-/* result page */
-
+/* ************** result page ********************* */
 
 .result-container{
 
 margin: 1em 1em 1em 1em;
 text-align: left;
 }
-.result_img_wrap{
-  width:30%;
-  display:inline-block;
-  vertical-align: top;
-}
+
 .result-img{
   width:100%;
   margin: 0.3em
 }
 
 
-.result_txt_wrap{
-  display: inline-block;
-  width: 63%;
-  margin: 0.5em;
-}
-
- .fa-external-link-alt{
-  color: #777;
-  float: right
-}
+/* ******** book page *********** */
 .details{
   padding: 1em
 }
@@ -244,20 +235,25 @@ text-align: left;
   margin: 2em 0 0 0;
 }
 
-/*rating stars*/
+
+
+
+
+
+/* ***** rating stars* *******/
+
 svg {
     fill: #E1E1E1;
     pointer-events: none;
   }
   
-  .stars {
+.stars {
     display: flex;
     flex-flow: row-reverse;
     justify-content: flex-end;
   }
   
-  .star.is-selected svg,
-  .star.is-selected ~ .star svg {
+  .star.is-selected svg, .star.is-selected ~ .star svg {
     fill: #307bbb
   }
   
@@ -283,15 +279,19 @@ svg {
     padding-top:15;
     padding-left: 9;
   }
-  .star_svg{width: 2em;
+  .star-svg{width: 2em;
     height: 2em}
 
 
   /* iFrames */
   /*  rate chart iFrame */
   iframe{
-    min-height: 25em;
+    min-height: 26em;
    
+  }
+  .general-iframe{
+
+    width: 100%;
   }
   
 .iFrame{
@@ -306,7 +306,7 @@ svg {
 
  
   /* charts & circles */
-  #singleStar{
+  #single-star{
     padding-left: 10px;
     padding-top: 16px;
     height: 1em;
@@ -316,29 +316,12 @@ svg {
     font-size: 1em;
   }
   
-  #rateCircle{
+
+  #rate-circle{
     font-size: 0.1em
   }
  
-  .yes-btn, .no-btn{
-    color: #307bbb;
-    background-color: white;
-    border: solid 2px #307bbb;
-    padding: 0.5em 1em;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .yes-btn:hover, .no-btn:hover, .review-btn:hover, .add-book-btn:hover, .rate-btn-after:hover{
-   background-color: #307bbb;
-   color: white;
   
-  }
-  .yes-btn{
-    float: right;
-  }
-  .no-btn{
-    float: left
-  }
   #thanks{
     padding-top: 72px;
     font-size: 0.16em;
@@ -364,29 +347,13 @@ svg {
 #text h1{
   font-size: 1.7em
 }
-#show_more ,#show_less{
-  float: right;
-  margin-right: 2em;
-  border:none;
-  background-color: transparent;
-  color: #337ab7
-}
-#show_less{
-  display: none
-}
-#more_less{
-  width: 90%
-}
 
-.book_img_wrap, #text_wrap{
-display: inline-block;
-text-align: center;
-vertical-align: top;
-margin-top: 4em;
-}
-.book_img{
-    width: 95%;
-  }
+
+
+
+
+
+
 
 
 
@@ -404,7 +371,6 @@ margin-top: 4em;
   width:100%
 }
 
-
 .search-form-wrap-nav{
   width: 100%;
   position: fixed;
@@ -414,7 +380,6 @@ margin-top: 4em;
   padding-bottom: 4px;
 }
   
-
 #index-search-input, #nav-search-input{
     border: none;
     width: calc(100% - 180px);
@@ -451,61 +416,38 @@ margin-top: 4em;
 background-color: #2A6AA2;
 }
 #submit{
-
   float:none
-
-}
-#add_btn{
-  margin: auto;
-  margin-top: 1em;
-  width: 100%;
-  display: block;
-  height: 3em;
-}
-
-
-::-webkit-input-placeholder {
-  font-style: italic;
-}
-:-moz-placeholder {
-  font-style: italic;  
-}
-::-moz-placeholder {
-  font-style: italic;  
-}
-:-ms-input-placeholder {  
-  font-style: italic; 
-}
-
-
-.centered{
-  text-align: center;
- 
-}
-.centered > h3{
-  margin: 1em 1em 0em 1em;
 }
 
 
 
 
 
-  @media only screen and (min-width: 700px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 700px) {
     .search-form-nav{
       width: 68%;
     }
     .top-nav-right{
       margin-right: 1em
     }
-   
-    .thin_line{
+    .thin-line{
       display:none
     }
-
-   
-   
-  
- 
    .title{
      margin-top: 1em;
    }
@@ -513,11 +455,10 @@ background-color: #2A6AA2;
      width:90%
    }
   
-
   }
 
 
-  @media only screen and (min-width: 555px) {
+@media only screen and (min-width: 555px) {
     #add-btn, #log-btn, #reg-btn .form-btn, #edit-btn, #review-btn{
       max-width: 12em;
       min-height: 3em;
@@ -532,21 +473,22 @@ background-color: #2A6AA2;
 
 }
 
-  @media only screen and (max-width:480px){
+@media only screen and (max-width:480px){
     .description {
-
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
      }
   }
-  @media only screen and (min-width: 990px) {
+
+@media only screen and (min-width: 990px) {
     .result-container{
       max-width: 60%;
       margin: auto
     }
   }
-  @media only screen and (min-width: 1023px) {
+
+@media only screen and (min-width: 1023px) {
     .search-form-nav{
       max-width: 600px;
       margin-top: -54px
@@ -554,9 +496,7 @@ background-color: #2A6AA2;
     .log_in_form{
       max-width: 600px;
     }
-    .result_img_wrap{
-      width:20%
-    }
+
     #add-book-form{
     max-width: 70%;
     }
@@ -564,14 +504,25 @@ background-color: #2A6AA2;
   }
   
 
-  @media only screen and (max-width: 1423px) {
- 
+@media only screen and (max-width: 1423px) {
   #text{
     height:auto
   }
   }
 
-
+/* form placeholders*/
+::-webkit-input-placeholder {
+  font-style: italic;
+}
+:-moz-placeholder {
+  font-style: italic;  
+}
+::-moz-placeholder {
+  font-style: italic;  
+}
+:-ms-input-placeholder {  
+  font-style: italic; 
+}
 
 
 
@@ -599,45 +550,81 @@ background-color: #2A6AA2;
     margin-top:3em
   }
 
-  #add-book-form{
-    
-  }
 
-  #description, #comment{
+#description, #comment{
     width: 100%;
     border-radius: 9px;
     border: solid 1px rgb(204, 204, 204);
   }
 
-  .form-btn{
-    width:70%;
-    border-radius:9px;
-    background-color: #307bbb;
-    color: white;
-    margin-bottom: 0.3em;
-    margin-top: 0.3em;
-    margin: auto;
-  }
+ /*  *** buttons *** */
+.yes-btn, .no-btn{
+  color: #307bbb;
+  background-color: white;
+  border: solid 2px #307bbb;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.yes-btn:hover, .no-btn:hover, .review-btn:hover, .add-book-btn:hover, .rate-btn-after:hover{
+ background-color: #307bbb;
+ color: white;
 
-  .delete-btn, .edit-btn {
-    background-color: transparent;
-    color: white;
-    border: none;
-    color: #307bbb;
-    font-weight: bold
-    
-  }
+}
+.yes-btn{
+  float: right;
+}
 
-  .star-svg{
-    display: none; 
-    width: 1.8em; 
-    height: 2em
-  }
-  .delete-btn:hover, .edit-btn:hover{
+.no-btn{
+  float: left
+}
+
+.form-btn{
+  width:70%;
+  border-radius:9px;
+  background-color: #307bbb;
+  color: white;
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  margin: auto;
+}
+
+.delete-btn, .edit-btn {
+  background-color: transparent;
+  border: none;
+  color: #307bbb;
+  font-weight: bold
+  
+}
+
+.delete-btn:hover, .edit-btn:hover{
     text-decoration: underline;
   }
 
-
+.review-btn, .add-book-btn{
+    background-color: transparent;
+    border: solid 2px#307bbb;
+    color: #307bbb;
+    padding: 1em 2em;
+    border-radius: 9px;
+  }
+.add-book-btn{
+   padding: 0.8em;
+  
+  }
+.rate-btn{
+    background-color: whitesmoke;
+    border: solid 2px;
+    border-radius: 6px;
+    padding: 0.3em;
+    position: relative;
+    top: -1.9em;
+    left: 2.5em;
+  }
+.rate-btn-after{
+    border: solid 2px #307bbb;
+    color: #307ddd;
+  }
 
 
   /*****************************************tabs*************************/
@@ -680,9 +667,9 @@ background-color: #2A6AA2;
   border: 1px solid #ccc;
   border-top: none;
 }
-  /* **************** */
+/* *************rnd of borrowed css************* */
 
-  /*tabs*/
+/* **** custom tabs  ***** */
   .tab{
     border-bottom: 1px solid #ccc;
   }
@@ -697,6 +684,9 @@ background-color: #2A6AA2;
   .account-table{
     width:100%
   }
+
+
+
   #icon-success{
     font-size: 16em;
     color: #307bbb;
@@ -712,29 +702,9 @@ background-color: #2A6AA2;
     position:relative;
     top:-10.1em
   }
-  .review-btn, .add-book-btn{
-    background-color: transparent;
-    border: solid 2px#307bbb;
-    color: #307bbb;
-    padding: 1em 2em;
-    border-radius: 9px;
+
+  .star-svg{
+    display: none; 
+    width: 1.8em; 
+    height: 2em
   }
-  .add-book-btn{
-   padding: 0.8em;
-  
-  }
-  .rate-btn{
-    
-    background-color: whitesmoke;
-    border: solid 2px;
-    border-radius: 6px;
-    padding: 0.3em;
-    position: relative;
-    top: -1.9em;
-    left: 2.5em;
-  }
-  .rate-btn-after{
-    border: solid 2px #307bbb;
-    color: #307ddd;
-  }
-  
