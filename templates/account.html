@@ -139,7 +139,12 @@
 </section>
 
 <script>
-/*only works if placed at the bottom of the same document *//* for that reason the rest of the scripts are placed here as well*/
+
+// the script bellow only works if placed at the bottom of the same document 
+// therefore, in order to avoid creating unnecessary js files  
+// the rest of the scripts that are needed for this document are placed here too.
+
+
 /*Tab function for account page, code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open*/
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -155,8 +160,8 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
   }
 
-  // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+// Get the element with id="defaultOpen" and click on it
+ document.getElementById("defaultOpen").click();
 
 /*modified code from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h*/
 /*reloads the page on modal close, so that the changes immediately seen on screen */

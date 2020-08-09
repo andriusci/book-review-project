@@ -628,6 +628,11 @@ background-color: #2A6AA2;
     
   }
 
+  .star-svg{
+    display: none; 
+    width: 1.8em; 
+    height: 2em
+  }
   .delete-btn:hover, .edit-btn:hover{
     text-decoration: underline;
   }
@@ -683,6 +688,7 @@ background-color: #2A6AA2;
   }
   .tablinks{
     border-radius: 9px 9px 0 0;
+    color: #307bbb;
   }
   .tablinks:hover{
     background-color: #307bbb;

@@ -6,42 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="stylesheet" href="/static/css/style.css" />
- 
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <title>Document</title>
 </head>
 <body>
-      
+<aside class="container centered">
+{# Check if review has not been submitted yet, if not show the review form #}
 {%if status != True%}
-<div class="container">
 
-    
+  <!--Book review form-->
 <form action="/review:bookID:{{book_id}}" method="POST" class="general-form"  name="review-form" id="review-form" >
         
         <label for="title">Title</label>
         <span id="titleError" class="error"></span><br>
-        <input type="text" name="title" id="title" value="" ><br>
+        <input type="text" name="title" id="title" value="" placeholder="  e.g. good read..." ><br>
         
-
+         
         <label for="comment">Your comment</label>
         <span id="reviewError" class="error"></span><br>
-         <textarea rows="4" cols="50" name="comment" id="comment" ></textarea> <br>
-       
-            <span >
-                <svg style="display: none; width: 1.8em; height: 2em">
+         <textarea rows="4" cols="50" name="comment" id="comment" placeholder="  pease give your comment here..."></textarea> <br>
+
+        <!--SVG rating stars taken from https://codepen.io/zellwk/pen/YwjZQv-->
+         <span>
+              <svg class="star-svg">
                     <symbol id="star" viewBox="0 0 98 92">
                     <title>star</title>
                     <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill-rule='evenodd'/>
-                  </svg><br>
-                 <strong> How many stars would you give?</strong>
-                </span><span id="ratingError" class="error"></span><br>
-                  <div style="display: inline-block">
+              </svg><br>
+              <strong> How many stars would you give?</strong>
+         </span>
+
+         <span id="rating-error" class="error">
+         </span><br>
+
+         <div style="display: inline-block">
                     <div id="stars" class="stars">
                       <a class="star" href="javascript:void(0)"><svg class="star_svg"><use xlink:href="#star"></use></svg></a>
                       <a class="star" href="javascript:void(0)"><svg class="star_svg"><use xlink:href="#star"></use></svg></a>
@@ -49,37 +48,29 @@
                       <a class="star" href="javascript:void(0)"><svg class="star_svg"><use xlink:href="#star"></use></svg></a>
                       <a class="star" href="javascript:void(0)"><svg class="star_svg"><use xlink:href="#star"></use></svg></a>
                     </div>
-                  </div>
-                
-               <br>
-             </span><span id="ratingError" class="error"></span><br>
+         </div>
+          <!------------------------------------------------------------------->    
+          <br>
+         <span id="rating-error" class="error">
+         </span><br>
         <input type="hidden" name="book_id" value="{{book_id}}">
         <input type="hidden" name="rating" id="rating" value = 0>
+</form>
+<!--Button if clicked, invokes js validate_review_form() function that validates and submits book review form-->   
+<button class="form-btn" id="edit-btn" onclick="validate_review_form()">submit</button> 
+          
+<script>
+        //The script bellow works only if placed in the same html document.
+        //Therfore it is provided here instead of in the sepereate JS file.
+        //Moreover, in order to avoid creating unnecessary JS files, 
+        //all scripts belonging to this document are placed here too. 
         
-      
-      </form>
-
-                  
-  
-      
-                       <button class="form-btn" id="edit-btn" onclick="validate()">submit</button>
-    
-
-           
-                
-        
-   
-        
-        
-        
-                          <script>
-                          
+         /* Modified code from https://codepen.io/zellwk/pen/YwjZQv*/
+         /*Enables star rating functionality*/
         var starContainer = document.getElementById('stars')
         var stars = Array.prototype.slice.call(starContainer.children)
         var totalStars = stars.length
         var rated = document.getElementById('rated')
-        
-       
         starContainer.addEventListener('click', function(e) {
           var index = stars.indexOf(e.target)
           var count = totalStars - index;
@@ -87,9 +78,12 @@
           e.target.classList.add('is-selected')
           document.getElementById("rating").value = count;
         })
+        /************************************************************/
 
 
-        function validate() {
+        //Check if the review form fields are filled and submit the form.
+        //Or give an error.
+        function validate_review_form() {
            var title =  document.getElementById('title').value;
           
           var review = document.getElementById('comment').value;
@@ -105,24 +99,22 @@
             document.getElementById("reviewError").innerHTML = ""
           }
           if (rating == "0"){
-           document.getElementById("ratingError").innerHTML = "Please chose the number of stars";}
+           document.getElementById("rating-error").innerHTML = "Please chose the number of stars";}
           else{
-            document.getElementById("ratingError").innerHTML = ""
+            document.getElementById("rating-error").innerHTML = ""
           }
           if(title != "" && review != "" && rating != "0"){document.getElementById("review-form").submit();}
 }
-
-
-            </script>
+</script>
 
 {%else%}
-   
-<div class="centered">
     <i class="fas fa-check" id="icon-success"></i>
     <h3> Thank you! your review has been submitted. </h3>
-  </div>
-   
 {%endif%} 
+</aside>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 
