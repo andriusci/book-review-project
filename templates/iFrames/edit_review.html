@@ -21,7 +21,8 @@
 
 <body>
     <aside class="container centered">
-
+{# Check if review has not been submitted yet, if not show the review form #}
+{%if status != True%}
         <!--Edit review form-->
         <form action="/edit_review{{review._id}}" method="POST" id="review-form" class="general-form">
             <label for="title">Review title
@@ -99,7 +100,10 @@
             /************************************************************/
 
     </script>
-
+{%else%}
+<i class="fas fa-check" id="icon-success"></i>
+<h3> Thank you! your review has been submitted. </h3>
+{%endif%} 
     <script src="{{ url_for('static', filename='js/js.js')}}"></script>
 
 </body>

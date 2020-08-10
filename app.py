@@ -173,6 +173,7 @@ def editBook(book_id):
 def editReview(review_id):
    #Enables review editing
      review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+     submitted= False # passed to the template in order to give feedback after review submit
      if request.method == "POST":
         title = request.form['title']
         comment = request.form['comment']
@@ -180,8 +181,9 @@ def editReview(review_id):
         mongo.db.reviews.update(
                  {"_id": ObjectId(review_id)},
                  {"$set": {"title": title, "review": comment, "rating" : rating ,"dateTime": datetime.now().strftime("%:%M:%Y") }})
+        submitted = True
         review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-     return render_template("iFrames/edit_review.html", review = review) 
+     return render_template("iFrames/edit_review.html", review = review, status = submitted) 
    
 
 @app.route("/review:bookID:<book_id>", methods=['GET', 'POST'])
