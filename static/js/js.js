@@ -1,31 +1,31 @@
    
    
-   /*Check if the necesary form fields are filled,
+   /*Check if the form fields are filled,
     if not filled show an error next to the field and scroll to the top of the page - (needed for mobile screens)
     if filled submit the form */
     /*validation is used by the "add new book" form in order to play around the text area validation*/
-    function validate() {
+function validate() {
       var title = document.getElementById('title').value;
 
       var description = document.getElementById('description').value;
       var genre = document.getElementById('add-genre').value;
       if (title == "") {
-        document.getElementById("titleError").innerHTML = "Please fill in this field";
+        document.getElementById("title-error").innerHTML = "Please fill in this field";
       }
       else {
-        document.getElementById("titleError").innerHTML = ""
+        document.getElementById("title-error").innerHTML = ""
       }
       if (description == "") {
-        document.getElementById("descriptionError").innerHTML = "Please fill in this field";
+        document.getElementById("description-error").innerHTML = "Please fill in this field";
       }
       else {
-        document.getElementById("descriptionError").innerHTML = ""
+        document.getElementById("description-error").innerHTML = ""
       }
       if (genre == "Choose genre") {
-        document.getElementById("genreError").innerHTML = "Please choose genre";
+        document.getElementById("genre-error").innerHTML = "Please choose genre";
       }
       else {
-        document.getElementById("genreError").innerHTML = ""
+        document.getElementById("genre-error").innerHTML = ""
       }
       if (title != "" && description != "" && genre != "Choose genre") { document.getElementById("add-book-form").submit(); }
       else {
@@ -35,6 +35,30 @@
     }
 
 
+ //Check if the review form fields are filled and submit the form.
+ //Or give an error.
+function validate_review() {
+          var title =  document.getElementById('title').value;
+         
+         var review = document.getElementById('comment').value;
+          var rating = document.getElementById('rating').value;
+         if (title == ""){
+          document.getElementById("title-error").innerHTML = "Please fill in this field";}
+         else{
+           document.getElementById("title-error").innerHTML =""
+         }
+         if (review == ""){
+          document.getElementById("review-error").innerHTML = "Please fill in this field";}
+         else{
+           document.getElementById("review-error").innerHTML = ""
+         }
+         if (rating == "0"){
+          document.getElementById("rating-error").innerHTML = "Please chose the number of stars";}
+         else{
+           document.getElementById("rating-error").innerHTML = ""
+         }
+         if(title != "" && review != "" && rating != "0"){document.getElementById("review-form").submit();}
+}
   
 
    

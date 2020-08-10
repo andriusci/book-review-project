@@ -23,12 +23,12 @@
     <div class="row">
       <div class="col-sm-12 col-md-7">
           <label for="title">Book title <span class="error">*</span>&nbsp</label>
-          <span class="error" id="titleError">
+          <span class="error" id="title-error">
           </span><br>
           <input type="text" name="title" id="title" value=""> 
       </div>
       <div class="col-sm-12 col-md-5">
-           <label for="genre">Genre<span class="error">*</span></label> <span class="error" id="genreError"></span> <br>
+           <label for="genre">Genre<span class="error">*</span></label> <span class="error" id="genre-error"></span> <br>
            <select name="genre" id="add-genre">
             {#  create select options with one option selected depending on previously submited search
                 not necesary here - only re-used code! #}
@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-sm-12 ">
         <label for="description">Description <span class="error">*</span></label> <span class="error"
-         id="descriptionError"></span> <br>
+         id="description-error"></span> <br>
         <textarea name="description" id="description" placeholder="" rows="4"></textarea> <br>
       </div>
     </div>

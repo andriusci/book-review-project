@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   
+
 
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
@@ -14,51 +14,94 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
 
-
-    <title>Document</title>
+    <title>Edit review</title>
 
 </head>
 
 <body>
-     <div>
-         Last edited on {{review.dateTime}}
-     </div><br>
-    <form action="/edit_review{{review._id}}" method="POST" id="edit-review-form" class="general-form" >
-        <label for="title">Review title <span class="error">*</span>&nbsp</label><span class="error"
-            id="titleError"></span><br>
-        <input type="text" name="title" id="title" value="{{review['title']}}"> <span class="error"
-            id="titleError"></span>
+    <aside class="container centered">
+
+        <!--Edit review form-->
+        <form action="/edit_review{{review._id}}" method="POST" id="review-form" class="general-form">
+            <label for="title">Review title
+                <span id="title-error" class="error"></span><br></label>
+            <input type="text" name="title" id="title" value="{{review['title']}}">
+
+            <label for="comment">Your comment <span class="error">*</span></label> <span class="error"
+                id="review-error"></span>
+            <span id="review-error" class="error"></span><br>
+            <textarea name="comment" id="comment" rows="4">{{review['review']}}</textarea>
+
+            <!--SVG rating stars taken from https://codepen.io/zellwk/pen/YwjZQv-->
+            <span>
+                <svg class="star-svg">
+                    <symbol id="star" viewBox="0 0 98 92">
+                        <title>star</title>
+                        <path
+                            d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
+                            fill-rule='evenodd' />
+                </svg><br>
+                <strong> How many stars would you give?</strong>
+            </span>
+
+            <span id="rating-error" class="error">
+            </span><br>
+
+            <div style="display: inline-block">
+                <div id="stars" class="stars">
+                    <a class="star" href="javascript:void(0)"><svg class="star-svg">
+                            <use xlink:href="#star"></use>
+                        </svg></a>
+                    <a class="star" href="javascript:void(0)"><svg class="star-svg">
+                            <use xlink:href="#star"></use>
+                        </svg></a>
+                    <a class="star" href="javascript:void(0)"><svg class="star-svg">
+                            <use xlink:href="#star"></use>
+                        </svg></a>
+                    <a class="star" href="javascript:void(0)"><svg class="star-svg">
+                            <use xlink:href="#star"></use>
+                        </svg></a>
+                    <a class="star" href="javascript:void(0)"><svg class="star-svg">
+                            <use xlink:href="#star"></use>
+                        </svg></a>
+                </div>
+            </div>
+            <!------------------------------------------------------------------->
+            <input type="hidden" name="rating" id="rating" value=0>
+        </form>
         <br>
 
-        <label for="comment">Comment <span class="error">*</span></label> <span class="error"
-            id="commentError"></span> <br>
-        <textarea name="comment" id="comment" rows="4">{{review['review']}}</textarea>
-        <br>
-        
-       
-    </form>
-    <br>
-    <div class="container centered">
+        <!--Button if clicked, invokes js validate_review_form() function that validates and submits book review form-->
         <button class="form-btn" id="edit-btn" onclick="validate_review()">submit</button>
-    </div>
+
+
+    </aside>
 
     <script>
+        //The script bellow works only if placed in the same html document.
+        //Therfore it is provided here instead of in the sepereate JS file.
 
-        function validate_review() {
 
-            document.getElementById("edit-review-form").submit();
- 
-        }
+        /* Modified code from https://codepen.io/zellwk/pen/YwjZQv*/
+        /*Enables star rating functionality*/
+        var starContainer = document.getElementById('stars')
+        var stars = Array.prototype.slice.call(starContainer.children)
+        var totalStars = stars.length
+        var rated = document.getElementById('rated')
+        starContainer.addEventListener('click', function (e) {
+            var index = stars.indexOf(e.target)
+            var count = totalStars - index;
+            stars.forEach(el => el.classList.remove('is-selected'))
+            e.target.classList.add('is-selected')
+            document.getElementById("rating").value = count;
+        })
+            /************************************************************/
+
     </script>
 
-    </form>
+    <script src="{{ url_for('static', filename='js/js.js')}}"></script>
 
-
-
-    
- 
 </body>
 
 </html>

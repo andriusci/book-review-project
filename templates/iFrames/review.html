@@ -17,14 +17,13 @@
 
   <!--Book review form-->
 <form action="/review:bookID:{{book_id}}" method="POST" class="general-form"  name="review-form" id="review-form" >
-        
-        <label for="title">Title</label>
-        <span id="titleError" class="error"></span><br>
+        <label for="title">Reviwe title</label>
+        <span id="title-error" class="error"></span><br>
         <input type="text" name="title" id="title" value="" placeholder="  e.g. good read..." ><br>
         
          
         <label for="comment">Your comment</label>
-        <span id="reviewError" class="error"></span><br>
+        <span id="review-error" class="error"></span><br>
          <textarea rows="4" cols="50" name="comment" id="comment" placeholder="  pease give your comment here..."></textarea> <br>
 
         <!--SVG rating stars taken from https://codepen.io/zellwk/pen/YwjZQv-->
@@ -51,19 +50,17 @@
          </div>
           <!------------------------------------------------------------------->    
           <br>
-         <span id="rating-error" class="error">
-         </span><br>
+      
         <input type="hidden" name="book_id" value="{{book_id}}">
         <input type="hidden" name="rating" id="rating" value = 0>
 </form>
 <!--Button if clicked, invokes js validate_review_form() function that validates and submits book review form-->   
-<button class="form-btn" id="edit-btn" onclick="validate_review_form()">submit</button> 
+<button class="form-btn" id="edit-btn" onclick="validate_review()">submit</button> 
           
 <script>
         //The script bellow works only if placed in the same html document.
         //Therfore it is provided here instead of in the sepereate JS file.
-        //Moreover, in order to avoid creating unnecessary JS files, 
-        //all scripts belonging to this document are placed here too. 
+        
         
          /* Modified code from https://codepen.io/zellwk/pen/YwjZQv*/
          /*Enables star rating functionality*/
@@ -80,31 +77,6 @@
         })
         /************************************************************/
 
-
-        //Check if the review form fields are filled and submit the form.
-        //Or give an error.
-        function validate_review_form() {
-           var title =  document.getElementById('title').value;
-          
-          var review = document.getElementById('comment').value;
-           var rating = document.getElementById('rating').value;
-          if (title == ""){
-           document.getElementById("titleError").innerHTML = "Please fill in this field";}
-          else{
-            document.getElementById("titleError").innerHTML =""
-          }
-          if (review == ""){
-           document.getElementById("reviewError").innerHTML = "Please fill in this field";}
-          else{
-            document.getElementById("reviewError").innerHTML = ""
-          }
-          if (rating == "0"){
-           document.getElementById("rating-error").innerHTML = "Please chose the number of stars";}
-          else{
-            document.getElementById("rating-error").innerHTML = ""
-          }
-          if(title != "" && review != "" && rating != "0"){document.getElementById("review-form").submit();}
-}
 </script>
 
 {%else%}
@@ -112,8 +84,10 @@
     <h3> Thank you! your review has been submitted. </h3>
 {%endif%} 
 </aside>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/js.js')}}"></script>
 
 </body>
 </html>

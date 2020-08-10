@@ -176,9 +176,10 @@ def editReview(review_id):
      if request.method == "POST":
         title = request.form['title']
         comment = request.form['comment']
+        rating = int(request.form['rating'])
         mongo.db.reviews.update(
                  {"_id": ObjectId(review_id)},
-                 {"$set": {"title": title, "review": comment, "dateTime": datetime.now().strftime("%Y:%M:%H:%M") }})
+                 {"$set": {"title": title, "review": comment, "rating" : rating ,"dateTime": datetime.now().strftime("%:%M:%Y") }})
         review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
      return render_template("iFrames/edit_review.html", review = review) 
    

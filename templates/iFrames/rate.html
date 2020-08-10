@@ -1,98 +1,103 @@
 <html>
-    <head>
-            
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">    
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/circle.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
 
-    </head>
-    <body>
-        
-    
+</head>
+
+<body>
+  <aside class="centered">
+
+    <!-- svg star from https://codepen.io/zellwk/pen/YwjZQv -->
+    <svg style="display: none">
+      <symbol id="star" viewBox="0 0 98 92">
+        <title>star</title>
+        <path
+          d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
+          fill-rule='evenodd' />
+    </svg>
+
+ <!--Percentage circles from http://circle.firchow.net/-->
+ <!--The circle represent the number of stars chosen by a user-->
+    <div class="c100  center" id="rating-chart">
+      {%if submitted == false%}
+      <span id="rate-circle">
+        <!-- svg star https://codepen.io/zellwk/pen/YwjZQv -->
+        <!--Allow user to choose a number of stars in order to rate a book-->
+        <div style="display: inline-block">
+          <div id="stars" class="stars">
+            <a class="star" href="javascript:void(0)"><svg>
+                <use xlink:href="#star"></use>
+              </svg></a>
+            <a class="star" href="javascript:void(0)"><svg>
+                <use xlink:href="#star"></use>
+              </svg></a>
+            <a class="star" href="javascript:void(0)"><svg>
+                <use xlink:href="#star"></use>
+              </svg></a>
+            <a class="star" href="javascript:void(0)"><svg>
+                <use xlink:href="#star"></use>
+              </svg></a>
+            <a class="star" href="javascript:void(0)"><svg>
+                <use xlink:href="#star"></use>
+              </svg></a>
+          </div>
+        </div>
+          <form action="/rate:bookID:{{book_id}}" method="POST">
+          <input type="hidden" id="rating" name="rating" value="">
+          <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
+          <input type="submit" id="rate-btn" class="rate-btn" value="Rate it!"
+            onclick="parent.rating.location.reload();">
+        </form>
+      </span>
 
 
-            <div class="centered">
-       
-                <svg style="display: none">
-                    <symbol id="star" viewBox="0 0 98 92">
-                    <title>star</title>
-                    <path d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z' fill-rule='evenodd'/>
-                  </svg>
-             
-           
-           <div class="c100  center" id="rating-chart">
-             {%if submitted == false%}
-              <span id="rate-circle">
+      {%else%}
+      <span id="thanks">Thanks for<br>your rating</span>
 
-                    <div style="display: inline-block">
-                      <div id="stars" class="stars">
-                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-                        <a class="star" href="javascript:void(0)"><svg><use xlink:href="#star"></use></svg></a>
-                      </div>
-                    </div>
-                    <form action="/rate:bookID:{{book_id}}" method="POST"> 
-                      <input type="hidden" id="rating" name="rating" value="">
-                      <input type="hidden" id="book_id" name="book_id" value="{{book_id}}">
-                      <input type="submit" id="rate-btn" class="rate-btn" value="Rate it!" onclick="parent.rating.location.reload();">
-                    </form>
-                  
-               </span>
-            
+      {%endif%}
+      <div class="slice">
+        <div class="bar" id="rateBar"></div>
+        <div class="fill" id="fillBar"></div>
+      </div>
+    </div>
 
-               {%else%}
-               <span id="thanks">Thanks for<br>your rating</span>
-               
-               {%endif%}
-               <div class="slice">
-                 <div class="bar" id="rateBar"></div>    
-                 <div class="fill" id="fillBar"></div>
-              </div>
+  </aside>
 
-             </div>
+    <script>
+      /* The function bellow works only if placed inside the same html document*/
 
+      /*modified code from https://codepen.io/zellwk/pen/YwjZQv*/
 
+      /*Initilise variables*/
+      var rate_btn = document.getElementById("rate-btn");
+      var starContainer = document.getElementById('stars');
+      var stars = Array.prototype.slice.call(starContainer.children);
+      var totalStars = stars.length
+      var rated = document.getElementById('rated')
 
-   
-        
+      // if the user clicks on a star
+      // calculate the number of stars chosen
+      starContainer.addEventListener('click', function (e) {
+        var index = stars.indexOf(e.target)
+        var count = totalStars - index;
+        stars.forEach(el => el.classList.remove('is-selected'))
+        e.target.classList.add('is-selected')
+        //get the number of stars 
+        // and set the circle class accordingly
+        document.getElementById("rating").value = count;
+        document.getElementById("rating-chart").className = "c100" + " " + "p" + count * 20 + " " + "center";
+        // enable the rate button
+        if (rate_btn != 'Null') {
+          rate_btn.disabled = false;
+          rate_btn.classList.add("rate-btn-after", "rate-btn-after:hover")
+        };
+      })
+    </script>
+</body>
 
-
-
-
-
-
-
-
-
-
- <script>
-
-  /*modified code from https://codepen.io/zellwk/pen/YwjZQv*/
-  
-  /*Initilise variables*/
-  var rate_btn = document.getElementById("rate-btn");    
-  var starContainer = document.getElementById('stars');
-  var stars = Array.prototype.slice.call(starContainer.children);
-  var totalStars = stars.length
-  var rated = document.getElementById('rated')
-  
-
-  
-  /*the function enables star ratnigs */
-  starContainer.addEventListener('click', function(e) {
-    var index = stars.indexOf(e.target)
-    var count = totalStars - index;
-    stars.forEach(el => el.classList.remove('is-selected'))
-    e.target.classList.add('is-selected')
-    document.getElementById("rating").value = count;
-    document.getElementById("rating-chart").className = "c100"+" "+"p"+count*20+" "+"center";
-    if (rate_btn != 'Null'){
-    rate_btn.disabled = false;
-    rate_btn.classList.add("rate-btn-after","rate-btn-after:hover")};
-  })
- </script>
-    </body>
 </html>
