@@ -18,7 +18,7 @@
     <hr><br>
 
   <!--the form, if successfully submitted adds a new book to the database-->
-  <form action="{{ url_for('addBook') }}" method="POST" class="general-form" id="add-book-form">
+  <form action="{{ url_for('add_book') }}" method="POST" class="general-form" id="add-book-form">
     <input type="hidden" name="user_name" value="{{user}}">
     <div class="row">
       <div class="col-sm-12 col-md-7">
@@ -93,8 +93,8 @@
   </form>
 
 <div class="container centered">
-  <!--the button, if clicked, invokes js validate() function to validate and submit the "add new book" form-->
-  <button class="form-btn" id="add-btn" onclick="validate()">Add a book</button>
+  <!--the button, if clicked, invokes js validate_book() function to validate and submit the "add new book" form-->
+  <button class="form-btn" id="add-btn" onclick="validate_book()">Add a book</button>
 </div>
 </section>
 {%endblock%}

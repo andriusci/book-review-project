@@ -18,14 +18,18 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-      #returns the home page with simulated logged user.
+      #returns the home page.
+      #with the logged user (if any).
       cookies = request.cookies  
       logged_user = cookies.get("logged_user")
       return render_template("index.html", logged_user= logged_user)
 
 
 @app.route("/search_All",  methods=['GET', 'POST'])
-def initialise():
+def search():
+   #Get the search term and the genre submitted by a user.
+   #If the user has not provided the search term set it to "All_books".
+   #Pass the information to the searchResult() function so it could be processed.
    if request.method == "POST":
       search_term = request.form['search-term']
       genre = request.form['genre']
@@ -37,21 +41,12 @@ def initialise():
    first_page = 1
    return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = first_page))
 
-@app.route("/pagination", methods=['GET', 'POST'])
-def pagination():
-   #enables pagination
-   if request.method == "POST":
-      search_term = request.form['search']
-      genre = request.form['genre']
-      go_to_page = request.form['go to']
-      return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = go_to_page ))
-
-
 
 @app.route("/Search:<search_term>/Genre:<genre>/Page:<int:page_number>", methods=['GET', 'POST'])
 def searchResults(search_term, genre, page_number):
      n = page_number * 10 - 10
-  #Create mongoDB query for the search criterion:
+  #Create mongoDB query for the search criterion 
+  #(perform a search based on the information passed by the search() function):
      if search_term == "All_books" and genre == "Choose genre":
         books=mongo.db.books.find().skip(n).limit(10)
      elif search_term == "All_books" and genre != "Chosoe genres":
@@ -72,21 +67,31 @@ def searchResults(search_term, genre, page_number):
                                               total_pages = total_pages,
                                               total_results = total_results) 
 
+@app.route("/pagination", methods=['GET', 'POST'])
+def pagination():
+   #enables pagination
+   if request.method == "POST":
+      search_term = request.form['search']
+      genre = request.form['genre']
+      go_to_page = request.form['go to']
+      return redirect(url_for('searchResults', search_term = search_term, genre = genre, page_number = go_to_page ))
+
+
 
 @app.route("/Book_page/book_id:<book_id>")
-#Finds a single book and returns the book page with the relevant information.
-def create_book_page(book_id):
+#Finds a single book depending on the information in the URL
+#and returns the book page with the relevant information.
+def createBookPage(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
    length = len(book.get('description'))
    if (book):
       return render_template("book_page.html", book = book, 
-                                               reviews= reviews,
-                                               length = length)
+                                               reviews= reviews)
                                                
 
-@app.route("/addBook", methods=['GET', 'POST'])
-def addBook():
+@app.route("/add_book", methods=['GET', 'POST'])
+def add_book():
    #takes the user input and adds a new book to the database
     if request.method == "POST":
        title = request.form['title']
@@ -121,16 +126,16 @@ def addBook():
           submitted = True
        else:
           submitted = False
-       response = render_template("addBook.html", numberB = num_before, numberA = num_after, submitted = submitted)
+       response = render_template("add_book.html", numberB = num_before, numberA = num_after, submitted = submitted)
     else:
        #simulates login functionality:
         cookies = request.cookies  
         user = cookies.get("logged_user")
         if user != None:
-          response = make_response(render_template("addBook.html", user = user))
+          response = make_response(render_template("add_book.html", user = user))
         else:
           response = make_response(render_template("log_in.html", message = "add a book"))
-          response.set_cookie("destination", "addBook.html") 
+          response.set_cookie("destination", "add_book.html") 
     return response
 
 

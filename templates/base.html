@@ -29,7 +29,7 @@
 <!--navigation items (on the right)-->
    <div class="top-nav-right">
       <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
-      <a href="{{ url_for('addBook') }}"> <button class="add-book-btn">Add a book</button></a>
+      <a href="{{ url_for('add_book') }}"> <button class="add-book-btn">Add a book</button></a>
    </div> 
    
   {# check if current page is the home page#}
@@ -41,7 +41,7 @@
     {%endif%}
    <!--navbar book search form-->
   <div class="search-form-wrap-nav" id="search-form-wrap-nav">
-    <form action="{{ url_for('initialise') }}" method="POST" class="search-form-nav" id="search-form-nav">
+    <form action="{{ url_for('search') }}" method="POST" class="search-form-nav" id="search-form-nav">
           <select name="genre" id="select-genre">
             {# create select options with one option selected depending on previously submited search #}
                 {% set select = ["Choose genre", "Comics", "Drama", "Science", "Fiction"]%}
