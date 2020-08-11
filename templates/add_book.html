@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {%block title%} Add a new book {%endblock%}
@@ -19,7 +20,7 @@
 
   <!--the form, if successfully submitted adds a new book to the database-->
   <form action="{{ url_for('add_book') }}" method="POST" class="general-form" id="add-book-form">
-    <input type="hidden" name="user_name" value="{{user}}">
+    <input type="hidden" name="user-name" value="{{user}}">
     <div class="row">
       <div class="col-sm-12 col-md-7">
           <label for="title">Book title <span class="error">*</span>&nbsp</label>

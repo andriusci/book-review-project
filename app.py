@@ -46,7 +46,8 @@ def search():
 def searchResults(search_term, genre, page_number):
      n = page_number * 10 - 10
   #Create mongoDB query for the search criterion 
-  #(perform a search based on the information passed by the search() function):
+  #(perform a search based on the information passed by the search() function)
+  #Return a search result page.
      if search_term == "All_books" and genre == "Choose genre":
         books=mongo.db.books.find().skip(n).limit(10)
      elif search_term == "All_books" and genre != "Chosoe genres":
@@ -79,12 +80,11 @@ def pagination():
 
 
 @app.route("/Book_page/book_id:<book_id>")
-#Finds a single book depending on the information in the URL
-#and returns the book page with the relevant information.
-def createBookPage(book_id):
+#Finds a single book depending on the search criterion in the URL
+#and returns a book page with the relevant information.
+def create_book_page(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
    reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
-   length = len(book.get('description'))
    if (book):
       return render_template("book_page.html", book = book, 
                                                reviews= reviews)
@@ -92,8 +92,8 @@ def createBookPage(book_id):
 
 @app.route("/add_book", methods=['GET', 'POST'])
 def add_book():
-   #takes the user input and adds a new book to the database
     if request.method == "POST":
+       #gets the user input and adds a new book to the database.
        title = request.form['title']
        description = request.form['description']
        genre = request.form['genre']
@@ -131,8 +131,12 @@ def add_book():
        #simulates login functionality:
         cookies = request.cookies  
         user = cookies.get("logged_user")
+        #if a user is logged in renders "add_book" page.
         if user != None:
           response = make_response(render_template("add_book.html", user = user))
+         #if a user is logged out returns the "log-in" page 
+         #sets the "destination" cookie accordingly- 
+         #so that after the log-in the user is redirected to the "add book " page.
         else:
           response = make_response(render_template("log_in.html", message = "add a book"))
           response.set_cookie("destination", "add_book.html") 
@@ -140,9 +144,10 @@ def add_book():
 
 
 @app.route("/edit_book<book_id>", methods=['GET', 'POST'])
-def editBook(book_id):
-   #enables book editing
+def edit_book(book_id):
+   #find a book and pass it to the template in order to populate "edit" form fields.
    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+   #get the user input from the "edit_book" form and update the information about the book.
    if request.method == "POST":
       title = request.form['title']
       desc = request.form['description']
@@ -169,24 +174,26 @@ def editBook(book_id):
       edit = True #passed to the template in order to provide feedback on successfull book edit.                                                          
       return render_template("iFrames/edit_book.html", book = book, edit = edit)
    else:
+       #return the "edit_book" template.
        edit = False 
        return render_template("iFrames/edit_book.html", book = book)
 
 
 
 @app.route("/edit_review<review_id>", methods=['GET', 'POST'])
-def editReview(review_id):
-   #Enables review editing
+def edit_review(review_id):
+     #Find a review with the ID passed by the URL
      review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
      submitted= False # passed to the template in order to give feedback after review submit
      if request.method == "POST":
+        #get the user input from the "edit" form and update the review.
         title = request.form['title']
         comment = request.form['comment']
         rating = int(request.form['rating'])
         mongo.db.reviews.update(
                  {"_id": ObjectId(review_id)},
                  {"$set": {"title": title, "review": comment, "rating" : rating ,"dateTime": datetime.now().strftime("%:%M:%Y") }})
-        submitted = True
+        submitted = True #passed to the template in order to give feedback after review submit
         review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
      return render_template("iFrames/edit_review.html", review = review, status = submitted) 
    
@@ -204,7 +211,7 @@ def review(book_id):
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user
-        dateTime = datetime.now().strftime("%D-%M-%Y")
+        dateTime = datetime.now().strftime("%D:%M:%Y")
         mongo.db.reviews.insert({"title": title,
                                  "review": review,
                                  "rating" : rating, 
@@ -225,28 +232,31 @@ def review(book_id):
 
 @app.route("/rate:bookID:<book_id>", methods=['GET', 'POST'])
 def rate(book_id):
-   #enables the book rating functionality
+   #enables book rating functionality
    if request.method == "POST":
-    book_id = request.form['book_id']
-    rating = int(request.form['rating'])
-    review = ""
-    mongo.db.reviews.insert( { "review": review, "book_ID" : ObjectId(book_id), "rating" : rating})
-    submitted = True
+      #get the input from the rating form
+      book_id = request.form['book_id']
+      rating = int(request.form['rating'])
+      review = ""
+      #create a new review in the database with an ampty "review" field, so it is considered as a rating rather than a review.
+      #please refer to "Database Structure" in the read.me for explanation. 
+      mongo.db.reviews.insert( { "review": review, "book_ID" : ObjectId(book_id), "rating" : rating})
+      submitted = True #gives feedback to the template
    else:
-    submitted = False
+      submitted = False #gives feedback to the template
    return render_template("iFrames/rate.html", book_id = book_id, submitted = submitted)
 
 @app.route("/ratingChart:bookID:<book_id>", methods=['GET', 'POST'])
 def ratinChart(book_id):
-   #Determine how many ratings the book has per each star category.
+   #Determine the number of ratings a book has per each star category.
       fiveStars =  mongo.db.reviews.find({"rating": 5, "book_ID" : ObjectId(book_id)}).count()
       fourStars = mongo.db.reviews.find({"rating": 4, "book_ID" : ObjectId(book_id)}).count()
       threeStars =  mongo.db.reviews.find({"rating": 3, "book_ID" : ObjectId(book_id)}).count()
       twoStars = mongo.db.reviews.find({"rating": 2, "book_ID" : ObjectId(book_id)}).count()
       oneStar =  mongo.db.reviews.find({"rating": 1, "book_ID" : ObjectId(book_id)}).count()
+      #create the list of each category sum.
       numOfRatings = [fiveStars,fourStars, threeStars, twoStars, oneStar]
-      #Determine which star category has most of the ratings and 
-      #set the widths of the rating chart bars (in relation to the biggest bar)
+      #Determine which star category has most of the ratings
       ratingList = [fiveStars,fourStars,threeStars,twoStars,oneStar]
       mostRatingIndex = ratingList.index(max(ratingList))
       totalRatings = sum(ratingList)
