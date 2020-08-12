@@ -84,10 +84,12 @@ def pagination():
 #and returns a book page with the relevant information.
 def create_book_page(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
-   reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)} )
+   reviews=mongo.db.reviews.find({"book_ID": ObjectId(book_id)})
+   count = reviews.count() #passed to the template in order to determine if there are any reviews at all.
    if (book):
       return render_template("book_page.html", book = book, 
-                                               reviews= reviews)
+                                               reviews= reviews,
+                                               count = count)
                                                
 
 @app.route("/add_book", methods=['GET', 'POST'])
@@ -205,7 +207,7 @@ def review(book_id):
   logged_user = cookies.get("logged_user")
   if logged_user != None:
      if request.method == "POST":
-        #data insert...........and return feedback
+        #submit a review and return feedback
         title = request.form['title']
         review = request.form['comment']
         rating = int(request.form['rating'])
@@ -239,7 +241,7 @@ def rate(book_id):
       rating = int(request.form['rating'])
       review = ""
       #create a new review in the database with an ampty "review" field, so it is considered as a rating rather than a review.
-      #please refer to "Database Structure" in the read.me for explanation. 
+      #please refer to "Database Structure" in the READ.me for explanation. 
       mongo.db.reviews.insert( { "review": review, "book_ID" : ObjectId(book_id), "rating" : rating})
       submitted = True #gives feedback to the template
    else:
@@ -295,6 +297,7 @@ def ratinChart(book_id):
 
 @app.route("/my_account", methods=['GET', 'POST'])
 def account():
+   #return user account page with all the relevant user information.
       cookies = request.cookies  
       user = cookies.get("logged_user")
       if user != None:

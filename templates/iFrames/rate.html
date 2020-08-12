@@ -79,7 +79,7 @@
       var stars = Array.prototype.slice.call(starContainer.children);
       var totalStars = stars.length
       var rated = document.getElementById('rated')
-
+      rate_btn.disabled = true
       // if the user clicks on a star
       // calculate the number of stars chosen
       starContainer.addEventListener('click', function (e) {

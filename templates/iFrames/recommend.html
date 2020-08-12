@@ -13,11 +13,12 @@
 </head>
 
 <body>
-
   <aside class="centered">
     {#  the {{recomment}} variable is passed by the recommend() function from the app.py
-        it represents the total number of recommendations that the book has.
-        in the template, it is used to asignt a class that determines the recommend circle size #}
+        it represents the total number of recommendations.
+        in the template, it is used to asign a class that determines the recommend circle appearace#}
+
+
   <!--Percentage circles from http://circle.firchow.net/-->
     <div class="c100 p{{recommend}} center" id="rating-chart">
       <span>
