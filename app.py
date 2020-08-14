@@ -110,7 +110,7 @@ def add_book():
        publisher = request.form['publisher']
        amazon = request.form['amazon']
        user_name = request.form['user-name']
-       num_before = mongo.db.books.find().count()#number of books before an attempt to insert new book
+       num_before = mongo.db.books.find().count()#number of books before the attempt to insert new book
        mongo.db.books.insert( { "title": title, 
                                 "description": description, 
                                 "genre" : genre,
@@ -119,7 +119,7 @@ def add_book():
                                 "isbn10": isbn10,
                                 "isbn13" : isbn13,
                                 "format" : format1,
-                                "lang": language,
+                                "language": language,
                                 "publisher" : publisher,
                                 "amazon" : amazon,
                                 "added_by": user_name})
@@ -158,7 +158,7 @@ def edit_book(book_id):
       img = request.form['img']
       isbn10 = request.form['isbn10']
       isbn13 = request.form['isbn13']
-      format1 = request.form['format']
+      format1 = request.form['format']#format is reserved word so format1 is used instead
       lang = request.form['language']
       publ = request.form['publisher'] 
       amazon = request.form['amazon']
@@ -170,7 +170,7 @@ def edit_book(book_id):
                                                                   "isbn10": isbn10,
                                                                   "isbn13": isbn13,
                                                                   "format": format1,
-                                                                  "lang": lang,
+                                                                  "language": lang,
                                                                   "publisher": publ,
                                                                   "amazon": amazon}})
       edit = True #passed to the template in order to provide feedback on successfull book edit.                                                          
@@ -213,7 +213,8 @@ def review(book_id):
         rating = int(request.form['rating'])
         book_id = request.form['book_id']
         logged_user = logged_user
-        dateTime = datetime.now().strftime("%D:%M:%Y")
+        dateTime = datetime.now()
+        dateTime = dateTime.replace( microsecond=0)
         mongo.db.reviews.insert({"title": title,
                                  "review": review,
                                  "rating" : rating, 
@@ -297,9 +298,10 @@ def ratinChart(book_id):
 
 @app.route("/my_account", methods=['GET', 'POST'])
 def account():
-   #return user account page with all the relevant user information.
+   #return user account page with all the relevant user information such as submitted books and reviews.
       cookies = request.cookies  
       user = cookies.get("logged_user")
+      message = ""
       if user != None:
         logged_user = mongo.db.users.find_one({"name": user})
         if request.method == "POST":
@@ -307,12 +309,20 @@ def account():
            if form_id == "delete_book":
              book_id = request.form['book_id']
              mongo.db.books.remove({"_id":ObjectId(book_id)})
+             
            elif form_id == "delete_review":
              review_id = request.form['review_id']
              mongo.db.reviews.remove({"_id":ObjectId(review_id)})
         books = mongo.db.books.find({"added_by": logged_user['name'] })
         reviews = mongo.db.reviews.find({"user": logged_user['name'] })
-        response = make_response(render_template("account.html", logged_user = logged_user, books = books, reviews = reviews))
+        book_count = books.count() #passed to the template to determine if there are any books
+        review_count =reviews.count() #passed to the template to determine if there are any reviews
+        response = make_response(render_template("account.html", 
+                                                   logged_user = logged_user, 
+                                                   books = books, 
+                                                   reviews = reviews,
+                                                   book_count = book_count,
+                                                   review_count = review_count))
       else:
         message = "accsess your account"
         response = make_response(render_template("log_in.html", message = message ))
@@ -406,6 +416,6 @@ def register():
 def delete():
    mongo.db.recommend.remove()
    mongo.db.reviews.remove()
-  # mongo.db.books.remove()
-   #mongo.db.users.remove()
+   mongo.db.books.remove()
+   mongo.db.users.remove()
    return render_template("index.html")

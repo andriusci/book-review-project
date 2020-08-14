@@ -561,6 +561,7 @@ background-color: #2A6AA2;
   margin-bottom: 0.3em;
   margin-top: 0.3em;
   margin: auto;
+  min-height: 3em;
 }
 
 .delete-btn, .edit-btn {
@@ -594,6 +595,7 @@ background-color: #2A6AA2;
     position: relative;
     top: -1.9em;
     left: 2.5em;
+    
   }
 .rate-btn-after{
     border: solid 2px #307bbb;

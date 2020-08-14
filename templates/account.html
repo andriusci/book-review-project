@@ -5,73 +5,84 @@
 {%block user_account%}
 
 <section class="container container-margin">
+ <div class="centered">
+   <h4>{{logged_user.name}}'s account</h4>
+ </div>
 <!--Tabs functioality: modified code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open-->
       <div class="tab" >
           <button class="tablinks" onclick="openTab(event, 'books')" id="defaultOpen">My books</button>
           <button class="tablinks" onclick="openTab(event, 'reviews')" id="test">My reviews</button>
       </div>
-        
       <div id="books" class="tabcontent">
+          {% if book_count != 0 %}
           <table class="account-table">
-            <tr>
-              <th>
-                  Book title
-              </th>
-              <th colspan="2" class="centered">
-                 Action
-              </th>
-            </tr>
-            {%for eachBook in books%}
-            <tr>
-             <td>
-                {{ eachBook.title}}
-             </td>
-             <td class="text-right"> 
-              
-                  <!--form, if submitted, deletes the book titled - "{{eachBook.title}}"-->
-                <form action="{{ url_for('account') }}" method="POST" id="delete_book_form">
-                  <input type="hidden" name="book_id" value="{{eachBook._id}}">
-                  <input type="hidden" name="id" value="delete_book">
-                  <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
-                </form>
-             </td>
-             <td>
-          
-              
-                <!-- a button, if clicked brings the pop-up that allows to edit the information of the book titled - "{{eachBook.title}}" -->
-                <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachBook._id}}"><i
-                    class="far fa-edit"></i>Edit</button>
-           
-              </td>
-            </tr>
-            <!--Bootstrap modal. Contains an iFrame with the book editing form-->
-            <div class="modal fade book-modal" id="{{eachBook._id}}" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                   
-                      <h4>Edit "{{eachBook.title}}"</h4>
-                    
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <tr>
+                <th>
+                    Book title
+                </th>
+                <th colspan="2" class="centered">
+                   Action
+                </th>
+              </tr>
+              {%for eachBook in books%}
+              <tr>
+               <td>
+                  {{ eachBook.title}}
+               </td>
+               <td class="text-right"> 
+                
+                    <!--form, if submitted, deletes the book titled - "{{eachBook.title}}"-->
+                  <form action="{{ url_for('account') }}" method="POST" id="delete_book_form">
+                    <input type="hidden" name="book_id" value="{{eachBook._id}}">
+                    <input type="hidden" name="id" value="delete_book">
+                    <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
+                  </form>
+               </td>
+               <td>
+            
+                
+                  <!-- a button, if clicked brings the pop-up that allows to edit the information of the book titled - "{{eachBook.title}}" -->
+                  <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachBook._id}}"><i
+                      class="far fa-edit"></i>Edit</button>
+             
+                </td>
+              </tr>
+              <!--Bootstrap modal. Contains an iFrame with the book editing form-->
+              <div class="modal fade book-modal" id="{{eachBook._id}}" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                     
+                        <h4>Edit "{{eachBook.title}}"</h4>
+                      
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <iframe class="general-iframe" name="edit"  frameborder="no" src="/edit_book{{eachBook._id}}"></iframe>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
+                        Close
+                      </button>
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    <iframe class="general-iframe" name="edit"  frameborder="no" src="/edit_book{{eachBook._id}}"></iframe>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
-                      Close
-                    </button>
-                  </div>
+  
                 </div>
-
               </div>
-            </div>
-            {%endfor%}
-          </table>
-      </div>
+              {%endfor%}
+            </table>
+
+          {% else %}
+            <p>
+              You have not submitted any books yet!
+            </p>
+          {% endif %}
         
+      </div>
+
       <div id="reviews" class="tabcontent">
+        {% if review_count != 0 %}
             <table class="account-table">
                 <tr>
                   <th>
@@ -135,6 +146,11 @@
                  </div>
             {%endfor%}
             </table>
+        {% else %}
+        <p>
+          You have not reviewed any books yet!
+        </p>
+        {% endif %}
       </div>
 </section>
 

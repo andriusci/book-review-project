@@ -8,11 +8,11 @@
        <h3>
       {# check if the form was submitted sucessfully and give feedback accordingly #}
       {%if submitted == True%}
-         Thank you! You can add as many books as you like!
+        <p> Thank you! Your book has been added to our database. You can add as many books as you like!</p>
       {%elif submitted == False%}
-         Something went wrong:(
+         <p>Something went wrong:(</p>
       {%else%}
-         Please add a new book by using the form bellow:
+         <p>Please add a new book by using the form bellow:</p>
       {%endif%}
        </h3>
     </div>
