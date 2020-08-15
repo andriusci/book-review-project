@@ -119,7 +119,7 @@ def add_book():
                                 "isbn10": isbn10,
                                 "isbn13" : isbn13,
                                 "format" : format1,
-                                "language": language,
+                                "lang": language,
                                 "publisher" : publisher,
                                 "amazon" : amazon,
                                 "added_by": user_name})
@@ -159,7 +159,7 @@ def edit_book(book_id):
       isbn10 = request.form['isbn10']
       isbn13 = request.form['isbn13']
       format1 = request.form['format']#format is reserved word so format1 is used instead
-      lang = request.form['language']
+      lang = request.form['language']#language word can not be used thefore lang is used instead
       publ = request.form['publisher'] 
       amazon = request.form['amazon']
       mongo.db.books.update({"_id": ObjectId(book_id)}, {"$set": {"title": title, 
@@ -170,7 +170,7 @@ def edit_book(book_id):
                                                                   "isbn10": isbn10,
                                                                   "isbn13": isbn13,
                                                                   "format": format1,
-                                                                  "language": lang,
+                                                                  "lang": lang,
                                                                   "publisher": publ,
                                                                   "amazon": amazon}})
       edit = True #passed to the template in order to provide feedback on successfull book edit.                                                          
@@ -222,7 +222,7 @@ def review(book_id):
                                  "book_ID" : ObjectId(book_id),
                                  "dateTime": dateTime})
         submitted = True
-        response = make_response(render_template("iFrames/review.html", book_id =book_id, status = submitted ))
+        response = make_response(render_template("iFrames/review.html", book_id = book_id, status = submitted ))
      else:
         response = make_response(render_template("iFrames/review.html", book_id = book_id ))
   else:
@@ -240,10 +240,10 @@ def rate(book_id):
       #get the input from the rating form
       book_id = request.form['book_id']
       rating = int(request.form['rating'])
-      review = ""
+      #review = ""
       #create a new review in the database with an ampty "review" field, so it is considered as a rating rather than a review.
       #please refer to "Database Structure" in the READ.me for explanation. 
-      mongo.db.reviews.insert( { "review": review, "book_ID" : ObjectId(book_id), "rating" : rating})
+      mongo.db.reviews.insert( { "book_ID" : ObjectId(book_id), "rating" : rating})
       submitted = True #gives feedback to the template
    else:
       submitted = False #gives feedback to the template

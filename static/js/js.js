@@ -59,9 +59,5 @@ function validate_review() {
          }
          if(title != "" && review != "" && rating != "0"){document.getElementById("review-form").submit();}
 }
-  
-$(document).on('hide.bs.modal','#review-modal', function () {
-  alert('');
-//Do stuff here
-});
+
    

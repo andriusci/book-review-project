@@ -120,7 +120,7 @@
 <hr>
 
 {% for eachReview in reviews %}
-{%if eachReview.review != "" %}
+{%if eachReview.review %}
 <div class="review-wrap">
   <div>reviewed by <strong>{{eachReview.user}}</strong> on {{eachReview.dateTime}}</div>
   <div>
@@ -185,7 +185,7 @@
       fill="grey" />
 </svg>
 <script>
-    //relaods the page on cosing the review modal so that the results are shown immediately.
+    //relaods the page on closing the review modal so that the results are shown immediately.
     //script from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h
     $("#review-modal").on('hide.bs.modal', function(){
       location.reload()
