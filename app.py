@@ -9,7 +9,7 @@ import builtins
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'bookSiteDB'
-app.config["MONGO_URI"] = "mongodb+srv://dbAdmin:temporaryDevPassword@cluster0-9ekrc.mongodb.net/bookSiteDB?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = os.environ.get('DB_URI')
 
 mongo = PyMongo(app)
 
@@ -240,9 +240,6 @@ def rate(book_id):
       #get the input from the rating form
       book_id = request.form['book_id']
       rating = int(request.form['rating'])
-      #review = ""
-      #create a new review in the database with an ampty "review" field, so it is considered as a rating rather than a review.
-      #please refer to "Database Structure" in the READ.me for explanation. 
       mongo.db.reviews.insert( { "book_ID" : ObjectId(book_id), "rating" : rating})
       submitted = True #gives feedback to the template
    else:

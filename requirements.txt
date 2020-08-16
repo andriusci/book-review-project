@@ -1,3 +1,4 @@
+boto==2.49.0
 astroid==2.2.5
 Click==7.0
 dnspython==1.16.0
