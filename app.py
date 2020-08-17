@@ -9,8 +9,8 @@ import builtins
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'bookSiteDB'
-app.config["MONGO_URI"] = os.environ.get('DB_URI')
-
+app.config["MONGO_URI"] = "mongodb+srv://dbAdmin:rpzWr2yr4SlvViYE@cluster0-9ekrc.mongodb.net/bookSiteDB?retryWrites=true&w=majority"
+#os.environ.get('DB_URI')
 mongo = PyMongo(app)
 
 
