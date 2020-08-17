@@ -35,6 +35,9 @@ body{
   color:white;
   margin-top:3em
 }
+.row {
+
+}
 
 /* set width of the svg in the rate iframe*/
 a > svg {width:1.8em}
@@ -253,7 +256,6 @@ svg {
 
 }
 #iFrame-wrap{
-  max-width: 80%;
   margin:auto;
 }
 
