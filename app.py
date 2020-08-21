@@ -408,6 +408,15 @@ def register():
    else:
       return render_template("register.html")
 
+@app.route("/contact",  methods=['GET', 'POST'])
+def contact():
+  if request.method == "POST":
+     sent = True
+  else:
+     sent = False
+  return render_template("iFrames/contact.html", sent = sent)
+
+
 @app.route("/del")
 def delete():
    mongo.db.recommend.remove()

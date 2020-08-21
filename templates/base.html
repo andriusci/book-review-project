@@ -27,6 +27,7 @@
 
 <!--navigation items (on the right)-->
    <div class="top-nav-right">
+      <a href="#contact-modal" data-toggle="modal" data-target="#contact-modal"><i class="fas fa-envelope"></i> Contact</a> &nbsp
       <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
       <a href="{{ url_for('add_book') }}"> <button class="add-book-btn">Add a book</button></a>
    </div> 
@@ -88,7 +89,31 @@
 
 {% block pagination%}
 {% endblock %}
+<div class="modal fade" id="contact-modal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h4>Contact Us</h4>
+        </div>
+       
+      </div>
+      <div class="modal-body">
 
+                  <iframe class="general-iframe" frameborder="no" scrolling="no" src="{{ url_for('contact') }}">
+                  </iframe>
+      </div>
+      <div class="modal-footer">
+               <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
+                  Close
+              </button>
+      </div>
+    </div>
+    
+  </div>
+  </div>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

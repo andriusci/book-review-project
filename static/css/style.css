@@ -35,9 +35,6 @@ body{
   color:white;
   margin-top:3em
 }
-.row {
-
-}
 
 /* set width of the svg in the rate iframe*/
 a > svg {width:1.8em}
@@ -124,7 +121,7 @@ z-index: 1;
 
 }
 .top-nav-right{
-  
+  width: 20%;
   min-width: 170px;
   float:right;
   text-align: right;
@@ -256,6 +253,7 @@ svg {
 
 }
 #iFrame-wrap{
+  max-width: 80%;
   margin:auto;
 }
 
@@ -281,7 +279,6 @@ svg {
     padding-top: 72px;
     font-size: 0.16em;
     padding-left: 19;
-    color: #307bbb;
   }
 
 
@@ -436,7 +433,7 @@ background-color: #2A6AA2;
 
 
 @media only screen and (min-width: 555px) {
-    #add-btn, #log-btn, #reg-btn .form-btn, #edit-btn, #review-btn{
+    #add-btn, #log-btn, #reg-btn .form-btn, #edit-btn, #review-btn, #contact-btn{
       max-width: 12em;
       min-height: 3em;
     }
