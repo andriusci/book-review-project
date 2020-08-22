@@ -1,6 +1,6 @@
 
 
-```diff # text in gray ```
+```diff # text in gray
 
 
  # Best Reads - Code Institute. Milestone 3
