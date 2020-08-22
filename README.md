@@ -39,4 +39,5 @@ In order to build good UX it is necessary to identify business goals and to dete
 * ncrease earning potential by encouraging the users to upload more books.
 
 #### User needs
-*
+As a book hunter, I would like to:
+*be able to search for the books.
