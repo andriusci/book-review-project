@@ -69,8 +69,17 @@ This section describes features that satisfy the requirements for the current ve
 
    ![Figure 1. Search Form](/static/images/search-form.png)
    
-   **Figure 1**. Shows the search form.
+   **Figure 1.** Shows the search form.
 
-* **Search result page.** Displays up to ten search results matching a search criteria. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
-* **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database. Moving to a next page would perform the same query with the first ten books excluded.
+* **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
 
+   **Figure 2.** Shows a fragment of the result page.
+   
+   ![Figure 2. The result page](/static/images/search-result.png)
+   
+* **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database and displayed on the page. Moving to a next page would perform the same query with the first ten books excluded.
+
+   **Figure 3.** Shows the pagination for the search result page.
+   
+    ![Figure 3. The pagination](/static/images/search-result.png)
+   
