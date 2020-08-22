@@ -40,4 +40,15 @@ In order to build good UX it is necessary to identify business goals and to dete
 
 #### User needs
 As a book hunter, I would like to:
-*be able to search for the books.
+* be able to search for the books.
+* find the information about the books such as the book format.
+* know what other people think about the particular book.
+* be able to buy a book directly from the site or be redirected to an e-shop via a link from the site.
+
+As a user who read a particular book and found it on the site, I would like to:
+* let others know about my opinion regarding the book.
+* know what others think about the book.
+
+As a user who read a particular book, searched for it and did not find it on the website, I would like to:
+* share the book with others and let others know what I think about the book.
+ 
