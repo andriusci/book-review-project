@@ -61,4 +61,12 @@ As a site owner, I would like to:
 * allow the website users to contact me,incase they have any queries.
 * be able to obtain information such as the most popular search titles or genres, so I could analyse data in order to improve the UX.
 
- 
+ ## Features
+This section describes features that satisfy the requirements for the current version release. Also the section briefly outlines additional features for the subsequent versions of this project.
+
+### Existing Features
+* **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages.  
+ ![Main picture](/static/images/search-form.png)
+* **Search result page.** Displays up to ten search results matching a search criteria. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
+* **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database. Moving to a next page would perform the same query with the first ten books excluded.
+
