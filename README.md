@@ -1,6 +1,6 @@
 
 
-``` # text in gray ```
+``` text in gray ```
 
 
  # Best Reads - Code Institute. Milestone 3
