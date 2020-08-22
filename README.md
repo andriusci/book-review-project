@@ -35,6 +35,8 @@ The Best Reads project is focused around the people who are looking for the book
 In order to build good UX it is necessary to identify business goals and to determine user needs. Therefore, this section gives an insight into the aforementioned aspects, which in turn helps to specify features for this project.
 
 #### Business goals
-*
-*
+* increase business value by allowing the owner to earn money via an affiliate program.
+* ncrease earning potential by encouraging the users to upload more books.
+
 #### User needs
+*
