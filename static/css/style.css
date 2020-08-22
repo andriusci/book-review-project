@@ -111,6 +111,22 @@ tr:nth-child(even) {
 
 
 /************** Navigation  bar ***************************/
+.navbar-collapse, .container-fluid>.navbar-header{
+  background-color:white;
+}
+
+#contact, #account{
+  color: #307bbb;
+}
+#contact:hover, #account:hover{
+  text-decoration: underline
+}
+#navbar-default{
+  border-color: white;
+background-color: white}
+
+
+
 .nav-top{
 width:100%;
 height: 4em;
@@ -121,7 +137,7 @@ z-index: 1;
 
 }
 .top-nav-right{
-  width: 20%;
+  width: 30%;
   min-width: 170px;
   float:right;
   text-align: right;
@@ -135,7 +151,8 @@ z-index: 1;
 
 /* logo */
 .home{
-font-size:2.5em;
+font-size:1.7em;
+color: #307bbb
 }
 
 .home-wrap{
@@ -349,8 +366,8 @@ box-shadow: 1px 12px 22px 2px #e6eff9;
   width: 100%;
   position: fixed;
   top: 4em;
-  background-color: white;
-  border-top: solid 3px white;
+  background-color: #DEEBF7;
+  border-top: solid 3px #DEEBF7;
   padding-bottom: 4px;
 }
   
@@ -465,7 +482,7 @@ background-color: #2A6AA2;
 @media only screen and (min-width: 1023px) {
     .search-form-nav{
       max-width: 600px;
-      margin-top: -54px
+    
     }
     .log_in_form{
       max-width: 600px;
@@ -584,9 +601,14 @@ background-color: #2A6AA2;
     border-radius: 9px;
   }
 .add-book-btn{
-   padding: 0.8em;
+   padding: 0.6em;
   
   }
+  #add-book{
+    padding-top :0.4em;
+    padding-bottom: 0.2em;
+  }
+
 .rate-btn{
     background-color: whitesmoke;
     border: solid 2px;
