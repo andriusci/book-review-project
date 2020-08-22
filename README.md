@@ -4,7 +4,7 @@
 
 
  # Best Reads - Code Institute. Milestone 3
- ![Main picture](/static/img/main.png)
+ ![Main picture](/blob/master/static/images/main.png)
 
 https://freelancer-ci.herokuapp.com/
 
