@@ -51,4 +51,14 @@ As a user who read a particular book and found it on the site, I would like to:
 
 As a user who read a particular book, searched for it and did not find it on the website, I would like to:
 * share the book with others and let others know what I think about the book.
+
+As a user who has submitted a review or a book, I would like to:
+* be able to edit or delete my submition, in case I have changed my mind.
+
+As a user who has questions I would like to contact someone.
+
+As a site owner, I would like to: 
+* allow the website users to contact me,incase they have any queries.
+* be able to obtain information such as the most popular search titles or genres, so I could analyse data in order to improve the UX.
+
  
