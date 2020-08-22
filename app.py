@@ -10,7 +10,6 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'bookSiteDB'
 app.config["MONGO_URI"] = os.environ.get('DB_URI')
-
 mongo = PyMongo(app)
 
 
@@ -410,6 +409,8 @@ def register():
       return render_template("register.html")
 
 @app.route("/contact",  methods=['GET', 'POST'])
+#returns a contact form 
+#simulates contact functionality
 def contact():
   if request.method == "POST":
      sent = True
@@ -417,11 +418,11 @@ def contact():
      sent = False
   return render_template("iFrames/contact.html", sent = sent)
 
-
-@app.route("/del")
-def delete():
-   mongo.db.recommend.remove()
-   mongo.db.reviews.remove()
-   mongo.db.books.remove()
-   mongo.db.users.remove()
-   return render_template("index.html")
+#Initialise database 
+# @app.route("/del")
+# def delete():
+   # mongo.db.recommend.remove()
+   # mongo.db.reviews.remove()
+   # mongo.db.books.remove()
+   # mongo.db.users.remove()
+   # return render_template("index.html")

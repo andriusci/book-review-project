@@ -21,22 +21,16 @@
     <nav class="navbar navbar-default navbar-fixed-top" id="navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            
               <a href="/" class="navbar-brand">
                 <i class="fas fa-book-open home"></i> 
               </a> 
-              
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
             </button>
-    
-            
           </div>
-          
             <div>
-        
             </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -49,26 +43,10 @@
       </nav>
 
 
-
-
-  <nav class="nav-top">
- <!--logo (home button)--
-   <div class="home-wrap">
-     <a href="/" class="home">
-      <i class="fas fa-book-open"></i> 
-    </a> 
-   </div
-
--navigation items (on the right)--
-   <div class="top-nav-right">
-      <a href="#contact-modal" data-toggle="modal" data-target="#contact-modal"><i class="fas fa-envelope"></i> Contact</a> &nbsp
-      <a href="{{ url_for('account') }}"><i class="fas fa-user"></i> Account</a>
-      <a href="{{ url_for('add_book') }}"> <button class="add-book-btn">Add a book</button></a>
-   </div--> 
-   
-  {# check if current page is the home page#}
-  {# if not display the book search form in the nav bar: #}
-    {%if request.path != "/"%}
+      {# check if current page is the home page#}
+      {# if not display the book search form in the nav bar: #}
+        {%if request.path != "/"%}
+  <div class="nav-top">
       {%set searchValue = search_term%}
     {%if search_term == "All_books"%}
       {% set searchValue = ""%}
@@ -91,8 +69,9 @@
            <button id="submit-btn"><i class="fas fa-search"></i></button>
     </form>
   </div>
-  {%endif%}
- </nav>
+ 
+</div>
+{%endif%}
 </header>
 
 

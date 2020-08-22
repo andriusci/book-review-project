@@ -136,14 +136,7 @@ background-color:white;
 z-index: 1;
 
 }
-.top-nav-right{
-  width: 30%;
-  min-width: 170px;
-  float:right;
-  text-align: right;
-  margin-top: 0.2em;
-  margin-right: 0.2em;
-}
+
 
 .right{
   float: right;
@@ -155,12 +148,7 @@ font-size:1.7em;
 color: #307bbb
 }
 
-.home-wrap{
-  width: 10%;
-  float: left;
-  margin-left:2em;
-  padding-top:4px;
-}
+
 
 
 
@@ -433,9 +421,7 @@ background-color: #2A6AA2;
     .search-form-nav{
       width: 68%;
     }
-    .top-nav-right{
-      margin-right: 1em
-    }
+
     .thin-line{
       display:none
     }
