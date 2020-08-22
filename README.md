@@ -36,7 +36,7 @@ In order to build good UX it is necessary to identify business goals and to dete
 
 #### Business goals
 * increase business value by allowing the owner to earn money via an affiliate program.
-* ncrease earning potential by encouraging the users to upload more books.
+* increase earning potential by encouraging the users to upload more books.
 
 #### User needs
 As a book hunter, I would like to:
