@@ -6,7 +6,7 @@
  # Best Reads - Code Institute. Milestone 3
  ![Main picture](/static/images/main.png)
 
-https://freelancer-ci.herokuapp.com/
+https://book-review-app-ci.herokuapp.com/
 
 
 ### Table of contents:
@@ -29,3 +29,4 @@ https://freelancer-ci.herokuapp.com/
 - [Credits](#Credits)
     
     ## Description
+The Best Reads project is focused around the people who are looking for the books via the Internet. The project aims to help people making crowdsource-based decisions about their next good read and attempts to help the owner making a few bucks. Therefore, it takes shape of a database backed website that not only allows the users to search, rate, recommend and review books, but also enables the site owner to participate in the Amazon’s affiliate program.
