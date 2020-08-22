@@ -1,7 +1,7 @@
 
 `<addr>` 
 ``` text in gray ```
-<img width="460" height="300" src="http://www.fillmurray.com/460/300">
+
 
  # Best Reads - Code Institute. Milestone 3
  ![Main picture](/static/images/main.png)
@@ -66,11 +66,11 @@ This section describes features that satisfy the requirements for the current ve
 
 ### Existing Features
 * **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages.  
-<p style="width: 100%">
+
  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
  
  Figure 1. Shows the search form.
- </p>
+
 * **Search result page.** Displays up to ten search results matching a search criteria. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
 * **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database. Moving to a next page would perform the same query with the first ten books excluded.
 
