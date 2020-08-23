@@ -158,5 +158,5 @@ This section describes features that satisfy the requirements for the current ve
 * [Book page mobile](/static/images/mockups/bookPageMobile.png)
 * [Account page](/static/images/mockups/accountPage.png)
 * [Account page mobile](/static/images/mockups/accountPageMObile.png)
-* [Add book page](/static/images/mockups/addPage.png)
-* [Add book page mobile](/static/images/mockups/addPageMobile.png)
+* [Add book page](/static/images/mockups/addBook.png)
+* [Add book page mobile](/static/images/mockups/addBookMobile.png)
