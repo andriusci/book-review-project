@@ -138,5 +138,5 @@ This section describes features that satisfy the requirements for the current ve
      <img src="/static/images/reviews.png"  alt="the review section">
      </kbd>
      
-     ***Figure 7.*** *The review section.*  
+     ***Figure 8.*** *The review section.*  
    
