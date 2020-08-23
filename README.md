@@ -69,7 +69,7 @@ This section describes features that satisfy the requirements for the current ve
 * **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages. 
 
   <kbd>
-   <img src="/static/images/search-form.png" width="450" alt="Search Form">
+   <img src="/static/images/features/search-form.png" width="450" alt="Search Form">
   </kbd>
   
   ***Figure 1.*** *Shows the search form.*
@@ -78,7 +78,7 @@ This section describes features that satisfy the requirements for the current ve
 * **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
 
    <kbd>
-   <img src="/static/images/search-result.png" alt="Search results">
+   <img src="/static/images/features/search-result.png" alt="Search results">
    </kbd>
    
    ***Figure 2.*** *Shows a fragment of the result page.* 
