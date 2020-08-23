@@ -80,7 +80,7 @@ This section describes features that satisfy the requirements for the current ve
    
 * **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database and displayed on the page. Moving to a next page would perform the same query with the first ten books excluded.
 
-    <img src="/static/images/pagination.png" width="150" alt="Pagination">
+    <img src="/static/images/pagination.png"  alt="Pagination">
 
    **Figure 3.** Shows the pagination at the bottom of the search result page.
 
@@ -88,7 +88,7 @@ This section describes features that satisfy the requirements for the current ve
 
    * Displays all the relevant information for a particular book. Shows the book's tiltle, description, cover image and if available, a link to the affiliate website. Also contains a dropdown panel that if clicked reviels more information such as the book's ISBN, as shown in Figure 4. 
       
-      <img src="/static/images/dropdown.png" width="150" alt="Dropdown information panel">
+      <img src="/static/images/dropdown.png" alt="Dropdown information panel">
    
      **Figure 4.** Shows a fragment of the dropdown panel from the book page.
      
@@ -97,20 +97,20 @@ This section describes features that satisfy the requirements for the current ve
      * **Rating Chart**
     Shows the book's average rating in the form of a pie chart. Also displays the barcart that represents the number of ratings per each star category as shown in Figure 5.
     
-     <img src="/static/images/rating-chart.png" width="150" alt="The rating chart">
+     <img src="/static/images/rating-chart.png"  alt="The rating chart">
    
      **Figure 5.** The rating chart.
      
      
      * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendtation as shown in Figure 6.
      
-    <img src="/static/images/recommend.png" width="150" alt="Recommend">
+    <img src="/static/images/recommend.png"  alt="Recommend">
    
     **Figure 6.** The recommend feature.     
      
     * **Rate** Allows the users to rate a book by choosing the number of stars and cklicking the Rate button as shown in Figure 7. 
     
-    <img src="/static/images/rate.png" width="100" alt="the rate feature">
+    <img src="/static/images/rate.png"  alt="the rate feature">
     
     **Figure 7.** The rate feature.  
     
