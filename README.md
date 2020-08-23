@@ -132,6 +132,7 @@ This section describes features that satisfy the requirements for the current ve
     
      All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
      
+     
      * **Reviews** Displays all the user submitted reviews related to a specific book, as shown in Figure 8.
      
      <kbd>
@@ -140,3 +141,4 @@ This section describes features that satisfy the requirements for the current ve
      
      ***Figure 8.*** *The review section.*  
    
+* **Add book page.**
