@@ -107,10 +107,10 @@ This section describes features that satisfy the requirements for the current ve
      * **Rating Chart**
     Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as shown in Figure 5.
     
-    <kbd>
-     <img src="/static/images/rating-chart.png"  alt="The rating chart">
-    </kbd>
-    
+     <kbd>
+         <img src="/static/images/rating-chart.png"  alt="The rating chart">
+     </kbd>
+  
      ***Figure 5.*** *The rating chart.*
      
      
@@ -141,4 +141,7 @@ This section describes features that satisfy the requirements for the current ve
      
      ***Figure 8.*** *The review section.*  
    
-* **Add book page.**
+* **Add book page.** Enables the logged in users to add a new book to the database by allowing them to fill in the form. 
+* **User account.** Allows the logged in users to edit or delete previously submitted books and reviews
+
+
