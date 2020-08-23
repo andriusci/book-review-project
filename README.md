@@ -28,7 +28,7 @@ https://book-review-app-ci.herokuapp.com/
 - [Deployment](#Deployment)
 - [Credits](#Credits)
     
-    ## Description
+## Description
 The Best Reads project is focused around the people who are looking for the books via the Internet. The project aims to help people making crowdsource-based decisions about their next good read and attempts to help the owner making a few bucks. Therefore, it takes shape of a database backed website that not only allows the users to search, rate, recommend and review books, but also enables the site owner to participate in the Amazon’s affiliate program.
 
 ## UX
@@ -65,13 +65,14 @@ As a site owner, I would like to:
 This section describes features that satisfy the requirements for the current version release. Also the section briefly outlines additional features for the subsequent versions of this project.
 
 ### Existing Features
+
 * **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages. 
 
-<kbd>
+  <kbd>
    <img src="/static/images/search-form.png" width="450" alt="Search Form">
   </kbd>
   
- ***Figure 1.*** *Shows the search form.*
+  ***Figure 1.*** *Shows the search form.*
  
  
 * **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
@@ -85,11 +86,11 @@ This section describes features that satisfy the requirements for the current ve
    
 * **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database and displayed on the page. Moving to a next page would perform the same query with the first ten books excluded.
 
-<kbd>
+    <kbd>
     <img src="/static/images/pagination.png"  alt="Pagination">
-</kbd>
+    </kbd>
  
-   ***Figure 3.*** *Shows the pagination at the bottom of the search result page.*
+    ***Figure 3.*** *Shows the pagination at the bottom of the search result page.*
 
 
 * **Book page** 
@@ -98,9 +99,9 @@ This section describes features that satisfy the requirements for the current ve
    
       <kbd>
       <img src="/static/images/dropdown.png" alt="Dropdown information panel">
-   </kbd>
+      </kbd>
     
-     ***Figure 4.*** *Shows a fragment of the drop-down panel from the book page.*
+      ***Figure 4.*** *Shows a fragment of the drop-down panel from the book page.*
      
      
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
@@ -110,7 +111,7 @@ This section describes features that satisfy the requirements for the current ve
     
     <kbd>
      <img src="/static/images/rating-chart.png"  alt="The rating chart">
-   </kbd>
+    </kbd>
     
      ***Figure 5.*** *The rating chart.*
      
@@ -118,17 +119,17 @@ This section describes features that satisfy the requirements for the current ve
      * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
      
      <kbd>
-    <img src="/static/images/recommend.png"  alt="Recommend">
-   </kbd>
+     <img src="/static/images/recommend.png"  alt="Recommend">
+     </kbd>
     
     ***Figure 6.*** *The recommend feature.*    
      
-    * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
+     * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
     
-    <kbd>
-    <img src="/static/images/rate.png"  alt="the rate feature">
-    </kbd>
+     <kbd>
+     <img src="/static/images/rate.png"  alt="the rate feature">
+     </kbd>
      
-    ***Figure 7.*** *The rate feature.*  
+     ***Figure 7.*** *The rate feature.*  
     
    All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
