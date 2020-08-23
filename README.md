@@ -150,7 +150,7 @@ This section describes features that satisfy the requirements for the current ve
 
 ## Mockups
 
-* ![Home page](/static/images/mockups/homePage.png)
+* [go][Home page](/static/images/mockups/homePage.png)
 * ![Home page mobile](/static/images/mockups/homePageMobile.png)
 * ![Search result page](/static/images/mockups/resultpage.png)
 * ![Search result mobile](/static/images/mockups/resultPageMobile.png)
