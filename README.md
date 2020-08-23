@@ -53,12 +53,12 @@ As a user who read a particular book, searched for it and did not find it on the
 * share the book with others and let others know what I think about the book.
 
 As a user who has submitted a review or a book, I would like to:
-* be able to edit or delete my submition, in case I have changed my mind.
+* be able to edit or delete my submission, in case I have changed my mind.
 
 As a user who has questions I would like to contact someone.
 
 As a site owner, I would like to: 
-* allow the website users to contact me,incase they have any queries.
+* allow the website users to contact me,in case they have any queries.
 * be able to obtain information such as the most popular search titles or genres, so I could analyse data in order to improve the UX.
 
  ## Features
@@ -86,32 +86,32 @@ This section describes features that satisfy the requirements for the current ve
 
 * **Book page** 
 
-   * Displays all the relevant information for a particular book. Shows the book's tiltle, description, cover image and if available, a link to the affiliate website. Also contains a dropdown panel that if clicked reviels more information such as the book's ISBN, as shown in Figure 4. 
+   * Displays all the relevant information for a particular book. Shows the book's title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book's ISBN, as shown in Figure 4. 
       
       <img src="/static/images/dropdown.png" alt="Dropdown information panel">
    
-     **Figure 4.** Shows a fragment of the dropdown panel from the book page.
+     **Figure 4.** Shows a fragment of the drop-down panel from the book page.
      
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
   
      * **Rating Chart**
-    Shows the book's average rating in the form of a pie chart. Also displays the barcart that represents the number of ratings per each star category as shown in Figure 5.
+    Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as shown in Figure 5.
     
      <img src="/static/images/rating-chart.png"  alt="The rating chart">
    
      **Figure 5.** The rating chart.
      
      
-     * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendtation as shown in Figure 6.
+     * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
      
     <img src="/static/images/recommend.png"  alt="Recommend">
    
     **Figure 6.** The recommend feature.     
      
-    * **Rate** Allows the users to rate a book by choosing the number of stars and cklicking the Rate button as shown in Figure 7. 
+    * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
     
     <img src="/static/images/rate.png"  alt="the rate feature">
     
     **Figure 7.** The rate feature.  
     
-    All three aforemantioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embeded in a separate iframe. 
+   All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
