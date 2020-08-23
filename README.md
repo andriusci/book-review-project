@@ -66,17 +66,16 @@ This section describes features that satisfy the requirements for the current ve
 
 ### Existing Features
 * **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages. 
+
 <kbd>
    <img src="/static/images/search-form.png" width="450" alt="Search Form">
   </kbd>
   
  ***Figure 1.*** *Shows the search form.*
  
-
-  
-   
-
+ 
 * **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
+
    <kbd>
    <img src="/static/images/search-result.png" alt="Search results">
    </kbd>
@@ -85,44 +84,51 @@ This section describes features that satisfy the requirements for the current ve
   
    
 * **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database and displayed on the page. Moving to a next page would perform the same query with the first ten books excluded.
+
 <kbd>
     <img src="/static/images/pagination.png"  alt="Pagination">
 </kbd>
  
    ***Figure 3.*** *Shows the pagination at the bottom of the search result page.*
 
+
 * **Book page** 
 
-   * Displays all the relevant information for a particular book. Shows the book's title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book's ISBN, as shown in Figure 4. 
+   * Displays all the relevant information for a particular book. Shows the book's title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book's ISBN, as shown in Figure 4.
+   
       <kbd>
       <img src="/static/images/dropdown.png" alt="Dropdown information panel">
    </kbd>
     
      ***Figure 4.*** *Shows a fragment of the drop-down panel from the book page.*
      
+     
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
   
      * **Rating Chart**
     Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as shown in Figure 5.
+    
     <kbd>
      <img src="/static/images/rating-chart.png"  alt="The rating chart">
    </kbd>
     
-     **Figure 5.** The rating chart.
+     ***Figure 5.*** *The rating chart.*
      
      
      * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
+     
      <kbd>
     <img src="/static/images/recommend.png"  alt="Recommend">
    </kbd>
     
-    **Figure 6.** The recommend feature.     
+    ***Figure 6.*** *The recommend feature.*    
      
     * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
+    
     <kbd>
     <img src="/static/images/rate.png"  alt="the rate feature">
     </kbd>
      
-    **Figure 7.** The rate feature.  
+    ***Figure 7.*** *The rate feature.*  
     
    All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
