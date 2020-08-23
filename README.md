@@ -93,15 +93,13 @@ This section describes features that satisfy the requirements for the current ve
     ***Figure 3.*** *Shows the pagination at the bottom of the search result page.*
 
 
-* **Book page** 
-
-   * Displays all the relevant information for a particular book. Shows the book's title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book's ISBN, as shown in Figure 4.
+* **Book page.** Displays all the relevant information for a particular book. Shows the book's title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book's ISBN, as shown in Figure 4.
    
-      <kbd>
-      <img src="/static/images/dropdown.png" alt="Dropdown information panel">
-      </kbd>
+    <kbd>
+    <img src="/static/images/dropdown.png" alt="Dropdown information panel">
+    </kbd>
     
-      ***Figure 4.*** *Shows a fragment of the drop-down panel from the book page.*
+     ***Figure 4.*** *Shows a fragment of the drop-down panel from the book page.*
      
      
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
