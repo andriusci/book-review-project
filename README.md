@@ -207,5 +207,13 @@ The app is deployed on Heroku apps.
    
 * From the terminal, log in to your Heroku account:
 
-  ''' $ heroku login '''
+     ``` $ heroku login ```
      
+* When prompted press any but q key to open a login window in your browser. After successful log in, create a new Git repository:
+
+     ``` $ cd your-project ```
+     ``` $ git init ```
+
+    
+
+
