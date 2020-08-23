@@ -207,5 +207,5 @@ The app is deployed on Heroku apps.
    
 * From the terminal, log in to your Heroku account:
 
-
+  ''' $ heroku login '''
      
