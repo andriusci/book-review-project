@@ -120,7 +120,7 @@ This section describes features that satisfy the requirements for the current ve
      <img src="/static/images/recommend.png"  alt="Recommend">
      </kbd>
     
-    ***Figure 6.*** *The recommend feature.*    
+     ***Figure 6.*** *The recommend feature.*    
      
      * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
     
@@ -130,4 +130,13 @@ This section describes features that satisfy the requirements for the current ve
      
      ***Figure 7.*** *The rate feature.*  
     
-   All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
+     All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
+     
+     * **Reviews** Displays all the user submitted reviews related to a specific book, as shown in Figure 8.
+     
+     <kbd>
+     <img src="/static/images/reviews.png"  alt="the review section">
+     </kbd>
+     
+     ***Figure 7.*** *The review section.*  
+   
