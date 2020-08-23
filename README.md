@@ -108,9 +108,9 @@ This section describes features that satisfy the requirements for the current ve
     Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as shown in Figure 5.
     
      <kbd>
-         <img src="/static/images/rating-chart.png"  alt="The rating chart">
-     </kbd>
-  
+      <img src="/static/images/rating-chart.png"  alt="The rating chart">
+         </kbd>
+   
      ***Figure 5.*** *The rating chart.*
      
      
@@ -146,4 +146,4 @@ This section describes features that satisfy the requirements for the current ve
 
 * **User account.** Allows the logged in users to edit or delete previously submitted books and reviews.
 
-
+* **Contact form.** Allows users to contact the owner by having them fill out three compulsory fields namely, name, email and message text. For the ease of access the form is embedded in the Bootstrap pop-up dialog and is available throughout the site.
