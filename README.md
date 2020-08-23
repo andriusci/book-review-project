@@ -226,7 +226,7 @@ The app is deployed on Heroku apps.
      ```  $ git push heroku master  ``` 
      
    
-
+Let the Heroku do the magic and your app should be ready at your-new-app-name.herokuapp.com.
     
 
 
