@@ -152,11 +152,9 @@ This section describes features that satisfy the requirements for the current ve
 
 * [Home page](/static/images/mockups/homePage.png)
 * [Home page mobile](/static/images/mockups/homePageMobile.png)
-* [Search result page](/static/images/mockups/resultpage.png)
+* [Search result page](/static/images/mockups/resultPage.png)
 * [Search result mobile](/static/images/mockups/resultPageMobile.png)
 * [Book page](/static/images/mockups/bookPage.png)
 * [Book page mobile](/static/images/mockups/bookPageMobile.png)
-* [Account page](/static/images/mockups/accountPage.png)
-* [Account page mobile](/static/images/mockups/accountPageMObile.png)
 * [Add book page](/static/images/mockups/addBook.png)
 * [Add book page mobile](/static/images/mockups/addBookMobile.png)
