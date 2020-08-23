@@ -130,7 +130,8 @@ This section describes features that satisfy the requirements for the current ve
      
      ***Figure 7.*** *The rate feature.*  
     
-     All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe.
+     All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe. 
+     Just bellow the three iframes the users are presented with the review section.
      
      
      * **Reviews** Displays all the user submitted reviews related to a specific book, as shown in Figure 8.
@@ -142,6 +143,7 @@ This section describes features that satisfy the requirements for the current ve
      ***Figure 8.*** *The review section.*  
    
 * **Add book page.** Enables the logged in users to add a new book to the database by allowing them to fill in the form. 
-* **User account.** Allows the logged in users to edit or delete previously submitted books and reviews
+
+* **User account.** Allows the logged in users to edit or delete previously submitted books and reviews.
 
 
