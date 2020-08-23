@@ -110,7 +110,7 @@ This section describes features that satisfy the requirements for the current ve
      
     * **Rate** Allows the users to rate a book by choosing the number of stars and cklicking the Rate button as shown in Figure 7. 
     
-    <img src="/static/images/rate.png" width="150%" alt="the rate feature">
+    <img src="/static/images/rate.png" width="100" alt="the rate feature">
     
     **Figure 7.** The rate feature.  
     
