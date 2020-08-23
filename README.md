@@ -96,7 +96,7 @@ This section describes features that satisfy the requirements for the current ve
      * **Rating Chart**
     Shows the book's average rating in the form of a pie chart. Also displays the barcart that represents the number of ratings per each star category as shown in Figure 5.
     
-     ![Figure 5. Dropdown panel ](/static/images/ratin-chart.png)
+     ![Figure 5. Dropdown panel ](/static/images/rating-chart.png)
    
      **Figure 5.** The rating chart.
      
