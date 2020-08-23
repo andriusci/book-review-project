@@ -212,7 +212,20 @@ The app is deployed on Heroku apps.
 * When prompted press any but q key to open a login window in your browser. After successful log in, create a new Git repository:
 
      ``` $ cd your-project ```
+     
      ``` $ git init ```
+     
+     ``` $ heroku git:remote -a your-new-app-name ```
+     
+ * Commit the code and push it to Heroku using Git:
+  
+     ```   $ git add *  ``` 
+     
+     ```  $ git commit -am "deployment"  ``` 
+     
+     ```  $ git push heroku master  ``` 
+     
+   
 
     
 
