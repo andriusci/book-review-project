@@ -67,7 +67,7 @@ This section describes features that satisfy the requirements for the current ve
 ### Existing Features
 * **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages. 
 
-   <img src="/static/images/search-form.png" width="300" alt="Search Form">
+   <img src="/static/images/search-form.png" width="400" alt="Search Form">
    
    **Figure 1.** Shows the search form.
 
