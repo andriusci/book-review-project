@@ -81,7 +81,7 @@ This section describes features that satisfy the requirements for the current ve
 
    **Figure 3.** Shows the pagination at the bottom of the search result page.
    
-    ![Figure 3. The pagination](/static/images/search-result.png)
+    ![Figure 3. The pagination](/static/images/pagination.png)
 
 * **Book page** 
 
@@ -113,4 +113,4 @@ This section describes features that satisfy the requirements for the current ve
    
     **Figure 7.** The rate feature.  
     
-    All three aforemantioned features are interactive. Therefore, in order to eliminate the page reload with every interaction, each feature is embeded in a seperate iframe. 
+    All three aforemantioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embeded in a separate iframe. 
