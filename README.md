@@ -164,6 +164,18 @@ This section describes features that satisfy the requirements for the current ve
 
 The app is deployed on Heroku apps.
 
-Prerequisites:
+**Prerequisites:
 
-[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Free Heroku account](https://www.heroku.com/)
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+
+**Deployment procedure:
+
+If you haven’t already, download the project files from the [Github repositoy]( https://github.com/andriusci/book-review-project)
+     <kbd>
+     <img src="/static/images/deploy/download.png"  alt="download project files">
+     </kbd>
+
+
+
