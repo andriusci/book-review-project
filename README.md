@@ -158,3 +158,12 @@ This section describes features that satisfy the requirements for the current ve
 * [Book page mobile](/static/images/mockups/bookPageMobile.png)
 * [Add book page](/static/images/mockups/addBook.png)
 * [Add book page mobile](/static/images/mockups/addBookMobile.png)
+
+
+## Deployment
+
+The app is deployed on Heroku apps.
+
+Prerequisites:
+
+[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
