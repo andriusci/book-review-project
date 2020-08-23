@@ -110,7 +110,7 @@ This section describes features that satisfy the requirements for the current ve
     * **Rate** Allows the users to rate a book by choosing the number of stars and cklicking the Rate button as shown in Figure 7. 
     
     ![Figure 7. Rate](/static/images/rate.png)
-    <img src="/static/images/rate.png" width="230">
+    <img src="/static/images/rate.png" width="150">
     **Figure 7.** The rate feature.  
     
     All three aforemantioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embeded in a separate iframe. 
