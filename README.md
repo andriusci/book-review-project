@@ -70,7 +70,7 @@ This section describes features that satisfy the requirements for the current ve
    <img src="/static/images/search-form.png" width="450" alt="Search Form">
   </kbd>
   
- ***Figure 1.*** *Shows the search form.
+ ***Figure 1.*** *Shows the search form.*
  
 
   
@@ -81,7 +81,7 @@ This section describes features that satisfy the requirements for the current ve
    <img src="/static/images/search-result.png" alt="Search results">
    </kbd>
    
-   **Figure 2.** Shows a fragment of the result page. 
+   ***Figure 2.*** *Shows a fragment of the result page.* 
   
    
 * **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database and displayed on the page. Moving to a next page would perform the same query with the first ten books excluded.
@@ -89,7 +89,7 @@ This section describes features that satisfy the requirements for the current ve
     <img src="/static/images/pagination.png"  alt="Pagination">
 </kbd>
  
-   **Figure 3.** Shows the pagination at the bottom of the search result page.
+   ***Figure 3.*** *Shows the pagination at the bottom of the search result page.*
 
 * **Book page** 
 
@@ -98,7 +98,7 @@ This section describes features that satisfy the requirements for the current ve
       <img src="/static/images/dropdown.png" alt="Dropdown information panel">
    </kbd>
     
-     **Figure 4.** Shows a fragment of the drop-down panel from the book page.
+     ***Figure 4.*** *Shows a fragment of the drop-down panel from the book page.*
      
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
   
