@@ -73,7 +73,7 @@ This section describes features that satisfy the requirements for the current ve
 
 * **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a pagination is displayed at the bottom of the page.
    
-   <img src="/static/images/search-result.png" width="150" alt="Search results">
+   <img src="/static/images/search-result.png" alt="Search results">
    
    **Figure 2.** Shows a fragment of the result page. 
   
