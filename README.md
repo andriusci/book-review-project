@@ -169,13 +169,34 @@ The app is deployed on Heroku apps.
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Free Heroku account](https://www.heroku.com/)
 * [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+* [Free MongoDB Atlas database](https://www.mongodb.com/cloud/atlas) Please refer to the - [Data structure](#Data-structure) section for the database structure.
 
 **Deployment procedure:
 
-If you haven’t already, download the project files from the [Github repositoy]( https://github.com/andriusci/book-review-project)
+* If you haven’t already, download the project files from the [Github repositoy]( https://github.com/andriusci/book-review-project)
+
+   <kbd>
+   <img src="/static/images/deploy/download.png"  alt="download project files">
+   </kbd>
+
+* From your Heroku dashboard click create new app:
+
+   <kbd>
+   <img src="/static/images/deploy/newApp.png"  alt="click new app">
+   </kbd>
+   
+* Choose a name and click create app button:
+   
+   <kbd>
+   <img src="/static/images/deploy/createApp.png"  alt="click create app">
+   </kbd>
+   
+* Provide the MongoDB [connection string](https://docs.mongodb.com/manual/reference/connection-string/):
+  
+  * From the setting tab in your Heroku account click reveal config vars and enter your connection string with DB_URI set as key:
+  
      <kbd>
-     <img src="/static/images/deploy/download.png"  alt="download project files">
-     </kbd>
-
-
-
+   <img src="/static/images/deploy/configVar.png">
+   </kbd>
+   
+   
