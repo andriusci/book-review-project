@@ -199,4 +199,13 @@ The app is deployed on Heroku apps.
    <img src="/static/images/deploy/configVar.png">
    </kbd>
    
+* Chose a deployment method (HerokuGit in this case):
+    
+     <kbd>
+   <img src="/static/images/deploy/method.png">
+   </kbd>
    
+* From the terminal, log in to your Heroku account:
+
+
+     
