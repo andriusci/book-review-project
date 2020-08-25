@@ -122,9 +122,10 @@ tr:nth-child(even) {
   text-decoration: underline
 }
 #navbar-default{
+  
   border-color: white;
-background-color: white}
-
+  
+}
 
 
 .nav-top{
@@ -280,7 +281,7 @@ svg {
   #thanks{
     padding-top: 72px;
     font-size: 0.16em;
-    padding-left: 19;
+    padding-left: 19px;
   }
 
 
@@ -352,7 +353,7 @@ box-shadow: 1px 12px 22px 2px #e6eff9;
   position: fixed;
   top: 4em;
   background-color: #DEEBF7;
-  border-top: solid 3px #DEEBF7;
+  border-top: solid 3px ;
   padding-bottom: 4px;
 }
   
@@ -483,22 +484,6 @@ background-color: #2A6AA2;
     height:auto
   }
   }
-
-/* form placeholders*/
-::-webkit-input-placeholder {
-  font-style: italic;
-}
-:-moz-placeholder {
-  font-style: italic;  
-}
-::-moz-placeholder {
-  font-style: italic;  
-}
-:-ms-input-placeholder {  
-  font-style: italic; 
-}
-
-
 
 
 
