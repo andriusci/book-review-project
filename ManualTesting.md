@@ -35,7 +35,7 @@ The search form is displayed in the middle of the index page and is available at
 Displays the books which are relevant to the search criterion as shown in Figure 3. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results.
 
  <kbd>
-   <img src="/static/images/testing/results.png" width="550" alt="Search form with feedback">
+   <img src="/static/images/testing/results.png" width="450" alt="Search results">
   </kbd>
   
   ***Figure 3.*** *Shows the search result page.*
