@@ -32,7 +32,7 @@ The search form is displayed in the middle of the index page and is available at
 
 ## Search result page.
 
-Displays the books which are relevant to the search criterion as shown in Figure 3. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results. In order to fit the search result container, each book description is reduced to 300 caracters and the "read more" link is displayed. If available, the link to Amazon and the author's name are displayed.
+Displays the books which are relevant to the search criterion. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results. In order to fit the search result container, each book description is reduced to 300 caracters and the "read more" link is displayed. If available, the link to Amazon and the author's name are displayed, as shown in Figure 3.
 
  <kbd>
    <img src="/static/images/testing/results.png" width="450" alt="Search results">
