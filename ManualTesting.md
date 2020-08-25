@@ -3,7 +3,6 @@
 ### Table of contents:
 - [Navigation](#Navigation)
 - [Search form](#Search-form)
-- [Index page](#index-page)
 - [Search result page](#Search-result-page)
 
 
@@ -29,5 +28,18 @@ The search form is displayed in the middle of the index page and is available at
    <img src="/static/images/testing/searchForm.png" width="550" alt="Search form with feedback">
   </kbd>
   
-  ***Figure 1.*** *Shows the search form with feedback.*
+  ***Figure 2.*** *Shows the search form with feedback.*
 
+## Search result page.
+
+Displays the books which are relevant to the search criterion. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results.
+
+## Pagination.
+Initially, the pagination shows the "number box" and the "next" button, as shown in Figure 3.
+  
+  <kbd>
+   <img src="/static/images/testing/initPagination.png" width="550" alt="Initial pagination">
+  </kbd>
+
+  
+  ***Figure 3.*** *Shows the inital pagination.*
