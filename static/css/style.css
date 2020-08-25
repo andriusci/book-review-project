@@ -233,10 +233,7 @@ svg {
   .rtl {
     direction: ltr;
   }
-  #stars{
-    padding-top:15;
-    padding-left: 9;
-  }
+ 
   .star-svg{width: 2em;
     height: 2em}
 
