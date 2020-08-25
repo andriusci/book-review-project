@@ -191,7 +191,7 @@ The app is deployed on Heroku apps.
    <img src="/static/images/deploy/createApp.png"  alt="click create app">
    </kbd>
    
-* Provide the MongoDB [connection string](https://docs.mongodb.com/manual/reference/connection-string/):
+* Provide your MongoDB [connection string](https://docs.mongodb.com/manual/reference/connection-string/):
   
   * From the setting tab in your Heroku account click reveal config vars and enter your connection string with DB_URI set as key:
   
