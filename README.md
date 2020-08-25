@@ -159,6 +159,14 @@ This section describes features that satisfy the requirements for the current ve
 * [Add book page](/static/images/mockups/addBook.png)
 * [Add book page mobile](/static/images/mockups/addBookMobile.png)
 
+
+
+## Data structure:
+
+
+
+
+
 ## Technologies used:
 
 * **Languages:**
