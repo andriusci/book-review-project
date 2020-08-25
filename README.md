@@ -170,7 +170,8 @@ The main focus of the project – the data, is managed by a document-oriented da
    </kbd>
      
    ***Figure 9.*** *The data structure.*  
-
+   
+Each ``` Book ``` document in the ``` Books ``` collection has One-to-Many relationship with the ``` recommend ``` and the ``` review ``` documents in the ``` Recommend ``` and the ``` Review ``` collections, respectively. The relationship is achieved through the automatically assigned primary key field called ``` _id ```. Similarly the User documents are related to the recommend, the review and the Book documents through the user_name field. However, since the user names in this project are unique, the user_name field in the User documents is not defined as a primary key. The relationship between  the documents remains One-to-many even if the user_name field is a secondary key.
 
 ## Technologies used:
 
