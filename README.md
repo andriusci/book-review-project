@@ -173,7 +173,7 @@ The main focus of the project – the data, is managed by a document-oriented da
    
    Each ``` Book ``` document in the ``` Books ``` collection has One-to-Many relationship with the ``` recommend ``` and the ``` review ``` documents in the ``` Recommend ``` and the ``` Review ``` collections, respectively. The relationship is achieved through the automatically assigned primary key field called ``` _id ```. Similarly the ``` user ``` documents are related to the ``` Recommend ```, the ``` Review ``` and the ``` Book ``` documents through the ``` user_name ``` fields. However, since the user names in this project are unique, the ``` user_name ``` fields in the ``` User ``` documents are not defined as a primary keys. The relationship between the documents remains One-to-many even if the ``` user_name ``` fields are secondary keys.
    
-Such relationship between the collections allows each book to have many reviews and recommendations but only one owner. Similarly, the owner might have many reviews, recommendations and books all of whom might only belong to one user.
+Such relationship between the collections allows each book to have many reviews and recommendations but, only one owner. Similarly, the owner might have many reviews, recommendations and books all of whom might only belong to one user.
 
 ## Technologies used:
 
