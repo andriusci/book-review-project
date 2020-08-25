@@ -4,7 +4,7 @@
 - [Navigation](#Navigation)
 - [Search form](#Search-form)
 - [Search result page](#Search-result-page)
-
+- [Book page](#Book-page)
 
 ## Navigation.
 The navigation bar displays all the relevant links, namely Logo, Contact, Account and Add a Book button as shown in Figure 1.
@@ -68,4 +68,10 @@ The number box responds to the user input. If the valid page number is provided 
   </kbd>
   
   ***Figure 6.*** *Shows the feedback if the page number doesn't exist.*
+  
+  
+  
+  ## Book page
+  
+  
 
