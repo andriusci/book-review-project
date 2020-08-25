@@ -160,6 +160,12 @@ This section describes features that satisfy the requirements for the current ve
 * [Add book page mobile](/static/images/mockups/addBookMobile.png)
 
 
+## Testing
+
+* Validation
+* Responsiveness
+* [Manual testing]()
+
 ## Deployment
 
 The app is deployed on Heroku apps.
