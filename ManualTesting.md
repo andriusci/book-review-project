@@ -2,6 +2,6 @@
 
 ### Table of contents:
 
-- [Index page](#index page)
-- [Search result page](# Search result page)
+- [Index page](#index-page)
+- [Search result page](# Search-result-page)
 
