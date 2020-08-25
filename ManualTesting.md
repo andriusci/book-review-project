@@ -23,4 +23,11 @@ The navigation bar displays all the relevant links, namely Logo, Contact, Accoun
 * **Add book button.** If clicked, redirects to either, the [add book page](#Add-book-page) or the [login page](#login-page).
 
 ## Search form.
-The search form is displayed in the middle of the index page and is available at the top of the other pages. The form if submitted empty, returns all the books from the database. If a search term and a genre is provided the form returns all the relevant search results. If a book title does not exist within the chosen genre or does not exist in the database at all, the feedback is displayed.
+The search form is displayed in the middle of the index page and is available at the top of the other pages. The form if submitted empty, returns all the books from the database. If a search term and a genre is provided the form returns all the relevant search results. If a book title does not exist within the chosen genre or does not exist in the database at all, the feedback is displayed, as shown in Figure 2.
+
+ <kbd>
+   <img src="/static/images/testing/searchForm.png" width="550" alt="Search form with feedback">
+  </kbd>
+  
+  ***Figure 1.*** *Shows the search form with feedback.*
+
