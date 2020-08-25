@@ -32,42 +32,48 @@ The search form is displayed in the middle of the index page and is available at
 
 ## Search result page.
 
-Displays the books which are relevant to the search criterion. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results.
+Displays the books which are relevant to the search criterion as shown in Figure 3. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results.
+
+ <kbd>
+   <img src="/static/images/testing/results.png" width="550" alt="Search form with feedback">
+  </kbd>
+  
+  ***Figure 3.*** *Shows the search result page.*
 
 ## Pagination.
-Initially, the pagination shows the "number box" and the "next" button, as shown in Figure 3.
+Initially, the pagination shows the "number box" and the "next" button, as shown in Figure 4.
   
   <kbd>
    <img src="/static/images/testing/initPagination.png" width="75" alt="Initial pagination">
   </kbd>
   
-  ***Figure 3.*** *Shows the inital pagination.*
+  ***Figure 4.*** *Shows the inital pagination.*
   
   
-  Once the "Next" button is clicked the pagination displays the "previous" button as shown in Figure 4, that if clicked brings back the previous ten results. 
+  Once the "Next" button is clicked the pagination displays the "previous" button as shown in Figure 5, that if clicked brings back the previous ten results. 
   
    <kbd>
    <img src="/static/images/testing/prevPagination.png" width="75" alt="The pagination with the previous button">
   </kbd>
   
-  ***Figure 4.*** *Shows the pagination whith the "previous" button.*
+  ***Figure 5.*** *Shows the pagination whith the "previous" button.*
   
   
-  If more results are available the pagination displays both the "previous" and the "next" buttons, together with the number box, as shown in Figure 5.
+  If more results are available the pagination displays both the "previous" and the "next" buttons, together with the number box, as shown in Figure 6.
   
    <kbd>
    <img src="/static/images/testing/prevNextPagination.png" width="120" alt="The pagination with the previous and the next button"s>
   </kbd>
   
-  ***Figure 5.*** *Shows the pagination whith the "previous" and the "next" buttons displayed.*
+  ***Figure 6.*** *Shows the pagination whith the "previous" and the "next" buttons displayed.*
   
-The number box responds to the user input. If the valid page number is provided then the relevant results are displayed in the [search result page](#Search-resul-page). If the page doesn't exist then the feedback is given as shown in Figure 6.
+The number box responds to the user input. If the valid page number is provided then the relevant results are displayed in the [search result page](#Search-resul-page). If the page doesn't exist then the feedback is given as shown in Figure 7.
 
    <kbd>
    <img src="/static/images/testing/feedbackPagination.png" width="550" alt="The pagination feedback">
   </kbd>
   
-  ***Figure 6.*** *Shows the feedback if the page number doesn't exist.*
+  ***Figure 7.*** *Shows the feedback if the page number doesn't exist.*
   
   
   
