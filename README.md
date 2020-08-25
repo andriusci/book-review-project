@@ -228,5 +228,20 @@ The app is deployed on Heroku apps.
    
 Let the Heroku do the magic and your app should be ready at your-new-app-name.herokuapp.com.
     
+## Credits
 
+* **Collapsable panel** – contains book details in the book page.
 
+[https://www.w3schools.com/bootstrap/bootstrap_collapse.asp](https://www.w3schools.com/bootstrap/bootstrap_collapse.asp)
+
+* **Tabs** - in the account page
+[https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_open)
+
+* **Pure CSS Percentage Circle** - 
+[http://circle.firchow.net/](http://circle.firchow.net/)
+
+* **Rating stars**
+[https://codepen.io/zellwk/pen/YwjZQv](https://codepen.io/zellwk/pen/YwjZQv)
+
+* **Flask Tutorial in Visual Studio Code**
+[https://code.visualstudio.com/docs/python/tutorial-flask](https://code.visualstudio.com/docs/python/tutorial-flask)
