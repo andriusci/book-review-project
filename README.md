@@ -163,8 +163,13 @@ This section describes features that satisfy the requirements for the current ve
 
 ## Data structure:
 
+The main focus of the project – the data, is managed by a document-oriented database called MongoDB. The database behind this project consist of the four collections of documents namely Books, Recommend, Reviews and Users, as shown in Figure 9.
 
-
+   <kbd>
+   <img src="/static/images/database.png"  alt="the data structure">
+   </kbd>
+     
+   ***Figure 9.*** *The data structure.*  
 
 
 ## Technologies used:
