@@ -11,7 +11,7 @@
 The navigation bar displays all the relevant links, namely Logo, Contact, Account and Add a Book button as shown in Figure 1.
 
   <kbd>
-   <img src="/static/images/testing/navigation.png" width="450" alt="navigation bar">
+   <img src="/static/images/testing/navigation.png" width="550" alt="navigation bar">
   </kbd>
   
   ***Figure 1.*** *Shows the navigation bar.*
