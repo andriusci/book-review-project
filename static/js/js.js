@@ -34,6 +34,7 @@ function validate_book() {
       }
     }
 
+    
 
  //Check if the review form fields are filled and submit the form.
  //Or give an error.
@@ -59,5 +60,7 @@ function validate_review() {
          }
          if(title != "" && review != "" && rating != "0"){document.getElementById("review-form").submit();}
 }
+
+
 
    
