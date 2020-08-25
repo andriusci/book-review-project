@@ -23,7 +23,7 @@ https://book-review-app-ci.herokuapp.com/
 - [Testing](#Testing)
      - [Validation](#Validation)
      - [Responsiveness](#Responsiveness)
-     - [Manual testing](#Manual-testting)
+     - [Manual testing](#Manual-testing)
 - [Bugs](#Bugs)
 - [Deployment](#Deployment)
 - [Credits](#Credits)
@@ -194,8 +194,8 @@ This section describes features that satisfy the requirements for the current ve
    *
    
    ##### Responsiveness
-   ##### [Manual testing]()
-
+   ##### [Manual testing](/ManualTesting.md)
+   
 ## Deployment
 
 The app is deployed on Heroku apps.
