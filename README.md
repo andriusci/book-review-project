@@ -23,7 +23,7 @@ https://book-review-app-ci.herokuapp.com/
 - [Testing](#Testing)
      - [Validation](#Validation)
      - [Responsiveness](#Responsiveness)
-     - [Manual testing](#Manual-testting)
+     - [Manual testing](#Manual-testing)
 - [Bugs](#Bugs)
 - [Deployment](#Deployment)
 - [Credits](#Credits)
@@ -159,6 +159,19 @@ This section describes features that satisfy the requirements for the current ve
 * [Add book page](/static/images/mockups/addBook.png)
 * [Add book page mobile](/static/images/mockups/addBookMobile.png)
 
+
+
+## Data structure:
+
+The main focus of the project – the data, is managed by a document-oriented database called MongoDB. The database behind this project consist of the four collections of documents namely Books, Recommend, Reviews and Users, as shown in Figure 9.
+
+   <kbd>
+   <img src="/static/images/database.png"  alt="the data structure">
+   </kbd>
+     
+   ***Figure 9.*** *The data structure.*  
+
+
 ## Technologies used:
 
 * **Languages:**
@@ -179,10 +192,23 @@ This section describes features that satisfy the requirements for the current ve
     
 ## Testing
 
-* Validation
-* Responsiveness
-* [Manual testing]()
-
+   ##### Validation
+   
+   * **HTML** The website has passed 3w.org markup validation. Full report available [here]()
+   * **CSS** The website has passed 3w.org css validation. <p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+       </a>
+    </p>
+           
+   * **JavaScript** Chrome developer tools have showed no errors.
+   *
+   
+   ##### Responsiveness
+   ##### [Manual testing](/ManualTesting.md)
+   
 ## Deployment
 
 The app is deployed on Heroku apps.
