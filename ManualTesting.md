@@ -64,7 +64,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
 The number box responds to the user input. If the valid page number is provided then the relevant results are displayed in the [search result page](#Search-resul-page). If the page doesn't exist then the feedback is given as shown in Figure 6.
 
    <kbd>
-   <img src="/static/images/testing/feedbackPagination.png" width="120" alt="The pagination feedback">
+   <img src="/static/images/testing/feedbackPagination.png" width="550" alt="The pagination feedback">
   </kbd>
   
   ***Figure 6.*** *Shows the feedback if the page number doesn't exist.*
