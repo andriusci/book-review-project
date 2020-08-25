@@ -159,7 +159,24 @@ This section describes features that satisfy the requirements for the current ve
 * [Add book page](/static/images/mockups/addBook.png)
 * [Add book page mobile](/static/images/mockups/addBookMobile.png)
 
+## Technologies used:
 
+* **Languages:**
+    * **HTML5**
+    * **CSS3**
+    * **JavaScript** Used for the front end functionality such as the form errors.
+    * **Python** Used in the Flask framework for the back end code.
+    
+ * **Frameworks:**
+     * **Bootstrap (4.3.1**. Enables collapsible panel in the book page
+     * **Flask** The project is build using the Flask web framework.
+     
+ * **Libraries:**
+     * **JQuery** Enables Bootstrap functionality.
+* **Database:**
+    * **MongoDB** The project is backed by a document-oriented database called MongoDB.
+    
+    
 ## Testing
 
 * Validation
