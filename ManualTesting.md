@@ -46,7 +46,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
   Once the "Next" button is clicked the pagination displays the "previous" button as shown in Figure 4, that if clicked brings back the previous ten results. 
   
    <kbd>
-   <img src="/static/images/testing/prevPagination.png" width="75" alt="The pagination with the previous button">
+   <img src="/static/images/testing/prevPagination.png" width="120" alt="The pagination with the previous button">
   </kbd>
   
   ***Figure 4.*** *Shows the pagination whith the "previous" button.*
@@ -54,7 +54,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
   If more results are available the pagination displays both the "previous" and the "next" buttons, together with the number box, as shown in Figure 5.
   
    <kbd>
-   <img src="/static/images/testing/prevNextPagination.png" width="75" alt="The pagination with the previous and the next button"s>
+   <img src="/static/images/testing/prevNextPagination.png" width="120" alt="The pagination with the previous and the next button"s>
   </kbd>
   
   ***Figure 4.*** *Shows the pagination whith the "previous" and the "next" buttons displayed.*
