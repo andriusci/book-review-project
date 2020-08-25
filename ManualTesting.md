@@ -38,7 +38,7 @@ Displays the books which are relevant to the search criterion. If the criterion 
 Initially, the pagination shows the "number box" and the "next" button, as shown in Figure 3.
   
   <kbd>
-   <img src="/static/images/testing/initPagination.png" width="550" alt="Initial pagination">
+   <img src="/static/images/testing/initPagination.png" width="150" alt="Initial pagination">
   </kbd>
 
   
