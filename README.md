@@ -231,7 +231,6 @@ Let the Heroku do the magic and your app should be ready at your-new-app-name.he
 ## Credits
 
 * **Collapsable panel** – contains book details in the book page.
-
 [https://www.w3schools.com/bootstrap/bootstrap_collapse.asp](https://www.w3schools.com/bootstrap/bootstrap_collapse.asp)
 
 * **Tabs** - in the account page
