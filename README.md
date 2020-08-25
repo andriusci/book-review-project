@@ -179,7 +179,7 @@ This section describes features that satisfy the requirements for the current ve
     
 ## Testing
 
-   ##### * Validation
+   ##### Validation
    
    * **HTML** The website has passed 3w.org markup validation. Full report available [here]()
    * **CSS** The website has passed 3w.org css validation. <p>
