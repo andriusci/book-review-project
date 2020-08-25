@@ -18,7 +18,7 @@ https://book-review-app-ci.herokuapp.com/
 - [Features](#Features)
 - [Features Left to Implement](#Features-Left-to-Implement)
 - [Mockups](#Mockups)
-- [Technologies used](#Technolies-used)
+- [Technologies used](#Technologies-used)
 - [Data structure](#Data-structure)
 - [Testing](#Testing)
      - [Validation](#Validation)
@@ -61,7 +61,7 @@ As a site owner, I would like to:
 * allow the website users to contact me,in case they have any queries.
 * be able to obtain information such as the most popular search titles or genres, so I could analyse data in order to improve the UX.
 
- ## Features
+## Features
 This section describes features that satisfy the requirements for the current version release. Also the section briefly outlines additional features for the subsequent versions of this project.
 
 ### Existing Features
