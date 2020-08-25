@@ -3,7 +3,8 @@
    /*Check if the form fields are filled,
     if not filled show an error next to the field and scroll to the top of the page - (needed for mobile screens)
     if filled submit the form */
-    /*validation is used by the "add new book" form in order to play around the text area validation*/
+    /*validation is used by the "add new book" form in order to play around the text area validation 
+    since the text area doesnt have validatition by default*/
 function validate_book() {
       var title = document.getElementById('title').value;
 
@@ -34,7 +35,7 @@ function validate_book() {
       }
     }
 
-    
+
 
  //Check if the review form fields are filled and submit the form.
  //Or give an error.
