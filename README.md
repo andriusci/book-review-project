@@ -219,7 +219,7 @@ Such relationship between the collections allows each book to have many reviews 
 * **select genre box** The select genre box does not appear as intended in the Mozilla Firefox browser as shown in the image bellow:
 
    <kbd>
-   <img src="/static/images/testing/selectBug.png"  width="200" alt="select genre bug">
+   <img src="/static/images/testing/selectBug.png"  width="300" alt="select genre bug">
    </kbd>
 
 
