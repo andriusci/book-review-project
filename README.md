@@ -18,7 +18,7 @@ https://book-review-app-ci.herokuapp.com/
 - [Features](#Features)
 - [Features Left to Implement](#Features-Left-to-Implement)
 - [Mockups](#Mockups)
-- [Technologies used](#Technolies-used)
+- [Technologies used](#Technologies-used)
 - [Data structure](#Data-structure)
 - [Testing](#Testing)
      - [Validation](#Validation)
@@ -61,7 +61,7 @@ As a site owner, I would like to:
 * allow the website users to contact me,in case they have any queries.
 * be able to obtain information such as the most popular search titles or genres, so I could analyse data in order to improve the UX.
 
- ## Features
+## Features
 This section describes features that satisfy the requirements for the current version release. Also the section briefly outlines additional features for the subsequent versions of this project.
 
 ### Existing Features
@@ -163,14 +163,17 @@ This section describes features that satisfy the requirements for the current ve
 
 ## Data structure:
 
-The main focus of the project – the data, is managed by a document-oriented database called MongoDB. The database behind this project consist of the four collections of documents namely Books, Recommend, Reviews and Users, as shown in Figure 9.
+The main focus of the project – the data, is managed by a document-oriented database called MongoDB. The database behind this project consist of four collections of documents namely Books, Recommend, Reviews and Users, as shown in Figure 9.
 
    <kbd>
-   <img src="/static/images/database.png"  alt="the data structure">
+   <img src="/static/images/database.png"  width="550" alt="the data structure">
    </kbd>
      
    ***Figure 9.*** *The data structure.*  
-
+   
+   Each ``` Book ``` document in the ``` Books ``` collection has One-to-Many relationship with the ``` recommend ``` and the ``` review ``` documents in the ``` Recommend ``` and the ``` Review ``` collections, respectively. The relationship is achieved through the automatically assigned primary key field called ``` _id ```. Similarly the ``` user ``` documents are related to the ``` Recommend ```, the ``` Review ``` and the ``` Book ``` documents through the ``` user_name ``` fields. However, since the user names in this project are unique, the ``` user_name ``` fields in the ``` User ``` documents are not defined as a primary keys. The relationship between the documents remains One-to-many even if the ``` user_name ``` fields are secondary keys.
+   
+Such relationship between the collections allows each book to have many reviews and recommendations but, only one owner. Similarly, the owner might have many reviews, recommendations and books all of whom might only belong to one user.
 
 ## Technologies used:
 
