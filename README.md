@@ -212,6 +212,18 @@ Such relationship between the collections allows each book to have many reviews 
    ##### Responsiveness
    ##### [Manual testing](/ManualTesting.md)
    
+## Bugs
+
+* **Rating chart** Once the star rating is submitted the rating chart iframe reloads in order to show the result immediately. However, sometimes it reloads faster than the information gets to the database, therefore the results are not shown right away. This could be fixed by delaying the page reload with JavaScript.
+
+* **select genre box** The select genre box does not appear as intended in the Mozilla Firefox browser as shown in the image bellow:
+
+   <kbd>
+   <img src="/static/images/testing/selectBug.png"  alt="select genre bug">
+   </kbd>
+
+
+
 ## Deployment
 
 The app is deployed on Heroku apps.
