@@ -353,7 +353,7 @@ box-shadow: 1px 12px 22px 2px #e6eff9;
   position: fixed;
   top: 4em;
   background-color: #DEEBF7;
-  padding: 0 0.2em;
+  padding: 0.2em 0.2em;
 }
   
 #index-search-input, #nav-search-input{
