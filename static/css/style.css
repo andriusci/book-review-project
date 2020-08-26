@@ -210,7 +210,7 @@ svg {
     display: flex;
     flex-flow: row-reverse;
     justify-content: flex-end;
-    padding: 0.5em;
+    padding: 9px 9px;
   }
   
   .star.is-selected svg, .star.is-selected ~ .star svg {
