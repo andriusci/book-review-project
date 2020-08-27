@@ -5,6 +5,7 @@
 - [Search form](#Search-form)
 - [Search result page](#Search-result-page)
 - [Book page](#Book-page)
+- [Add Book page](#Add-Book-page)
 
 ## Navigation.
 The navigation bar displays all the relevant links, namely Logo, Contact, Account and Add a Book button as shown in Figure 1.
@@ -95,14 +96,34 @@ The number box responds to the user input. If a valid page number is provided th
    <img src="/static/images/testing/rate.png" width="650" alt="The "Rating" testing>
   </kbd>
   
-  ***Figure 8.*** *Shows the "Rating" iframe testing.*
+  ***Figure 9.*** *Shows the "Rating" iframe testing.*
 
 
 The Rating Chart iframe displays a pie chart and a bar chart. Once the rating is submitted in the "Rate" iframe the two charts are updated. The lengths of the rating chart bars are properly aligned in relation to the longest bar and a correct average rating value is calculated, as shown in Figure 9. However, the charts not always updated immediately and the page needs to be restarted in order to see the results, see [Bugs](https://github.com/andriusci/book-review-project/blob/master/README.md#bugs) section. 
 
   <kbd>
-   <img src="/static/images/testing/ratingChart.png" width="450" alt="The "Rating Chart" testing>
+   <img src="/static/images/testing/ratingChart.png" width="450" alt="The "Rating Chart" testing">
   </kbd>
   
-  ***Figure 8.*** *Shows the "Rating Chart" iframe testing.*
+  ***Figure 10.*** *Shows the "Rating Chart" iframe testing.*
+
+The "Review" button change appearance on mouse-over as shown in Figure 10 and if clicked brings up the "Review" modal.
+
+   <kbd>
+   <img src="/static/images/testing/reviewButton.png" width="450" alt="The Review button">
+  </kbd>
+  
+  ***Figure 10.*** *Shows the "Review" button.*
+  
+  
+The "Review" modal displays a form that if submitted, gives feedback as shown in Figure 11.
+
+   <kbd>
+   <img src="/static/images/testing/review.png" width="450" alt="The "Review" testing">
+   </kbd>
+  ***Figure 11.*** *Shows the "Review" testing.*
+
+
+## Add Book page
+
 
