@@ -70,7 +70,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
 The number box responds to the user input. If a valid page number is provided then the relevant results are displayed in the [search result page](#Search-resul-page). If the page doesn't exist then the feedback is given as shown in Figure 7.
 
    <kbd>
-   <img src="/static/images/testing/feedbackPagination.png" width="550" alt="The pagination feedback">
+   <img src="/static/images/testing/feedbackPagination.png" width="500" alt="The pagination feedback">
   </kbd>
   
   ***Figure 7.*** *Shows the feedback if the page number doesn't exist.*
@@ -84,7 +84,7 @@ The number box responds to the user input. If a valid page number is provided th
   The recommed iframe displays the percentage pie chart and two buttons namely, Yes and No. The buttons change their appearance on mouse over as intended and if clicked manipulates the recommend pie chart accordingly, as shown in Figure 8. The percentage calculations were manually tested with the correct results each time. The results and the feedback are shown immediately. 
 
   <kbd>
-   <img src="/static/images/testing/recommend.png" width="550" alt="The "Recommend" testing>
+   <img src="/static/images/testing/recommend.png" width="650" alt="The "Recommend" testing>
   </kbd>
   
   ***Figure 8.*** *Shows the "Recommend" iframe testing.*
