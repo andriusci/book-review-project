@@ -84,7 +84,7 @@ The number box responds to the user input. If a valid page number is provided th
   The recommed iframe displays the percentage pie chart and two buttons namely, Yes and No. The buttons change their appearance on mouse over as intended and if clicked manipulates the recommend pie chart accordingly, as shown in Figure 8. The percentage calculations were manually tested with the correct results each time. The results and the feedback are shown immediately. 
 
   <kbd>
-   <img src="/static/images/testing/recommend.png" width="650" alt="The "Recommend" testing>
+   <img src="/static/images/testing/recommend.png" width="450" alt="The "Recommend" testing>
   </kbd>
   
   ***Figure 8.*** *Shows the "Recommend" iframe testing.*
@@ -92,7 +92,7 @@ The number box responds to the user input. If a valid page number is provided th
   The "Rate" iframe displays a pie chart that contains five stars. The stars on mouse over, change the appearance and if clicked, enables the "Rate it" button and manipulates the pie chart accordingly. Once the button is clicked, the rating is submitted and a feedback is given, as shown in Figure 9.
   
   <kbd>
-   <img src="/static/images/testing/rate.png" width="550" alt="The "Rating" testing>
+   <img src="/static/images/testing/rate.png" width="650" alt="The "Rating" testing>
   </kbd>
   
   ***Figure 8.*** *Shows the "Rating" iframe testing.*
