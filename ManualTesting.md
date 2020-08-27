@@ -196,7 +196,7 @@ The "Edit" button brings up a modal with a pre-filled form. Once the form is sub
 
 
    <kbd>
-   <img src="/static/images/testing/edit.png" width="350" alt="The "Edit" form testing>
+   <img src="/static/images/testing/edit.png" width="550" alt="The "Edit" form testing>
    </kbd>
    
   ***Figure 16.*** *Shows the "Edit" form testing*  
