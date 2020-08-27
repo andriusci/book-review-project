@@ -148,6 +148,8 @@ This section describes features that satisfy the requirements for the current ve
 
 * **Contact form.** Allows users to contact the owner by having them fill out three compulsory fields namely, name, email and message text. For the ease of access the form is embedded in the Bootstrap pop-up dialog and is available throughout the site.
 
+### Features left to implement.
+
 ## Mockups
 
 * [Home page](/static/images/mockups/homePage.png)
