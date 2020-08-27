@@ -165,7 +165,7 @@ Once the "Review" modal is closed the page is reloaded and the review is shown i
   
 ## Add Book page
 
-The "Add Book page" displays a form that if submitted adds a new book to the database and provides feddback as shown in Figure 13.
+The "Add Book" page displays a form that if submitted adds a new book to the database and provides feedback, as shown in Figure 13.
 
    <kbd>
    <img src="/static/images/testing/addBook.png" width="450" alt="The "Add Book" page">
