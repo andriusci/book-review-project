@@ -123,8 +123,14 @@ The "Review" modal displays a form that if submitted, gives feedback as shown in
    </kbd>
    
   ***Figure 11.*** *Shows the "Review" testing.*
+  
+Once the "Review" modal is closed the page is reloaded and the review is shown in the reviews section as shown in Figure 12.
 
-
+   <kbd>
+   <img src="/static/images/testing/reviews.png" width="550" alt="The "Review" section">
+   </kbd>
+   
+  ***Figure 12.*** *Shows the "Reviews" section.*
 ## Add Book page
 
 
