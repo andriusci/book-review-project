@@ -119,8 +119,9 @@ The "Review" button change appearance on mouse-over as shown in Figure 10 and if
 The "Review" modal displays a form that if submitted, gives feedback as shown in Figure 11.
 
    <kbd>
-   <img src="/static/images/testing/review.png" width="750" alt="The "Review" testing">
+   <img src="/static/images/testing/review.png" width="850" alt="The "Review" testing">
    </kbd>
+   
   ***Figure 11.*** *Shows the "Review" testing.*
 
 
