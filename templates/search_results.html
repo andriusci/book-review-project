@@ -71,6 +71,12 @@ Search results
 <aside>
 <!--paginition-->
 <div class="paginition">
+    {# in order to avoid illegal character namely "space" in attribute href of element a#}
+    {% if genre == "Choose genre"%}
+       {%set genre = "Choose%20genre"%}
+    {%endif%}
+  
+    {# show "previous" button, if the page is not the first page#}
   {%if current_page > 1 and current_page <= total_pages%}
   {%set go_to_page = current_page - 1%}
    <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">
@@ -87,8 +93,8 @@ Search results
        <input type="submit" value="GO" id="go-btn">
   </form>
   {%endif%}
-
-
+ 
+  {# show the "next" button, if there are more pages#}
   {%if current_page < total_pages%}
   {%set go_to_page = current_page + 1%}
   <a href="/Search:{{search_term}}/Genre:{{genre}}/Page:{{go_to_page}}">
@@ -108,8 +114,9 @@ Search results
   <p>
     Please enter the number between 1 and {{total_pages}}
   </p>
+</div>
    {%endif%}
- </div>
+
 {%endif%}
 </aside>
 {% endblock %}

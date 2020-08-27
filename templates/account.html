@@ -32,7 +32,7 @@
                <td class="text-right"> 
                 
                     <!--form, if submitted, deletes the book titled - "{{eachBook.title}}"-->
-                  <form action="{{ url_for('account') }}" method="POST" id="delete_book_form">
+                  <form action="{{ url_for('account') }}" method="POST">
                     <input type="hidden" name="book_id" value="{{eachBook._id}}">
                     <input type="hidden" name="id" value="delete_book">
                     <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
@@ -41,35 +41,13 @@
                <td>
             
                 
-                  <!-- a button, if clicked brings the pop-up that allows to edit the information of the book titled - "{{eachBook.title}}" -->
+                  <!-- a button, if clicked brings the pop-up that allows to edit the book" -->
                   <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachBook._id}}"><i
                       class="far fa-edit"></i>Edit</button>
              
                 </td>
               </tr>
-              <!--Bootstrap modal. Contains an iFrame with the book editing form-->
-              <div class="modal fade book-modal" id="{{eachBook._id}}" role="dialog">
-                <div class="modal-dialog">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                     
-                        <h4>Edit "{{eachBook.title}}"</h4>
-                      
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <iframe class="general-iframe" name="edit"  frameborder="no" src="/edit_book{{eachBook._id}}"></iframe>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
-                        Close
-                      </button>
-                    </div>
-                  </div>
-  
-                </div>
-              </div>
+            
               {%endfor%}
             </table>
 
@@ -93,7 +71,6 @@
                   </th>
                 </tr>
                {%for eachReview in reviews%}
-           
                 <tr>
                   <td>
                    {{ eachReview.title}}
@@ -101,7 +78,7 @@
 
                   <td class="text-right">
                     <!--form, if submitted, deletes the review titled - "{{eachReview.title}}"-->
-                    <form action="{{ url_for('account') }}" method="POST" id="delete_review_form">
+                    <form action="{{ url_for('account') }}" method="POST">
                       <input type="hidden" name="review_id" value="{{eachReview._id}}">
                       <input type="hidden" name="id" value="delete_review">
                       <button class="delete-btn"><i class="far fa-trash-alt"></i> Delete</button>
@@ -112,40 +89,13 @@
                     <button class="edit-btn" type="button" data-toggle="modal" data-target="#{{eachReview._id}}"><i
                     class="far fa-edit"></i>Edit</button>
                   </td>
-            
                </tr>
-                 <!--Bootstrap modal. Contains an iFrame with the review editing form-->
-                 <div class="modal fade review-modal" id="{{eachReview._id}}" role="dialog">
-                    <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    
-
-                      <h4>Edit review</h4>
-                    
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-
-                  <div class="modal-body">
-                  
-                    <iframe class="general-iframe" name="edit" frameborder="no" src="/edit_review{{eachReview._id}}"></iframe>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
-                      Close
-                    </button>
-             
-                    
-                  </div>
-                </div>
-
-                    </div>
-                 </div>
+  
+                
             {%endfor%}
             </table>
+           
+      
         {% else %}
         <p>
           You have not reviewed any books yet!
@@ -183,3 +133,59 @@ function openTab(evt, tabName) {
 </script>
 
 {%endblock%}
+ <!--Bootstrap modal. Contains an iFrame with the book editing form-->
+ <div class="modal fade book-modal" id="{{eachBook._id}}" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       
+          <h4>Edit "{{eachBook.title}}"</h4>
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe class="general-iframe" name="edit"  frameborder="no" src="/edit_book{{eachBook._id}}"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+!--Bootstrap modal. Contains an iFrame with the review editing form-->
+  <div class="modal fade review-modal" id="{{eachReview._id}}" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+  <div class="modal-header">
+  
+      <h4>Edit review</h4>
+    
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <div class="modal-body">
+  
+    <iframe class="general-iframe" name="edit" frameborder="no" src="/edit_review{{eachReview._id}}"></iframe>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn-close btn btn-default btn-sm" data-dismiss="modal">
+      Close
+    </button>
+
+    
+  </div>
+    </div>
+
+    </div>
+ </div>

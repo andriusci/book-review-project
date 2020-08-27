@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{%block title%}{{book.get("title")}}{%endblock%}
 
 {% block book_page %}
 
@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" >
           <!--Book cover image-->
-          <image class="result-img" src="{{ book.get('image')}}" alt="Book cover image">
+          <img class="result-img" src="{{ book.get('image')}}" alt="Book cover image">
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
           <!--Book title -->
@@ -84,7 +84,7 @@
     <!--rating chart iFrame-->
     <div class="col-sm-12 col-md-6 col-lg-4 centered">
   <div class="iFrame">
-    <iframe name="rating" id="rating-iframe" scrolling="no" frameborder="no"
+    <iframe name="rating" id="rating-iframe" scrolling="no"
       src="/ratingChart:bookID:{{book._id}}"></iframe>
   </div>
     </div>
@@ -92,7 +92,7 @@
     <!--recomend iFrame-->
      <div class="col-sm-12 col-md-6 col-lg-4 centered">
   <div class="iFrame">
-    <iframe name="recomend" frameborder="no" scrolling="no" src="/recommend:bookID:{{book._id}}"></iframe>
+    <iframe name="recomend" src="/recommend:bookID:{{book._id}}" scrolling="no"></iframe>
   </div>
      </div>
 
@@ -100,7 +100,7 @@
      <div class="col-sm-12 col-md-12 col-lg-4 centered" >
 
   <div class="iFrame">
-    <iframe frameborder="no" src="/rate:bookID:{{book._id}}"></iframe>
+    <iframe src="/rate:bookID:{{book._id}}" scrolling="no"></iframe>
   </div>
   <div class="review">
       <h4>Have you read this book?</h4><br>
@@ -148,42 +148,43 @@
 </section>
 {% endif %}
 
-<!-- Bootstrap modal brings up the review form-->
-<modal class="modal fade" id="review-modal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Write a review about "{{book.get("title")}}"</h4>
-        </div>
-        <div class="modal-body">
-        {%set id = book.get("_id")%}
-        <iframe class="general-iframe" frameborder="no" src="/review:bookID:{{book._id}}"></iframe>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-</modal>
 
 <!--SVG star shape by - Zell Lew from https://codepen.io/zellwk/pen/YwjZQv-->
 <svg>
-  <symbol id="blue" viewBox="0 0 98 92">
+  <symbol id="blue" viewBox="0 0 98 92"/>
     <title>star</title>
     <path
       d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
       fill="#307bbb" />
 </svg>
 <svg>
-  <symbol id="grey" viewBox="0 0 98 92">
+  <symbol id="grey" viewBox="0 0 98 92"/>
     <title>star</title>
     <path
       d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
       fill="grey" />
 </svg>
+
+<!-- Bootstrap modal brings up the review form-->
+<modal class="modal fade" id="review-modal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Write a review about "{{book.get("title")}}"</h4>
+      </div>
+      <div class="modal-body">
+      {%set id = book.get("_id")%}
+      <iframe class="general-iframe" src="/review:bookID:{{book._id}}"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+</modal>
 <script>
     //relaods the page on closing the review modal so that the results are shown immediately.
     //script from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h

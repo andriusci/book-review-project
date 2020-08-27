@@ -244,6 +244,7 @@ svg {
   /*  rate chart iFrame */
   iframe{
     min-height: 26em;
+    border: none;
    
   }
   .general-iframe{

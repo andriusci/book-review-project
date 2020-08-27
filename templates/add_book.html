@@ -12,7 +12,7 @@
       {%elif submitted == False%}
          <p>Something went wrong:(</p>
       {%else%}
-         <p>Please add a new book by using the form bellow:</p>
+         Please add a new book by using the form bellow:
       {%endif%}
        </h3>
     </div>
@@ -23,13 +23,13 @@
     <input type="hidden" name="user-name" value="{{user}}">
     <div class="row">
       <div class="col-sm-12 col-md-7">
-          <label for="title">Book title <span class="error">*</span>&nbsp</label>
+          <label for="title">Book title <span class="error">*</span>&nbsp;</label>
           <span class="error" id="title-error">
           </span><br>
           <input type="text" name="title" id="title" value=""> 
       </div>
       <div class="col-sm-12 col-md-5">
-           <label for="genre">Genre<span class="error">*</span></label> <span class="error" id="genre-error"></span> <br>
+           <label for="add-genre">Genre<span class="error">*</span></label> <span class="error" id="genre-error"></span> <br>
            <select name="genre" id="add-genre">
             {#  create select options with one option selected depending on previously submited search
                 not necesary here - only re-used code! #}
