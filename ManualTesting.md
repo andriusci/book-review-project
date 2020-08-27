@@ -192,7 +192,7 @@ Each tab enables either to delete or to edit a record. Once the delete button is
    
   ***Figure 15.*** *Shows the "Delete" button testing*
 
-The "Edit" button brings up the modal with the prefilled form as shown in Figure 16.
+The "Edit" button brings up a modal with a pre-filled form. Once the form is submitted, the record is edited in the database and the feedback is given, as shown in Figure 16.
 
 
    <kbd>
