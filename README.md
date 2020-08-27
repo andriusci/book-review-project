@@ -68,9 +68,9 @@ This section describes features that satisfy the requirements for the current ve
 
 * **Search form.** Enables the website users to search for the books by allowing them to choose a category and enter the book title, as shown in Figure 1. The form is accessible throughout the site. It appears in the middle of the index page and is available at the top of other pages. 
 
-  <kbd>
-   <img src="/static/images/features/search-form.png" width="450" alt="Search Form">
-  </kbd>
+     <kbd>
+      <img src="/static/images/features/search-form.png" width="450" alt="Search Form">
+    </kbd>
   
   ***Figure 1.*** *Shows the search form.*
  
@@ -105,10 +105,10 @@ This section describes features that satisfy the requirements for the current ve
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
   
      * **Rating Chart**
-    Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as shown in Figure 5.
+      Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as      shown in Figure 5.
     
      <kbd>
-      <img src="/static/images/features/rating-chart.png"  alt="The rating chart">
+          <img src="/static/images/features/rating-chart.png"  alt="The rating chart">
          </kbd>
    
      ***Figure 5.*** *The rating chart.*
@@ -147,6 +147,8 @@ This section describes features that satisfy the requirements for the current ve
 * **User account.** Allows the logged in users to edit or delete previously submitted books and reviews.
 
 * **Contact form.** Allows users to contact the owner by having them fill out three compulsory fields namely, name, email and message text. For the ease of access the form is embedded in the Bootstrap pop-up dialog and is available throughout the site.
+
+### Features left to implement.
 
 ## Mockups
 
@@ -224,15 +226,22 @@ Such relationship between the collections allows each book to have many reviews 
 
 * **HTML Validation**  
 
-    * **Book page** The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
+    * **Book page** 
+    1. The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
     
      <kbd>
        <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
      </kbd>
      
-     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```  attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
+     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```      attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown        reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
      
+   2. The ``` modal ``` element is not alowed as child of ``` main ``` element as shown in the screenshot bellow:
+   
+      <kbd>
+       <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
+     </kbd>
      
+     There is no further errors white testing without the ``` modal ``` element.
 
 ## Deployment
 
