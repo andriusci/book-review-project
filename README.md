@@ -224,15 +224,22 @@ Such relationship between the collections allows each book to have many reviews 
 
 * **HTML Validation**  
 
-    * **Book page** The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
+    * **Book page** 
+    1. The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
     
      <kbd>
        <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
      </kbd>
      
-     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```  attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
+     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```      attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown        reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
      
+   2. The ``` modal ``` element is not alowed as child of ``` main ``` element as shown in the screenshot bellow:
+   
+      <kbd>
+       <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
+     </kbd>
      
+     There is no further errors white testing without the ``` modal ``` element.
 
 ## Deployment
 
