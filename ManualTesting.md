@@ -179,7 +179,7 @@ The "Add Book" page displays a form that if submitted adds a new book to the dat
 The "Account" page displays two tabs, namely Books and Review which contain user submitted books and reviews respectively, as shown in Figure 14.  
   
    <kbd>
-   <img src="/static/images/testing/account.png" width="450" alt="The "Account page">
+   <img src="/static/images/testing/account.png" width="650" alt="The "Account page">
    </kbd>
    
   ***Figure 14.*** *Shows the "Account" page*
@@ -187,7 +187,7 @@ The "Account" page displays two tabs, namely Books and Review which contain user
 Each tab enables either to delete or to edit a record. Once the delete button is clicked the record is deleted from the database and is no longer displayed in the table, as shown in Figure 15. 
 
    <kbd>
-   <img src="/static/images/testing/delete.png" width="450" alt="The "Delete" button testing>
+   <img src="/static/images/testing/delete.png" width="650" alt="The "Delete" button testing>
    </kbd>
    
   ***Figure 15.*** *Shows the "Delete" button testing*
@@ -196,8 +196,8 @@ The "Edit" button brings up the modal with the prefilled form as shown in Figure
 
 
    <kbd>
-   <img src="/static/images/testing/edit.png" width="450" alt="The "Edit" button testing>
+   <img src="/static/images/testing/edit.png" width="350" alt="The "Edit" form testing>
    </kbd>
    
-  ***Figure 15.*** *Shows the "Edit" button testing*  
+  ***Figure 16.*** *Shows the "Edit" form testing*  
 
