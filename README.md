@@ -197,7 +197,7 @@ Such relationship between the collections allows each book to have many reviews 
 
    ##### Validation
    
-   * **HTML** The website has passed 3w.org markup validation. Full report available [here]()
+   * **HTML** The website has passed 3w.org markup validation with the exeptions explained in the [Bugs](#Bugs) section.
    * **CSS** The website has passed 3w.org css validation. <p>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"
@@ -222,7 +222,17 @@ Such relationship between the collections allows each book to have many reviews 
    <img src="/static/images/testing/selectBug.png"  width="300" alt="select genre bug">
    </kbd>
 
+* **HTML Validation**  
 
+    * **Book page** The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
+    
+     <kbd>
+       <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
+     </kbd>
+     
+     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```  attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
+     
+     
 
 ## Deployment
 
