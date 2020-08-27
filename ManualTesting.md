@@ -96,3 +96,13 @@ The number box responds to the user input. If a valid page number is provided th
   </kbd>
   
   ***Figure 8.*** *Shows the "Rating" iframe testing.*
+
+
+The Rating Chart iframe displays a pie chart and a bar chart. Once the rating is submitted in the "Rate" iframe the two charts are updated. The lengths of the rating chart bars are properly aligned in relation to the longest bar and a correct average rating value is calculated, as shown in Figure 9. However, the charts not always updated immediately and the page needs to be restarted in order to see the results, see [Bugs](https://github.com/andriusci/book-review-project/blob/master/README.md#bugs) section. 
+
+  <kbd>
+   <img src="/static/images/testing/ratingChart.png" width="450" alt="The "Rating Chart" testing>
+  </kbd>
+  
+  ***Figure 8.*** *Shows the "Rating Chart" iframe testing.*
+
