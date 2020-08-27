@@ -6,6 +6,7 @@
 - [Search result page](#Search-result-page)
 - [Book page](#Book-page)
 - [Add Book page](#Add-Book-page)
+- [Account page](#Account-page)
 
 ## Navigation.
 The navigation bar displays all the relevant links, namely Logo, Contact, Account and Add a Book button as shown in Figure 1.
@@ -164,4 +165,24 @@ Once the "Review" modal is closed the page is reloaded and the review is shown i
   
 ## Add Book page
 
+The "Add Book page" displays a form that if submitted adds a new book to the database and provides feddback as shown in Figure 13.
+
+   <kbd>
+   <img src="/static/images/testing/addBook.png" width="450" alt="The "Add Book" page">
+   </kbd>
+   
+  ***Figure 13.*** *Shows the "Add Book" page*
+  
+  
+## Account page
+
+The "Account" page displays two tabs, namely Books and Review which contain user submitted books and reviews respectively, as shown in Figure 14.  
+  
+   <kbd>
+   <img src="/static/images/testing/account.png" width="450" alt="The "Account page">
+   </kbd>
+   
+  ***Figure 14.*** *Shows the "Account" page*
+  
+  
 
