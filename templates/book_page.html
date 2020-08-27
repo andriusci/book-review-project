@@ -151,18 +151,20 @@
 
 <!--SVG star shape by - Zell Lew from https://codepen.io/zellwk/pen/YwjZQv-->
 <svg>
-  <symbol id="blue" viewBox="0 0 98 92"/>
+  <symbol id="blue" viewBox="0 0 98 92">
     <title>star</title>
     <path
       d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
       fill="#307bbb" />
+    </symbol>
 </svg>
 <svg>
-  <symbol id="grey" viewBox="0 0 98 92"/>
+  <symbol id="grey" viewBox="0 0 98 92">
     <title>star</title>
     <path
       d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
       fill="grey" />
+      </symbol>
 </svg>
 
 <!-- Bootstrap modal brings up the review form-->
@@ -190,5 +192,6 @@
     //script from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_event_hide&stacked=h
     $("#review-modal").on('hide.bs.modal', function(){
       location.reload()
-    });</script>
+    });
+    </script>
 {%endblock%}
