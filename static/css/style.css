@@ -247,7 +247,7 @@ svg {
    
   }
   .general-iframe{
-
+    border: none;
     width: 100%;
   }
   
@@ -565,18 +565,18 @@ background-color: #2A6AA2;
     background-color: transparent;
     border: solid 2px#307bbb;
     color: #307bbb;
-    padding: 1em 2em;
+    padding: 0.8em 1em;
     border-radius: 9px;
   }
-.add-book-btn{
-   padding: 0.6em;
-  
-  }
-  #add-book{
-    padding-top :0.4em;
-    padding-bottom: 0.2em;
-  }
 
+  #add-book{
+    margin: 0.2em;
+    color: #307bbb;
+  }
+ #add-book:hover{
+  background-color: #307bbb;
+  color: white;
+ }
 .rate-btn{
     background-color: whitesmoke;
     border: solid 2px;

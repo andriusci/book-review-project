@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#contact-modal" data-toggle="modal" data-target="#contact-modal" id="contact"><i class="fas fa-envelope"></i> Contact</a></li>
               <li> <a href="{{ url_for('account') }}" id="account"><i class="fas fa-user"></i> Account</a></li>
-              <li><a href="{{ url_for('add_book') }}" id="add-book"> <button class="add-book-btn">Add a book</button></a></li>
+              <li><a href="{{ url_for('add_book') }}" id="add-book" class="add-book-btn"> Add a book </a></li>
             </ul>
           </div>
         </div>
@@ -122,7 +122,7 @@
       </div>
       <div class="modal-body">
 
-                  <iframe class="general-iframe" frameborder="no" scrolling="no" src="{{ url_for('contact') }}">
+                  <iframe class="general-iframe"  src="{{ url_for('contact') }}">
                   </iframe>
       </div>
       <div class="modal-footer">
