@@ -184,5 +184,20 @@ The "Account" page displays two tabs, namely Books and Review which contain user
    
   ***Figure 14.*** *Shows the "Account" page*
   
-  
+Each tab enables either to delete or to edit a record. Once the delete button is clicked the record is deleted from the database and is no longer displayed in the table, as shown in Figure 15. 
+
+   <kbd>
+   <img src="/static/images/testing/delete.png" width="450" alt="The "Delete" button testing>
+   </kbd>
+   
+  ***Figure 15.*** *Shows the "Delete" button testing*
+
+The "Edit" button brings up the modal with the prefilled form as shown in Figure 16.
+
+
+   <kbd>
+   <img src="/static/images/testing/edit.png" width="450" alt="The "Edit" button testing>
+   </kbd>
+   
+  ***Figure 15.*** *Shows the "Edit" button testing*  
 
