@@ -110,7 +110,7 @@ The Rating Chart iframe displays a pie chart and a bar chart. Once the rating is
 The "Review" button change appearance on mouse-over as shown in Figure 10 and if clicked brings up the "Review" modal.
 
    <kbd>
-   <img src="/static/images/testing/reviewButton.png" width="450" alt="The Review button">
+   <img src="/static/images/testing/reviewButton.png" width="250" alt="The Review button">
   </kbd>
   
   ***Figure 10.*** *Shows the "Review" button.*
@@ -119,7 +119,7 @@ The "Review" button change appearance on mouse-over as shown in Figure 10 and if
 The "Review" modal displays a form that if submitted, gives feedback as shown in Figure 11.
 
    <kbd>
-   <img src="/static/images/testing/review.png" width="450" alt="The "Review" testing">
+   <img src="/static/images/testing/review.png" width="750" alt="The "Review" testing">
    </kbd>
   ***Figure 11.*** *Shows the "Review" testing.*
 
