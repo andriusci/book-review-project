@@ -105,10 +105,10 @@ This section describes features that satisfy the requirements for the current ve
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
   
      * **Rating Chart**
-    Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as shown in Figure 5.
+      Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as      shown in Figure 5.
     
      <kbd>
-      <img src="/static/images/features/rating-chart.png"  alt="The rating chart">
+          <img src="/static/images/features/rating-chart.png"  alt="The rating chart">
          </kbd>
    
      ***Figure 5.*** *The rating chart.*
