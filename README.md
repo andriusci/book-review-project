@@ -141,7 +141,9 @@ This section describes features that satisfy the requirements for the current ve
      </kbd>
      
      ***Figure 8.*** *The review section.*  
-   
+     
+* **Log in** As specified in the Project Recuirements, no authentication is expected for this project. Therefore, the login functionality in this project is simply an imitation. Once a user name with a password is submitted, the application checks whether a user with that name exist regardless of the given password.  
+
 * **Add book page.** Enables the logged in users to add a new book to the database by allowing them to fill in the form. 
 
 * **User account.** Allows the logged in users to edit or delete previously submitted books and reviews.
