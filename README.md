@@ -106,7 +106,8 @@ This section describes features that satisfy the requirements for the current ve
   
      * **Rating Chart**
       Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as      shown in Figure 5.
-    
+     
+     
      <kbd>
           <img src="/static/images/features/rating-chart.png" width="200"  alt="The rating chart">
          </kbd>
@@ -122,13 +123,15 @@ This section describes features that satisfy the requirements for the current ve
     
      ***Figure 6.*** *The recommend feature.*    
      
+     
      * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
     
      <kbd>
-     <img src="/static/images/features/rate.png"  alt="the rate feature">
+     <img src="/static/images/features/rate.png" width="200"  alt="the rate feature">
      </kbd>
      
      ***Figure 7.*** *The rate feature.*  
+    
     
      All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe. 
      Just bellow the three iframes the users are presented with the review section.
