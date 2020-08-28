@@ -243,7 +243,7 @@ Such relationship between the collections allows each book to have many reviews 
    2. The ``` modal ``` element is not alowed as child of ``` main ``` element as shown in the screenshot bellow:
    
       <kbd>
-       <img src="/static/images/testing/iframeBug.png"  width="900" alt="iframe bug">
+       <img src="/static/images/testing/modalBug.png"  width="900" alt="iframe bug">
      </kbd>
      
      There is no further errors white testing without the ``` modal ``` element.
