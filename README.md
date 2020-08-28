@@ -23,7 +23,7 @@ https://book-review-app-ci.herokuapp.com/
 - [Testing](#Testing)
      - [Validation](#Validation)
      - [Responsiveness](#Responsiveness)
-     - [Manual testing](#Manual-testing)
+     - [Manual testing](/ManualTesting.md)
 - [Bugs](#Bugs)
 - [Deployment](#Deployment)
 - [Credits](#Credits)
