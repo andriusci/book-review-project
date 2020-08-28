@@ -117,7 +117,7 @@ This section describes features that satisfy the requirements for the current ve
      * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
      
      <kbd>
-     <img src="/static/images/features/recommend.png"  alt="Recommend">
+     <img src="/static/images/features/recommend.png" width="250" alt="Recommend">
      </kbd>
     
      ***Figure 6.*** *The recommend feature.*    
