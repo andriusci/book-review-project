@@ -7,6 +7,7 @@
 - [Book page](#Book-page)
 - [Add Book page](#Add-Book-page)
 - [Account page](#Account-page)
+- [Contact form](#Contact-form)
 
 ## Navigation.
 The navigation bar displays all the relevant links, namely Logo, Contact, Account and Add a Book button as shown in Figure 1.
@@ -20,7 +21,7 @@ The navigation bar displays all the relevant links, namely Logo, Contact, Accoun
 
 
 * **Logo.** If clicked, restarts the page or redirects to the index page.
-* **Contact.** If clicked, brings up a pop-up dialog box that conatains the [contact form](#contact-form).
+* **Contact.** If clicked, brings up a pop-up dialog box that conatains the [contact form](#Contact-form).
 * **Account** If clicked, redirect to either the user account or the [login page](#login-page).
 * **Add book button.** If clicked, redirects to either, the [add book page](#Add-book-page) or the [login page](#login-page).
 
@@ -201,3 +202,12 @@ The "Edit" button brings up a modal with a pre-filled form. Once the form is sub
    
   ***Figure 16.*** *Shows the "Edit" form testing*  
 
+## Contact form
+
+The form is accessible from every page on the site. The error message appears on the attemt to submit empty or invalid fields. Feedback is given on successful submission as shoewn in Figure 17.
+
+   <kbd>
+   <img src="/static/images/testing/contact.png" width="550" alt="The "Edit" form testing>
+   </kbd>
+   
+  ***Figure 16.*** *Shows the "Contact" form testing*

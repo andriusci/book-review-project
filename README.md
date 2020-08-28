@@ -23,13 +23,13 @@ https://book-review-app-ci.herokuapp.com/
 - [Testing](#Testing)
      - [Validation](#Validation)
      - [Responsiveness](#Responsiveness)
-     - [Manual testing](#Manual-testing)
+     - [Manual testing](/ManualTesting.md)
 - [Bugs](#Bugs)
 - [Deployment](#Deployment)
 - [Credits](#Credits)
     
 ## Description
-The Best Reads project is focused around the people who are looking for the books via the Internet. The project aims to help people making crowdsource-based decisions about their next good read and attempts to help the owner making a few bucks. Therefore, it takes shape of a database backed website that not only allows the users to search, rate, recommend and review books, but also enables the site owner to participate in the Amazon’s affiliate program.
+The Best Reads project is focused around people who are looking for the books via the Internet. The project aims to help people making crowdsource-based decisions about their next good read and attempts to help the owner making a few bucks. Therefore, it takes shape of a database backed website that not only allows the users to search, rate, recommend and review books, but also enables the site owner to participate in the Amazon’s affiliate program.
 
 ## UX
 In order to build good UX it is necessary to identify business goals and to determine user needs. Therefore, this section gives an insight into the aforementioned aspects, which in turn helps to specify features for this project.
@@ -106,9 +106,10 @@ This section describes features that satisfy the requirements for the current ve
   
      * **Rating Chart**
       Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as      shown in Figure 5.
-    
+     
+     
      <kbd>
-          <img src="/static/images/features/rating-chart.png"  alt="The rating chart">
+          <img src="/static/images/features/rating-chart.png" width="200"  alt="The rating chart">
          </kbd>
    
      ***Figure 5.*** *The rating chart.*
@@ -117,18 +118,20 @@ This section describes features that satisfy the requirements for the current ve
      * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
      
      <kbd>
-     <img src="/static/images/features/recommend.png"  alt="Recommend">
+     <img src="/static/images/features/recommend.png" width="200" alt="Recommend">
      </kbd>
     
      ***Figure 6.*** *The recommend feature.*    
      
+     
      * **Rate** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
     
      <kbd>
-     <img src="/static/images/features/rate.png"  alt="the rate feature">
+     <img src="/static/images/features/rate.png" width="200"  alt="the rate feature">
      </kbd>
      
      ***Figure 7.*** *The rate feature.*  
+    
     
      All three aforementioned features are interactive. Therefore, in order to eliminate page reload with every interaction, each feature is embedded in a separate iframe. 
      Just bellow the three iframes the users are presented with the review section.
@@ -137,11 +140,13 @@ This section describes features that satisfy the requirements for the current ve
      * **Reviews** Displays all the user submitted reviews related to a specific book, as shown in Figure 8.
      
      <kbd>
-     <img src="/static/images/features/reviews.png"  alt="the review section">
+     <img src="/static/images/features/reviews.png"  width="350" alt="the review section">
      </kbd>
      
      ***Figure 8.*** *The review section.*  
-   
+     
+* **Log in** As specified in the Project Recuirements, no authentication is expected for this project. Therefore, the login functionality in this project is simply an imitation. Once a user name with a password is submitted, the application checks whether a user with that name exist regardless of the given password.  
+
 * **Add book page.** Enables the logged in users to add a new book to the database by allowing them to fill in the form. 
 
 * **User account.** Allows the logged in users to edit or delete previously submitted books and reviews.
@@ -230,7 +235,7 @@ Such relationship between the collections allows each book to have many reviews 
     1. The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
     
      <kbd>
-       <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
+       <img src="/static/images/testing/iframeBug.png"  width="900" alt="iframe bug">
      </kbd>
      
      According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```      attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown        reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
@@ -238,10 +243,10 @@ Such relationship between the collections allows each book to have many reviews 
    2. The ``` modal ``` element is not alowed as child of ``` main ``` element as shown in the screenshot bellow:
    
       <kbd>
-       <img src="/static/images/testing/iframeBug.png"  width="300" alt="iframe bug">
+       <img src="/static/images/testing/modalBug.png"  width="900" alt="iframe bug">
      </kbd>
      
-     There is no further errors white testing without the ``` modal ``` element.
+      No further errors found while testing without the ``` modal ``` element.
 
 ## Deployment
 
