@@ -108,7 +108,7 @@ This section describes features that satisfy the requirements for the current ve
       Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as      shown in Figure 5.
     
      <kbd>
-          <img src="/static/images/features/rating-chart.png"  alt="The rating chart">
+          <img src="/static/images/features/rating-chart.png" width="200"  alt="The rating chart">
          </kbd>
    
      ***Figure 5.*** *The rating chart.*
@@ -117,7 +117,7 @@ This section describes features that satisfy the requirements for the current ve
      * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
      
      <kbd>
-     <img src="/static/images/features/recommend.png" width="250" alt="Recommend">
+     <img src="/static/images/features/recommend.png" width="200" alt="Recommend">
      </kbd>
     
      ***Figure 6.*** *The recommend feature.*    
