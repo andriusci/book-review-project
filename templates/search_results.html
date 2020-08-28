@@ -104,7 +104,7 @@ Search results
   </a>
   {%endif%}
 </div>
-   {# incase a user enters a page number that is higher than there are pages:#}
+   {# incase a user enters a page number that is higher than the number of existing pages:#}
    {#returns an error with explanation and a paginition number box#}
    {%if current_page > total_pages and total_pages != 0%}
  <div class="centered">
