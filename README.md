@@ -246,7 +246,7 @@ Such relationship between the collections allows each book to have many reviews 
        <img src="/static/images/testing/modalBug.png"  width="900" alt="iframe bug">
      </kbd>
      
-     There is no further errors white testing without the ``` modal ``` element.
+      No further errors found while testing without the ``` modal ``` element.
 
 ## Deployment
 
