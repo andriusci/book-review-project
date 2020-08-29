@@ -81,7 +81,7 @@ def pagination():
 
 
 @app.route("/Book_page/book_id:<book_id>")
-#Finds a single book depending on the search criterion in the URL
+#Finds a single book depending on the search criterion from the URL
 #and returns a book page with the relevant information.
 def create_book_page(book_id):
    book=mongo.db.books.find_one({"_id": ObjectId(book_id)})
@@ -420,11 +420,3 @@ def contact():
      sent = False
   return render_template("iFrames/contact.html", sent = sent)
 
-#Initialise database 
-# @app.route("/del")
-# def delete():
-   # mongo.db.recommend.remove()
-   # mongo.db.reviews.remove()
-   # mongo.db.books.remove()
-   # mongo.db.users.remove()
-   # return render_template("index.html")

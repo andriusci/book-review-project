@@ -36,7 +36,7 @@ body{
   margin-top:3em
 }
 
-/* set width of the svg in the rate iframe*/
+/* set width of the svg in the "rate" iframe*/
 a > svg {width:1.8em}
 
 /* reviews  */
