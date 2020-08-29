@@ -213,7 +213,7 @@ Such relationship between the collections allows each book to have many reviews 
        </a>
     </p>
            
-   * **JavaScript** Chrome developer tools have showed no errors.
+   * **JavaScript** Chrome developer tools have showed no errors. Also, JS was successfully tested with [beautifytools](http://beautifytools.com/javascript-validator.php)Javascript validator.
    *
    
    ##### Responsiveness
