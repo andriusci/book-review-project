@@ -217,6 +217,30 @@ Such relationship between the collections allows each book to have many reviews 
    *
    
    ##### Responsiveness
+   The website adjusts to different screen sizes from 320px wide.
+Testing was done with Google Chrome developer tools and manually on different browsers and mobile devices.
+#### Browsers used:
+* Chrome Version 67
+* Cromium Version 78
+* Opera 70
+* Firefox 80
+* Microsoft Edge 42
+
+##### Mobile devices used:
+* iPhone 5 (Safari, Chrome)
+* iPad (Safari, Crome)
+* Nokia Lumia 830 (Internet Exploler, Chrome)
+* Nokia 6.1 (Chrome)
+* Samsung Galaxy Note 8 (Chrome)
+   
+
+##### Mobile devices used:
+* iPhone 6 (Safari, Chrome)
+* iPad (Safari, Crome)
+* Nokia 6.1 (Chrome)
+* Nokia 3.2 (Chrome)
+* Samsung Galaxy Note 8 (Chrome)
+
    ##### [Manual testing](/ManualTesting.md)
    
 ## Bugs
