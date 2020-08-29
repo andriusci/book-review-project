@@ -225,15 +225,7 @@ Testing was done with Google Chrome developer tools and manually on different br
 * Opera 70
 * Firefox 80
 * Microsoft Edge 42
-
-##### Mobile devices used:
-* iPhone 5 (Safari, Chrome)
-* iPad (Safari, Crome)
-* Nokia Lumia 830 (Internet Exploler, Chrome)
-* Nokia 6.1 (Chrome)
-* Samsung Galaxy Note 8 (Chrome)
    
-
 ##### Mobile devices used:
 * iPhone 6 (Safari, Chrome)
 * iPad (Safari, Crome)
