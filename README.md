@@ -136,6 +136,7 @@ This section describes features that satisfy the requirements for the current ve
      
      * **Reviews** Displays all the user submitted reviews related to a specific book, as shown in Figure 8.
      
+     
      <kbd>
      <img src="/static/images/features/reviews.png"  width="350" alt="the review section">
      </kbd>
