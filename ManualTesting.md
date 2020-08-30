@@ -177,7 +177,7 @@ The "Add Book" page displays a form that if submitted adds a new book to the dat
   
 ## Account page
 
-The "Account" page displays two tabs, namely Books and Review which contain user submitted books and reviews respectively, as shown in Figure 14.  
+The "Account" page displays two tabs, namely My books and My reviews which contain user submitted books and reviews respectively, as shown in Figure 14.  
   
    <kbd>
    <img src="/static/images/testing/account.png" width="650" alt="The "Account page">
