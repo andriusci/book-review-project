@@ -89,7 +89,7 @@ This section describes features that satisfy the requirements for the current ve
     ***Figure 3.*** *Shows the pagination at the bottom of the search result page.*
 
 
-* **Book page.** Displays all the relevant information for a particular book. Shows the book title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book's ISBN, as shown in Figure 4.
+* **Book page.** Displays all the relevant information for a particular book. Shows the book title, description, cover image and if available, a link to the affiliate website. Also contains a drop-down panel that if clicked reveals more information such as the book format, as shown in Figure 4.
    
     <kbd>
     <img src="/static/images/features/dropdown.png" alt="Dropdown information panel">
