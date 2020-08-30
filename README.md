@@ -296,7 +296,7 @@ The app is deployed on Heroku apps.
 * Choose a name and click "Create app" button:
    
    <kbd>
-   <img src="/static/images/deploy/createApp.png" width="550" alt="click create app">
+   <img src="/static/images/deploy/createApp.png" width="500" alt="click create app">
    </kbd>
    
 * Provide your MongoDB [connection string](https://docs.mongodb.com/manual/reference/connection-string/):
@@ -304,7 +304,7 @@ The app is deployed on Heroku apps.
   * From the setting tab in your Heroku account click reveal config vars and enter your connection string with DB_URI set as key:
   
      <kbd>
-   <img src="/static/images/deploy/configVar.png" width="650" alt=""Config vars>
+   <img src="/static/images/deploy/configVar.png" width="650" alt="Config vars">
    </kbd>
    
 * Chose a deployment method (HerokuGit in this case):
