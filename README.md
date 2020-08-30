@@ -287,16 +287,16 @@ The app is deployed on Heroku apps.
    <img src="/static/images/deploy/download.png"  alt="download project files">
    </kbd>
 
-* From your Heroku dashboard click "create new app":
+* From your Heroku dashboard click "Create new app":
 
    <kbd>
    <img src="/static/images/deploy/newApp.png"  alt="click new app">
    </kbd>
    
-* Choose a name and click create app button:
+* Choose a name and click "Create app" button:
    
    <kbd>
-   <img src="/static/images/deploy/createApp.png"  alt="click create app">
+   <img src="/static/images/deploy/createApp.png" width="450" alt="click create app">
    </kbd>
    
 * Provide your MongoDB [connection string](https://docs.mongodb.com/manual/reference/connection-string/):
