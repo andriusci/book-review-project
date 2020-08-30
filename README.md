@@ -101,7 +101,7 @@ This section describes features that satisfy the requirements for the current ve
   The page also contains additional three features namely Rating Chart, Recommend and Rate.
   
      * **Rating Chart**
-      Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category as      shown in Figure 5.
+      Shows the book's average rating in the form of a pie chart. Also displays the bar chart that represents the number of ratings per each star category, as      shown in Figure 5.
      
      
      <kbd>
@@ -111,7 +111,7 @@ This section describes features that satisfy the requirements for the current ve
      ***Figure 5.*** *The rating chart.*
      
      
-     * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendation as shown in Figure 6.
+     * **Recommend** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendations, as shown in Figure 6.
      
      <kbd>
      <img src="/static/images/features/recommend.png" width="200" alt="Recommend">
