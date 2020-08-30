@@ -153,6 +153,12 @@ This section describes features that satisfy the requirements for the current ve
 
 ### Features left to implement.
 
+* **Log out.** As described in [Features](#Features) section the log-in functionality is only an imitation. However, the log out button should be provided for the logged in users. The button if clicked should simply delete the ``` logged_user ``` cookie and redirect the user to the homepage.
+
+* **Additional affiliate programs.** Current version release offer only one affiliate option, namely Amazon Books. In order to increase business value and to improve the UX, the users should be given a choice of the affiliate links. 
+
+* **Revenue share.** One of the business goals is to encourage users to add more books to the website. This could be achieved by sharing the revenue form the affiliate programs with the users who submit new books. This would require an additional features such as a dashboard that would allow the users to manage their affiliate accounts.
+
 ## Mockups
 
 * [Home page](/static/images/mockups/homePage.png)
