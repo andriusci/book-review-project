@@ -25,10 +25,10 @@ https://book-review-app-ci.herokuapp.com/
 - [Credits](#Credits)
     
 ## Description
-The Best Reads project is focused around people who are looking for books via the Internet. The project aims to help people making crowdsource-based decisions about their next good read and attempts to help the owner making a few bucks. Therefore, it takes shape of a database backed website that not only allows the users to search, rate, recommend and review books, but also enables the site owner to participate in the Amazon’s affiliate program.
+The Best Reads project is focused on people who are looking for books via the Internet. The project aims to help people making crowdsource-based decisions about their next good read and attempts to help the owner making a few bucks. Therefore, it takes shape of a database-backed website that not only allows the users to search, rate, recommend and review books, but also enables the site owner to participate in Amazon’s affiliate program.
 
 ## UX
-In order to build good UX it is necessary to identify business goals and to determine user needs. Therefore, this section gives an insight into the aforementioned aspects, which in turn helps to specify features of this project.
+In order to build good UX, it is necessary to identify business goals and to determine user needs. Therefore, this section gives an insight into the aforementioned aspects, which in turn helps to specify the features of this project.
 
 #### Business goals
 * increase business value by allowing the owner to earn money via an affiliate program.
@@ -45,7 +45,7 @@ As a user who read a particular book and found it on the site, I would like to:
 * let others know about my opinion regarding the book.
 * know what others think about the book.
 
-As a user who read a particular book, searched for it and did not find it on the website, I would like to:
+As a user who read a particular book, searched for it, and did not find it on the website, I would like to:
 * share the book with others and let others know what I think about the book.
 
 As a user who has submitted a review or a book, I would like to:
@@ -54,11 +54,11 @@ As a user who has submitted a review or a book, I would like to:
 As a user who has questions I would like to contact someone.
 
 As a site owner, I would like to: 
-* allow the website users to contact me,in case they have any queries.
+* allow the website users to contact me, in case they have any queries.
 * be able to obtain information such as the most popular search titles or genres, so I could analyse data in order to improve the UX.
 
 ## Features
-This section describes features that satisfy the requirements for the current version release. Also the section briefly outlines additional features for the subsequent versions of this project.
+This section describes features that satisfy the requirements for the current version release. Also, the section briefly outlines additional features for the subsequent versions of this project.
 
 ### Existing Features
 
@@ -71,7 +71,7 @@ This section describes features that satisfy the requirements for the current ve
   ***Figure 1.*** *Shows the search form.*
  
  
-* **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a agination is displayed at the bottom of the page.
+* **Search result page.** Displays up to ten search results matching search criteria, as shown in Figure 2. If a query returns more than ten items, pagination is displayed at the bottom of the page.
 
    <kbd>
    <img src="/static/images/features/search-result.png" alt="Search results">
@@ -80,7 +80,7 @@ This section describes features that satisfy the requirements for the current ve
    ***Figure 2.*** *Shows a fragment of the result page.* 
   
    
-* **Pagination.**  Allows the website users to move forward and backward between the the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with a number of items skipped depending on the user action. For example, if a search returns thirty books only first ten books are requested from the database and displayed on the page. Moving to a next page would perform the same query with the first ten books excluded.
+* **Pagination.**  Allows the website users to move forward and backward between the search result pages. Also enables users to get to a particular page by allowing them to enter a page number. As mentioned in the Search result page section, every search query is limited to return up to ten items. Moving between the pages simply performs a new search with the same query but, with some items skipped depending on the user action. For example, if a search returns thirty books only the first ten books are requested from the database and displayed on the page. Moving to the next page would perform the same query with the first ten books excluded.
 
     <kbd>
     <img src="/static/images/features/pagination.png"  alt="Pagination">
@@ -134,7 +134,7 @@ This section describes features that satisfy the requirements for the current ve
      Just bellow the three iframes the users are presented with the review section.
      
      
-     * **Reviews** Displays all the user submitted reviews related to a specific book, as shown in Figure 8.
+     * **Reviews.** The section displays all the user-submitted reviews related to a specific book, as shown in Figure 8.
      
      
      <kbd>
@@ -143,21 +143,21 @@ This section describes features that satisfy the requirements for the current ve
      
      ***Figure 8.*** *The review section.*  
      
-* **Log in** As specified in the Project Recuirements, no authentication is expected for this project. Therefore, the login functionality in this project is simply an imitation. Once a user name with a password is submitted, the application checks whether a user with that name exist regardless of the given password.  
+* **Log in** As specified in the Project Requirements, no authentication is expected for this project. Therefore, the login functionality in this project is simply an imitation. Once a user name and password are submitted, the application checks whether a user with that name exists regardless of the given password.  
 
 * **Add book page.** Enables the logged in users to add a new book to the database by allowing them to fill in the form. 
 
 * **User account.** Allows the logged in users to edit or delete previously submitted books and reviews.
 
-* **Contact form.** Allows users to contact the owner by having them fill out three compulsory fields namely, name, email and message text. For the ease of access the form is embedded in the Bootstrap pop-up dialog and is available throughout the site.
+* **Contact form.** Allows users to contact the owner by having them fill out three compulsory fields namely, name, email, and message text. For the ease of access, the form is embedded in the Bootstrap pop-up dialog and is available throughout the site.
 
 ### Features left to implement.
 
-* **Log out.** As described in [Features](#Features) section the log-in functionality is only an imitation. However, the log out button should be provided for the logged in users. The button if clicked should simply delete the ``` logged_user ``` cookie and redirect the user to the homepage.
+* **Log out.** As described in the [Features](#Features) section, the log-in functionality is only an imitation. However, the log out button should be provided for the logged in users. The button, if clicked, should simply delete the ``` logged_user ``` cookie and redirect the user to the homepage.
 
 * **Additional affiliate programs.** Current version release offer only one affiliate option, namely Amazon Books. In order to increase business value and to improve the UX, the users should be given a choice of the affiliate links. 
 
-* **Revenue share.** One of the business goals is to encourage users to add more books to the website. This could be achieved by sharing the revenue form the affiliate programs with the users who submit new books. This would require an additional features such as a dashboard that would allow the users to manage their affiliate accounts.
+* **Revenue share.** One of the business goals is to encourage users to add more books to the website. This could be achieved by sharing the revenue from the affiliate programs with the users who submit new books. This would require additional features such as a dashboard that would allow users to manage their affiliate accounts.
 
 ## Mockups
 
@@ -174,7 +174,7 @@ This section describes features that satisfy the requirements for the current ve
 
 ## Data structure:
 
-The main focus of the project – the data, is managed by a document-oriented database called MongoDB. The database behind this project consist of four collections of documents namely Books, Recommend, Reviews and Users, as shown in Figure 9.
+The main focus of the project – the data, is managed by a document-oriented database called MongoDB. The database behind this project consists of four collections of documents namely Books, Recommend, Reviews, and Users, as shown in Figure 9.
 
    <kbd>
    <img src="/static/images/database.png"  width="550" alt="the data structure">
@@ -182,9 +182,9 @@ The main focus of the project – the data, is managed by a document-oriented da
      
    ***Figure 9.*** *The data structure.*  
    
-   Each ``` Book ``` document in the ``` Books ``` collection has One-to-Many relationship with the ``` recommend ``` and the ``` review ``` documents in the ``` Recommend ``` and the ``` Review ``` collections, respectively. The relationship is achieved through the automatically assigned primary key field called ``` _id ```. Similarly the ``` user ``` documents are related to the ``` Recommend ```, the ``` Review ``` and the ``` Book ``` documents through the ``` user_name ``` fields. However, since the user names in this project are unique, the ``` user_name ``` fields in the ``` User ``` documents are not defined as primary keys. The relationship between the documents remains One-to-many even if the ``` user_name ``` fields are secondary keys.
+   Each ``` Book ``` document in the ``` Books ``` collection has a One-to-Many relationship with the ``` recommend ``` and the ``` review ``` documents in the ``` Recommend ``` and the ``` Review ``` collections, respectively. The relationship is achieved through the automatically assigned primary key field called ``` _id ```. Similarly, the ``` user ``` documents are related to the ``` Recommend ```, the ``` Review ```, and the ``` Book ``` documents through the ``` user_name ``` fields. However, since the user names in this project are unique, the ``` user_name ``` fields in the ``` User ``` documents are not defined as primary keys. The relationship between the documents remains One-to-many even if the ``` user_name ``` fields are secondary keys.
    
-Such relationship between the collections allows each book to have many reviews and recommendations but, only one owner. Similarly, the owner might have many reviews, recommendations and books all of whom might only belong to one user.
+Such a relationship between the collections allows each book to have many reviews and recommendations but, only one owner. Similarly, the owner might have many reviews, recommendations, and books all of whom might only belong to one user.
 
 ## Technologies used:
 
@@ -208,8 +208,8 @@ Such relationship between the collections allows each book to have many reviews 
 
    ##### Validation
    
-   * **HTML** The website has passed 3w.org markup validation with the exeptions explained in the [Bugs](#Bugs) section.
-   * **CSS** The website has passed 3w.org css validation. <p>
+   * **HTML.** The website has passed 3w.org markup validation with the exceptions explained in the [Bugs](#Bugs) section.
+   * **CSS.** The website has passed 3w.org CSS validation. <p>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"
             src="http://jigsaw.w3.org/css-validator/images/vcss"
@@ -217,7 +217,7 @@ Such relationship between the collections allows each book to have many reviews 
        </a>
     </p>
            
-   * **JavaScript** Chrome developer tools have showed no errors. Also, JS was successfully tested with [beautifytools](http://beautifytools.com/javascript-validator.php)Javascript validator.
+   * **JavaScript.** Chrome developer tools have shown no errors. Also, JS was successfully tested with [beautifytools](http://beautifytools.com/javascript-validator.php) Javascript validator.
    *
    
    ##### Responsiveness
@@ -225,14 +225,14 @@ Such relationship between the collections allows each book to have many reviews 
 Testing was done with Google Chrome developer tools and manually on different browsers and mobile devices.
 #### Browsers used:
 * Chrome Version 67
-* Cromium Version 78
+* Chromium Version 78
 * Opera 70
 * Firefox 80
 * Microsoft Edge 42
    
 ##### Mobile devices used:
 * iPhone 6 (Safari, Chrome)
-* iPad (Safari, Crome)
+* iPad (Safari, Chrome)
 * Nokia 6.1 (Chrome)
 * Nokia 3.2 (Chrome)
 * Samsung Galaxy Note 8 (Chrome)
@@ -243,7 +243,7 @@ Testing was done with Google Chrome developer tools and manually on different br
 
 * **Rating chart** Once the star rating is submitted the rating chart iframe reloads in order to show the result immediately. However, sometimes it reloads faster than the information gets to the database, therefore the results are not shown right away. This could be fixed by delaying the page reload with JavaScript.
 
-* **select genre box** The select genre box does not appear as intended in the Mozilla Firefox browser as shown in the image bellow:
+* **Select genre box** The select genre box does not appear as intended in the Mozilla Firefox browser as shown in the image below:
 
    <kbd>
    <img src="/static/images/testing/selectBug.png"  width="300" alt="select genre bug">
@@ -252,15 +252,15 @@ Testing was done with Google Chrome developer tools and manually on different br
 * **HTML Validation**  
 
     * **Book page** 
-    1. The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image bellow:
+    1. The ``` scrolling ``` attribute on the ``` iframe ``` element is obsolete as shown in the image below:
     
      <kbd>
        <img src="/static/images/testing/iframeBug.png"  width="900" alt="iframe bug">
      </kbd>
      
-     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```      attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for unkmown        reason it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
+     According to James Donnelly on [Stack Overflow](https://stackoverflow.com/questions/15494568/html-iframe-disable-scroll) the ``` iframe```  ``` scrolling```      attribute was removed from the HTML5 specification. Therefore, it is recommended to use the CSS  ``` overflow ``` equivalent instead. However, for an unknown reason, it does not seem to work. Hence, this version release will use the ``` iframe```  ``` scrolling```  attribute.
      
-   2. The ``` modal ``` element is not alowed as child of ``` main ``` element as shown in the screenshot bellow:
+   2. The ``` modal ``` element is not allowed as child of the ``` main ``` element as shown in the screenshot below:
    
       <kbd>
        <img src="/static/images/testing/modalBug.png"  width="900" alt="iframe bug">
@@ -281,13 +281,13 @@ The app is deployed on Heroku apps.
 
 **Deployment procedure:**
 
-* If you haven’t already, download the project files from the [Github repositoy]( https://github.com/andriusci/book-review-project)
+* If you haven’t already, download the project files from the [Github repository]( https://github.com/andriusci/book-review-project)
 
    <kbd>
    <img src="/static/images/deploy/download.png"  alt="download project files">
    </kbd>
 
-* From your Heroku dashboard click create new app:
+* From your Heroku dashboard click "create new app":
 
    <kbd>
    <img src="/static/images/deploy/newApp.png"  alt="click new app">
@@ -313,7 +313,7 @@ The app is deployed on Heroku apps.
    <img src="/static/images/deploy/method.png">
    </kbd>
    
-* From the terminal, log in to your Heroku account:
+* From the terminal, login to your Heroku account:
 
      ``` $ heroku login ```
      
@@ -352,3 +352,5 @@ Let the Heroku do the magic and your app should be ready at your-new-app-name.he
 
 * **Flask Tutorial in Visual Studio Code**
 [https://code.visualstudio.com/docs/python/tutorial-flask](https://code.visualstudio.com/docs/python/tutorial-flask)
+
+* **Pagination page number box** The script allows only the numbers from 0 to 9 in the input field. [https://stackoverflow.com/questions/14806200/disable-some-characters-from-input-field](https://stackoverflow.com/questions/14806200/disable-some-characters-from-input-field)
