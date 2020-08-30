@@ -111,7 +111,7 @@ This section describes features that satisfy the requirements for the current ve
      ***Figure 5.*** *The rating chart.*
      
      
-     * **Recommend.** Allows the users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendations, as shown in Figure 6.
+     * **Recommend.** Allows users to either positively or negatively recommend a book. Also shows a pie chart that represents a percentage of the recommendations, as shown in Figure 6.
      
      <kbd>
      <img src="/static/images/features/recommend.png" width="200" alt="Recommend">
@@ -120,7 +120,7 @@ This section describes features that satisfy the requirements for the current ve
      ***Figure 6.*** *The recommend feature.*    
      
      
-     * **Rate.** Allows the users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
+     * **Rate.** Allows users to rate a book by choosing the number of stars and clicking the Rate button as shown in Figure 7. 
     
      <kbd>
      <img src="/static/images/features/rate.png" width="200"  alt="the rate feature">
