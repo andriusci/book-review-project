@@ -9,6 +9,7 @@
 - [Add Book page](#Add-Book-page)
 - [Account page](#Account-page)
 - [Contact form](#Contact-form)
+- [Login page](#Login-page)
 
 ## Navigation.
 The navigation bar displays all the relevant links, namely Logo, Contact, Account, and Add a Book button as shown in Figure 1.
@@ -23,8 +24,8 @@ The navigation bar displays all the relevant links, namely Logo, Contact, Accoun
 
 * **Logo.** If clicked, restarts or redirects to the index page.
 * **Contact.** If clicked, brings up a pop-up dialog box that contains the [contact form](#Contact-form).
-* **Account** If clicked, redirect to either the user account or the [login page](#login-page).
-* **Add book button.** If clicked, redirects to either, the [add book page](#Add-book-page) or the [login page](#login-page).
+* **Account** If clicked, redirect to either the user account or the login page.
+* **Add book button.** If clicked, redirects to either, the [add book page](#Add-book-page) or the login.
 
 ## Search form.
 The search form is displayed in the middle of the index page and is available at the top of the other pages. The form, if submitted empty, returns all the books from the database. If a search term and a genre are provided the form returns all the relevant search results. If a book title does not exist within the chosen genre or does not exist in the database at all, the feedback is displayed, as shown in Figure 2.
@@ -212,3 +213,6 @@ The form is accessible from every page on the site. The error message appears on
    </kbd>
    
   ***Figure 16.*** *Shows the "Contact form" testing*
+
+
+   
