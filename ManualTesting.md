@@ -11,7 +11,7 @@
 - [Contact form](#Contact-form)
 
 ## Navigation.
-The navigation bar displays all the relevant links, namely Logo, Contact, Account and Add a Book button as shown in Figure 1.
+The navigation bar displays all the relevant links, namely Logo, Contact, Account, and Add a Book button as shown in Figure 1.
 
   <kbd>
    <img src="/static/images/testing/navigation.png" width="550" alt="navigation bar">
@@ -22,12 +22,12 @@ The navigation bar displays all the relevant links, namely Logo, Contact, Accoun
 
 
 * **Logo.** If clicked, restarts the page or redirects to the index page.
-* **Contact.** If clicked, brings up a pop-up dialog box that conatains the [contact form](#Contact-form).
+* **Contact.** If clicked, brings up a pop-up dialog box that contains the [contact form](#Contact-form).
 * **Account** If clicked, redirect to either the user account or the [login page](#login-page).
 * **Add book button.** If clicked, redirects to either, the [add book page](#Add-book-page) or the [login page](#login-page).
 
 ## Search form.
-The search form is displayed in the middle of the index page and is available at the top of the other pages. The form if submitted empty, returns all the books from the database. If a search term and a genre is provided the form returns all the relevant search results. If a book title does not exist within the chosen genre or does not exist in the database at all, the feedback is displayed, as shown in Figure 2.
+The search form is displayed in the middle of the index page and is available at the top of the other pages. The form, if submitted empty, returns all the books from the database. If a search term and a genre are provided the form returns all the relevant search results. If a book title does not exist within the chosen genre or does not exist in the database at all, the feedback is displayed, as shown in Figure 2.
 
 
  <kbd>
@@ -40,7 +40,7 @@ The search form is displayed in the middle of the index page and is available at
 
 ## Search result page.
 
-Displays the books which are relevant to the search criterion. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed bellow the search results. In order to fit the search result container, each book description is reduced to 300 caracters and the "read more" link is displayed. If available, the link to Amazon and the author's name are displayed, as shown in Figure 3.
+Displays the books which are relevant to the search criterion. If the criterion returns more than ten books then the [pagination](#Pagination) is displayed below the search results. In order to fit the search result container, each book description is reduced to 300 characters and the "read more" link is displayed. If available, the link to Amazon and the author's name are displayed, as shown in Figure 3.
 
 
  <kbd>
@@ -59,7 +59,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
    <img src="/static/images/testing/initPagination.png" width="75" alt="Initial pagination">
   </kbd>
   
-  ***Figure 4.*** *Shows the inital pagination.*
+  ***Figure 4.*** *Shows the initial pagination.*
   
   
   
@@ -70,7 +70,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
    <img src="/static/images/testing/prevPagination.png" width="75" alt="The pagination with the previous button">
   </kbd>
   
-  ***Figure 5.*** *Shows the pagination whith the "previous" button.*
+  ***Figure 5.*** *Shows the pagination with the "previous" button.*
   
   
   
@@ -81,7 +81,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
    <img src="/static/images/testing/prevNextPagination.png" width="120" alt="The pagination with the previous and the next button"s>
   </kbd>
   
-  ***Figure 6.*** *Shows the pagination whith the "previous" and the "next" buttons displayed.*
+  ***Figure 6.*** *Shows the pagination with the "previous" and the "next" buttons displayed.*
   
   
   
@@ -94,13 +94,13 @@ The "page number box" responds to the user input. If a valid page number is prov
   
   ***Figure 7.*** *Shows the feedback if the page number doesn't exist.*
   
-  Pagination testing has revealed an interesting bug. The number box allows to enter any charater including the negative numbers. Therefore, the server returns an error. 
+  Only numbers 0 to 9 are allowed in the input box.
   
   ## Book page
   
   The book page shows all relevant information about the book and the dropdown panel with the book details works as intended.
   
-  The recommed iframe displays the percentage pie chart and two buttons namely, Yes and No. The buttons change their appearance on mouse over as intended and if clicked manipulates the recommend pie chart accordingly, as shown in Figure 8. The percentage calculations were manually tested with the correct results each time. The results and the feedback are shown immediately. 
+  The "recommend" iframe displays the percentage pie chart and two buttons namely, Yes and No. The buttons change their appearance on mouseover as intended and if clicked manipulates the recommend pie chart accordingly, as shown in Figure 8. The percentage calculations were manually tested with the correct results each time. The results and feedback are shown immediately. 
 
 
   <kbd>
@@ -111,7 +111,7 @@ The "page number box" responds to the user input. If a valid page number is prov
   
   
   
-  The "Rate" iframe displays a pie chart that contains five stars. The stars on mouse over, change the appearance and if clicked, enables the "Rate it" button and manipulates the pie chart accordingly. Once the button is clicked, the rating is submitted and a feedback is given, as shown in Figure 9.
+  The "Rate" iframe displays a pie chart that contains five stars. The stars on mouseover change the appearance and if clicked, enables the "Rate it" button and manipulates the pie chart accordingly. Once the button is clicked, the rating is submitted and feedback is given, as shown in Figure 9.
   
   
   <kbd>
@@ -122,7 +122,7 @@ The "page number box" responds to the user input. If a valid page number is prov
 
 
 
-The Rating Chart iframe displays a pie chart and a bar chart. Once the rating is submitted in the "Rate" iframe the two charts are updated. The lengths of the rating chart bars are properly aligned in relation to the longest bar and a correct average rating value is calculated, as shown in Figure 9. However, the charts not always updated immediately and the page needs to be restarted in order to see the results, see [Bugs](https://github.com/andriusci/book-review-project/blob/master/README.md#bugs) section. 
+The Rating Chart iframe displays a pie chart and a bar chart. Once the rating is submitted in the "Rate" iframe the two charts are updated. The lengths of the rating chart bars are properly aligned in relation to the longest bar and a correct average rating value is calculated, as shown in Figure 9. However, the charts are not always updated immediately and the page needs to be restarted in order to see the results, see [Bugs](https://github.com/andriusci/book-review-project/blob/master/README.md#bugs) section. 
 
 
   <kbd>
@@ -178,7 +178,7 @@ The "Add Book" page displays a form that if submitted adds a new book to the dat
   
 ## Account page
 
-The "Account" page displays two tabs, namely My books and My reviews which contain user submitted books and reviews respectively, as shown in Figure 14.  
+The "Account" page displays two tabs, namely My books and My reviews which contain user-submitted books and reviews respectively, as shown in Figure 14.  
   
    <kbd>
    <img src="/static/images/testing/account.png" width="650" alt="The "Account page">
@@ -205,10 +205,10 @@ The "Edit" button brings up a modal with a pre-filled form. Once the form is sub
 
 ## Contact form
 
-The form is accessible from every page on the site. The error message appears on the attemt to submit empty or invalid fields. Feedback is given on successful submission as shoewn in Figure 17.
+The form is accessible from every page on the site. The error message appears on the attempt to submit empty or invalid fields. Feedback is given on successful submission as shown in Figure 17.
 
    <kbd>
    <img src="/static/images/testing/contact.png" width="550" alt="The "Edit" form testing>
    </kbd>
    
-  ***Figure 16.*** *Shows the "Contact" form testing*
+  ***Figure 16.*** *Shows the "Contact form" testing*
