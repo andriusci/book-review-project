@@ -119,4 +119,13 @@ Search results
 
 {%endif%}
 </aside>
+<script>
+  /**the script allows only numbers from 0 to 9 to be entered into a page number box*/
+ /*the script borrowed from https://stackoverflow.com/questions/14806200/disable-some-characters-from-input-field*/
+  document.getElementById("go-to").onkeypress = function(e) {
+    var chr = String.fromCharCode(e.which);
+    if ("1234567890".indexOf(chr) < 0)
+        return false;
+};
+</script>
 {% endblock %}
