@@ -84,7 +84,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
   
   
   
-The number box responds to the user input. If a valid page number is provided then the relevant results are displayed in the [search result page](#Search-resul-page). If the page doesn't exist then the feedback is given as shown in Figure 7.
+The number box responds to the user input. If a valid page number is provided then the relevant results are displayed in the [search result page](#Search-result-page). If the page doesn't exist then the feedback is given as shown in Figure 7.
 
 
    <kbd>
