@@ -266,7 +266,7 @@ Testing was done with Google Chrome developer tools and manually on different br
        <img src="/static/images/testing/modalBug.png"  width="900" alt="iframe bug">
      </kbd>
      
-      No further errors found while testing without the ``` modal ``` element.
+  No further errors found while testing without the ``` modal ``` element.
 
 ## Deployment
 
