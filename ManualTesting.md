@@ -85,7 +85,7 @@ Initially, the pagination shows the "number box" and the "next" button, as shown
   
   
   
-The number box responds to the user input. If a valid page number is provided then the relevant results are displayed in the [search result page](#Search-result-page). If the page doesn't exist then the feedback is given as shown in Figure 7.
+The "page number box" responds to the user input. If a valid page number is provided then the relevant results are displayed in the [search result page](#Search-result-page). If the page doesn't exist then the feedback is given as shown in Figure 7.
 
 
    <kbd>
@@ -94,7 +94,7 @@ The number box responds to the user input. If a valid page number is provided th
   
   ***Figure 7.*** *Shows the feedback if the page number doesn't exist.*
   
-  
+  Pagination testing has revealed an interesting bug. The number box allows to enter any charater including the negative numbers. Therefore, the server returns an error. 
   
   ## Book page
   
