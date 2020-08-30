@@ -4,6 +4,7 @@
 - [Navigation](#Navigation)
 - [Search form](#Search-form)
 - [Search result page](#Search-result-page)
+- [Pagination](#Pagination)
 - [Book page](#Book-page)
 - [Add Book page](#Add-Book-page)
 - [Account page](#Account-page)
