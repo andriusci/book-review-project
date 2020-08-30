@@ -71,7 +71,7 @@ This section describes features that satisfy the requirements for the current ve
   ***Figure 1.*** *Shows the search form.*
  
  
-* **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a [pagination](#Pagination) is displayed at the bottom of the page.
+* **Search result page.** Displays up to ten search results matching a search criteria, as shown in Figure 2. If a query returns more than ten items, a agination is displayed at the bottom of the page.
 
    <kbd>
    <img src="/static/images/features/search-result.png" alt="Search results">
