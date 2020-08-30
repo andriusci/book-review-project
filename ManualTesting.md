@@ -21,7 +21,7 @@ The navigation bar displays all the relevant links, namely Logo, Contact, Accoun
 
 
 
-* **Logo.** If clicked, restarts the page or redirects to the index page.
+* **Logo.** If clicked, restarts or redirects to the index page.
 * **Contact.** If clicked, brings up a pop-up dialog box that contains the [contact form](#Contact-form).
 * **Account** If clicked, redirect to either the user account or the [login page](#login-page).
 * **Add book button.** If clicked, redirects to either, the [add book page](#Add-book-page) or the [login page](#login-page).
