@@ -1,5 +1,7 @@
 ## Manual Testing
-Testing username: demo
+
+Testing username: * **demo**
+
 This app does not make use of authentication. Therefore, even if password is required it can be a random word.
 
 ### Table of contents:
