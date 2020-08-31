@@ -238,6 +238,7 @@ Testing was done with Google Chrome developer tools and manually on different br
 * Samsung Galaxy Note 8 (Chrome)
 
    ##### [Manual testing](/ManualTesting.md)
+   Manual testing was done with user named "demo". Note that the user name is case-sensitive.
    
 ## Bugs
 
