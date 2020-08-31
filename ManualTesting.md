@@ -1,6 +1,6 @@
 ## Manual Testing
 
-Testing username: * **demo**
+Testing username: **demo** Note the user name is case-sensitive.
 
 This app does not make use of authentication. Therefore, even if password is required it can be a random word.
 
